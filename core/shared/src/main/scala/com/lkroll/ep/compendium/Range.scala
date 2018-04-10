@@ -1,8 +1,10 @@
 package com.lkroll.ep.compendium
 
-import upickle.default.{ ReadWriter => RW, macroRW }
+import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import scalatags.Text.all._
 
-sealed trait Range;
+sealed trait Range extends ChatRenderable {
+}
 object Range {
 
   implicit def rw: RW[Range] = RW.merge(
@@ -12,17 +14,27 @@ object Range {
 
   import Math.ceil;
   @upickle.key("Melee")
-  case object Melee extends Range;
+  case object Melee extends Range {
+    override def templateKV: Map[String, String] = Map("Range" -> "Melee");
+  }
   @upickle.key("Ranged")
-  case class Ranged(shortUpper: Int, mediumUpper: Int, longUpper: Int, extremeUpper: Int) extends Range;
+  case class Ranged(shortUpper: Int, mediumUpper: Int, longUpper: Int, extremeUpper: Int) extends Range {
+    override def templateKV: Map[String, String] = Map(
+      "Short Range" -> s"2-$shortUpper",
+      "Medium Range" -> s"${shortUpper + 1}-$mediumUpper",
+      "Long Range" -> s"${mediumUpper + 1}-$longUpper",
+      "Extreme Range" -> s"${longUpper + 1}-$extremeUpper");
+  }
   object Ranged {
     implicit def rw: RW[Ranged] = macroRW;
   }
   sealed trait Thrown extends Range {
+    def variant: String;
     def shortUpper(som: Int): Int;
     def mediumUpper(som: Int): Int;
     def longUpper(som: Int): Int;
     def extremeUpperUpper(som: Int): Int;
+    override def templateKV: Map[String, String] = Map("Range" -> s"Thrown (${variant})"); // TODO make nice maybe
   }
   object Thrown {
     implicit def rw: RW[Thrown] = RW.merge(
@@ -32,6 +44,7 @@ object Range {
   }
   @upickle.key("ThrownBlades")
   case object ThrownBlades extends Thrown {
+    def variant: String = "Blades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
     override def longUpper(som: Int): Int = som;
@@ -39,6 +52,7 @@ object Range {
   }
   @upickle.key("ThrownMinigrenades")
   case object ThrownMinigrenades extends Thrown {
+    def variant: String = "Minigrenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 2);
     override def mediumUpper(som: Int): Int = som;
     override def longUpper(som: Int): Int = som * 2;
@@ -46,6 +60,7 @@ object Range {
   }
   @upickle.key("ThrownGrenades")
   case object ThrownGrenades extends Thrown {
+    def variant: String = "Grenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
     override def longUpper(som: Int): Int = som;

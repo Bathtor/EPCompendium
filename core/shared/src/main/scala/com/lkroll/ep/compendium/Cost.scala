@@ -1,8 +1,13 @@
 package com.lkroll.ep.compendium
 
-import upickle.default.{ ReadWriter => RW, macroRW }
+import utils.OptionPickler.{ ReadWriter => RW, macroRW }
 
-sealed trait Cost;
+import scalatags.Text.all._
+
+sealed trait Cost extends ChatRenderable {
+  def text: String;
+  override def templateKV: Map[String, String] = Map("Cost" -> text);
+}
 object Cost {
   implicit def rw: RW[Cost] = RW.merge(
     macroRW[Trivial.type],
@@ -13,17 +18,29 @@ object Cost {
     macroRW[ExpensivePlus]);
 
   @upickle.key("Trivial")
-  case object Trivial extends Cost;
+  case object Trivial extends Cost {
+    override def text: String = "Trivial";
+  }
   @upickle.key("Low")
-  case object Low extends Cost;
+  case object Low extends Cost {
+    override def text: String = "Low";
+  }
   @upickle.key("Moderate")
-  case object Moderate extends Cost;
+  case object Moderate extends Cost {
+    override def text: String = "Moderate";
+  }
   @upickle.key("High")
-  case object High extends Cost;
+  case object High extends Cost {
+    override def text: String = "High";
+  }
   @upickle.key("Expensive")
-  case object Expensive extends Cost;
+  case object Expensive extends Cost {
+    override def text: String = "Expensive";
+  }
   @upickle.key("ExpensivePlus")
-  case class ExpensivePlus(minimum: Int) extends Cost;
+  case class ExpensivePlus(minimum: Int) extends Cost {
+    override def text: String = s"Expensive (minimum $minimum)";
+  }
   //  object ExpensivePlus {
   //    implicit def rw: RW[ExpensivePlus] = macroRW;
   //  }
