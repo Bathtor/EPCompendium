@@ -36,7 +36,7 @@ case class Morph(model: String, morphType: MorphType, descr: String, label: Opti
                  movement: Seq[String] = Seq("Walker 4/20"), aptitudeMax: AptitudeValues,
                  aptitudeBonus: AptitudeValues = AptitudeValues.none, skillBonus: Seq[SkillMod] = Seq.empty,
                  playerDecisions: Option[String] = None, attacks: Seq[Weapon] = Seq.empty,
-                 durability: Int, armour: Option[(Int, Int)] = None, cpCost: Int, price: Cost) extends ChatRenderable {
+                 durability: Int, armour: Option[(Int, Int)] = None, cpCost: Int, price: Cost, source: String) extends ChatRenderable {
 
   override def templateTitle: String = label match {
     case Some(l) => s""""$l" ($model)"""
@@ -45,17 +45,18 @@ case class Morph(model: String, morphType: MorphType, descr: String, label: Opti
   override def templateSubTitle: String = morphType.label
   override def templateKV: Map[String, String] =
     Map(
-      "Enhancements/Implants" -> enhancements.mkString(","),
-      "Traits" -> traits.mkString(","),
-      "Movement" -> movement.mkString(","),
+      "Enhancements/Implants" -> enhancements.mkString(", "),
+      "Traits" -> traits.mkString(", "),
+      "Movement" -> movement.mkString(", "),
       "Aptitude Maximum" -> aptitudeMax.maxString,
       "Aptitude Boni" -> aptitudeBonus.boniString,
-      "Skill Boni" -> skillBonus.map(b => b.bonusString).mkString(","),
+      "Skill Boni" -> skillBonus.map(b => b.bonusString).mkString(", "),
       "Player Decisions" -> playerDecisions.getOrElse("none"),
-      "Attacks" -> attacks.map(a => a.summaryString).mkString(","),
+      "Attacks" -> attacks.map(a => a.summaryString).mkString(", "),
       "Durability" -> durability.toString(),
       "Armour" -> armour.map(t => s"${t._1}/${t._2}").getOrElse("0/0"),
-      "CP" -> cpCost.toString()) ++
+      "CP" -> cpCost.toString(),
+      "Source" -> source) ++
       price.templateKV;
   override def templateDescr: String = descr;
 }
@@ -94,7 +95,7 @@ case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int:
         case None    => "0"
       }
     } else {
-      labelledValues.map(t => s"${t._1} ${t._2.getOrElse(0)}").mkString(",")
+      labelledValues.map(t => s"${t._1} ${t._2.getOrElse(0)}").mkString(", ")
     }
   }
 
@@ -110,7 +111,7 @@ case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int:
         case Some(i) if i > 0 => Some(s"+$i ${t._1}")
         case Some(i) if i < 0 => Some(s"$i ${t._1}")
         case _                => None
-      }).mkString(",")
+      }).mkString(", ")
     }
   }
 }

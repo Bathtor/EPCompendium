@@ -18,7 +18,8 @@ object KineticWeapons {
     range = Range.Ranged(10, 25, 40, 60),
     gun = GunExtras(
       modes = Set(SA, BF, FA),
-      magazineSize = 16));
+      magazineSize = 16),
+    source = "Eclipse Phase");
 
   val list: List[Weapon] = Macros.memberList[Weapon];
 }

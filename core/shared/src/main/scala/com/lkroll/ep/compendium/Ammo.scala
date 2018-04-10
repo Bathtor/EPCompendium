@@ -1,7 +1,7 @@
 package com.lkroll.ep.compendium
 
 case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
-                apMod: APMods.APMod, dmgMod: DamageMods.DamageMod, price: Cost) {
+                apMod: APMods.APMod, dmgMod: DamageMods.DamageMod, price: Cost, source: String) {
   def appliesTo(t: WeaponType): Boolean = appliesTo.contains(t);
 }
 

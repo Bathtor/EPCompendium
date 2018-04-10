@@ -23,7 +23,8 @@ object Morphs {
     durability = 25,
     armour = (2, 2),
     cpCost = 45,
-    price = Cost.ExpensivePlus(45000));
+    price = Cost.ExpensivePlus(45000),
+    source = "Morph Recognition Guide");
 
   val list: List[Morph] = Macros.memberList[Morph];
 }
@@ -39,5 +40,6 @@ object MorphAttacks {
     effect = None,
     ap = -1,
     price = Cost.Trivial, // doesn't really matter
-    range = Range.Melee);
+    range = Range.Melee,
+    source = "Morph Recognition Guide");
 }

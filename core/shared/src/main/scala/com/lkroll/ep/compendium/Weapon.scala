@@ -24,7 +24,7 @@ object DamageType {
 
 case class Weapon(name: String, `type`: WeaponType, descr: String,
                   dmgD10: Int, dmgConst: Int, dmgType: DamageType, effect: Option[String], ap: Int,
-                  price: Cost, range: Range, gun: Option[GunExtras] = None) extends ChatRenderable {
+                  price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = this.`type` match {
@@ -39,7 +39,8 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     Map("AP" -> ap.toString) ++
     price.templateKV ++
     range.templateKV ++
-    (gun.map(g => g.templateKV).getOrElse(Map.empty));
+    (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++ 
+    Map("Source" -> source);
   override def templateDescr: String = descr;
 
   def summaryString: String = effect match {
