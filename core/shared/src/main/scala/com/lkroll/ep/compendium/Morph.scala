@@ -107,8 +107,8 @@ case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int:
       }
     } else {
       labelledValues.flatMap(t => t._2 match {
-        case Some(i) if i > 0 => Some(s"+i ${t._1}")
-        case Some(i) if i < 0 => Some(s"i ${t._1}")
+        case Some(i) if i > 0 => Some(s"+$i ${t._1}")
+        case Some(i) if i < 0 => Some(s"$i ${t._1}")
         case _                => None
       }).mkString(",")
     }
