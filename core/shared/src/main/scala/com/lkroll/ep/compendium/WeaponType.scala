@@ -40,7 +40,7 @@ object WeaponType {
   //  }
   @upickle.key("Unarmed")
   case object Unarmed extends Melee {
-    override def skill: String = "Unarmed";
+    override def skill: String = "Unarmed Combat";
     override def label: String = "Unarmed";
   }
 
