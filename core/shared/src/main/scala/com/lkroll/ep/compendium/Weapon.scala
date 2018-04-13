@@ -23,7 +23,7 @@ object DamageType {
 }
 
 case class Weapon(name: String, `type`: WeaponType, descr: String,
-                  dmgD10: Int, dmgConst: Int, dmgType: DamageType, effect: Option[String], ap: Int,
+                  dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType, effect: Option[String], ap: Int,
                   price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable {
 
   override def templateTitle: String = name;
@@ -33,7 +33,7 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     case _: WeaponType.Thrown => "Thrown Weapon"
   };
   override def templateKV: Map[String, String] = this.`type`.templateKV ++
-    Map("Damage" -> s"${dmgD10}d10+${dmgConst}") ++
+    Map("Damage" -> (if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10%${dmgDiv}+${dmgConst}")) ++
     dmgType.templateKV ++
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
     Map("AP" -> ap.toString) ++
