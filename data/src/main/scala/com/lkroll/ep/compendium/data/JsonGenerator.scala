@@ -6,6 +6,7 @@ import java.io.{ File, PrintWriter }
 
 object JsonGenerator {
   val blades = addWrapper(Weapon.dataType, write(Blades.list));
+  val unarmed = addWrapper(Weapon.dataType, write(Unarmed.list));
   val kinetic = addWrapper(Weapon.dataType, write(KineticWeapons.list));
   val rail = addWrapper(Weapon.dataType, write(KineticWeapons.railguns));
   val beam = addWrapper(Weapon.dataType, write(BeamWeapons.list));
@@ -15,7 +16,7 @@ object JsonGenerator {
   val morphs = addWrapper(MorphModel.dataType, write(Morphs.list));
   val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
   val traits = addWrapper(EPTrait.dataType, write(Traits.list));
-  val data = List(blades, kinetic, rail, beam, seekers, spray, exotic, morphs, morphExamples, traits).mkString("", ";\n  ", ";\n");
+  val data = List(blades, unarmed, kinetic, rail, beam, seekers, spray, exotic, morphs, morphExamples, traits).mkString("", ";\n  ", ";\n");
 
   def main(args: Array[String]): Unit = {
     val script = s"""$licenseText
@@ -49,6 +50,7 @@ on('ready', function() {
 /*
  * This material was transcribed and collected by the following authors:
  * - [Lars Kroll](mailto:bathtor@googlemail.com)
+ * - [Liroth](mailto:liroth@gmx.net)
  * Its sources can be found on [Github](https://github.com/Bathtor/EPCompendium).
  */
 """;
