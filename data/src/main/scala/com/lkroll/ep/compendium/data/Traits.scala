@@ -1,0 +1,26 @@
+package com.lkroll.ep.compendium.data
+
+import com.lkroll.ep.compendium._
+
+object Traits {
+  import TraitType.{ Positive, Negative, Neutral }
+  import TraitApplicability.{ Ego, Morph, Both }
+
+  val adaptabilityLevel1 = EPTrait(
+    name = "Adaptability Level 1",
+    traitType = Positive,
+    applicability = Ego,
+    descr = "Resleeving is a breeze for this character. They adjust to new morphs much more quickly than most other people. Apply a +10 modifier for Integration Tests (p. 271) and Alienation Tests (p. 272).",
+    cp = 10,
+    source = Sources.ep);
+
+  val adaptabilityLevel2 = EPTrait(
+    name = "Adaptability Level 2",
+    traitType = Positive,
+    applicability = Ego,
+    descr = "Resleeving is a breeze for this character. They adjust to new morphs much more quickly than most other people. Apply a +20 modifier for Integration Tests (p. 271) and Alienation Tests (p. 272).",
+    cp = 20,
+    source = Sources.ep);
+
+  val list: List[EPTrait] = Macros.memberList[EPTrait];
+}

@@ -15,6 +15,7 @@ object EPCompendium {
   private val weapons = mutable.Map.empty[String, Weapon];
   private val morphModels = mutable.Map.empty[String, MorphModel];
   private val morphInstances = mutable.Map.empty[String, MorphInstance];
+  private val traits = mutable.Map.empty[String, EPTrait];
 
   @JSExport
   def addData(version: String, dataType: String, data: js.Any): Unit = {
@@ -24,6 +25,7 @@ object EPCompendium {
       case Weapon.dataType        => addWeapons(dataS)
       case MorphModel.dataType    => addMorphModels(dataS)
       case MorphInstance.dataType => addMorphInstances(dataS)
+      case EPTrait.dataType       => addTraits(dataS)
       case _                      => throw new RuntimeException(s"Unkown datatype $dataType")
     }
   }
@@ -34,7 +36,8 @@ object EPCompendium {
     val matches: List[(WordMatch, ChatRenderable)] = List(
       searchIn(lowNeedle, weapons),
       searchIn(lowNeedle, morphModels),
-      searchIn(lowNeedle, morphInstances)).flatten;
+      searchIn(lowNeedle, morphInstances),
+      searchIn(lowNeedle, traits)).flatten;
     matches.sortBy(_._1).reverse.map(_._2)
   }
 
@@ -51,6 +54,26 @@ object EPCompendium {
     }.toList
   }
 
+  private def closestMatch[D](ranked: List[(WordMatch, D)]): Option[D] = {
+    if (ranked.isEmpty) {
+      return None;
+    }
+    val first = ranked.head;
+    if (first._1.isSignificant()) {
+      Some(first._2)
+    } else {
+      None
+    }
+  }
+
+  private def closestMatch[D](needle: String, m: scala.collection.Map[String, D]): Option[D] = closestMatch(rank(needle, m));
+
+  private def rank[D](needle: String, m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
+    val lowNeedle = needle.toLowerCase();
+    val matches = m.map(t => (WordMatch.matchFor(lowNeedle, t._1) -> t._2)).toList;
+    matches.sortBy(_._1).reverse
+  }
+
   private def addWeapons(s: String): Unit = {
     val data = read[List[Weapon]](s);
     data.foreach { w =>
@@ -59,8 +82,8 @@ object EPCompendium {
     Roll20API.log(s"INFO: EPCompendium added ${data.size} weapons.");
   }
   def getWeapon(name: String): Option[Weapon] = weapons.get(name);
-  def findWeapon(needle: String): Option[String] = closestMatch(needle, weapons.keysIterator);
-  def findWeapons(needle: String): List[WordMatch] = rank(needle, weapons.keysIterator);
+  def findWeapon(needle: String): Option[Weapon] = closestMatch(needle, weapons);
+  def findWeapons(needle: String): List[Weapon] = rank(needle, weapons).map(_._2);
 
   private def addMorphModels(s: String): Unit = {
     val data = read[List[MorphModel]](s);
@@ -71,8 +94,8 @@ object EPCompendium {
   }
 
   def getMorphModel(name: String): Option[MorphModel] = morphModels.get(name);
-  def findMorphModel(needle: String): Option[String] = closestMatch(findMorphModels(needle));
-  def findMorphModels(needle: String): List[WordMatch] = rank(needle, morphModels.keysIterator);
+  def findMorphModel(needle: String): Option[MorphModel] = closestMatch(needle, morphModels);
+  def findMorphModels(needle: String): List[MorphModel] = rank(needle, morphModels).map(_._2);
 
   private def addMorphInstances(s: String): Unit = {
     val data = read[List[MorphInstance]](s);
@@ -83,34 +106,21 @@ object EPCompendium {
   }
 
   def getMorphCustom(name: String): Option[MorphInstance] = morphInstances.get(name);
-  def findMorphInstance(needle: String): Option[String] = closestMatch(findMorphInstances(needle));
-  def findMorphInstances(needle: String): List[WordMatch] = rank(needle, morphInstances.keysIterator);
+  def findMorphInstance(needle: String): Option[MorphInstance] = closestMatch(needle, morphInstances);
+  def findMorphInstances(needle: String): List[MorphInstance] = rank(needle, morphInstances).map(_._2);
 
-  private def closestMatch(ranked: List[WordMatch]): Option[String] = {
-    if (ranked.isEmpty) {
-      return None;
-    }
-    val first = ranked.head;
-    if (first.isSignificant()) {
-      Some(first.word)
-    } else {
-      None
-    }
+  private def addTraits(s: String): Unit = {
+    val data = read[List[EPTrait]](s);
+    data.foreach { t =>
+      traits += (t.name -> t)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} traits.");
   }
 
-  private def closestMatch(needle: String, set: Iterator[String]): Option[String] = {
-    if (set.isEmpty) {
-      return None;
-    }
-    val ranked = rank(needle, set);
-    closestMatch(ranked)
-  }
+  def getTrait(name: String): Option[EPTrait] = traits.get(name);
+  def findTrait(needle: String): Option[EPTrait] = closestMatch(needle, traits);
+  def findTraits(needle: String): List[EPTrait] = rank(needle, traits).map(_._2);
 
-  private def rank(needle: String, set: Iterator[String]): List[WordMatch] = {
-    val lowNeedle = needle.toLowerCase();
-    val matches = set.map(WordMatch.matchFor(lowNeedle, _)).toList;
-    matches.sorted.reverse
-  }
   private def checkCompatibility(version: String): Unit = {
     for {
       thisV <- SemanticVersion.fromString(this.version);

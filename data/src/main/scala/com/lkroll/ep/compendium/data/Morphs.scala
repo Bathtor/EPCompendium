@@ -30,7 +30,7 @@ object Morphs {
     armour = (2, 2),
     cpCost = 45,
     price = Cost.ExpensivePlus(45000),
-    source = "Morph Recognition Guide");
+    source = Sources.mrg);
 
   val list: List[MorphModel] = Macros.memberList[MorphModel];
 }
@@ -45,9 +45,9 @@ object MorphAttacks {
     dmgType = DamageType.Kinetic,
     effect = None,
     ap = -1,
-    price = Cost.Trivial, // doesn't really matter
+    price = Cost.None, // doesn't really matter
     range = Range.Melee,
-    source = "Morph Recognition Guide");
+    source = Sources.mrg);
 
   val beakLaser = Weapon(
     name = "Beak Laser",
@@ -60,5 +60,5 @@ object MorphAttacks {
     ap = 0,
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
-    source = "Eclipse Phase");
+    source = Sources.ep);
 }
