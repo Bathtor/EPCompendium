@@ -7,8 +7,9 @@ import java.io.{ File, PrintWriter }
 object JsonGenerator {
   val blades = addWrapper(Weapon.dataType, write(Blades.list));
   val kinetic = addWrapper(Weapon.dataType, write(KineticWeapons.list));
-  val morphs = addWrapper(Morph.dataType, write(Morphs.list));
-  val data = List(blades, kinetic, morphs).mkString("", ";\n  ", ";\n");
+  val morphs = addWrapper(MorphModel.dataType, write(Morphs.list));
+  val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
+  val data = List(blades, kinetic, morphs, morphExamples).mkString("", ";\n  ", ";\n");
 
   def main(args: Array[String]): Unit = {
     val script = s"""$licenseText
