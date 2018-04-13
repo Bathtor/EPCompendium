@@ -15,7 +15,7 @@ object BeamWeapons {
     effect = None,
     ap = 0,
     price = Cost.Moderate,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(30, 100, 150, 250),
     gun = GunExtras(
       modes = Set(SA),
       magazineSize = 100),
@@ -31,7 +31,7 @@ object BeamWeapons {
     effect = Some("Stun"),
     ap = 0,
     price = Cost.Moderate,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(30, 100, 150, 250),
     gun = GunExtras(
       modes = Set(SS),
       magazineSize = 100),
@@ -47,7 +47,7 @@ object BeamWeapons {
     effect = Some("Pain"),
     ap = 0,
     price = Cost.Moderate,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(5, 15, 30, 50),
     gun = GunExtras(
       modes = Set(SS),
       magazineSize = 100),
@@ -63,7 +63,7 @@ object BeamWeapons {
     effect = Some("Pain"),
     ap = -5,
     price = Cost.Moderate,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(5, 15, 30, 50),
     gun = GunExtras(
       modes = Set(SS),
       magazineSize = 50),
@@ -79,7 +79,7 @@ object BeamWeapons {
     effect = None,
     ap = -2,
     price = Cost.High,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(30, 100, 150, 300),
     gun = GunExtras(
       modes = Set(SA),
       magazineSize = 50),
@@ -95,7 +95,7 @@ object BeamWeapons {
     effect = Some("Burn"),
     ap = -8,
     price = Cost.Expensive,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(20, 50, 100, 300),
     gun = GunExtras(
       modes = Set(SA),
       magazineSize = 10),
@@ -112,7 +112,7 @@ object BeamWeapons {
     effect = Some("Shock"),
     ap = 0,
     price = Cost.Moderate,
-    range = Range.Ranged(10, 25, 40, 60), // TODO
+    range = Range.Ranged(10, 25, 40, 60),
     gun = GunExtras(
       modes = Set(SA),
       magazineSize = 200),
