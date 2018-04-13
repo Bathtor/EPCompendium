@@ -50,7 +50,7 @@ object WeaponType {
       macroRW[Kinetic.type],
       macroRW[Railgun.type],
       macroRW[Beam.type],
-      macroRW[Seeker.type],
+      macroRW[Seeker],
       macroRW[Spray.type],
       macroRW[ExoticRangedWeapon]);
   }
@@ -71,9 +71,9 @@ object WeaponType {
     override def label: String = "Beam Weapons";
   }
   @upickle.key("Seeker")
-  case object Seeker extends Ranged {
+  case class Seeker(size: MissileSize) extends Ranged {
     override def skill: String = "Seeker Weapons";
-    override def label: String = "Seekers";
+    override def label: String = s"Seekers (${size.label})";
   }
 
   @upickle.key("Spray")
@@ -101,4 +101,29 @@ object WeaponType {
   //  object ExoticRangedWeapon {
   //    implicit def rw: RW[ExoticRangedWeapon] = macroRW;
   //  }
+}
+
+sealed trait MissileSize {
+  def label: String;
+}
+object MissileSize {
+  implicit def rw: RW[MissileSize] = RW.merge(
+    macroRW[StandardMissile.type],
+    macroRW[Minimissile.type],
+    macroRW[Micromissile.type]);
+
+  @upickle.key("StandardMissile")
+  case object StandardMissile extends MissileSize {
+    override def label: String = "Standard Missile";
+  }
+
+  @upickle.key("Minimissile")
+  case object Minimissile extends MissileSize {
+    override def label: String = "Minimissile";
+  }
+
+  @upickle.key("Micromissile")
+  case object Micromissile extends MissileSize {
+    override def label: String = "Micromissile";
+  }
 }

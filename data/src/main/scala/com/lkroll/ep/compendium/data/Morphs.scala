@@ -2,14 +2,20 @@ package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
 
-object Morphs {
+object MorphImplicits {
+
   implicit def int2aptv(i: Int): AptitudeValues = AptitudeValues.max(i);
   implicit def int2opt(i: Int): Option[Int] = Some(i);
   implicit def tuple2toopt(t: (Int, Int)): Option[(Int, Int)] = Some(t);
   implicit def tuple2skillmod(t: (String, Int)): SkillMod = SkillMod(t._1, None, t._2);
+  implicit def str2opt(s: String): Option[String] = Some(s);
+}
 
-  val blackbird = Morph(
-    model = "Blackbird",
+object Morphs {
+  import MorphImplicits._
+
+  val blackbird = MorphModel(
+    name = "Blackbird",
     morphType = MorphType.Synthmorph,
     descr = "When they’re seen at all, these morphs resemble a matte gray neo-corvid with many odd, sharp angles. Blackbirds are consummate stealth morphs, designed to evade visual observation and radar during recon or infiltration. In part due to aesthetics, they’re a favorite of neo-ravens.",
     enhancements = Seq("Access Jacks", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Enhanced Hearing", "Enhanced Vision", "Invisibility", "Mnemonic Augmentation", "Puppet Sock", "Reduced Signature", "Wings"),
@@ -24,9 +30,9 @@ object Morphs {
     armour = (2, 2),
     cpCost = 45,
     price = Cost.ExpensivePlus(45000),
-    source = "Morph Recognition Guide");
+    source = Sources.mrg);
 
-  val list: List[Morph] = Macros.memberList[Morph];
+  val list: List[MorphModel] = Macros.memberList[MorphModel];
 }
 
 object MorphAttacks {
@@ -39,7 +45,20 @@ object MorphAttacks {
     dmgType = DamageType.Kinetic,
     effect = None,
     ap = -1,
-    price = Cost.Trivial, // doesn't really matter
+    price = Cost.None, // doesn't really matter
     range = Range.Melee,
-    source = "Morph Recognition Guide");
+    source = Sources.mrg);
+
+  val beakLaser = Weapon(
+    name = "Beak Laser",
+    `type` = WeaponType.Beam,
+    descr = "Custom Hand Laser mounted on top of the Blackbird's beak. Makes it look a bit like a Toucan.",
+    dmgD10 = 2,
+    dmgConst = 0,
+    dmgType = DamageType.Energy,
+    effect = None,
+    ap = 0,
+    price = Cost.Moderate,
+    range = Range.Ranged(30, 80, 125, 230),
+    source = Sources.ep);
 }

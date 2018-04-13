@@ -14,7 +14,7 @@ object Blades {
     ap = -3,
     price = Cost.Low,
     range = Range.Melee,
-    source = "Eclipse Phase");
+    source = Sources.ep);
 
   val flexCutter = Weapon(
     name = "Flex Cutter",
@@ -27,7 +27,7 @@ object Blades {
     ap = -1,
     price = Cost.Low,
     range = Range.Melee,
-    source = "Eclipse Phase");
+    source = Sources.ep);
 
   val knife = Weapon(
     name = "Knife",
@@ -40,7 +40,7 @@ object Blades {
     ap = -1,
     price = Cost.Trivial,
     range = Range.Melee,
-    source = "Eclipse Phase");
+    source = Sources.ep);
 
   val monofilamentSword = Weapon(
     name = "Monofilament Sword",
@@ -53,7 +53,7 @@ object Blades {
     ap = -4,
     price = Cost.Low,
     range = Range.Melee,
-    source = "Eclipse Phase");
+    source = Sources.ep);
 
   val vibroblade = Weapon(
     name = "Vibroblade",
@@ -66,7 +66,7 @@ object Blades {
     ap = -2,
     price = Cost.Low,
     range = Range.Melee,
-    source = "Eclipse Phase");
+    source = Sources.ep);
 
   val waspKnife = Weapon(
     name = "Wasp Knife",
@@ -79,8 +79,7 @@ object Blades {
     ap = -1,
     price = Cost.Low,
     range = Range.Melee,
-    source = "Eclipse Phase");
+    source = Sources.ep);
 
-  //val list = List(diamondAx, flexCutter, knife, monofilamentSword, vibroBlade, waspKnife);
   val list: List[Weapon] = Macros.memberList[Weapon];
 }

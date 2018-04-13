@@ -22,4 +22,5 @@ object KineticWeapons {
     source = "Eclipse Phase");
 
   val list: List[Weapon] = Macros.memberList[Weapon];
+  lazy val railguns = list.map(w => w.toRailgun);
 }

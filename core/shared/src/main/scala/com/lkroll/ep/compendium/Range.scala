@@ -24,6 +24,22 @@ object Range {
       "Medium Range" -> s"${shortUpper + 1}-$mediumUpper",
       "Long Range" -> s"${mediumUpper + 1}-$longUpper",
       "Extreme Range" -> s"${longUpper + 1}-$extremeUpper");
+
+    def *(d: Double): Ranged = Ranged(
+      shortUpper = Math.round(this.shortUpper.toDouble * d).toInt,
+      mediumUpper = Math.round(this.mediumUpper.toDouble * d).toInt,
+      longUpper = Math.round(this.longUpper.toDouble * d).toInt,
+      extremeUpper = Math.round(this.extremeUpper.toDouble * d).toInt);
+    def *(i: Int): Ranged = Ranged(
+      shortUpper = this.shortUpper * i,
+      mediumUpper = this.mediumUpper * i,
+      longUpper = this.longUpper * i,
+      extremeUpper = this.extremeUpper * i);
+    def +(i: Int): Ranged = Ranged(
+      shortUpper = this.shortUpper + i,
+      mediumUpper = this.mediumUpper + i,
+      longUpper = this.longUpper + i,
+      extremeUpper = this.extremeUpper + i);
   }
   object Ranged {
     implicit def rw: RW[Ranged] = macroRW;
