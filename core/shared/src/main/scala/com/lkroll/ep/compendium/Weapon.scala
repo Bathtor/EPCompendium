@@ -39,7 +39,7 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     Map("AP" -> ap.toString) ++
     price.templateKV ++
     range.templateKV ++
-    (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++ 
+    (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
     Map("Source" -> source);
   override def templateDescr: String = descr;
 
@@ -53,6 +53,31 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
       assert(ammo.appliesTo(`type`), "Ammo does not work with this weapon!");
       WeaponWithAmmo(this, ammo)
     }
+  }
+
+  def toRailgun: Weapon = {
+    this.`type` match {
+      case WeaponType.Kinetic => {
+        Weapon(
+          name = s"${this.name} (Railgun)",
+          `type` = WeaponType.Railgun,
+          descr = this.descr,
+          dmgD10 = this.dmgD10,
+          dmgConst = this.dmgConst + 2,
+          dmgType = DamageType.Kinetic,
+          effect = this.effect,
+          ap = this.ap - 3,
+          price = this.price.increment,
+          range = this.range match {
+            case r: Range.Ranged => r * 1.5
+            case _               => ???
+          },
+          gun = this.gun,
+          source = this.source)
+      }
+      case _ => throw new RuntimeException("Only kinetic firearms can be railguns")
+    }
+
   }
 
 }
