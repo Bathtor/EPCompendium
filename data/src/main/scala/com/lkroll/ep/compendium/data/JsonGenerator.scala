@@ -14,6 +14,7 @@ object JsonGenerator {
   val spray = addWrapper(Weapon.dataType, write(SprayWeapons.list));
   val exotic = addWrapper(Weapon.dataType, write(ExoticWeapons.list));
   val morphsAC = addWrapper(MorphModel.dataType, write(MorphsAC.list));
+  val morphsDF = addWrapper(MorphModel.dataType, write(MorphsDF.list));
   val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
   val kineticAmmo = addWrapper(Ammo.dataType, write(KineticAmmo.list));
   val traits = addWrapper(EPTrait.dataType, write(Traits.list));
@@ -27,6 +28,7 @@ object JsonGenerator {
     spray,
     exotic,
     morphsAC,
+    morphsDF,
     morphExamples,
     kineticAmmo,
     traits).mkString("", ";\n  ", ";\n");
@@ -45,6 +47,7 @@ on('ready', function() {
     w.flush();
     w.close();
     val p = Runtime.getRuntime.exec(Array("/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl", f.getAbsolutePath));
+    //val p = Runtime.getRuntime.exec(Array("C:\\Program Files\\Sublime Text 3\\sublime_text.exe", f.getAbsolutePath));
     p.waitFor();
   }
 
