@@ -13,11 +13,10 @@ object JsonGenerator {
   val seekers = addWrapper(Weapon.dataType, write(Seekers.list));
   val spray = addWrapper(Weapon.dataType, write(SprayWeapons.list));
   val exotic = addWrapper(Weapon.dataType, write(ExoticWeapons.list));
-  val morphs = addWrapper(MorphModel.dataType, write(Morphs.list));
   val morphsAC = addWrapper(MorphModel.dataType, write(MorphsAC.list));
   val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
   val traits = addWrapper(EPTrait.dataType, write(Traits.list));
-  val data = List(blades, unarmed, kinetic, rail, beam, seekers, spray, exotic, morphs, morphsAC, morphExamples, traits).mkString("", ";\n  ", ";\n");
+  val data = List(blades, unarmed, kinetic, rail, beam, seekers, spray, exotic, morphsAC, morphExamples, traits).mkString("", ";\n  ", ";\n");
 
   def main(args: Array[String]): Unit = {
     val script = s"""$licenseText

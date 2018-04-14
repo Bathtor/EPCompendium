@@ -6,7 +6,7 @@ object MorphExamples {
   import MorphImplicits._
 
   val combatBlackbird = {
-    val m = MorphInstance.fromModel(Morphs.blackbird, "Combat Blackbird");
+    val m = MorphInstance.fromModel(MorphsAC.blackbird, "Combat Blackbird");
     m.copy(
       location = "Chat Noir",
       enhancements = m.enhancements ++ List("Hand Laser", "Hardened Skeleton", "Light Combat Armour"),

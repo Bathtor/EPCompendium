@@ -1,19 +1,20 @@
 package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
-import MorphImplicits._
-import MorphType._
-import Cost._
-import Sources._
 
 object MorphsAC {
+  import MorphImplicits._
+  import MorphType._
+  import Cost._
+  import Sources._
+
   val aquanaut = MorphModel(
     name = "Aquanaut",
     morphType = Biomorph,
     descr = "Aquanauts are environmentally adapted for underwater activities. Their heart rate slows while underwater, their skin includes a layer of blubber that retains heat, they store oxygen in their muscle tissue, and they do not suffer negative health effects from pressure changes. Additionally, their eyes have nictitating membranes and their corneas adjust to counter underwater refraction. Their hands and feet are webbed and they possess a transgenic swim bladder for controlling buoyancy. Aquanauts can safely descend to about 200 meters depth (roughly 21 atmospheres of pressure at 1 g) without suffering narcotic effects or other diving problems.",
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Enhanced Respiration", "Gills", "Sonar", "Swim Bladder", "Temperature Tolerance (Improved Cold)", "Toxin Filters"),
     traits = Seq("Non-Human Biochemistry"),
-    movement = Seq("Walker 4/20, Swimming 2/10"),
+    movement = Seq("Walker 4/20", "Swimming 2/10"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, som = 10),
     skillBonus = Seq(("Swimming" -> 10)),
@@ -130,7 +131,7 @@ object MorphsAC {
     name = "Bouncer",
     morphType = Biomorph,
     descr = "Bouncers are humans genetically adapted for zero-g and microgravity environments. Their legs are more limber, and their feet can grasp as well as their hands.",
-    enhancements = Seq( "Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Grip Pads", "Oxygen Reserve", "Prehensile Feet"),
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Grip Pads", "Oxygen Reserve", "Prehensile Feet"),
     traits = Seq("Limber (Level 1)"),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30,
@@ -250,7 +251,7 @@ object MorphsAC {
     name = "Crasher",
     morphType = Biomorph,
     descr = "An enhanced version of ruster morphs, crashers are rugged and durable designs capable of weathering a range of harsh environments. They are the ideal biomorph for gatecrashing assignments and are popular among frst-in teams. Though pricey compared to other biomorph options, many gatecrashers traveling to less habitable and dangerous environments have found the investment worth it.",
-    enhancements = Seq( "Basic Biomods", "Basic Mesh Inserts", "Bioweave Armor (Light)", "Circadian Regulation", "Clean Metabolism", "Cortical Stack", "Direction Sense", "Eidetic Memory", "Enhanced Respiration", "Enhanced Vision", "Grip Pads", "Hibernation", "Medichines", "Oxygen Reserve", "Toxin Filters", "Vacuum Sealing"), 
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Bioweave Armor (Light)", "Circadian Regulation", "Clean Metabolism", "Cortical Stack", "Direction Sense", "Eidetic Memory", "Enhanced Respiration", "Enhanced Vision", "Grip Pads", "Hibernation", "Medichines", "Oxygen Reserve", "Toxin Filters", "Vacuum Sealing"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(cog = 5, som = 10),
     playerDecisions = Some("+5 to three other aptitude"),
