@@ -13,6 +13,7 @@ object EPCompendium {
   val version: String = BuildInfo.version;
 
   private val weapons = mutable.Map.empty[String, Weapon];
+  private val ammo = mutable.Map.empty[String, Ammo];
   private val morphModels = mutable.Map.empty[String, MorphModel];
   private val morphInstances = mutable.Map.empty[String, MorphInstance];
   private val traits = mutable.Map.empty[String, EPTrait];
@@ -23,6 +24,7 @@ object EPCompendium {
     val dataS = js.JSON.stringify(data);
     dataType match {
       case Weapon.dataType        => addWeapons(dataS)
+      case Ammo.dataType          => addAmmo(dataS)
       case MorphModel.dataType    => addMorphModels(dataS)
       case MorphInstance.dataType => addMorphInstances(dataS)
       case EPTrait.dataType       => addTraits(dataS)
@@ -35,6 +37,7 @@ object EPCompendium {
     //val searchSpace: List[(String, ChatRenderable)] = weapons.toList ++ morphModels.toList ++ morphModels.toList;
     val matches: List[(WordMatch, ChatRenderable)] = List(
       searchIn(lowNeedle, weapons),
+      searchIn(lowNeedle, ammo),
       searchIn(lowNeedle, morphModels),
       searchIn(lowNeedle, morphInstances),
       searchIn(lowNeedle, traits)).flatten;
@@ -84,6 +87,17 @@ object EPCompendium {
   def getWeapon(name: String): Option[Weapon] = weapons.get(name);
   def findWeapon(needle: String): Option[Weapon] = closestMatch(needle, weapons);
   def findWeapons(needle: String): List[Weapon] = rank(needle, weapons).map(_._2);
+
+  private def addAmmo(s: String): Unit = {
+    val data = read[List[Ammo]](s);
+    data.foreach { w =>
+      ammo += (w.name -> w)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} ammo.");
+  }
+  def getAmmo(name: String): Option[Ammo] = ammo.get(name);
+  def findAmmo(needle: String): Option[Ammo] = closestMatch(needle, ammo);
+  def findAmmos(needle: String): List[Ammo] = rank(needle, ammo).map(_._2);
 
   private def addMorphModels(s: String): Unit = {
     val data = read[List[MorphModel]](s);
