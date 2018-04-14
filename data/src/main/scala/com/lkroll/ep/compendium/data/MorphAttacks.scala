@@ -28,4 +28,18 @@ object MorphAttacks {
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
     source = Sources.ep);
+  
+  val disassemblyTools = Weapon(
+    name = "Disassembly Tools",
+    `type` = WeaponType.Unarmed,
+    descr = "Melee attacks with the large-size frame or disassembly tools",
+    dmgD10 = 3,
+    dmgConst = 0, //TODO insert calculation: (SOM / 10)
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = -5,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.ep  
+    );
 }
