@@ -39,13 +39,13 @@ object MorphAttacks {
   val beakAttack = Weapon(
     name = "Beak/Claw Attack",
     `type` = WeaponType.Unarmed,
-    descr = "Blackbird's Beak/Claw Attack",
+    descr = "Beak/Claw Attack",
     dmgD10 = 1,
     dmgConst = 1,
     dmgType = DamageType.Kinetic,
     effect = None,
     ap = -1,
-    price = Cost.None, // doesn't really matter
+    price = Cost.None,
     range = Range.Melee,
     source = Sources.mrg);
 
