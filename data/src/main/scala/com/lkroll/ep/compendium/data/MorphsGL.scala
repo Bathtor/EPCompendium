@@ -119,5 +119,96 @@ object MorphsGL {
     price = Expensive,
     source = mrg);
 
+  val hibernoid = MorphModel(
+    name = "Hibernoid",
+    morphType = Biomorph,
+    descr = "Hibernoids are transgenic-modifed humans with heavily altered sleep patterns and metabolic processes. Hibernoids have a decreased need for sleep, requiring only 1–2 hours a day on average. They also have the ability to trigger a form of voluntary hibernation, effectively stopping their metabolism and need for oxygen. Hibernoids make excellent long-duration space travelers and habtechs, but these morphs are also favored by personal aides and hypercapitalists with non-stop lifestyles.",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Circadian Regulation", "Cortical Stack", "Hibernation"),
+    aptitudeMax = 25,
+    aptitudeBonus = AptitudeValues(int = 5),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 35,
+    cpCost = 25,
+    price = Expensive,
+    source = mrg);
+
+  val hulder = MorphModel(
+    name = "Hulder",
+    morphType = Biomorph,
+    descr = "Hulder are engineered for survival in the Titanian wilds. In silhouette, their bodies resemble a long-legged great auk, though viewed up close, the resemblance to a bird ends. Hulder have no feathers, but rather smooth, rubbery charcoal or black skin covering a thick layer of nano-augmented blubber. What resembles a thick bill from a distance is actually a seamless protrusion of the face, packed with sensory augmentations. Hulder stand 2 meters tall and weigh on average 135 kilograms. Their sensory organs, webbed feet, and fingers are all cybernetic. Hulder can only tolerate temperatures hospitable to baseline transhumans for short periods of time. In the open, they must balance their bodies’ chemical reservoirs with other hulder and caribou once per month or with a chemical reserve pack. A typical band of 2–6 hulder and 10–20 caribou can go about a year before having to visit a hab or a station like Huvudskär to replenish chemical reserves.",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Bioweave Armor (Light)", "Cortical Stack", "Digging Claws", "Direction Sense", "Enhanced Vision", "Long-Term Life Support", "Oxygen Reserve", "Radiation Sense", "Swim Bladder", "T-Ray Emitter", "Temperature Tolerance (Cryonic)"),
+    traits = Seq("Non-Mammalian Biochemistry", "Temperature Intolerance (Warm)"),
+    aptitudeMax = 30,
+    aptitudeBonus = AptitudeValues(som = 5, wil = 10),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 40,
+    cpCost = 50,
+    price = ExpensivePlus(40000),
+    source = mrg);
+
+  val hyperbright = MorphModel(
+    name = "Hyperbright",
+    morphType = Biomorph,
+    descr = "This morph is an attempt by a research team on Bright to create a successor to the menton, making it the most intelligence-enhanced morph ever created. Work on the hyperbright morph has been plagued with diffculties, as the designers attempt to push technical limits, creating a morph that can work at peak effciency without distraction for long periods of time. In an effort to create a morph that proves their design and earns some positive reputation for their project, the creators took short cuts that caused the morph to have several distinctive and potentially annoying quirks, including an inherent need for drugs to stabilize its exotic neurochemistry. The result is a morph that is instantly recognizable by the brightly colored bony crest along the skull that helps cool its brain. Despite its quirks, the hyperbright has gained a small following among a number of scientists and engineers, especially since it has been optimized for use in the low-g environments of the outer system. When created or used on Bright, this morph is usually also ftted with parallel processor nanoware (p. 189, Rimward).",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Circadian Regulation", "Cortical Stack", "Eidetic Memory", "Endocrine Control", "Grip Pads", "Hyper-Linguist", "Math Boost", "Mental Speed", "Prehensile Feet"),
+    traits = Seq("Addiction (minor, to comfurt)", "Fast Metabolism", "Uncanny Valley"),
+    aptitudeMax = 30.copy(cog = Some(20), int = Some(40)),
+    aptitudeBonus = AptitudeValues(cog = 15, int = 10, wil = 5),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 35,
+    cpCost = 70,
+    price = ExpensivePlus(40000),
+    source = mrg);
+
+  val hypergibbon = MorphModel(
+    name = "Hypergibbon",
+    morphType = Pod,
+    descr = "Built from siamang genestock, the largest of the lesser apes, hypergibbons are often mistaken for uplifts, although this is not the case. The gibbon was never a candidate for uplift due to a brain anatomy considerably more primitive than great apes. With the addition of a cyberbrain, though, they make excellent pods. Many primate uplifts choose hypergibbons in place of other pods or when they need something small like a neotenic. Hypergibbons stand about 1 meter tall, weigh 15 kilograms, and typically have black fur and skin (although bodysculpting permits many variations). They have inﬂatable throat sacks that allow melodious calls that carry great distances. Their wrists feature a ball-and-socket joint and also naturally dislocate to enable easier swinging by the arms.",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Mnemonic Augmentation", "Prehensile Feet", "Puppet Sock"),
+    traits = Seq("Limber (Level 2)", "Social Stigma (Pod)", "Non-Human Biochemistry trait", "Small Size trait"),
+    aptitudeMax = 30,
+    aptitudeBonus = AptitudeValues(int = 5, ref = 5),
+    skillBonus = Seq(("Climbing" -> 10), ("Freerunning" -> 20)),
+    durability = 25,
+    cpCost = 30,
+    price = Expensive,
+    source = mrg);
+
+  /*
+   val infomorph = MorphModel(
+    name = "Infomorph",
+    morphType = None, //TODO make that work
+    descr = "Infomorphs are digital-only forms—they lack a physical body. Infomorphs are sometimes carried by other characters instead of (or in addition to) a muse in a ghostrider module. Full rules for infomorphs can be found on p. 265, EP, and p. 138, Transhuman.",
+    enhancements = Seq("Mnemonic Augmentation"),
+    traits = Seq("No physical form"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    //TODO Speed +2
+    durability = 0,
+    cpCost = 0,
+    price = None,
+    source = mrg); */
+
+/*
+
+  val  = MorphModel(
+    name = "",
+    morphType = ,
+    descr = "",
+    enhancements = Seq(""),
+    traits = Seq(""),
+    movement = Seq(""),
+    aptitudeMax = 30,
+    aptitudeBonus = AptitudeValues(coo = 5),
+    skillBonus = Seq(("" -> 10)),
+    playerDecisions = Some("+5 to one other aptitude"),
+    attacks = Seq(MorphAttacks.),
+    durability = ,
+    armour = (, ),
+    cpCost = ,
+    price = ExpensivePlus(),
+    source = mrg);
+
+*/
   val list: List[MorphModel] = Macros.memberList[MorphModel];
 }
