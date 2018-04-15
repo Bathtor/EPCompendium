@@ -90,21 +90,47 @@ object WeaponType {
   sealed trait Thrown extends WeaponType;
   object Thrown {
     implicit def rw: RW[Thrown] = RW.merge(
-      macroRW[Grenades.type]);
+      Grenade.rw);
+  }
+  sealed trait Grenade extends Thrown {
+    def adjust(dmgMod: DamageMod): DamageMod;
+    def adjust(areaMod: DamageAreaMod): DamageAreaMod;
+    def range: Range;
+  }
+  object Grenade {
+    implicit def rw: RW[Grenade] = RW.merge(
+      macroRW[StandardGrenade.type],
+      macroRW[Microgrenade.type]);
   }
 
-  @upickle.key("Grenades")
-  case object Grenades extends Thrown {
+  @upickle.key("StandardGrenade")
+  case object StandardGrenade extends Grenade {
     override def skill: String = "Throwing Weapons";
-    override def label: String = "Grenades";
+    override def label: String = "Standard Grenade";
+    override def adjust(dmgMod: DamageMod): DamageMod = dmgMod;
+    override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod;
+    override def range: Range = Range.ThrownGrenades;
   }
-  //  object ExoticRangedWeapon {
-  //    implicit def rw: RW[ExoticRangedWeapon] = macroRW;
-  //  }
+  @upickle.key("Microgrenade")
+  case object Microgrenade extends Grenade {
+    override def skill: String = "Throwing Weapons";
+    override def label: String = "Microgrenade";
+    override def adjust(dmgMod: DamageMod): DamageMod = dmgMod ++ DamageMod.Const(-1, 0);
+    override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod match {
+      case DamageAreaMod.Replace(area) => DamageAreaMod.Replace(area / 2)
+      case DamageAreaMod.MultRadius(r) => DamageAreaMod.MultRadius(r / 2) // eh fractions
+      case DamageAreaMod.DivRadius(r)  => DamageAreaMod.DivRadius(2 * r)
+      case DamageAreaMod.AddRadius(r)  => DamageAreaMod.Replace(DamageArea.UniformBlast(r / 2)) // eh whatever
+      case DamageAreaMod.Id            => DamageAreaMod.DivRadius(2)
+    };
+    override def range: Range = Range.ThrownMinigrenades;
+  }
 }
 
 sealed trait MissileSize {
   def label: String;
+  def adjust(dmgMod: DamageMod): DamageMod;
+  def adjust(areaMod: DamageAreaMod): DamageAreaMod;
 }
 object MissileSize {
   implicit def rw: RW[MissileSize] = RW.merge(
@@ -115,15 +141,33 @@ object MissileSize {
   @upickle.key("StandardMissile")
   case object StandardMissile extends MissileSize {
     override def label: String = "Standard Missile";
+    override def adjust(dmgMod: DamageMod): DamageMod = dmgMod ++ DamageMod.Double;
+    override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod match {
+      case DamageAreaMod.Replace(area) => DamageAreaMod.Replace(area * 2)
+      case DamageAreaMod.MultRadius(r) => DamageAreaMod.MultRadius(r * 2)
+      case DamageAreaMod.DivRadius(r)  => DamageAreaMod.MultRadius(2 / r) // eh fractions
+      case DamageAreaMod.AddRadius(r)  => DamageAreaMod.Replace(DamageArea.UniformBlast(r * 2)) // eh whatever
+      case DamageAreaMod.Id            => DamageAreaMod.MultRadius(2)
+    };
   }
 
   @upickle.key("Minimissile")
   case object Minimissile extends MissileSize {
     override def label: String = "Minimissile";
+    override def adjust(dmgMod: DamageMod): DamageMod = dmgMod;
+    override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod;
   }
 
   @upickle.key("Micromissile")
   case object Micromissile extends MissileSize {
     override def label: String = "Micromissile";
+    override def adjust(dmgMod: DamageMod): DamageMod = dmgMod ++ DamageMod.Const(-1, 0);
+    override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod match {
+      case DamageAreaMod.Replace(area) => DamageAreaMod.Replace(area / 2)
+      case DamageAreaMod.MultRadius(r) => DamageAreaMod.MultRadius(r / 2) // eh fractions
+      case DamageAreaMod.DivRadius(r)  => DamageAreaMod.DivRadius(2 * r)
+      case DamageAreaMod.AddRadius(r)  => DamageAreaMod.Replace(DamageArea.UniformBlast(r / 2)) // eh whatever
+      case DamageAreaMod.Id            => DamageAreaMod.DivRadius(2)
+    };
   }
 }

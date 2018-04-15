@@ -70,7 +70,7 @@ object BeamWeapons {
     source = Sources.ep);
 
   val bolter = Weapon(
-    name = "Particle Beam Bolder",
+    name = "Particle Beam Bolter",
     `type` = WeaponType.Beam,
     descr = "This weapon shoots a bolt of accelerated particles at near light speed that transfer massive amounts of kinetic energy to the target, super-heating and creating an explosion when striking. The bolter’s beam is not diffused by the cloud that occurs when it strikes, and so it has greater penetration than the laser pulser. Likewise, the bolter is not affected by smoke, fog, or rain. The bolter’s beam is invisible (but visible in infrared). Bolters must be set for either atmospheric or exoatmospheric (vacuum) operation and will not function in the opposite environment, though it only takes a Complex Action to switch. Bolters fire in semi-auto mode and are rifle-sized two-handed weapons.",
     dmgD10 = 2,

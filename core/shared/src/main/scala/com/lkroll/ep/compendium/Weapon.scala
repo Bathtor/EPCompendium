@@ -23,7 +23,8 @@ object DamageType {
 }
 
 case class Weapon(name: String, `type`: WeaponType, descr: String,
-                  dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType, effect: Option[String], ap: Int,
+                  dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType,
+                  effect: Option[String], ap: Int, area: DamageArea = DamageArea.Point,
                   price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable {
 
   override def templateTitle: String = name;
@@ -36,11 +37,13 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     Map("Damage" -> (if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10%${dmgDiv}+${dmgConst}")) ++
     dmgType.templateKV ++
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
-    Map("AP" -> ap.toString) ++
-    price.templateKV ++
-    range.templateKV ++
-    (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
-    Map("Source" -> source);
+    Map(
+      "AP" -> ap.toString,
+      "Area" -> area.text) ++
+      price.templateKV ++
+      range.templateKV ++
+      (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
+      Map("Source" -> source);
   override def templateDescr: String = descr;
 
   def summaryString: String = effect match {
@@ -115,4 +118,63 @@ object FiringMode extends Enumeration {
   type FiringMode = Value;
 
   val SS, SA, BF, FA = Value;
+}
+
+sealed trait DamageArea {
+  def text: String;
+  def +(i: Int): DamageArea;
+  def *(i: Int): DamageArea;
+  def /(i: Int): DamageArea;
+}
+object DamageArea {
+  implicit def rw: RW[DamageArea] = RW.merge(
+    macroRW[Point.type],
+    macroRW[Blast.type],
+    macroRW[UniformBlast],
+    macroRW[Cone.type]);
+
+  @upickle.key("Point")
+  case object Point extends DamageArea {
+    override def text: String = "Point of Impact";
+    override def +(i: Int): DamageArea = Math.max(0, i) match {
+      case 0 => Blast
+      case r => UniformBlast(r)
+    };
+    override def *(i: Int): DamageArea = this;
+    override def /(i: Int): DamageArea = this;
+  }
+
+  @upickle.key("Blast")
+  case object Blast extends DamageArea {
+    override def text: String = "Blast";
+    override def +(i: Int): DamageArea = Math.max(0, i) match {
+      case 0 => Blast
+      case r => UniformBlast(r)
+    };
+    override def *(i: Int): DamageArea = this;
+    override def /(i: Int): DamageArea = this;
+  }
+  @upickle.key("UniformBlast")
+  case class UniformBlast(radius: Int) extends DamageArea {
+    override def text: String = s"Uniform Blast (r=${radius}m)";
+    override def +(i: Int): DamageArea = Math.max(0, radius + i) match {
+      case 0 => Blast
+      case r => UniformBlast(r)
+    };
+    override def *(i: Int): DamageArea = (radius * i) match {
+      case 0 => Blast
+      case r => UniformBlast(r)
+    };
+    override def /(i: Int): DamageArea = (radius / i) match {
+      case 0 => Blast
+      case r => UniformBlast(r)
+    };
+  }
+  @upickle.key("Cone")
+  case object Cone extends DamageArea {
+    override def text: String = "Cone";
+    override def +(i: Int): DamageArea = this; // doesn't seem sensible to extend a cone
+    override def *(i: Int): DamageArea = this;
+    override def /(i: Int): DamageArea = this;
+  }
 }
