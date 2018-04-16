@@ -2,9 +2,9 @@ package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
 
-object Traits {
-  import TraitType.{ Positive, Negative, Neutral }
-  import TraitApplicability.{ Ego, Morph, Both }
+object TraitsPositiveEP {
+  import TraitType.{ Positive, Negative, Neutral };
+  import TraitApplicability.{ Ego, Morph, Both };
 
   val adaptabilityLevel1 = EPTrait(
     name = "Adaptability Level 1",
@@ -23,6 +23,8 @@ object Traits {
     cp = 20,
     source = Sources.ep,
     sourcePage = 145);
+
+  // TODO complete
 
   val list: List[EPTrait] = Macros.memberList[EPTrait];
 }

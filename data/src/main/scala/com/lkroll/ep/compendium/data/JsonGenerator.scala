@@ -22,7 +22,9 @@ object JsonGenerator {
   val standardmissiles = addWrapper(Ammo.dataType, write(Missiles.standard));
   val microgrenades = addWrapper(Weapon.dataType, write(Grenades.micro));
   val grenades = addWrapper(Weapon.dataType, write(Grenades.standard));
-  val traits = addWrapper(EPTrait.dataType, write(Traits.list));
+  val posEPTraits = addWrapper(EPTrait.dataType, write(TraitsPositiveEP.list));
+  val rimwardTraits = addWrapper(EPTrait.dataType, write(TraitsRimward.list));
+  val sunwardTraits = addWrapper(EPTrait.dataType, write(TraitsSunward.list));
   val data = List(
     blades,
     unarmed,
@@ -41,7 +43,9 @@ object JsonGenerator {
     standardmissiles,
     microgrenades,
     grenades,
-    traits).mkString("", ";\n  ", ";\n");
+    posEPTraits,
+    rimwardTraits,
+    sunwardTraits).mkString("", ";\n  ", ";\n");
 
   def main(args: Array[String]): Unit = {
     val script = s"""$licenseText
