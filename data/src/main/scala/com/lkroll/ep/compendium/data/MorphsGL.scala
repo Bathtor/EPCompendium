@@ -174,41 +174,192 @@ object MorphsGL {
     price = Expensive,
     source = mrg);
 
-  /*
    val infomorph = MorphModel(
     name = "Infomorph",
-    morphType = None, //TODO make that work
+    morphType = Infomorph,
     descr = "Infomorphs are digital-only forms—they lack a physical body. Infomorphs are sometimes carried by other characters instead of (or in addition to) a muse in a ghostrider module. Full rules for infomorphs can be found on p. 265, EP, and p. 138, Transhuman.",
     enhancements = Seq("Mnemonic Augmentation"),
-    traits = Seq("No physical form"),
+    traits = Seq("No physical form", "Speed +2"),
     movement = Seq(),
     aptitudeMax = 40,
-    //TODO Speed +2
+    //TODO Speed +2 for almost all Infomorphs (except for  +3 on Hot Shot and Wirehead) and remove it from traits
     durability = 0,
     cpCost = 0,
     price = None,
-    source = mrg); */
+    source = mrg); 
 
-/*
+   val agent = MorphModel(
+     name = "Agent",
+     morphType = Infomorph,
+     descr = "While some infomorphs who work in network security and penetration testing use this eidolon, it is most popular with hackers and criminals. Many users also purchase the digital veil plug-in.",
+     enhancements = Seq("Eidetic Memory", "Hacking Alert", "Mental Speed", "Mnemonic Augmentation"),
+     traits = Seq("No physical form", "Speed +2"),
+     movement = Seq(),
+     aptitudeMax = 40,
+     aptitudeBonus = AptitudeValues(cog = 5),
+     playerDecisions = Some("+5 to one other aptitude"),
+     durability = 0,
+     cpCost = 35,
+     price = ExpensivePlus(35000),
+     source = mrg);
 
-  val  = MorphModel(
-    name = "",
-    morphType = ,
-    descr = "",
-    enhancements = Seq(""),
-    traits = Seq(""),
-    movement = Seq(""),
-    aptitudeMax = 30,
-    aptitudeBonus = AptitudeValues(coo = 5),
-    skillBonus = Seq(("" -> 10)),
+  val digimorph = MorphModel(
+    name = "Digimorph",
+    morphType = Infomorph,
+    descr = "This budget eidolon is one of the cheapest available. While it has only modest bonuses, it is highly customizable and widely used.",
+    enhancements = Seq("Mnemonic Augmentation"),
+    traits = Seq("No physical form", "Speed +2"),
+    movement = Seq(),
+    aptitudeMax = 40,
     playerDecisions = Some("+5 to one other aptitude"),
-    attacks = Seq(MorphAttacks.),
-    durability = ,
-    armour = (, ),
-    cpCost = ,
-    price = ExpensivePlus(),
+    durability = 0,
+    cpCost = 25,
+    price = Expensive,
     source = mrg);
 
-*/
+  val elite = MorphModel(
+    name = "Elite",
+    morphType = Infomorph,
+    descr = "Designed for performers, celebrities, and individuals who work with such people, this eidolon allows users to be more charismatic and persuasive, while also providing with them the ability to think on their feet by speeding up their thoughts in order to give themselves more time to consider their responses.",
+    enhancements = Seq("Mental Speed", "Mnemonic Augmentation"),
+    traits = Seq("No physical form", "Speed +2"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(int = 5, sav = 5),
+    durability = 0,
+    cpCost = 35,
+    price = ExpensivePlus(35000),
+    source = mrg);
+
+  val hotShot = MorphModel(
+    name = "Hot Shot",
+    morphType = Infomorph,
+    descr = "When you really want to pilot a high-speed spacecraft, you don’t want to have to worry how your squishy biomorph is going to hold up under high-g maneuvers. This eidolon is quite popular among fightercraft pilots as well as among infomorphs who specialize in controlling and directing robots.",
+    enhancements = Seq("Increased Speed", "Mnemonic Augmentation"),
+    traits = Seq("No physical form", "Speed +3"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(ref = 5),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 0,
+    cpCost = 35,
+    price = ExpensivePlus(35000),
+    source = mrg);
+
+  val sage = MorphModel(
+    name = "Sage",
+    morphType = Infomorph,
+    descr = "This cutting-edge eidolon is too new to have seen widespread adoption by scientists and academics, but its popularity is spreading among intellectuals, researchers, and others who can afford it.",
+    enhancements = Seq("Eidetic Memory", "Hyper Linguist", "Math Boost", "Mnemonic Augmentation"),
+    traits = Seq("No physical form", "Speed +2"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(cog = 10),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 0,
+    cpCost = 40,
+    price = ExpensivePlus(40000),
+    source = mrg);
+
+  val scholar = MorphModel(
+    name = "Scholar",
+    morphType = Infomorph,
+    descr = "Most voluntary infomorphs value intelligence above physical prowess and so this is one of the most popular eidolons. It is a simple and relatively powerful eidolon which has no frills and is affordable by most well-off infomorphs.",
+    enhancements = Seq("Eidetic Memory", "Mnemonic Augmentation"),
+    traits = Seq("No physical form", "Speed +2"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(cog = 5, int = 5),
+    durability = 0,
+    cpCost = 35,
+    price = ExpensivePlus(35000),
+    source = mrg);
+
+  val slave = MorphModel(
+    name = "Slave",
+    morphType = Infomorph,
+    descr = "No one other than a handful of bizarre eccentrics voluntarily uses this eidolon. It is specifcally designed as a means to control infomorphs who are being used as slaves. One common use of this eidolon is sending an infomorph on a mission where the sender wishes to insure the infomorphs complete and total obedience.",
+    enhancements = Seq("Copylock", "Mnemonic Augmentation"),
+    traits = Seq("Modifed Behavior (Level 2: Blocked disobedience to a particular person/group)", "No physical form", "Speed +2"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(wil = -10),
+    durability = 0,
+    cpCost = 5,
+    price = Moderate,
+    source = mrg);
+
+  val wirehead = MorphModel(
+    name = "Wirehead",
+    morphType = Infomorph,
+    descr = "Regardless of whether an infomorph controls fightercraft, tiny surveillance drones, or attack robots, this high-end eidolon is one that almost all people in those professions wish they had access to.",
+    enhancements = Seq("Increased Speed", "Mental Speed", "Mnemonic Augmentation", "Panopticon"),
+    traits = Seq("No physical form", "Speed +3"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(ref = 10),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 0,
+    cpCost = 60,
+    price = ExpensivePlus(60000),
+    source = mrg);
+ 
+  val jenkin = MorphModel(
+    name = "Jenkin",
+    morphType = Pod,
+    descr = "The handiwork of scum genehacker Neville Orsonglass, the jenkin is a byproduct of desperate measures taken during the Fall. The original model was simply the designer’s attempt to keep him and his crewmates alive on a ship with failing life support and recycling systems. From there, it has evolved into the ultimate survivor’s morph, though the defnition of “survivor” has now been extended to “can take all of the drugs and still function sexually.” This seems to be a selling point with the scum. Despite the morph’s stooped posture, rat-like features, and pungent personal aroma, the implausibly sized secondary sexual characteristics make it the life of certain kinds of parties. Notes: The Costs for this morph vary, it is High in scum swarms and Expensive (minimum 40,000) elsewhere",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Digestive Symbiotes", "Enhanced Pheromones", "Enhanced Respiration", "Enhanced Smell", "Hibernation", "Mnemonic Augmentation", "Possum Cache", "Prehensile Tail", "Puppet Sock", "Temperature Tolerance", "Toxin Filters"),
+    traits = Seq("Social Stigma (Pod)", "Unattractive (Level 2)"),
+    aptitudeMax = 25,
+    aptitudeBonus = AptitudeValues(int = 5, ref = 5, som = 5),
+    attacks = Seq(MorphAttacks.bite),
+    durability = 35,
+    cpCost = 20,
+    price = ExpensivePlus(40000), //TODO High in scum swarms, Expensive (minimum 40,000) elsewhere
+    source = mrg);
+
+  val kite = MorphModel(
+    name = "Kite",
+    morphType = Synthmorph,
+    descr = "This small shape-shifting synthetic shell is capable of ﬂight no matter the atmospheric environment—or lack thereof. Its default mode is turbofan-driven rotorcraft; its light weight allows it to ﬂy and hover even in thin atmospheres and heavy gravities. In streamlined ionic mode, it can travel at high speeds and maneuver in hurricane-force winds. In vacuum, it can drive itself with thrust-vector nozzles. Sometimes called “multifliers,” kites are popular among gatecrashers and gatehoppers due to their adaptability and usefulness for aerial recon and surveys.",
+    enhancements = Seq("Access Jacks", "AntiGlare", "Basic Mesh Inserts", "Chemical Sniffer", "Cortical Stack", "Cyberbrain", "Direction Sense", "Enhanced Hearing", "Enhanced Vision", "Lidar", "Mnemonic Augmentation", "Radar", "Shape Adjusting", "T-Ray Emitter", "Wings"),
+    traits = Seq("Small Size"),
+    movement = Seq("Ionic 12/40", "Thrust Vector 8/40", "Walker 2/8", "Winged 8/32"),
+    aptitudeMax = 25,
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 20,
+    armour = (2, 2),
+    cpCost = 30,
+    price = High,
+    source = mrg);
+
+  val ultraKite = MorphModel(
+    name = "Ultra Kite",
+    morphType = Synthmorph,
+    descr = "Ultra kites are humanoid-sized versions of kite morphs.",
+    enhancements = Seq("Access Jacks", "AntiGlare", "Basic Mesh Inserts", "Chemical Sniffer", "Cortical Stack", "Cyberbrain", "Direction Sense", "Enhanced Hearing", "Enhanced Vision", "Lidar", "Mnemonic Augmentation", "Radar", "Shape Adjusting", "T-Ray Emitter", "Wings"),
+    movement = Seq("Ionic 12/40", "Thrust Vector 8/40", "Walker 2/8", "Winged 8/32"),
+    aptitudeMax = 25,
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 50,
+    armour = (6, 6),
+    cpCost = 55,
+    price = ExpensivePlus(55000),
+    source = mrg);
+
+  val lunarFlyer = MorphModel(
+    name = "Lunar Flyer",
+    morphType = Biomorph,
+    descr = "This morph is a version of the exalt morph that has been adapted to ﬂy in Earth normal air pressure as long as the gravity is 0.2 g or less. Though this morph is available on other low-g worlds and habitats, it was developed for and is primarily found on Luna. This morph resembles a typical exalt morph, except that it is lightly built, has larger lungs, and has feathered wings with a wingspan of 3 meters. The wings come out of the back torso and leave the morph’s hands and wrists unhindered. The wings may also be folded behind the body.",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Clean Metabolism", "Cortical Stack", "Enhanced Vision", "Wings"),
+    movement = Seq("Walker 4/20, Winged 8/40"),
+    aptitudeMax = 30,
+    aptitudeBonus = AptitudeValues(cog = 5, coo =5),
+    playerDecisions = Some("+5 to two other aptitudes"),
+    durability = 30,
+    cpCost = 35,
+    price = Expensive,
+    source = mrg);
+
   val list: List[MorphModel] = Macros.memberList[MorphModel];
 }
