@@ -74,7 +74,7 @@ object MorphsDF {
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(cog = 5),
-    playerDecisions = Some("+5 to three other aptitude"),
+    playerDecisions = Some("+5 to three other aptitudes"),
     durability = 35,
     cpCost = 30,
     price = Expensive,
@@ -118,7 +118,7 @@ object MorphsDF {
     traits = Seq("Small Size"),
     movement = Seq(" Ionic 12/40", "Thrust Vector 8/40", "Walker 2/8", "Winged 8/32"),
     aptitudeMax = 30.copy(som = Some(25)),
-    playerDecisions = Some("+5 to two other aptitude"),
+    playerDecisions = Some("+5 to two other aptitudes"),
     durability = 30,
     armour = (4, 4),
     cpCost = 35,
@@ -132,7 +132,7 @@ object MorphsDF {
     enhancements = Seq("Access Jacks", "Anti-Glare", "Basic Mesh Inserts", "Chameleon Skin", "Chemical Sniffer", "Cortical Stack", "Cyberbrain", "Enhanced Vision", "Mnemonic Augmentation", "Neurachem (Level 1)", "Radar", "Radar Absorbent", "Shape Adjusting", "T-Ray Emitter", "Weapon Mount (Internal", "Articulated", "Laser Pulser)", "Wings"),
     movement = Seq(" Ionic 12/40", "Thrust Vector 8/40", "Walker 2/8", "Winged 8/32"),
     aptitudeMax = 30,
-    playerDecisions = Some("+5 to two other aptitude"),
+    playerDecisions = Some("+5 to two other aptitudes"),
     durability = 50,
     armour = (8, 8),
     cpCost = 55,
@@ -208,7 +208,7 @@ object MorphsDF {
     durability = 50,
     armour = (2, 3),
     cpCost = 75,
-    price = ExpensivePlus(40000),    
+    price = ExpensivePlus(40000),
     source = mrg);
 
   val futura = MorphModel(

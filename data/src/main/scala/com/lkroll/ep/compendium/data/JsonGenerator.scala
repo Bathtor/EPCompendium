@@ -15,6 +15,7 @@ object JsonGenerator {
   val exotic = addWrapper(Weapon.dataType, write(ExoticWeapons.list));
   val morphsAC = addWrapper(MorphModel.dataType, write(MorphsAC.list));
   val morphsDF = addWrapper(MorphModel.dataType, write(MorphsDF.list));
+  val morphsGL = addWrapper(MorphModel.dataType, write(MorphsGL.list));
   val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
   val kineticAmmo = addWrapper(Ammo.dataType, write(KineticAmmo.list));
   val micromissiles = addWrapper(Ammo.dataType, write(Missiles.micro));
@@ -36,6 +37,7 @@ object JsonGenerator {
     exotic,
     morphsAC,
     morphsDF,
+    morphsGL,
     morphExamples,
     kineticAmmo,
     micromissiles,

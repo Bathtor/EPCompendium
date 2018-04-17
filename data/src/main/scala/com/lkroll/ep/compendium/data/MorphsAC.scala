@@ -254,7 +254,7 @@ object MorphsAC {
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Bioweave Armor (Light)", "Circadian Regulation", "Clean Metabolism", "Cortical Stack", "Direction Sense", "Eidetic Memory", "Enhanced Respiration", "Enhanced Vision", "Grip Pads", "Hibernation", "Medichines", "Oxygen Reserve", "Toxin Filters", "Vacuum Sealing"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(cog = 5, som = 10),
-    playerDecisions = Some("+5 to three other aptitude"),
+    playerDecisions = Some("+5 to three other aptitudes"),
     durability = 40,
     armour = (2, 3),
     cpCost = 70,

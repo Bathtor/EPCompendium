@@ -29,6 +29,20 @@ object MorphAttacks {
     range = Range.Ranged(30, 80, 125, 230),
     source = Sources.ep);
   
+  val bite = Weapon(
+    name = "Bite",
+    `type` = WeaponType.Unarmed,
+    descr = "Bite",
+    dmgD10 = 1,
+    dmgConst = 1,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = -1,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.ep  
+    );
+  
   val disassemblyTools = Weapon(
     name = "Disassembly Tools",
     `type` = WeaponType.Unarmed,
