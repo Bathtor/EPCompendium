@@ -3,7 +3,8 @@ package com.lkroll.ep.compendium
 import utils.OptionPickler.{ ReadWriter => RW, macroRW }
 
 case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
-                apMod: APMod = APMod.Id, dmgMod: DamageMod = DamageMod.Id, typeMod: DamageTypeMod = DamageTypeMod.Id,
+                apMod: APMod = APMod.Id, dmgMod: DamageMod = DamageMod.Id,
+                typeMod: DamageTypeMod = DamageTypeMod.Id, areaMod: DamageAreaMod = DamageAreaMod.Id,
                 price: Cost, source: String) extends ChatRenderable {
   def appliesTo(t: WeaponType): Boolean = appliesTo.contains(t);
 
@@ -11,6 +12,8 @@ case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
   override def templateSubTitle: String = "Ammo for " + appliesTo.mkString(", ");
   override def templateKV: Map[String, String] = apMod.templateKV ++
     dmgMod.templateKV ++
+    typeMod.templateKV ++
+    areaMod.templateKV ++
     price.templateKV ++
     Map("Source" -> source);
   override def templateDescr: String = descr;
@@ -27,6 +30,7 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
   def dmgDiv: Int = ammo.dmgMod.modifyDiv(weapon.dmgD10, weapon.dmgDiv);
   def dmgConst: Int = ammo.dmgMod.modifyConst(weapon.dmgConst);
   def dmgType: DamageType = ammo.typeMod.modify(weapon.dmgType);
+  def area: DamageArea = ammo.areaMod.modify(weapon.area);
   def effect: Option[String] = ammo.dmgMod.modifyEffect(weapon.effect);
   def ap: Int = ammo.apMod.modifyAP(weapon.ap);
 
@@ -40,10 +44,12 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
     Map("Damage" -> dmgString) ++
     weapon.dmgType.templateKV ++
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
-    Map("AP" -> ap.toString) ++
-    weapon.range.templateKV ++
-    (weapon.gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
-    Map("Source" -> weapon.source);
+    Map(
+      "AP" -> ap.toString,
+      "Area" -> area.text) ++
+      weapon.range.templateKV ++
+      (weapon.gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
+      Map("Source" -> weapon.source);
   override def templateDescr: String = descr;
 
   def summaryString: String = effect match {
@@ -98,14 +104,65 @@ object DamageTypeMod {
   }
 }
 
+sealed trait DamageAreaMod extends ChatRenderable {
+  def modify(area: DamageArea): DamageArea;
+  def text: String;
+  override def templateKV: Map[String, String] = Map("Damage Area Modifier" -> text);
+}
+object DamageAreaMod {
+  implicit def rw: RW[DamageAreaMod] = RW.merge(
+    macroRW[Id.type],
+    macroRW[Replace],
+    macroRW[AddRadius],
+    macroRW[MultRadius],
+    macroRW[DivRadius]);
+
+  @upickle.key("Id")
+  case object Id extends DamageAreaMod {
+    override def modify(area: DamageArea): DamageArea = area;
+    override def text: String = "–";
+  }
+  @upickle.key("Replace")
+  case class Replace(area: DamageArea) extends DamageAreaMod {
+    override def modify(area: DamageArea): DamageArea = this.area;
+    override def text: String = this.area.text;
+  }
+  @upickle.key("AddRadius")
+  case class AddRadius(r: Int) extends DamageAreaMod {
+    override def modify(area: DamageArea): DamageArea = area + r;
+    override def text: String = if (r > 0) s"+${r}m" else s"${r}m";
+  }
+  @upickle.key("MultRadius")
+  case class MultRadius(r: Int) extends DamageAreaMod {
+    override def modify(area: DamageArea): DamageArea = area * r;
+    override def text: String = s"*${r}m";
+  }
+  @upickle.key("DivRadius")
+  case class DivRadius(r: Int) extends DamageAreaMod {
+    override def modify(area: DamageArea): DamageArea = area / r;
+    override def text: String = s"%${r}m";
+  }
+}
+
 sealed trait DamageMod extends ChatRenderable {
   def modifyD10(dmg: Int): Int;
   def modifyDiv(dmgD10: Int, divisor: Int): Int;
   def modifyConst(dmg: Int): Int;
   def modifyEffect(effect: Option[String]): Option[String];
-  def ++(mod: DamageMod): DamageMod.Chain = mod match {
-    case DamageMod.Chain(mods) => DamageMod.Chain(this :: mods)
-    case _                     => DamageMod.Chain(List(this, mod))
+  def ++(mod: DamageMod): DamageMod = mod match {
+    case DamageMod.Chain(mods) => DamageMod(sanitise(this :: mods))
+    case _                     => DamageMod(sanitise(List(this, mod)))
+  }
+  final protected def sanitise(mods: List[DamageMod]): List[DamageMod] = {
+    import DamageMod.{ Half, Double };
+
+    mods match {
+      case Nil                    => Nil
+      case head :: Nil            => mods
+      case Half :: Double :: rest => sanitise(rest)
+      case Double :: Half :: rest => sanitise(rest)
+      case head :: rest           => head :: sanitise(rest)
+    }
   }
   def text: String;
   override def templateKV: Map[String, String] = Map("DV Modifier" -> text);
@@ -115,9 +172,16 @@ object DamageMod {
     macroRW[NoDamage.type],
     macroRW[Id.type],
     macroRW[Half.type],
+    macroRW[Double.type],
     macroRW[Const],
     macroRW[Effect],
     macroRW[Chain]);
+
+  def apply(mods: List[DamageMod]): DamageMod = mods match {
+    case Nil         => Id
+    case head :: Nil => head
+    case _           => Chain(mods)
+  }
 
   @upickle.key("NoDamage")
   case object NoDamage extends DamageMod {
@@ -142,6 +206,14 @@ object DamageMod {
     override def modifyConst(dmg: Int): Int = ceilDiv(dmg, 2);
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = "-half";
+  }
+  @upickle.key("Double")
+  case object Double extends DamageMod {
+    override def modifyD10(dmg: Int): Int = dmg * 2;
+    override def modifyDiv(dmgD10: Int, divisor: Int): Int = divisor;
+    override def modifyConst(dmg: Int): Int = dmg * 2;
+    override def modifyEffect(effect: Option[String]): Option[String] = effect;
+    override def text: String = "double";
   }
   @upickle.key("Const")
   case class Const(d10Dmg: Int, constDmg: Int) extends DamageMod {
@@ -176,10 +248,14 @@ object DamageMod {
     override def modifyConst(dmg: Int): Int = mods.foldLeft(dmg)((acc, mod) => mod.modifyConst(acc));
     override def modifyEffect(effect: Option[String]): Option[String] =
       mods.foldLeft(effect)((acc, mod) => mod.modifyEffect(acc));
-    override def ++(mod: DamageMod): Chain = mod match {
-      case Chain(mods) => Chain(this.mods ++ mods)
-      case _           => Chain(this.mods ++ List(mod))
+    override def ++(mod: DamageMod): DamageMod = mod match {
+      case Chain(mods) => DamageMod(sanitise(this.mods ++ mods))
+      case _           => DamageMod(sanitise(this.mods ++ List(mod)))
     }
-    override def text: String = mods.foldLeft("")((acc, mod) => acc + " + " + mod.text);
+    override def text: String = mods.foldLeft("")((acc, mod) => if (acc.isEmpty()) {
+      mod.text
+    } else {
+      acc + " & " + mod.text
+    });
   }
 }

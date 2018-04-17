@@ -18,7 +18,14 @@ object JsonGenerator {
   val morphsGL = addWrapper(MorphModel.dataType, write(MorphsGL.list));
   val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
   val kineticAmmo = addWrapper(Ammo.dataType, write(KineticAmmo.list));
-  val traits = addWrapper(EPTrait.dataType, write(Traits.list));
+  val micromissiles = addWrapper(Ammo.dataType, write(Missiles.micro));
+  val minimissiles = addWrapper(Ammo.dataType, write(Missiles.mini));
+  val standardmissiles = addWrapper(Ammo.dataType, write(Missiles.standard));
+  val microgrenades = addWrapper(Weapon.dataType, write(Grenades.micro));
+  val grenades = addWrapper(Weapon.dataType, write(Grenades.standard));
+  val posEPTraits = addWrapper(EPTrait.dataType, write(TraitsPositiveEP.list));
+  val rimwardTraits = addWrapper(EPTrait.dataType, write(TraitsRimward.list));
+  val sunwardTraits = addWrapper(EPTrait.dataType, write(TraitsSunward.list));
   val data = List(
     blades,
     unarmed,
@@ -33,7 +40,14 @@ object JsonGenerator {
     morphsGL,
     morphExamples,
     kineticAmmo,
-    traits).mkString("", ";\n  ", ";\n");
+    micromissiles,
+    minimissiles,
+    standardmissiles,
+    microgrenades,
+    grenades,
+    posEPTraits,
+    rimwardTraits,
+    sunwardTraits).mkString("", ";\n  ", ";\n");
 
   def main(args: Array[String]): Unit = {
     val script = s"""$licenseText

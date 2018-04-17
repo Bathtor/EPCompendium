@@ -73,7 +73,7 @@ object EPCompendium {
 
   private def rank[D](needle: String, m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
     val lowNeedle = needle.toLowerCase();
-    val matches = m.map(t => (WordMatch.matchFor(lowNeedle, t._1) -> t._2)).toList;
+    val matches = m.map(t => (WordMatch.matchFor(lowNeedle, t._1) -> t._2)).filter(_._1.isSignificant()).toList;
     matches.sortBy(_._1).reverse
   }
 

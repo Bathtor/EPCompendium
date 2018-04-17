@@ -29,7 +29,7 @@ object Macros {
       //        case m => println(s"found a ${c.internal.enclosingOwner.}"); q"null"
       //      }.toList;
       val entries: List[Tree] = enclosingType.members.flatMap {
-        case m if (m != owner) => {
+        case m if ((m != owner) && (!m.isType)) => {
           val t = m.asTerm;
           //println(s"Member: ${t.fullName}");
           val termInfo = t.info;

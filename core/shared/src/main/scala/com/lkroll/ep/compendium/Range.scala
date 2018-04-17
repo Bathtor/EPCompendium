@@ -20,10 +20,10 @@ object Range {
   @upickle.key("Ranged")
   case class Ranged(shortUpper: Int, mediumUpper: Int, longUpper: Int, extremeUpper: Int) extends Range {
     override def templateKV: Map[String, String] = Map(
-      "Short Range" -> s"2-$shortUpper",
-      "Medium Range" -> s"${shortUpper + 1}-$mediumUpper",
-      "Long Range" -> s"${mediumUpper + 1}-$longUpper",
-      "Extreme Range" -> s"${longUpper + 1}-$extremeUpper");
+      "Range 1-Short" -> s"2-${shortUpper}m",
+      "Range 2-Medium" -> s"${shortUpper + 1}-${mediumUpper}m",
+      "Range 3-Long" -> s"${mediumUpper + 1}-${longUpper}m",
+      "Range 4-Extreme" -> s"${longUpper + 1}-${extremeUpper}m");
 
     def *(d: Double): Ranged = Ranged(
       shortUpper = Math.round(this.shortUpper.toDouble * d).toInt,
@@ -65,6 +65,11 @@ object Range {
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
     override def longUpper(som: Int): Int = som;
     override def extremeUpperUpper(som: Int): Int = som * 2;
+    override def templateKV: Map[String, String] = Map(
+      "Range 1-Short" -> s"2 - SOM%5m",
+      "Range 2-Medium" -> s"SOM%5 + 1 - SOM%2m",
+      "Range 3-Long" -> s"SOM%2 + 1 - SOMm",
+      "Range 4-Extreme" -> s"SOM + 1 - SOMx2m");
   }
   @upickle.key("ThrownMinigrenades")
   case object ThrownMinigrenades extends Thrown {
@@ -73,6 +78,11 @@ object Range {
     override def mediumUpper(som: Int): Int = som;
     override def longUpper(som: Int): Int = som * 2;
     override def extremeUpperUpper(som: Int): Int = som * 3;
+    override def templateKV: Map[String, String] = Map(
+      "Range 1-Short" -> s"2 - SOM%2m",
+      "Range 2-Medium" -> s"SOM%2 + 1 - SOMm",
+      "Range 3-Long" -> s"SOM + 1 - SOMx2m",
+      "Range 4-Extreme" -> s"SOMx2 + 1 - SOMx3m");
   }
   @upickle.key("ThrownGrenades")
   case object ThrownGrenades extends Thrown {
@@ -81,5 +91,10 @@ object Range {
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
     override def longUpper(som: Int): Int = som;
     override def extremeUpperUpper(som: Int): Int = som * 3;
+    override def templateKV: Map[String, String] = Map(
+      "Range 1-Short" -> s"2 - SOM%5m",
+      "Range 2-Medium" -> s"SOM%5 + 1 - SOM%2m",
+      "Range 3-Long" -> s"SOM%2 + 1 - SOMm",
+      "Range 4-Extreme" -> s"SOM + 1 - SOMx3m");
   }
 }
