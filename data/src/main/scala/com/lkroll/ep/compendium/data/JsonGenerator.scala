@@ -26,6 +26,8 @@ object JsonGenerator {
   val posEPTraits = addWrapper(EPTrait.dataType, write(TraitsPositiveEP.list));
   val rimwardTraits = addWrapper(EPTrait.dataType, write(TraitsRimward.list));
   val sunwardTraits = addWrapper(EPTrait.dataType, write(TraitsSunward.list));
+  val derangements = addWrapper(Derangement.dataType, write(Derangements.list));
+  val disorders = addWrapper(Disorder.dataType, write(Disorders.list));
   val data = List(
     blades,
     unarmed,
@@ -47,7 +49,9 @@ object JsonGenerator {
     grenades,
     posEPTraits,
     rimwardTraits,
-    sunwardTraits).mkString("", ";\n  ", ";\n");
+    sunwardTraits,
+    derangements,
+    disorders).mkString("", ";\n  ", ";\n");
 
   def main(args: Array[String]): Unit = {
     val script = s"""$licenseText

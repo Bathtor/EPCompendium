@@ -36,6 +36,10 @@ object WordMatch {
     WordMatch(word, rMatch, rDist)
   }
 
+  def perfect(word: String): WordMatch = {
+    WordMatch(word, 1.0f, 0.0f)
+  }
+
   private def longestMatch(needle: String, word: String): Int = {
     val maxPossible = Math.min(needle.length(), word.length());
     for (l <- (maxPossible to 0 by -1)) {
