@@ -108,7 +108,7 @@ object TraitsPositiveEP {
   val exceptionalAptMorph = EPTrait(
     name = "Exceptional Aptitude (Morph)",
     traitType = Positive,
-    applicability = Ego,
+    applicability = Morph,
     descr = "As a morph trait, it raises the morph aptitude maximum (p. 124) for a particular chosen aptitude by 10 (30 for flats, 35 for splicers, 40 for all others). Note that this trait just raises the maximum, it does not give the character 10 more aptitude points. This trait may only be taken once.",
     cp = 20,
     source = Sources.ep,

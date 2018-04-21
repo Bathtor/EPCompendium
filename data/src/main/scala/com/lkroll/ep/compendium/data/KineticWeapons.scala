@@ -20,7 +20,7 @@ object KineticWeapons {
       modes = Set(SA, BF, FA),
       magazineSize = 16),
     source = "Eclipse Phase");
-  
+
   val mediumPistol = Weapon(
     name = "Medium Pistol",
     `type` = WeaponType.Kinetic,
@@ -36,7 +36,7 @@ object KineticWeapons {
       modes = Set(SA, BF, FA),
       magazineSize = 12),
     source = "Eclipse Phase");
-  
+
   val heavyPistol = Weapon(
     name = "Heavy Pistol",
     `type` = WeaponType.Kinetic,
@@ -52,7 +52,7 @@ object KineticWeapons {
       modes = Set(SA, BF, FA),
       magazineSize = 10),
     source = "Eclipse Phase");
-  
+
   val submachineGun = Weapon(
     name = "Submachine Gun",
     `type` = WeaponType.Kinetic,
@@ -68,7 +68,7 @@ object KineticWeapons {
       modes = Set(SA, BF, FA),
       magazineSize = 20),
     source = "Eclipse Phase");
-  
+
   val auomaticRifle = Weapon(
     name = "Automatic Rifle",
     `type` = WeaponType.Kinetic,
@@ -84,9 +84,9 @@ object KineticWeapons {
       modes = Set(SA, BF, FA),
       magazineSize = 30),
     source = "Eclipse Phase");
-  
+
   val sniperRifle = Weapon(
-    name = "Heavy Pistol",
+    name = "Sniper Rifle",
     `type` = WeaponType.Kinetic,
     descr = "Sniper rifles are optimized for range, accuracy, penetration, and stopping power. They fire in semiauto mode only and are two-handed weapons.",
     dmgD10 = 2,
@@ -100,9 +100,9 @@ object KineticWeapons {
       modes = Set(SA),
       magazineSize = 12),
     source = "Eclipse Phase");
-  
+
   val machineGun = Weapon(
-    name = "Heavy Pistol",
+    name = "Machine Gun",
     `type` = WeaponType.Kinetic,
     descr = "Machine guns are heavy weapons, typically mounted, and intended to provide continuous fire for support or suppressive purposes. They fire in burst fire or full auto modes, and are two-handed weapons.",
     dmgD10 = 2,
