@@ -18,7 +18,8 @@ object AllData {
   val morphModels: List[List[MorphModel]] = List(
     MorphsAC.list,
     MorphsDF.list,
-    MorphsGL.list);
+    MorphsGL.list, 
+    MorphsOR.list);
   val morphInstances: List[List[MorphInstance]] = List(MorphExamples.list);
   val ammo: List[List[Ammo]] = List(
     KineticAmmo.list,
