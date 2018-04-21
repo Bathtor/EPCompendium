@@ -56,4 +56,58 @@ object MorphAttacks {
     range = Range.Melee,
     source = Sources.ep  
     );
+  
+  val octomorphBeak = Weapon(
+    name = "Beak Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Beak Attack",
+    dmgD10 = 1,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = -1,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+  
+  val octomorphInk = Weapon(
+    name = "Ink Attack",
+    `type` = WeaponType.ExoticRangedWeapon("Ink"),
+    descr = "Ink Attack - blinding, use Exotic Ranged: Ink Attack skill",
+    dmgD10 = 0,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = Some("Blinding"),
+    ap = 0,
+    price = Cost.None,
+    range = Range.Ranged(5, 15, 30, 50), //TODO - made up value - copy from spray weapon
+    area = DamageArea.Cone,
+    source = Sources.mrg);
+  
+  val qmorphClaw = Weapon(
+    name = "Q-Morph Claw attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Q-Morph Claw attack",
+    dmgD10 = 2,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+  
+  val ripwingAttack = Weapon(
+    name = "Ripwing Beak/Claw attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Ripwing Beak/Claw attack",
+    dmgD10 = 1,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+  
 }
