@@ -5,6 +5,7 @@ import com.lkroll.ep.compendium._
 object AllData {
   val weapons: List[List[Weapon]] = List(
     Blades.list,
+    Clubs.list, 
     Unarmed.list,
     KineticWeapons.list,
     KineticWeapons.railguns,
@@ -36,5 +37,6 @@ object AllData {
 
   val authors: Map[String, String] = Map(
     "Lars Kroll" -> "bathtor@googlemail.com",
-    "Liroth" -> "liroth@gmx.net");
+    "Liroth" -> "liroth@gmx.net", 
+    "Alex Ormenisan" -> "ormenisan.adrian@gmail.com");
 }
