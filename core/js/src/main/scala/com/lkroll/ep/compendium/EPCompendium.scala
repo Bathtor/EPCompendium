@@ -6,11 +6,12 @@ import scalajs.js.annotation._
 import com.lkroll.ep.compendium.utils.{ SemanticVersion, EditDistance }
 import com.lkroll.roll20.api.facade.Roll20API
 import com.lkroll.ep.compendium.utils.OptionPickler._
+import util.{ Try, Success, Failure }
 
 @JSExportTopLevel("EPCompendium")
 object EPCompendium {
 
-  val version: String = BuildInfo.version;
+  lazy val version: String = BuildInfo.version;
 
   private val weapons = mutable.Map.empty[String, Weapon];
   private val ammo = mutable.Map.empty[String, Ammo];
@@ -19,6 +20,9 @@ object EPCompendium {
   private val traits = mutable.Map.empty[String, EPTrait];
   private val derangements = mutable.Map.empty[String, Derangement];
   private val disorders = mutable.Map.empty[String, Disorder];
+  private val armour = mutable.Map.empty[String, Armour];
+  private val gear = mutable.Map.empty[String, Gear];
+  private val software = mutable.Map.empty[String, Software];
 
   @JSExport
   def addData(version: String, dataType: String, data: js.Any): Unit = {
@@ -32,6 +36,9 @@ object EPCompendium {
       case EPTrait.dataType       => addTraits(dataS)
       case Derangement.dataType   => addDerangements(dataS)
       case Disorder.dataType      => addDisorders(dataS)
+      case Armour.dataType        => addArmour(dataS)
+      case Gear.dataType          => addGear(dataS)
+      case Software.dataType      => addSoftware(dataS)
       case _                      => throw new RuntimeException(s"Unkown datatype $dataType")
     }
   }
@@ -46,7 +53,10 @@ object EPCompendium {
       searchIn(lowNeedle, morphInstances),
       searchIn(lowNeedle, traits),
       searchIn(lowNeedle, derangements),
-      searchIn(lowNeedle, disorders)).flatten;
+      searchIn(lowNeedle, disorders),
+      searchIn(lowNeedle, armour),
+      searchIn(lowNeedle, gear),
+      searchIn(lowNeedle, software)).flatten;
     matches.sortBy(_._1).reverse.map(_._2)
   }
 
@@ -174,24 +184,60 @@ object EPCompendium {
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} disorders.");
   }
-
   def getDisorder(name: String): Option[Disorder] = disorders.get(name);
   def findDisorder(needle: String): Option[Disorder] = closestMatch(needle, disorders);
   def findDisorders(needle: String): List[Disorder] = rank(needle, disorders).map(_._2);
 
+  private def addArmour(s: String): Unit = {
+    val data = read[List[Armour]](s);
+    data.foreach { a =>
+      armour += (a.name -> a)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} armour items.");
+  }
+  def getArmour(name: String): Option[Armour] = armour.get(name);
+  def findArmour(needle: String): Option[Armour] = closestMatch(needle, armour);
+  def findArmourItems(needle: String): List[Armour] = rank(needle, armour).map(_._2);
+
+  private def addGear(s: String): Unit = {
+    val data = read[List[Gear]](s);
+    data.foreach { g =>
+      gear += (g.name -> g)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} gear items.");
+  }
+  def getGear(name: String): Option[Gear] = gear.get(name);
+  def findGear(needle: String): Option[Gear] = closestMatch(needle, gear);
+  def findGearItems(needle: String): List[Gear] = rank(needle, gear).map(_._2);
+
+  private def addSoftware(s: String): Unit = {
+    val data = read[List[Software]](s);
+    data.foreach { s =>
+      software += (s.name -> s)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} programs.");
+  }
+  def getSoftware(name: String): Option[Software] = software.get(name);
+  def findSoftware(needle: String): Option[Software] = closestMatch(needle, software);
+  def findSoftwarePrograms(needle: String): List[Software] = rank(needle, software).map(_._2);
+
   private def checkCompatibility(version: String): Unit = {
-    for {
+    val r = for {
       thisV <- SemanticVersion.fromString(this.version);
       thatV <- SemanticVersion.fromString(version)
     } yield {
       if (thisV >= thatV) {
         val diff = thisV - thatV;
         if (diff.major != 0) {
-          throw new RuntimeException(s"Data version ($version) is invalid! Must be same major as script version ($this.version)");
+          throw new RuntimeException(s"Data version ($version) is invalid! Must be same major as script version (${this.version})");
         }
       } else {
-        throw new RuntimeException(s"Data version ($version) may not be greater than script version ($this.version)");
+        throw new RuntimeException(s"Data version ($version) may not be greater than script version (${this.version})");
       }
+    };
+    r match {
+      case Success(_) => // ok
+      case Failure(e) => throw e
     }
   }
 }

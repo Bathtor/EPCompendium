@@ -6,17 +6,21 @@ resolvers += "Apache" at "http://repo.maven.apache.org/maven2"
 
 lazy val commonSettings = Seq(
   organization := "com.lkroll.ep",
-  version := "0.11.0",
+  version := "1.0.0",
   scalaVersion := "2.12.4",
   libraryDependencies ++= Seq(//"org.typelevel"  %% "squants"  % "1.3.0",
   	"com.lihaoyi" %%% "scalatags" % "0.6.+",
-  	"com.lihaoyi" %%% "upickle" % "0.6.4")
+  	"com.lihaoyi" %%% "upickle" % "0.6.4",
+  	"org.scalatest" %%% "scalatest" % "3.0.4" % "test"),
+  bintrayOrganization := Some("lkrollcom"),
+  licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 )
 
 lazy val root = (project in file(".")).settings(
 	commonSettings,
 	EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.ManagedClasses,
-	name := "EPCompendium"
+	name := "EPCompendium",
+	skip in publish := true,
 ).aggregate(epCompendiumCoreJVM, epCompendiumCoreJS, data)
 
 lazy val epccore = (crossProject in file("core")).
@@ -47,8 +51,10 @@ lazy val epCompendiumCoreJS = epccore.js
 
 lazy val data = (project in file("data")).settings(
 	commonSettings,
+	skip in publish := true,
 	libraryDependencies ++= Seq(
 	  	"ch.qos.logback" % "logback-classic" % "1.2.3",
-	  	"com.typesafe.scala-logging" %% "scala-logging" % "3.8.0"),
+	  	"com.typesafe.scala-logging" %% "scala-logging" % "3.8.0",
+	  	"org.rogach" %% "scallop" % "3.1.2"),
 	name := "EPCompendium Data"
 ).dependsOn(epCompendiumCoreJVM)
