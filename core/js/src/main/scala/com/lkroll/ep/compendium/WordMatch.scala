@@ -22,7 +22,7 @@ case class WordMatch(word: String, relativeMatch: Float, relativeDistance: Float
 
 object WordMatch {
 
-  val significance = 0.3f;
+  val significance = 0.5f;
   val magnitude = 0.01f;
 
   def matchFor(needle: String, word: String): WordMatch = {
