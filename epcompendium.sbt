@@ -2,7 +2,8 @@ enablePlugins(ScalaJSPlugin)
 
 //scalacOptions in ThisBuild ++= Seq("-Ymacro-debug-verbose")
 
-resolvers += "Apache" at "http://repo.maven.apache.org/maven2"
+resolvers in ThisBuild += "Apache" at "http://repo.maven.apache.org/maven2"
+resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
 
 lazy val commonSettings = Seq(
   organization := "com.lkroll.ep",
