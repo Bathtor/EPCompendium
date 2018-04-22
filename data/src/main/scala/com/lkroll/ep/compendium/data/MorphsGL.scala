@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
+import com.lkroll.common.macros.Macros
 
 object MorphsGL {
   import MorphImplicits._
@@ -174,7 +175,7 @@ object MorphsGL {
     price = Expensive,
     source = mrg);
 
-   val infomorph = MorphModel(
+  val infomorph = MorphModel(
     name = "Infomorph",
     morphType = Infomorph,
     descr = "Infomorphs are digital-only forms—they lack a physical body. Infomorphs are sometimes carried by other characters instead of (or in addition to) a muse in a ghostrider module. Full rules for infomorphs can be found on p. 265, EP, and p. 138, Transhuman.",
@@ -186,22 +187,22 @@ object MorphsGL {
     durability = 0,
     cpCost = 0,
     price = None,
-    source = mrg); 
+    source = mrg);
 
-   val agent = MorphModel(
-     name = "Agent",
-     morphType = Infomorph,
-     descr = "While some infomorphs who work in network security and penetration testing use this eidolon, it is most popular with hackers and criminals. Many users also purchase the digital veil plug-in.",
-     enhancements = Seq("Eidetic Memory", "Hacking Alert", "Mental Speed", "Mnemonic Augmentation"),
-     traits = Seq("No physical form", "Speed +2"),
-     movement = Seq(),
-     aptitudeMax = 40,
-     aptitudeBonus = AptitudeValues(cog = 5),
-     playerDecisions = Some("+5 to one other aptitude"),
-     durability = 0,
-     cpCost = 35,
-     price = ExpensivePlus(35000),
-     source = mrg);
+  val agent = MorphModel(
+    name = "Agent",
+    morphType = Infomorph,
+    descr = "While some infomorphs who work in network security and penetration testing use this eidolon, it is most popular with hackers and criminals. Many users also purchase the digital veil plug-in.",
+    enhancements = Seq("Eidetic Memory", "Hacking Alert", "Mental Speed", "Mnemonic Augmentation"),
+    traits = Seq("No physical form", "Speed +2"),
+    movement = Seq(),
+    aptitudeMax = 40,
+    aptitudeBonus = AptitudeValues(cog = 5),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 0,
+    cpCost = 35,
+    price = ExpensivePlus(35000),
+    source = mrg);
 
   val digimorph = MorphModel(
     name = "Digimorph",
@@ -303,7 +304,7 @@ object MorphsGL {
     cpCost = 60,
     price = ExpensivePlus(60000),
     source = mrg);
- 
+
   val jenkin = MorphModel(
     name = "Jenkin",
     morphType = Pod,
@@ -354,7 +355,7 @@ object MorphsGL {
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Clean Metabolism", "Cortical Stack", "Enhanced Vision", "Wings"),
     movement = Seq("Walker 4/20, Winged 8/40"),
     aptitudeMax = 30,
-    aptitudeBonus = AptitudeValues(cog = 5, coo =5),
+    aptitudeBonus = AptitudeValues(cog = 5, coo = 5),
     playerDecisions = Some("+5 to two other aptitudes"),
     durability = 30,
     cpCost = 35,

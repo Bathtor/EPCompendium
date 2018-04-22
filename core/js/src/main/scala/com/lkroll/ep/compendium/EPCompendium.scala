@@ -3,7 +3,8 @@ package com.lkroll.ep.compendium
 import collection.mutable
 import scalajs.js
 import scalajs.js.annotation._
-import com.lkroll.ep.compendium.utils.{ SemanticVersion, EditDistance }
+import com.lkroll.common.data.{ WordMatch, EditDistance }
+import com.lkroll.ep.compendium.utils.SemanticVersion
 import com.lkroll.roll20.api.facade.Roll20API
 import com.lkroll.ep.compendium.utils.OptionPickler._
 import util.{ Try, Success, Failure }
@@ -63,7 +64,7 @@ object EPCompendium {
   private def searchIn[D <: ChatRenderable](needle: String, m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
     m.flatMap {
       case (name, data) => {
-        val m = WordMatch.matchFor(needle, name);
+        val m = WordMatch.matchForIgnoreCase(needle, name);
         if (m.isSignificant()) {
           Some((m -> data))
         } else {
@@ -96,7 +97,7 @@ object EPCompendium {
       List((wm, d))
     } else {
       val lowNeedle = needle.toLowerCase();
-      val matches = m.map(t => (WordMatch.matchFor(lowNeedle, t._1) -> t._2)).filter(_._1.isSignificant()).toList;
+      val matches = m.map(t => (WordMatch.matchForIgnoreCase(lowNeedle, t._1) -> t._2)).filter(_._1.isSignificant()).toList;
       matches.sortBy(_._1).reverse
     }
   }

@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
+import com.lkroll.common.macros.Macros
 
 object Grenades {
   import WeaponType.{ Grenade, StandardGrenade, Microgrenade };

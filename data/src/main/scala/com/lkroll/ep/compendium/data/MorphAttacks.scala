@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
+import com.lkroll.common.macros.Macros
 
 object MorphAttacks {
   val beakAttack = Weapon(
@@ -28,7 +29,7 @@ object MorphAttacks {
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
     source = Sources.ep);
-  
+
   val bite = Weapon(
     name = "Bite",
     `type` = WeaponType.Unarmed,
@@ -40,9 +41,8 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep  
-    );
-  
+    source = Sources.ep);
+
   val disassemblyTools = Weapon(
     name = "Disassembly Tools",
     `type` = WeaponType.Unarmed,
@@ -54,9 +54,8 @@ object MorphAttacks {
     ap = -5,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep  
-    );
-  
+    source = Sources.ep);
+
   val octomorphBeak = Weapon(
     name = "Beak Attack",
     `type` = WeaponType.Unarmed,
@@ -69,7 +68,7 @@ object MorphAttacks {
     price = Cost.None,
     range = Range.Melee,
     source = Sources.mrg);
-  
+
   val octomorphInk = Weapon(
     name = "Ink Attack",
     `type` = WeaponType.ExoticRangedWeapon("Ink"),
@@ -83,7 +82,7 @@ object MorphAttacks {
     range = Range.Ranged(5, 15, 30, 50), //TODO - made up value - copy from spray weapon
     area = DamageArea.Cone,
     source = Sources.mrg);
-  
+
   val qmorphClaw = Weapon(
     name = "Q-Morph Claw attack",
     `type` = WeaponType.Unarmed,
@@ -96,7 +95,7 @@ object MorphAttacks {
     price = Cost.None,
     range = Range.Melee,
     source = Sources.mrg);
-  
+
   val ripwingAttack = Weapon(
     name = "Ripwing Beak/Claw attack",
     `type` = WeaponType.Unarmed,
@@ -109,5 +108,5 @@ object MorphAttacks {
     price = Cost.None,
     range = Range.Melee,
     source = Sources.mrg);
-  
+
 }
