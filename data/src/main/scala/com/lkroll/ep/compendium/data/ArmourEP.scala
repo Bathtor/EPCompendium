@@ -108,5 +108,14 @@ object ArmourEP {
     source = Sources.ep,
     sourcePage = 313);
 
+  // from EverydayTech
+  val smartVacClothing = Armour(
+    name = "Smart Vac Clothing",
+    descr = "Like regular smart clothing, this outfit can also transform into a light vacsuit (p. 333). It also functions as armor, rating 2/4.",
+    armour = (2, 4),
+    price = Cost.Moderate,
+    source = Sources.ep,
+    sourcePage = 325);
+
   val list: List[Armour] = Macros.memberList[Armour];
 }

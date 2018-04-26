@@ -18,8 +18,8 @@ object AllData {
   val morphModels: List[List[MorphModel]] = List(
     MorphsAC.list,
     MorphsDF.list,
-    MorphsGL.list, 
-    MorphsOR.list, 
+    MorphsGL.list,
+    MorphsOR.list,
     MorphsS.list,
     MorphsTX.list);
 
@@ -36,7 +36,11 @@ object AllData {
   val derangements: List[List[Derangement]] = List(Derangements.list);
   val disorders: List[List[Disorder]] = List(Disorders.list);
   val armour: List[List[Armour]] = List(ArmourEP.list, Exoskeletons.list);
-  val gear: List[List[Gear]] = List(CommunicationsGear.list);
+  val gear: List[List[Gear]] = List(
+    CommunicationsGear.list,
+    CovertTech.list,
+    EverydayTech.list,
+    Nanotechnology.list);
   val software: List[List[Software]] = List(SoftwareEP.list);
 
   val authors: Map[String, String] = Map(
