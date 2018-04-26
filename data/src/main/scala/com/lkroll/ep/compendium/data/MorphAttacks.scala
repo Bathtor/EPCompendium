@@ -109,4 +109,29 @@ object MorphAttacks {
     range = Range.Melee,
     source = Sources.mrg);
 
+  val takkoBeak = Weapon(
+    name = "Takko Beak Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Takko Beak Attack",
+    dmgD10 = 1,
+    dmgConst = 2,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+  
+  val whiplashTendril = Weapon(
+    name = "Whiplash Tendril Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Whiplash Tendril Attack - +10 to disarming called shot attacks",
+    dmgD10 = 1,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
 }
