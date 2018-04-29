@@ -6,10 +6,14 @@ import com.lkroll.ep.compendium._
 object MacroGenerator {
   private val sep = "|";
 
-  val weapons = addWrapper(Weapon.dataType, AllData.weapons.flatten.map(_.name).sorted.mkString(sep));
+  val weaponsData = AllData.weapons.flatten.map(_.name).sorted.mkString(sep);
+  val weapons = addWrapper(Weapon.dataType, weaponsData);
+  val ammoData = AllData.ammo.flatten.map(_.name).sorted.mkString(sep);
+  val ammo = addWrapper(Ammo.dataType, ammoData);
+  val weaponWithAmmo = addWeaponWithAmmo(weaponsData, ammoData);
+
   val morphModels = addWrapper(MorphModel.dataType, AllData.morphModels.flatten.map(_.name).sorted.mkString(sep));
   val morphInstances = addWrapper(MorphInstance.dataType, AllData.morphInstances.flatten.map(_.label).sorted.mkString(sep));
-  val ammo = addWrapper(Ammo.dataType, AllData.ammo.flatten.map(_.name).sorted.mkString(sep));
   val traits = addWrapper(EPTrait.dataType, AllData.traits.flatten.map(_.name).sorted.mkString(sep));
   val derangements = addWrapper(Derangement.dataType, AllData.derangements.flatten.map(_.name).sorted.mkString(sep));
   val disorders = addWrapper(Disorder.dataType, AllData.disorders.flatten.map(_.name).sorted.mkString(sep));
@@ -26,7 +30,8 @@ object MacroGenerator {
     disorders,
     armour,
     gear,
-    software).mkString("\n");
+    software,
+    weaponWithAmmo).mkString("\n");
 
   def generate(open: Boolean): Unit = {
     val script = s"""
@@ -65,7 +70,17 @@ $data
 ```
 !epcompendium-import --${cmd} ?{Select item to import|${data}}
 ```
-""";
+"""
+  }
+
+  private def addWeaponWithAmmo(weaponData: String, ammoData: String): String = {
+    val name = "WeaponWithAmmo";
+    s"""
+### Macro 'Import${name}'
+```
+!epcompendium-import --weapon ?{Select weapon to import|${weaponData}} --with-ammo ?{Select ammo to load|${ammoData}}
+```
+"""
   }
 
   private val licenseText = """
