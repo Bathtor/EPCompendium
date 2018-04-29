@@ -117,5 +117,55 @@ object ArmourEP {
     source = Sources.ep,
     sourcePage = 325);
 
+  // from Survival Gear
+  val vacsuitLight = Armour(
+    name = "Light Vacsuit",
+    descr = "Everyone living in a sealed habitat owns at least one of these suits. They come in a variety of forms. Inexpensive versions are typically lightweight jumpsuits made of simple smart fabric that adjusts to fit and folds up small enough to fit into a coat pocket. The best models include suits of high-end smart clothing that can transform into a vacsuit and an advanced nanotech generator the size of a large orange that deploy nanobots that cover the user and fit together into a vacuum suit. Both can transform into a vacsuit in 2 full Action Turns and do so either on command or if their sensors reveal that life support is needed.\nAll models include a lightweight belt or torc containing a miniature oxygen tank and advanced rebreather unit that provides 3 hours of air. However, the suits contain no food or water recycling. All models include an ecto (p. 325) and a headlight, but typically little else beyond atmosphere sensors to let the wearer know when it is safe to take off the suit. They protect the wearer from temperatures from –75º to 100ºC. These vacuum suits also provide an Armor rating of 5/5 and instantly self-seal breaches unless more than 20 points of damage are inflicted at once.",
+    armour = (5, 5),
+    price = Cost.Low,
+    source = Sources.ep,
+    sourcePage = 333);
+
+  val vacsuitLightSmart = Armour(
+    name = "Light Vacsuit (Smartfabric Suit)",
+    descr = "Everyone living in a sealed habitat owns at least one of these suits. They come in a variety of forms. Inexpensive versions are typically lightweight jumpsuits made of simple smart fabric that adjusts to fit and folds up small enough to fit into a coat pocket. The best models include suits of high-end smart clothing that can transform into a vacsuit and an advanced nanotech generator the size of a large orange that deploy nanobots that cover the user and fit together into a vacuum suit. Both can transform into a vacsuit in 2 full Action Turns and do so either on command or if their sensors reveal that life support is needed.\nAll models include a lightweight belt or torc containing a miniature oxygen tank and advanced rebreather unit that provides 3 hours of air. However, the suits contain no food or water recycling. All models include an ecto (p. 325) and a headlight, but typically little else beyond atmosphere sensors to let the wearer know when it is safe to take off the suit. They protect the wearer from temperatures from –75º to 100ºC. These vacuum suits also provide an Armor rating of 5/5 and instantly self-seal breaches unless more than 20 points of damage are inflicted at once.",
+    armour = (5, 5),
+    price = Cost.Moderate,
+    source = Sources.ep,
+    sourcePage = 333);
+
+  val vacsuitStandard = Armour(
+    name = "Standard Vacsuit",
+    descr = "These suits resemble light vacsuits made from thicker and more durable materials that resist tearing and provides the wearer with light armor. They are fitted with more substantial life support belts that includes a maker (p. 328) capable of recycling all wastes and producing air for up to 48 hours and food and water indefinitely. The best suits are made of smart materials that can transform from standard clothing to vacuum suits in a single Action Turn, and will do so automatically if life support is needed. Each suit also contains an ecto (p. 325), a radio booster (p. 314), and sensors equal to specs (p. 326). These suits have an Armor rating of 7/7 and protect the wearer from temperatures from –175º to 140ºC. They can almost instantly seal any hole unless more than 30 points of damage are inflicted at once.",
+    armour = (7, 7),
+    price = Cost.Moderate,
+    source = Sources.ep,
+    sourcePage = 333);
+
+  val vacsuitStandardSmart = Armour(
+    name = "Standard Vacsuit (Smartfabric Suit)",
+    descr = "These suits resemble light vacsuits made from thicker and more durable materials that resist tearing and provides the wearer with light armor. They are fitted with more substantial life support belts that includes a maker (p. 328) capable of recycling all wastes and producing air for up to 48 hours and food and water indefinitely. The best suits are made of smart materials that can transform from standard clothing to vacuum suits in a single Action Turn, and will do so automatically if life support is needed. Each suit also contains an ecto (p. 325), a radio booster (p. 314), and sensors equal to specs (p. 326). These suits have an Armor rating of 7/7 and protect the wearer from temperatures from –175º to 140ºC. They can almost instantly seal any hole unless more than 30 points of damage are inflicted at once.",
+    armour = (7, 7),
+    price = Cost.High,
+    source = Sources.ep,
+    sourcePage = 333);
+
+  val hardsuit = Armour(
+    name = "Hardsuit",
+    descr = "This heavy-duty suit can almost be considered a miniature spaceship. Hardsuits look like large metallic ovals with jointed arms and legs. They are quite heavy, but the user can move relatively easily due to servo-assist motors in the major arm and leg joints. Unlike other vacsuits, they are solid and can resist both vacuum and up to 100 atmospheres of external pressure. Characters wearing hardsuits can safely explore the upper atmosphere of a gas giant. They are well armored against punctures and radiation and possess miniature plasma thrusters capable of delivering 0.01 g for 10 hours. A built-in high-quality maker produces sufficient food, air, and water for a user to remain in a hardsuit indefinitely. Explorers have used them continuously for up to 2 months. Their gloves incorporate smart materials that allow each hand to use the equivalent of a utilitool (p. 326). Hardsuits also contain radios and sensors equivalent to those on standard vacsuits. These suits are maintained by a fixer nanoswarm (p. 329), are instantly self-sealing of any breach unless more than 30 points of damage are inflicted at once, and protect the wearer from temperatures of –200º to 180ºC. Hardsuits have an Armor rating of 15/15. Occupants may only wear armor with an Armor rating (Energy or Kinetic) of 4 or less; this worn armor is cumulative without layering penalties.",
+    armour = (15, 15),
+    price = Cost.High,
+    source = Sources.ep,
+    sourcePage = 334);
+
+  // Gatecrashing
+  val crasherSuit = Armour(
+    name = "Crasher Suit",
+    descr = "Recently developed by Omnicor, this is a high-end version of a standard vacsuit customized for a gatecrasher’s needs. It has all of the features of a standard smart fabric vacsuit (p. 333, EP) except that it provides 10/10 armor and is equipped with wrist-mounted tools (p. 309, EP) and a Life-Support Pack (p. 159). The suit’s gauntlets and boots are also hardened and provide an extra +1d10 DV on melee attacks.",
+    armour = (10, 10),
+    price = Cost.Expensive,
+    source = Sources.gatecrashing,
+    sourcePage = 157);
+
   val list: List[Armour] = Macros.memberList[Armour];
 }

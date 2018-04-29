@@ -111,6 +111,18 @@ object Grenades {
     price = Cost.High,
     source = Sources.ep);
 
+  // Firewall
+  // Doesn't work with the templating system
+//  val antimatter = template(
+//    name = "Antimatter",
+//    descr = "Sometimes, Firewall operatives are faced with a situation where defeating an exsurgent threat is impossible and total destruction of the incursion is the only effective option. Antimatter grenades are ideal tools for this task. This weapon comes in two versions, large and small. The large grenade contains 0.1g of antimatter, which is sufficient to create a 5kt blast. In its standard setting, the explosion destroys everything within 1km of the device, and causes severe damage for up to 2km. This device will completely destroy any habitat up to 5km across. The small grenade contains 0.0002 grams of antimatter, which is sufficient to create a blast equivalent to 10t of TNT. In its standard setting, the explosion destroys within 150m of the device and severe damage for up to 300m. Both weapons can blast a hole through the hull of any habitat and will destroy any spacecraft they are detonated on. Antimatter grenades are highly illegal almost everywhere and possession of one is grounds for severe punishment in most of the solar system.\nBoth weapons can also be set to generate a brief but intense magnetic field a fraction of a second before the blast, which somewhat directs the explosion. Used in this manner, the large device has a blast radius that only extends 400 meters in the protected direction, and the small device has a blast radius that only extends 60 meters in the protected direction. The large antimatter grenade has a mass of 3kg and is a rounded box roughly 10cm on a side; the small antimatter grenade has a mass of 0.5kg and is a box roughly 5cm on a side. Both of these devices can only be detonated using a mini-sized detonator containing a tiny qubit reservoir that contains a QE comm, which transmits to the tiny qubit reservoir in the device. The device can be detonated immediately or set to go off at a predetermined time. The user can also deactivate the device at any time before it explodes. Because of the massive destruction involved, Firewall only uses these devices as a last resort.\nAntimatter grenades are handled with Demolitions skill. Only Available at Gamemaster Discretion.",
+//    apMod = -10,
+//    dmgMod = (3, 5),
+//    typeMod = Energy,
+//    areaMod = UniformBlast(10),
+//    price = Cost.High,
+//    source = Sources.ep);
+
   val list: List[GrenadeTemplate] = Macros.memberList[GrenadeTemplate];
 
   val micro: List[Weapon] = list.map(t => t(Microgrenade));

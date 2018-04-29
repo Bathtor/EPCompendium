@@ -41,7 +41,11 @@ object AllData {
     CovertTech.list,
     EverydayTech.list,
     Nanotechnology.list,
-    ScavengerTech.list);
+    ScavengerTech.list,
+    SurvivalGear.list,
+    Sensors.list,
+    ExplorationGear.list,
+    XenoarcheologyGear.list);
   val software: List[List[Software]] = List(SoftwareEP.list);
 
   val authors: Map[String, String] = Map(

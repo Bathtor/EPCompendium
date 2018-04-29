@@ -82,5 +82,19 @@ object Blades {
     range = Range.Melee,
     source = Sources.ep);
 
+  // Firewall
+  val plasmaBlade = Weapon(
+    name = "Plasma Blade",
+    `type` = WeaponType.Blades,
+    descr = "Not really a sword, per se, the plasma sword is a sort of specialized plasma torch. A lengthened c-shaped framework above the handle uses a laser and magnetic coils to stabilize a “beam” of ionized, superheated gas (plasma). The open sides of the framework allow the “sword” to be used as a superheated cutting implement. Though dangerous to wield in melee, it is sometimes favored as a weapon against heavily armored exsurgents by some sentinels. Plasma swords are wielded using Blades skill.",
+    dmgD10 = 2,
+    dmgConst = 8,
+    dmgType = DamageType.Energy,
+    effect = None,
+    ap = -8,
+    price = Cost.High,
+    range = Range.Melee,
+    source = Sources.firewall);
+
   val list: List[Weapon] = Macros.memberList[Weapon];
 }

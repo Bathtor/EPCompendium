@@ -134,5 +134,70 @@ object CovertTech {
     source = Sources.ep,
     sourcePage = 317);
 
+  // Panopticon
+  val acousticSpotter = Gear(
+    name = "Acoustic Spotter",
+    category = c,
+    descr = "This medium-sized but portable sensor system features an array of microphones and a swivel-mounted camera and laser rangefinder. When activated, the system detects the audio signature of kinetic weapons fire (or another programmed sound signature) and attempts to focus the camera and rangefinder on the source. In the case of standard firearms (or seekers or similar projectiles), the system detects the muzzle blast, the shock wave of the incoming bullets, and the difference in timing between them in order to triangulate the originating position. The location of the detected source, including the camera visual feed and range data, are fed into a meshed tacnet. The spotter’s AI has Perception 40 and receives a +10 modifier for detecting sounds, +30 in the case of firearms (but not railguns), seekers, etc. The system can hone in on a repeating audio source; apply a +10 cumulative modifier for each additional emission/attack.",
+    price = Cost.Moderate,
+    source = Sources.panopticon,
+    sourcePage = 150);
+
+  val dnaChaff = Gear(
+    name = "DNA Chaff",
+    category = c,
+    descr = "This small device is quite similar to a splash grenade (p. 341, EP), and may in fact be equipped and thrown like one. Its contents consist of nothing more than a mass of skin flakes and similar biological debris sampled from a thousand different biomorphs. The intent is to spread this material thoroughly over an area, effectively contaminating it for any purposes of collecting forensic DNA evidence.",
+    price = Cost.Moderate,
+    source = Sources.panopticon,
+    sourcePage = 150);
+
+  val greyBox = Gear(
+    name = "Grey Box",
+    category = c,
+    descr = "A gray box is a simple wireless interface with its own power supply. It is micro-sized, about the size of a grape, with a set of smart universal ports and a nondescript, matte-gray housing. When attached to an existing device, it allows that device to be interfaced via a wireless connection. Gray boxes are used by infiltration specialists to add wireless interfaces to air-gapped wired networks or to objects, such as airlocks, that are designed to operate without them. Installing a gray box is a Task Action with a timeframe of 2 minutes (in addition to any Hardware Tests required to gain access to the target object) and requires appropriate tools.\nGray boxes normally operate in a passive mode, listening for signals from their operators but not emitting any signal of their own in order to avoid detection. Once a gray box has been activated, however, it will emit active signals until deactivated again. Gray boxes automatically stealth their signals (−30 on Interfacing Tests to detect them).\nHow hard a gray box is to discover is left to the gamemaster’s discretion and possibly the ingenuity of the person who placed it. Normal maintenance routines will usually turn them up over the course of time. Perception or Hardware: Electronics Tests should be given to technicians who regularly check up on a piece of gear in which a gray box has been installed. The size of the gray box, however, makes it difficult to visually spot (−30 modifier). In passive mode, they are not normally subject to detection, but in active mode, they may be found with Interfacing Tests (p. 251, EP). It is also possible that a security AI or hacker who is watching over an object or network may detect a gray box if someone uses it to intrude on the system and triggers an alert or if they happen to be auditing the system and detect an anomalous port connection.",
+    price = Cost.Moderate,
+    source = Sources.panopticon,
+    sourcePage = 150);
+
+  val lensCrazer = Gear(
+    name = "Lens Crazer",
+    category = c,
+    descr = "A more offensive version of the dazzler (p. 316, EP), the crazer does not simply dazzle and overload the cameras it detects. It attempts to crater, pit, and scratch their lenses, effectively ruining their optic systems. Once activated, the crazer takes one Action Turn to detect lenses, then begins systematically zapping them. Stationary cameras are targeted first. For combat situations, treat the crazer as if it has Beam Weapons 40, Initiative 5, and a Speed of 3. It will use its actions to aim; modifiers for laser sights and called shots cancel out. Its laser fires in SA mode. Though it only inflicts 2 DV with its attacks, targeted optics will suffer −30 on Perception Tests after the first hit and will be blind after the second hit. These effects last until repaired.",
+    price = Cost.High,
+    source = Sources.panopticon,
+    sourcePage = 151);
+
+  val lensSpotter = Gear(
+    name = "Lens Spotter",
+    category = c,
+    descr = "The lens spotter is a less-intrusive version of the dazzler (p. 316, EP). It simply maps out all of the camera lenses in an area, noting their position and likely area of coverage, without blasting them with dazzling lasers. This system is used to unobtrusively detect the surveillance coverage in a given area so that a route map may be generated to avoid camera fields of view. It is also used by military and security forces to detect snipers or enemy spotters before they attack.",
+    price = Cost.Low,
+    source = Sources.panopticon,
+    sourcePage = 151);
+
+  val privacyPod = Gear(
+    name = "Privacy Pod",
+    category = c,
+    descr = "Privacy pods are portable self-assembling tent-like structures used to create secure rooms protected from eavesdropping. Privacy pods are effectively sound- proofed Faraday cages, blocking all electromagnetic emissions. They feature a built-in guardian nanoswarm hive that watches for and counteracts any smart dust or other nanosurveillance systems. A privacy pod takes only 3 Action Turns to erect itself and supplies breathable air to the occupants. It features an airlock/scanning chamber with a built-in bug zapper (p. 291, EP). A repair nanohive monitors the pod’s perimeter for any attempts to penetrate the walls.",
+    price = Cost.High,
+    source = Sources.panopticon,
+    sourcePage = 151);
+
+  val radarCloak = Gear(
+    name = "Radar Cloak",
+    category = c,
+    descr = "This cloak works like the invisibility cloak (p.316, EP), except that it bends radar frequencies and makes the wearer invisible to radar sensors.",
+    price = Cost.High,
+    source = Sources.panopticon,
+    sourcePage = 151);
+
+  val shroud = Gear(
+    name = "Shroud",
+    category = c,
+    descr = "Also known as a privacy cloak or a “Gabby Coat,” after the designer, Kalim Ghabil, a shroud is a whole-body smart-fabric covering, similar to a burkha, designed to provide as much anonymity as possible to the wearer. Electrostatic elements randomly stiffen, mold, and relax to mask gait analysis, foot covers change shape and redistribute weight to throw biometric analysis, and the entire garment emits randomly shifting heat patterns, pheromones, and odorants and broadcasts white noise to mask sounds and conversations from eavesdropping. The person inside cannot be detected with normal vision; the shroud blocks t-ray, x-ray, and infrared scanners (note that the shroud does not hide from view like an invisibility cloak; these scanners detect the shroud’s presence quite easily, but they cannot get a reading on what is underneath). Gait analysis will also fail to recognize the shrouded person. An electrical field may be activated in the shroud’s surface to block all wireless radio signals; this cuts the wearer off from the mesh, but also defeats any attempts to wirelessly track them and silences any bugs or tracking devices they may unknowingly carry.\nShrouds are an acceptable form of personal privacy in some habitats, but are considered unusual or may even be illegal in others.",
+    price = Cost.High,
+    source = Sources.panopticon,
+    sourcePage = 151);
+
   val list: List[Gear] = Macros.memberList[Gear];
 }

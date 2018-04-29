@@ -95,5 +95,55 @@ object EverydayTech {
     source = Sources.ep,
     sourcePage = 326);
 
+  // Firewall
+  val morphStoragePod = Gear(
+    name = "Morph Storage Pod",
+    category = c,
+    descr = "This coffin-sized tank keeps a biomorph safely stored in medical stasis. They are routinely used in body banks and egocasting facilities, maintaining unused sleeves in a coma-like state within a nutrient bath. Some jurisdictions only allow morph storage pods to be operated by certified medical personnel and technicians.",
+    price = Cost.Moderate,
+    source = Sources.firewall,
+    sourcePage = 175);
+
+  // Gatecrashing
+  val standardBatteries = Gear(
+    name = "Standard Batteries",
+    category = c,
+    descr = "Standard batteries are micro- sized, high-density, ultra-capacity, room-temperature superconductors good for hundreds of hours of operation. They are adapted to receive power from wireless energy transmitters or they can be replenished rapidly by attaching them to a recharger.",
+    price = Cost.Trivial,
+    source = Sources.gatecrashing,
+    sourcePage = 155);
+
+  val nuclearBatteries = Gear(
+    name = "Nuclear Batteries",
+    category = c,
+    descr = "These batteries actually generate their own power from radio-isotope decay, storing it up for use. They come in many sizes, from nano to small. Depending on their size and the needs of the device, these batteries can produce power for anywhere from 3 years to over a century (higher output batteries use isotopes with shorter half-lives and vice versa).\nGatecrashers rely upon a multitude of powered devices and recharging them on an alien world can be difficult. Since solar power may not exist on all worlds gatecrashers visit, many carry along a nuclear battery, using it to recharge their standard batteries and devices.The standard portable nuclear battery is designed to put out 1kW of power continuously for up to three years. This device can recharge low powered devices within a few minutes and larger higher powered devices within several hours.\nNuclear batteries are used in both railguns and energy weapons to recharge the standard batteries that power these weapons.\nThese nuclear batteries can regenerate their charge at a rate of 20 shots per hour. Changing a battery is a Simple Action.",
+    price = Cost.Low,
+    source = Sources.gatecrashing,
+    sourcePage = 155);
+
+  val gripTape = Gear(
+    name = "Grip Tape",
+    category = c,
+    descr = "This sticky nanotape can be applied to almost any surface, allowing items to be stuck in place with the adhesive power of grip pads. Pulling in a parallel direction is very difficult, but items are easily released by pulling up (perpendicular) to the surface instead.",
+    price = Cost.Trivial,
+    source = Sources.gatecrashing,
+    sourcePage = 155);
+
+  val solarRecharger = Gear(
+    name = "Solar Recharger",
+    category = c,
+    descr = "Designed using thin-film solar cells over a layer of smart materials, this lightweight unit comes in a small-sized portable that unfolds into a 1.5-square- meter panel. Like the nuclear recharger, it produces 1kW of power and can recharge low powered devices rapidly and larger higher powered devices within several hours. However, it requires sunlight or the equivalent to function.",
+    price = Cost.Trivial,
+    source = Sources.gatecrashing,
+    sourcePage = 155);
+
+  val wirelessEnergyTX = Gear(
+    name = "Wireless Energy Transmitter",
+    category = c,
+    descr = "When attached to a power source like a nuclear battery, nuclear recharger, or solar recharger, the small-sized wireless energy transmitter will transfer power to devices within 20m via near field resonant inductive coupling. Though this technology is widespread in transhuman habitats, removing the need for power cords when a nearby power source is readily available, it is a useful device for gatecrashers to keep their gear charged without needing to worry about plugging in.",
+    price = Cost.Trivial,
+    source = Sources.gatecrashing,
+    sourcePage = 155);
+
   val list: List[Gear] = Macros.memberList[Gear];
 }

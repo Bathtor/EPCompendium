@@ -166,5 +166,47 @@ object Nanotechnology {
     source = Sources.ep,
     sourcePage = 329);
 
+  // Firewall
+  val nanomask = Gear(
+    name = "Nanomask",
+    category = c,
+    descr = "This makeup nanobot application decorates the character’s face in changing artistic and aesthetic styles that also happen to deter the capabilities of facial recognition software. It provides a –30 modifier to attempts to identify the subject using facial recognition. Some habitats ban this accessory.",
+    price = Cost.Low,
+    source = Sources.firewall,
+    sourcePage = 175);
+
+  val suborningSwarm = Gear(
+    name = "Suborning Swarm",
+    category = c,
+    descr = "This nanotechnology is highly restricted in most of the solar system, including on all worlds and habitats controlled by the Planetary Consortium. The nanobots in this swarm are programmed to identify all sensors and devices that transmit any signal in the electromagnetic spectrum. This includes radios, ectos, communication links, microbugs, x-ray emitters, etc. Once identified, the swarm’s operator can order the nanobots to suborn these sensors and transmitters. Nanomachines in the swarm then attach themselves to all of these devices in the area and can attempt to either disable or tap into them.\nDisabling sensors and transmitters is rather easy; the swarm simply creates enough electromagnetic interference in and around the device to make it unusable. Make a Simple Test using the swarm’s Hardware: Electronics skill of 40. Success indicates all devices have been temporarily disabled. Failure means that a small portion of devices remain active or semi-functional. Large devices may not be disabled. Each swarm can disable sensors and transmitters for up to 1 hour before it must be recharged. Temporary disablement has no long-term damaging effects on the devices. Operators of the devices may attempt to overrride the jamming; in this case the operator must succeed in an Variable Opposed Interfacing Test against the swarm’s skill of 40, per the rules for Radio Jamming, p. 262, EP.\nTapping into devices is more difficult. In this case, make a regular test using the swarm’s Hardware: Electronics skill of 40. It is recommended the gamemaster apply a single roll to determine the swarm’s general effectiveness, and handle individual devices on a case-by-case basis as needed. If successful, the swarm siphons sensor and communication feeds through physical taps in the devices’ internal electronics. Note that encrypted transmissions are not decoded, though the operator (or their muse) can attempt to decrypt them on an individual basis.\nSuborning swarms are ineffective against other nanoswarms (including smart dust) and the sensory and communication implants and enhancements of biomorphs. They are, however, effective against the sensors and communications of robots and synthmorphs, and are especially dangerous to swarmanoids (including skulkers and smart swarms), as they inhibit the ability of the swarmanoid components to communicate. If the Hardware: Electronics Test to disable is successful against a swarmanoid, that morph suffers a negative modifier equal to the suborning swarm’s MoS for as long as it remains in the swarm’s area of effect.",
+    price = Cost.High,
+    source = Sources.firewall,
+    sourcePage = 175);
+
+  val subverbeeSwarm = Gear(
+    name = "Subverbee Swarm",
+    category = c,
+    descr = "Subverbees create a distributed processing network hidden in a hab’s gardener wasp swarms, cleaner nanoswarms, or other systems. The subverbees “inoculate” the targeted system with tiny processors that piggyback onto the mesh connections of their hosts. The resulting processing network doesn’t have enough power to run AIs or simulspaces, but it can host a VPN, store data, and act as a concealed router for other mesh traffic.",
+    price = Cost.Expensive,
+    source = Sources.firewall,
+    sourcePage = 175);
+
+  // Panopticon
+  val nanotatEraser = Gear(
+    name = "Nanotat Eraser",
+    category = c,
+    descr = "This illegal nanoswarm treatment is specifically designed to penetrate the fingertips of morphs and eradicate all signs of the nanotat ID it carries. Erasing a nanotat ID takes about 5 minutes and itches like crazy. Though usually applied to a specific person as a treatment, criminals and terrorists have sometimes deployed nanotat-erasing nanoswarms in public areas, surreptitiously erasing the IDs from unsuspecting people as a means of confusing security forces engaged in an ego hunt.",
+    price = Cost.Expensive,
+    source = Sources.panopticon,
+    sourcePage = 152);
+
+  val smartPlankton = Gear(
+    name = "Smart Plankton",
+    category = c,
+    descr = "Smart plankton is a nanoswarm variant of smart dust (p. 316, EP) designed for underwater use. The plankton nanobots are designed for aquatic movement and can communicate via flashing lights and infrasound. Like smart dust, smart plankton can record video, audio (including infrasound and ultra-sound), water temperature, chemical traces, as well as movement and other data.",
+    price = Cost.Moderate,
+    source = Sources.panopticon,
+    sourcePage = 152);
+
   val list: List[Gear] = Macros.memberList[Gear];
 }
