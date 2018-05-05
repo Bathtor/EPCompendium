@@ -41,6 +41,20 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
+    source = Sources.ep  
+    );
+
+  val claw = Weapon(
+    name = "Claw",
+    `type` = WeaponType.Unarmed,
+    descr = "Claw Attack",
+    dmgD10 = 2,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
     source = Sources.ep);
 
   val disassemblyTools = Weapon(
@@ -54,7 +68,74 @@ object MorphAttacks {
     ap = -5,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep);
+    source = Sources.ep  
+    );
+
+  val neoAvianBeak = Weapon(
+    name = "Beak/Claw Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Beak/Claw Attack",
+    dmgD10 = 1,
+    dmgConst = 1,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = -1,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+
+  val neoOrcaBite = Weapon(
+    name = "Bite",
+    `type` = WeaponType.Unarmed,
+    descr = "Bite",
+    dmgD10 = 2,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.ep  
+    );
+
+  val ramming = Weapon(
+    name = "Ramming Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Ramming Attack",
+    dmgD10 = 1,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+
+  val neoWhaleRamming = Weapon(
+    name = "Bite",
+    `type` = WeaponType.Unarmed,
+    descr = "Bite",
+    dmgD10 = 4,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
+
+  val neoWhaleBite = Weapon(
+    name = "Ramming Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Ramming Attack",
+    dmgD10 = 2,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = None,
+    ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.mrg);
 
   val octomorphBeak = Weapon(
     name = "Beak Attack",

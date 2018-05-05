@@ -19,6 +19,7 @@ object AllData {
     MorphsAC.list,
     MorphsDF.list,
     MorphsGL.list,
+    MorphsMN.list,
     MorphsOR.list,
     MorphsS.list,
     MorphsTX.list);
