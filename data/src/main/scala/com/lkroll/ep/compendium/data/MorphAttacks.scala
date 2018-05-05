@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
+import com.lkroll.common.macros.Macros
 
 object MorphAttacks {
   val beakAttack = Weapon(
@@ -40,6 +41,7 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
+<<<<<<< HEAD
     source = Sources.ep  
     );
 
@@ -56,6 +58,9 @@ object MorphAttacks {
     range = Range.Melee,
     source = Sources.ep  
     );
+=======
+    source = Sources.ep);
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
 
   val disassemblyTools = Weapon(
     name = "Disassembly Tools",
@@ -68,6 +73,7 @@ object MorphAttacks {
     ap = -5,
     price = Cost.None,
     range = Range.Melee,
+<<<<<<< HEAD
     source = Sources.ep  
     );
 
@@ -77,6 +83,16 @@ object MorphAttacks {
     descr = "Beak/Claw Attack",
     dmgD10 = 1,
     dmgConst = 1,
+=======
+    source = Sources.ep);
+
+  val octomorphBeak = Weapon(
+    name = "Beak Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Beak Attack",
+    dmgD10 = 1,
+    dmgConst = 0,
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
     dmgType = DamageType.Kinetic,
     effect = None,
     ap = -1,
@@ -84,10 +100,31 @@ object MorphAttacks {
     range = Range.Melee,
     source = Sources.mrg);
 
+<<<<<<< HEAD
   val neoOrcaBite = Weapon(
     name = "Bite",
     `type` = WeaponType.Unarmed,
     descr = "Bite",
+=======
+  val octomorphInk = Weapon(
+    name = "Ink Attack",
+    `type` = WeaponType.ExoticRangedWeapon("Ink"),
+    descr = "Ink Attack - blinding, use Exotic Ranged: Ink Attack skill",
+    dmgD10 = 0,
+    dmgConst = 0,
+    dmgType = DamageType.Kinetic,
+    effect = Some("Blinding"),
+    ap = 0,
+    price = Cost.None,
+    range = Range.Ranged(5, 15, 30, 50), //TODO - made up value - copy from spray weapon
+    area = DamageArea.Cone,
+    source = Sources.mrg);
+
+  val qmorphClaw = Weapon(
+    name = "Q-Morph Claw attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Q-Morph Claw attack",
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
     dmgD10 = 2,
     dmgConst = 0,
     dmgType = DamageType.Kinetic,
@@ -95,6 +132,7 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
+<<<<<<< HEAD
     source = Sources.ep  
     );
 
@@ -102,6 +140,14 @@ object MorphAttacks {
     name = "Ramming Attack",
     `type` = WeaponType.Unarmed,
     descr = "Ramming Attack",
+=======
+    source = Sources.mrg);
+
+  val ripwingAttack = Weapon(
+    name = "Ripwing Beak/Claw attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Ripwing Beak/Claw attack",
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
     dmgD10 = 1,
     dmgConst = 0,
     dmgType = DamageType.Kinetic,
@@ -111,24 +157,42 @@ object MorphAttacks {
     range = Range.Melee,
     source = Sources.mrg);
 
+<<<<<<< HEAD
   val neoWhaleRamming = Weapon(
     name = "Bite",
     `type` = WeaponType.Unarmed,
     descr = "Bite",
     dmgD10 = 4,
     dmgConst = 0,
+=======
+  val takkoBeak = Weapon(
+    name = "Takko Beak Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Takko Beak Attack",
+    dmgD10 = 1,
+    dmgConst = 2,
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
     dmgType = DamageType.Kinetic,
     effect = None,
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
     source = Sources.mrg);
+<<<<<<< HEAD
 
   val neoWhaleBite = Weapon(
     name = "Ramming Attack",
     `type` = WeaponType.Unarmed,
     descr = "Ramming Attack",
     dmgD10 = 2,
+=======
+  
+  val whiplashTendril = Weapon(
+    name = "Whiplash Tendril Attack",
+    `type` = WeaponType.Unarmed,
+    descr = "Whiplash Tendril Attack - +10 to disarming called shot attacks",
+    dmgD10 = 1,
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
     dmgConst = 0,
     dmgType = DamageType.Kinetic,
     effect = None,

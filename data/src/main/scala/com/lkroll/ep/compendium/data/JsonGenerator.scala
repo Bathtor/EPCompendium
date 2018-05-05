@@ -5,6 +5,7 @@ import com.lkroll.ep.compendium._
 import java.io.{ File, PrintWriter }
 
 object JsonGenerator {
+<<<<<<< HEAD
   val blades = addWrapper(Weapon.dataType, write(Blades.list));
   val unarmed = addWrapper(Weapon.dataType, write(Unarmed.list));
   val kinetic = addWrapper(Weapon.dataType, write(KineticWeapons.list));
@@ -50,8 +51,31 @@ object JsonGenerator {
     posEPTraits,
     rimwardTraits,
     sunwardTraits).mkString("", ";\n  ", ";\n");
+=======
+  val weapons = AllData.weapons.map(w => addWrapper(Weapon.dataType, write(w)));
+  val morphModels = AllData.morphModels.map(m => addWrapper(MorphModel.dataType, write(m)));
+  val morphInstances = AllData.morphInstances.map(m => addWrapper(MorphInstance.dataType, write(m)));
+  val ammo = AllData.ammo.map(a => addWrapper(Ammo.dataType, write(a)));
+  val traits = AllData.traits.map(t => addWrapper(EPTrait.dataType, write(t)));
+  val derangements = AllData.derangements.map(d => addWrapper(Derangement.dataType, write(d)));
+  val disorders = AllData.disorders.map(d => addWrapper(Disorder.dataType, write(d)));
+  val armour = AllData.armour.map(a => addWrapper(Armour.dataType, write(a)));
+  val gear = AllData.gear.map(g => addWrapper(Gear.dataType, write(g)));
+  val software = AllData.software.map(s => addWrapper(Software.dataType, write(s)));
+  val data = List(
+    weapons,
+    morphModels,
+    morphInstances,
+    ammo,
+    traits,
+    derangements,
+    disorders,
+    armour,
+    gear,
+    software).flatten.mkString("", ";\n  ", ";\n");
+>>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
 
-  def main(args: Array[String]): Unit = {
+  def generate(open: Boolean): Unit = {
     val script = s"""$licenseText
 $authorRef
 on('ready', function() {
@@ -64,9 +88,15 @@ on('ready', function() {
     w.append(script);
     w.flush();
     w.close();
-    val p = Runtime.getRuntime.exec(Array("/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl", f.getAbsolutePath));
-    //val p = Runtime.getRuntime.exec(Array("C:\\Program Files\\Sublime Text 3\\sublime_text.exe", f.getAbsolutePath));
-    p.waitFor();
+    val size = f.length().toDouble / (1000.0 * 1000.0);
+    println(s"Generated output is ${size}MB");
+    if (open) {
+      val p = Runtime.getRuntime.exec(Array("/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl", f.getAbsolutePath));
+      //val p = Runtime.getRuntime.exec(Array("C:\\Program Files\\Sublime Text 3\\sublime_text.exe", f.getAbsolutePath));
+      p.waitFor();
+    } else {
+      println(s"Output was generated in ${f.getAbsolutePath}");
+    }
   }
 
   private def addWrapper(dataType: String, data: String): String = {
@@ -80,11 +110,11 @@ on('ready', function() {
  * as is the original material.
  */
 """;
-  private val authorRef = """
+  private def authors: String = AllData.authors.map({ case (author, email) => s" * - [${author}](mailto:${email})" }).mkString("\n");
+  private val authorRef = s"""
 /*
  * This material was transcribed and collected by the following authors:
- * - [Lars Kroll](mailto:bathtor@googlemail.com)
- * - [Liroth](mailto:liroth@gmx.net)
+$authors
  * Its sources can be found on [Github](https://github.com/Bathtor/EPCompendium).
  */
 """;

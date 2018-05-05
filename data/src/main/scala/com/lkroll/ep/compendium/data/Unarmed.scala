@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium._
+import com.lkroll.common.macros.Macros
 
 object Unarmed {
   val biowareClaws = Weapon(
@@ -15,7 +16,7 @@ object Unarmed {
     price = Cost.Low,
     range = Range.Melee,
     source = "Eclipse Phase");
-  
+
   val cyberclaws = Weapon(
     name = "Cyberclaws",
     `type` = WeaponType.Unarmed,
@@ -28,7 +29,7 @@ object Unarmed {
     price = Cost.Low,
     range = Range.Melee,
     source = "Eclipse Phase");
-  
+
   val densiplastGloves = Weapon(
     name = "Densiplast Gloves",
     `type` = WeaponType.Unarmed,
@@ -41,7 +42,7 @@ object Unarmed {
     price = Cost.Trivial,
     range = Range.Melee,
     source = "Eclipse Phase");
-  
+
   val eelware = Weapon(
     name = "Eelware",
     `type` = WeaponType.Unarmed,
@@ -54,7 +55,7 @@ object Unarmed {
     price = Cost.Low,
     range = Range.Melee,
     source = "Eclipse Phase");
-  
+
   val shockGloves = Weapon(
     name = "Shock Gloves",
     `type` = WeaponType.Unarmed,
@@ -67,7 +68,7 @@ object Unarmed {
     price = Cost.Low,
     range = Range.Melee,
     source = "Eclipse Phase");
-  
+
   val unarmed = Weapon(
     name = "Unarmed",
     `type` = WeaponType.Unarmed,
@@ -80,6 +81,6 @@ object Unarmed {
     price = Cost.None,
     range = Range.Melee,
     source = "Eclipse Phase");
-  
+
   val list: List[Weapon] = Macros.memberList[Weapon];
 }

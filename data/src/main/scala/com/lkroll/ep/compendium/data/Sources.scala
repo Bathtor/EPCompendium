@@ -7,4 +7,6 @@ object Sources {
   val mrg = "Morph Recognition Guide";
   val sunward = "Sunward";
   val rimward = "Rimward";
+  val firewall = "Firewall";
+  val gatecrashing = "Gatecrashing";
 }

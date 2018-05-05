@@ -50,6 +50,7 @@ object TraitApplicability {
 
 case class EPTrait(name: String, traitType: TraitType, applicability: TraitApplicability,
                    descr: String, cp: Int, source: String, sourcePage: Int) extends ChatRenderable {
+  override def lookupName: String = name;
   override def templateTitle: String = traitType.modifyName(name);
   override def templateSubTitle: String = applicability.label;
   override def templateKV: Map[String, String] = Map("CP" -> cp.toString, "Source" -> s"$source p.${sourcePage}");
