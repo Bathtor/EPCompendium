@@ -60,7 +60,7 @@ object Range {
   }
   @upickle.key("ThrownBlades")
   case object ThrownBlades extends Thrown {
-    def variant: String = "Blades";
+    override def variant: String = "Blades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
     override def longUpper(som: Int): Int = som;
@@ -73,20 +73,20 @@ object Range {
   }
   @upickle.key("ThrownMinigrenades")
   case object ThrownMinigrenades extends Thrown {
-    def variant: String = "Minigrenades";
+    override def variant: String = "Minigrenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 2);
     override def mediumUpper(som: Int): Int = som;
     override def longUpper(som: Int): Int = som * 2;
     override def extremeUpperUpper(som: Int): Int = som * 3;
     override def templateKV: Map[String, String] = Map(
-      "Range 1-Short" -> s"2 - SOM%2m",
-      "Range 2-Medium" -> s"SOM%2 + 1 - SOMm",
-      "Range 3-Long" -> s"SOM + 1 - SOMx2m",
-      "Range 4-Extreme" -> s"SOMx2 + 1 - SOMx3m");
+      "Range 1-Short" -> s"2 - SOM%2 meters",
+      "Range 2-Medium" -> s"SOM%2 + 1 - SOM meters",
+      "Range 3-Long" -> s"SOM + 1 - SOMx2 meters",
+      "Range 4-Extreme" -> s"SOMx2 + 1 - SOMx3 meters");
   }
   @upickle.key("ThrownGrenades")
   case object ThrownGrenades extends Thrown {
-    def variant: String = "Grenades";
+    override def variant: String = "Grenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
     override def longUpper(som: Int): Int = som;
