@@ -5,53 +5,6 @@ import com.lkroll.ep.compendium._
 import java.io.{ File, PrintWriter }
 
 object JsonGenerator {
-<<<<<<< HEAD
-  val blades = addWrapper(Weapon.dataType, write(Blades.list));
-  val unarmed = addWrapper(Weapon.dataType, write(Unarmed.list));
-  val kinetic = addWrapper(Weapon.dataType, write(KineticWeapons.list));
-  val rail = addWrapper(Weapon.dataType, write(KineticWeapons.railguns));
-  val beam = addWrapper(Weapon.dataType, write(BeamWeapons.list));
-  val seekers = addWrapper(Weapon.dataType, write(Seekers.list));
-  val spray = addWrapper(Weapon.dataType, write(SprayWeapons.list));
-  val exotic = addWrapper(Weapon.dataType, write(ExoticWeapons.list));
-  val morphsAC = addWrapper(MorphModel.dataType, write(MorphsAC.list));
-  val morphsDF = addWrapper(MorphModel.dataType, write(MorphsDF.list));
-  val morphsGL = addWrapper(MorphModel.dataType, write(MorphsGL.list));
-  val morphsMN = addWrapper(MorphModel.dataType, write(MorphsMN.list));
-  val morphExamples = addWrapper(MorphInstance.dataType, write(MorphExamples.list));
-  val kineticAmmo = addWrapper(Ammo.dataType, write(KineticAmmo.list));
-  val micromissiles = addWrapper(Ammo.dataType, write(Missiles.micro));
-  val minimissiles = addWrapper(Ammo.dataType, write(Missiles.mini));
-  val standardmissiles = addWrapper(Ammo.dataType, write(Missiles.standard));
-  val microgrenades = addWrapper(Weapon.dataType, write(Grenades.micro));
-  val grenades = addWrapper(Weapon.dataType, write(Grenades.standard));
-  val posEPTraits = addWrapper(EPTrait.dataType, write(TraitsPositiveEP.list));
-  val rimwardTraits = addWrapper(EPTrait.dataType, write(TraitsRimward.list));
-  val sunwardTraits = addWrapper(EPTrait.dataType, write(TraitsSunward.list));
-  val data = List(
-    blades,
-    unarmed,
-    kinetic,
-    rail,
-    beam,
-    seekers,
-    spray,
-    exotic,
-    morphsAC,
-    morphsDF,
-    morphsGL,
-    morphsMN,
-    morphExamples,
-    kineticAmmo,
-    micromissiles,
-    minimissiles,
-    standardmissiles,
-    microgrenades,
-    grenades,
-    posEPTraits,
-    rimwardTraits,
-    sunwardTraits).mkString("", ";\n  ", ";\n");
-=======
   val weapons = AllData.weapons.map(w => addWrapper(Weapon.dataType, write(w)));
   val morphModels = AllData.morphModels.map(m => addWrapper(MorphModel.dataType, write(m)));
   val morphInstances = AllData.morphInstances.map(m => addWrapper(MorphInstance.dataType, write(m)));
@@ -73,7 +26,6 @@ object JsonGenerator {
     armour,
     gear,
     software).flatten.mkString("", ";\n  ", ";\n");
->>>>>>> 66d900f69248cc4ad636174b58b0ec29e3e6fc5a
 
   def generate(open: Boolean): Unit = {
     val script = s"""$licenseText
