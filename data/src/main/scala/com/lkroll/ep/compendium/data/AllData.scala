@@ -48,7 +48,7 @@ object AllData {
     Sensors.list,
     ExplorationGear.list,
     XenoarcheologyGear.list);
-  val software: List[List[Software]] = List(SoftwareEP.list);
+  val software: List[List[Software]] = List(SoftwareEP.list, SoftwarePlugins.list);
 
   val authors: Map[String, String] = Map(
     "Lars Kroll" -> "bathtor@googlemail.com",
