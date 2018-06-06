@@ -32,6 +32,7 @@ object AllData {
     Missiles.standard);
   val traits: List[List[EPTrait]] = List(
     TraitsPositiveEP.list,
+    TraitsNegativeEP.list,
     TraitsRimward.list,
     TraitsSunward.list);
   val derangements: List[List[Derangement]] = List(Derangements.list);
