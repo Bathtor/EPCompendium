@@ -145,5 +145,46 @@ object EverydayTech {
     source = Sources.gatecrashing,
     sourcePage = 155);
 
+  // Rimward
+  val dustRepellent = Gear(
+    name = "Dust Repellent",
+    category = c,
+    descr = "This smart material spray prevents electrostatic dust from adhering to surfaces. It is commonly deployed on visors, sensors, windows, joints, moving parts, and other areas that could be covered or jammed up by dust from asteroids, moons, Mars, and so on. One can is enough to cover a single car-sized vehicle or eight human-sized morphs.",
+    price = Cost.Trivial,
+    source = Sources.rimward,
+    sourcePage = 191);
+
+  val flyingVest = Gear(
+    name = "Flying Vest",
+    category = c,
+    descr = "This garment consists of a thick vest containing a large battery, a miniature electric turbine on the back, and air intakes and exhausts at the shoulders and waist. Thrust from this turbine allows the wearer to fly, but only in low gravity environments in an atmosphere. In a gravity no more than 0.14 g it allows the wearer to fly at speeds of up to 40 kph, and in gravity less than 0.1 g, the wearer can fly at speeds of up to 100 kph. This vest is soft and highly flexible, but is also several centimeters thick and the turbine makes a small but visible hump on the wearer’s back. This vest has a mass of 9 kilograms and can operate for 4 hours before it must be recharged.",
+    price = Cost.Moderate,
+    source = Sources.rimward,
+    sourcePage = 191);
+
+  val fractalGloves = Gear(
+    name = "Fractal Gloves",
+    category = c,
+    descr = "These gloves are designed to fit over a humanoid wrist and hand to duplicate the effects of the fractal digits robotic enhancement (p. 31, EP). The gloves also include micro-cameras that allow wearers to clearly see the objects they are manipulating, duplicating the effects of nanoscopic vision (p. 311, EP).",
+    price = Cost.Moderate,
+    source = Sources.rimward,
+    sourcePage = 191);
+
+  val plasmaSail = Gear(
+    name = "Plasma Sail",
+    category = c,
+    descr = "This backpack and harness operates in the same manner as the plasma sail implant (p. 189, Rimward)",
+    price = Cost.Expensive,
+    source = Sources.rimward,
+    sourcePage = 191);
+
+  val smartManipulators = Gear(
+    name = "Smart Manipulators",
+    category = c,
+    descr = "When not in use, this device resembles a small five-kilogram backpack. It contains a nuclear battery, advanced smart materials, and an AI that allows users to operate this device as easily as their own arms or legs. When activated, the device can create a wide array of tools and manipulators. It can sprout a pair of wings that allow the user to fly at speeds of up to 100 kph in one atmosphere or more of pressure if the gravity is 0.15 g or lower. It can also create gliding membranes that duplicate the augmentation with the same name (p. 166, Sunward). In addition, the device allows the user to create a number of highly flexible limbs equal to their COO/5, which can each reach as far as seven meters. Each of these limbs can be sculpted to end in a hand, grip pad, cyberclaws, knife, shock baton, flex cutter, or any tool that can be created by the wrist-mounted tools augmentation (p. 309, EP). Alternatively, each limb can duplicate the abilities of a length of electronic rope (p. 332, EP) up to 30 meters long that can end in a grip pad if desired. These items are very popular with users who work in zero gravity or very low gravity environments.",
+    price = Cost.High,
+    source = Sources.rimward,
+    sourcePage = 191);
+
   val list: List[Gear] = Macros.memberList[Gear];
 }

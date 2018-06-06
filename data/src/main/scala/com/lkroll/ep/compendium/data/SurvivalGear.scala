@@ -202,5 +202,111 @@ object SurvivalGear {
     source = Sources.panopticon,
     sourcePage = 157);
 
+  // Rimward
+  val hibernationPod = Gear(
+    name = "Hibernation Pod",
+    category = c,
+    descr = "In the outer system, distances are long and conditions are harsh. In emergencies, individuals may be isolated for weeks or months. To avoiding running out of life support or suffering the effects of extreme cold and severe boredom, users can rely on this device. Before it is activated, this pod comes in a small pouch containing a miniature nuclear battery, a supply of medical stasis nanobots, life support foam, and an emergency broadcast transmitter. This pouch has a mass of 3 kg and is approximately the size of a thick hardback novel. To active it, users open it, pull the smart material fabric around themselves, and activate the nanobots and the foam. Within 2 minutes, the device becomes a rigid pod 1 meter wide and thick and 2.4 meters long, filled with both the now solid foam and the user. The user can choose to either become unconscious or radically slow down their thoughts. The pod automatically awakens the user within one minute of entering a habitable atmosphere or if they receive a message. This device works on all biomorphs and pods and keeps them safe for up to one decade. Lacking the need for food or air, synthmorphs do not require this device.",
+    price = Cost.Moderate,
+    source = Sources.rimward,
+    sourcePage = 193);
+
+  val smartAnchors = Gear(
+    name = "Smart Anchors",
+    category = c,
+    descr = "This harness is worn by a user but operated by a built-in AI. When activated, the harness deploys up to six anchoring cables with a reach of ten meters. These cables are designed to either spike into dirt, rock, or ice or use grip pads to fasten to an appropriate surface, with the intention of keeping them anchored should they accidentally drift off into space or kick off with enough force to reach a terminal velocity. The cables shorten or lengthen as needed to give the wearer slack and the freedom to move around. If the user moves a distance farther than one cable can reach, it will retract that cable and immediately deploy another. The device always keeps at least three cables anchored at a time.",
+    price = Cost.Low,
+    source = Sources.rimward,
+    sourcePage = 193);
+
+  // Sunward
+  val breather = Gear(
+    name = "Breather",
+    category = c,
+    descr = "Martian breathers are the size of a small backpack and use solar cells, nanobots, and a water reservoir to turn atmospheric CO2 into O2 and methane (CH4). A CO2 scrubber also recycles the oxygen. As long as the character wearing the breather spends two hours a day in sunlight and feeds the unit a kilo of water a day (chunks of ice or even perma- frost work fine), they may subsist on the Martian atmosphere indefinitely. Another part of the unit continually extracts atmospheric nitrogen and adds it to the mix as a buffer gas. A backup power supply powers the unit for up to 24 hours in darkness or dust storms, and a backup tank holds up to 8 hours of breathable air.",
+    price = Cost.Low,
+    source = Sources.sunward,
+    sourcePage = 167);
+
+  val breatherLargerPS = Gear(
+    name = "Breather (Larger Power Supply)",
+    category = c,
+    descr = "Martian breathers are the size of a small backpack and use solar cells, nanobots, and a water reservoir to turn atmospheric CO2 into O2 and methane (CH4). A CO2 scrubber also recycles the oxygen. As long as the character wearing the breather spends two hours a day in sunlight and feeds the unit a kilo of water a day (chunks of ice or even perma- frost work fine), they may subsist on the Martian atmosphere indefinitely. Another part of the unit continually extracts atmospheric nitrogen and adds it to the mix as a buffer gas. A backup power supply powers the unit for up to 1 week in darkness or dust storms, and a backup tank holds up to 8 hours of breathable air.",
+    price = Cost.Moderate,
+    source = Sources.sunward,
+    sourcePage = 167);
+
+  val breatherBladder = Gear(
+    name = "Breather Collection Bladder",
+    category = c,
+    descr = "Recycling-conscious travelers can add a bladder to the Breather that fills up with methane for use in fueling vehicles. The output from a breather used by an average-sized person over the course of day is enough to fuel a mars buggy for an hour or two.",
+    price = Cost.Trivial,
+    source = Sources.sunward,
+    sourcePage = 167);
+
+  val coldWeatherGear = Gear(
+    name = "Cold Weather Gear (Basic)",
+    category = c,
+    descr = "This is a full suit of clothing for extreme cold weather, including boots, jacket, pants, gloves, face mask, and goggles, with apertures and clips for breathing equip- ment. Much less bulky than its antique equivalents, these suits allow full maneuverability. They come in two versions: basic (for rusters and alpiners) which protects up to –50 C, and survival (for most other morphs), which protects up to –100ºC.",
+    price = Cost.Trivial,
+    source = Sources.sunward,
+    sourcePage = 167);
+
+  val coldWeatherGearSurvival = Gear(
+    name = "Cold Weather Gear (Survival)",
+    category = c,
+    descr = "This is a full suit of clothing for extreme cold weather, including boots, jacket, pants, gloves, face mask, and goggles, with apertures and clips for breathing equip- ment. Much less bulky than its antique equivalents, these suits allow full maneuverability. They come in two versions: basic (for rusters and alpiners) which protects up to –50 C, and survival (for most other morphs), which protects up to –100ºC. The survival version is partially pressurized for morphs operating in the extreme low pressures of the Martian highlands.",
+    price = Cost.Low,
+    source = Sources.sunward,
+    sourcePage = 167);
+
+  val highdiveSuit = Gear(
+    name = "High-dive Suit",
+    category = c,
+    descr = "High-dive suits are individual spacesuits specifically designed to withstand atmospheric re-entry and allow the occupant to reach a planet’s surface safely. They feature a liquid-cooled thermal regulation system, a closed-loop oxygen system with chemical scrubbers, small gas jets, a drogue chute, and a conventional parachute. High-dive suits are made of fullerene with a refractory metal coating and an opaque sapphire faceplate. A mini-oxygen tank and rebreather provide the wearer with 3 hours worth of breathing air. A high-dive suit compares to light body armor in terms of general protection, though its refractive glazing and heat-transfer systems provide extra protection against energy weapons (AV 13/10). Because of its thermal dampening systems (see p. 313, EP), a high-dive suit also makes its wearer difficult to spot with thermal sensors (–30 modifier to Perception Tests), unless they are entering atmosphere, in which case they are difficult to miss (+30). Note that high-dive suits were designed for (unpow- ered) descent only—they are not equipped for any sort of powered flight.",
+    price = Cost.High,
+    source = Sources.sunward,
+    sourcePage = 167);
+
+  val mercurySuit = Gear(
+    name = "Mercury Suit",
+    category = c,
+    descr = "These modified hard suits feature extreme heat and radiation shielding, enabling an occupant to survive on Mercury’s surface under both day and night conditions. They have all of the standard features of hard suits (p. 334, EP) except that they can withstand temperatures of –200º to 500ºC. The extra protection hinders the wearer’s movement; reduce Movement rate by half and apply a –10 modifier to all COO-linked tests.",
+    price = Cost.Expensive,
+    source = Sources.sunward,
+    sourcePage = 168);
+
+  val pressureTent2 = Gear(
+    name = "Pressure Tent (2P)",
+    category = c,
+    descr = "This is a collapsible shelter for two people, plus gear. Pressure tents contain heating and will inflate with a breathable atmosphere using a breather- like device.",
+    price = Cost.Low,
+    source = Sources.sunward,
+    sourcePage = 168);
+
+  val pressureTent4 = Gear(
+    name = "Pressure Tent (4P)",
+    category = c,
+    descr = "This is a collapsible shelter for four people, plus gear. Pressure tents contain heating and will inflate with a breathable atmosphere using a breather- like device.",
+    price = Cost.Moderate,
+    source = Sources.sunward,
+    sourcePage = 168);
+
+  val solarSurvivalSuit = Gear(
+    name = "Solar Survival Suit",
+    category = c,
+    descr = "Solar survival suits are hard suits with special modifications, equivalent to the coronal adaptation trait (p. 164). The survival suit also possesses an extremely powerful emergency beacon, strong enough to punch through the sun’s electromagnetic background roar. The built-in maker provides enough air, water, and food for the wearer to survive indefinitely. Solar survival suits provide armor of AV 20/15. In the event that a survivor is subjected to a coronal mass ejection, the suit’s effectiveness is drastically reduced. Subjected to high density plasma with temperatures reaching tens of millions Kelvins, the suit will only protect the wearer for a few seconds at best—just long enough for a survivor to access their cortical stack’s emergency farcaster before being vaporized.",
+    price = Cost.Expensive,
+    source = Sources.sunward,
+    sourcePage = 168);
+
+  val venusSuit = Gear(
+    name = "Venus Suit",
+    category = c,
+    descr = "Venus suits have the same characteristics as Mercury suits, plus they are specially modified to protect a biomorph from the crushing pressure on Venus’s surface.",
+    price = Cost.Expensive,
+    source = Sources.sunward,
+    sourcePage = 168);
+
   val list: List[Gear] = Macros.memberList[Gear];
 }
