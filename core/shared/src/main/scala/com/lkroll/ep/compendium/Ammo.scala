@@ -57,7 +57,7 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
     case None    => s"$name (${dmgString} DV, AP $ap)"
   };
 
-  def dmgString: String = if (weapon.dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10%${dmgDiv}+${dmgConst}";
+  def dmgString: String = if (weapon.dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10÷${dmgDiv}+${dmgConst}";
 }
 
 sealed trait APMod extends ChatRenderable {

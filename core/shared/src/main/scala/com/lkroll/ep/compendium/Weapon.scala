@@ -34,7 +34,7 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     case _: WeaponType.Thrown => "Thrown Weapon"
   };
   override def templateKV: Map[String, String] = this.`type`.templateKV ++
-    Map("Damage" -> (if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10%${dmgDiv}+${dmgConst}")) ++
+    Map("Damage" -> (if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10÷${dmgDiv}+${dmgConst}")) ++
     dmgType.templateKV ++
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
     Map(
