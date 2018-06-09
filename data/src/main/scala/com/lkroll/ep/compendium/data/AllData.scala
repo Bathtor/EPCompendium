@@ -34,6 +34,9 @@ object AllData {
     TraitsPositiveEP.list,
     TraitsNegativeEP.list,
     TraitsPositiveTranshuman.list,
+    TraitsFirewall.list,
+    TraitsGatecrashing.list,
+    TraitsPanopticon.list,
     TraitsRimward.list,
     TraitsSunward.list);
   val derangements: List[List[Derangement]] = List(Derangements.list);
