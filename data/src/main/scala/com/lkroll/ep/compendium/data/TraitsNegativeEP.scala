@@ -224,7 +224,7 @@ object TraitsNegativeEP {
     sourcePage = 150);
    
    val lemon = EPTrait(
-    name = "Incompetent",
+    name = "Lemon",
     traitType = Negative,
     applicability = Morph,
     descr = "This trait is only available for synthetic morphs. This particular morph has some unfixable flaws. Once per game session (preferably at a time that will maximize drama or hilarity), the gamemaster can call for the character to make a MOX × 10 Test (using their current Moxie score). If the character fails, the morph immediately suffers 1 wound resulting from some mechanical failure, electrical glitch, or other breakdown. This wound may be repaired as normal.",
@@ -367,8 +367,8 @@ object TraitsNegativeEP {
     source = Sources.ep,
     sourcePage = 151);
    
-   val severAllergyUncommon = EPTrait(
-    name = "Sever Allergy Uncommon",
+   val severeAllergyUncommon = EPTrait(
+    name = "Severe Allergy Uncommon",
     traitType = Negative,
     applicability = Morph,
     descr = "The morph’s biochemistry suffers a severe allergic reaction (anaphylaxis) when it comes into contact (touched, inhaled, or ingested) with a specific allergen. The allergen may be common (dust, dander, plant pollen, certain foods, latex) or uncommon (certain drugs, insect stings). The player and gamemaster should agree on an allergen that fits the game. If exposed to the allergen, the character breaks into hives, has difficulty to breathing (–30 modifier to all actions), and must make a DUR Test or go into anaphylactic shock (dying of respiratory failure in 2d10 minutes unless medical care is applied). This trait is only available to biomorphs.",
@@ -376,8 +376,8 @@ object TraitsNegativeEP {
     source = Sources.ep,
     sourcePage = 151);
    
-   val severAllergyCommon = EPTrait(
-    name = "Sever Allergy Common",
+   val severeAllergyCommon = EPTrait(
+    name = "Severe Allergy Common",
     traitType = Negative,
     applicability = Morph,
     descr = "The morph’s biochemistry suffers a severe allergic reaction (anaphylaxis) when it comes into contact (touched, inhaled, or ingested) with a specific allergen. The allergen may be common (dust, dander, plant pollen, certain foods, latex) or uncommon (certain drugs, insect stings). The player and gamemaster should agree on an allergen that fits the game. If exposed to the allergen, the character breaks into hives, has difficulty to breathing (–30 modifier to all actions), and must make a DUR Test or go into anaphylactic shock (dying of respiratory failure in 2d10 minutes unless medical care is applied). This trait is only available to biomorphs.",

@@ -44,7 +44,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 87);
   
   val botchedUplift = EPTrait(
-    name = "Botched Uplift (Uplifts Only)",
+    name = "Botched Uplift",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to uplifts. Although possessed of a rough self-awareness and the trappings of sapience, your mental development is flawed. Despite the best efforts of your creators and teachers, you cannot ever fully overcome your mental limitations and serious social awkwardness. Even psychosurgery is unlikely to fix you. You have an aptitude maximum of 10 for both COG or SAV. You have difficulty keeping up with others in complex social situations and are likely highly reliant on your muse to organize your life and coach you through your daily affairs. Whoever does interact with you likely treats you with either contempt or pity, as your difficulties are apparent to anyone who has more than the briefest exchanges with you.",
@@ -53,16 +53,16 @@ object TraitsNegativeTranshuman {
     sourcePage = 87);
   
   val curbedIntelligence = EPTrait(
-    name = "Curbed Intelligence (AGI Only)",
+    name = "Curbed Intelligence",
     traitType = Negative,
     applicability = Ego,
-    descr = "Fearful of AGIs that might develop into seed AIs like the TITANs, some developers have programmed extra safeguards and precautions into AGI mind-states to limit their intelligence. The aptitude maximum for COG for this AGI character is 15.",
+    descr = "This trait is only available to AGIs. Fearful of AGIs that might develop into seed AIs like the TITANs, some developers have programmed extra safeguards and precautions into AGI mind-states to limit their intelligence. The aptitude maximum for COG for this AGI character is 15.",
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 88);
    
   val debtLevel1 = EPTrait(
-    name = "Debt Level1",
+    name = "Debt (Level 1)",
     traitType = Negative,
     applicability = Ego,
     descr = "The character is in debt to a loan shark or powerful organization that demands regular payments. The debt may be the result of a legitimate loan or the character may be a victim of extortion. Either way, the character is expected to pay, with an interest rate that is far above standard (and possibly illegal), and the creditor organization will not take no for an answer. The approximate level of debt is equal to the following amount: Level 1: 20,000 credits (plus 1d10 x 500 credits in weekly interest) Level 2: 40,000 credits (plus 2d10 x 500 credits in weekly interest) Level 3: 60,000 credits (plus 3d10 x 500 credits in weekly interest) Each week the character is expected to make a payment on the debt equal to the weekly interest. Failure to do so will cause the creditor organization to retaliate, which can take any number of forms. Hypercorp creditors may lower the character’s rep by publicly declaring them a deadbeat while criminal syndicates may send ego hunters to extract full payment. Many organizations employ debt collectors that know how to get money from reluctant debtors one way or the other. If the character completely reneges on this debt, they gain the Black Mark (Level 2) and Enemy traits. Characters may be given the option of working off their weekly interest payment—or even their entire debt—by performing a job or other favor for the creditor organization. Generally, this will be a high risk mission for which the organization does not want to use its own personnel, such as retrieval of data from an exsurgent-infested abandoned habitat or assassinating the head of a Martian crime syndicate. The higher the debt is, the more dangerous or difficult the mission will be.",
@@ -71,7 +71,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 88);
   
    val debtLevel2 = EPTrait(
-    name = "Debt Level2",
+    name = "Debt (Level 2)",
     traitType = Negative,
     applicability = Ego,
     descr = "The character is in debt to a loan shark or powerful organization that demands regular payments. The debt may be the result of a legitimate loan or the character may be a victim of extortion. Either way, the character is expected to pay, with an interest rate that is far above standard (and possibly illegal), and the creditor organization will not take no for an answer. The approximate level of debt is equal to the following amount: Level 1: 20,000 credits (plus 1d10 x 500 credits in weekly interest) Level 2: 40,000 credits (plus 2d10 x 500 credits in weekly interest) Level 3: 60,000 credits (plus 3d10 x 500 credits in weekly interest) Each week the character is expected to make a payment on the debt equal to the weekly interest. Failure to do so will cause the creditor organization to retaliate, which can take any number of forms. Hypercorp creditors may lower the character’s rep by publicly declaring them a deadbeat while criminal syndicates may send ego hunters to extract full payment. Many organizations employ debt collectors that know how to get money from reluctant debtors one way or the other. If the character completely reneges on this debt, they gain the Black Mark (Level 2) and Enemy traits. Characters may be given the option of working off their weekly interest payment—or even their entire debt—by performing a job or other favor for the creditor organization. Generally, this will be a high risk mission for which the organization does not want to use its own personnel, such as retrieval of data from an exsurgent-infested abandoned habitat or assassinating the head of a Martian crime syndicate. The higher the debt is, the more dangerous or difficult the mission will be.",
@@ -80,7 +80,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 88);
    
    val debtLevel3 = EPTrait(
-    name = "Debt Level3",
+    name = "Debt (Level 3)",
     traitType = Negative,
     applicability = Ego,
     descr = "The character is in debt to a loan shark or powerful organization that demands regular payments. The debt may be the result of a legitimate loan or the character may be a victim of extortion. Either way, the character is expected to pay, with an interest rate that is far above standard (and possibly illegal), and the creditor organization will not take no for an answer. The approximate level of debt is equal to the following amount: Level 1: 20,000 credits (plus 1d10 x 500 credits in weekly interest) Level 2: 40,000 credits (plus 2d10 x 500 credits in weekly interest) Level 3: 60,000 credits (plus 3d10 x 500 credits in weekly interest) Each week the character is expected to make a payment on the debt equal to the weekly interest. Failure to do so will cause the creditor organization to retaliate, which can take any number of forms. Hypercorp creditors may lower the character’s rep by publicly declaring them a deadbeat while criminal syndicates may send ego hunters to extract full payment. Many organizations employ debt collectors that know how to get money from reluctant debtors one way or the other. If the character completely reneges on this debt, they gain the Black Mark (Level 2) and Enemy traits. Characters may be given the option of working off their weekly interest payment—or even their entire debt—by performing a job or other favor for the creditor organization. Generally, this will be a high risk mission for which the organization does not want to use its own personnel, such as retrieval of data from an exsurgent-infested abandoned habitat or assassinating the head of a Martian crime syndicate. The higher the debt is, the more dangerous or difficult the mission will be.",
@@ -89,7 +89,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 88);
   
    val defferedIndentureLevel1 = EPTrait(
-    name = "Deffered Indenture Level1",
+    name = "Deferred Indenture (Level 1)",
     traitType = Negative,
     applicability = Ego,
     descr = "Due to a prior contract or sentence, this character has a pending indenture that has yet to be redeemed. The character is legally obligated to perform whatever work is asked of them to repay their debt. At Level 1, the value of the indenture is equivalent to 5,000 credits or a Level 4 favor. At Level 2, it is worth 20,000 credits or a Level 5 favor. At Level 3, the indenture is worth 40,000 credits or two Level 5 favors. If the indenture is not honored when called in, the character will be subject to the legal consequences, up to and including pursuit by law enforcement and additional criminal penalties from the originating jurisdiction. Gamemasters and players should outline the circumstances that led to the establishment of the indenture.",
@@ -98,7 +98,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 88);
    
    val defferedIndentureLevel2 = EPTrait(
-    name = "Deffered Indenture Level2",
+    name = "Deferred Indenture (Level 2)",
     traitType = Negative,
     applicability = Ego,
     descr = "Due to a prior contract or sentence, this character has a pending indenture that has yet to be redeemed. The character is legally obligated to perform whatever work is asked of them to repay their debt. At Level 1, the value of the indenture is equivalent to 5,000 credits or a Level 4 favor. At Level 2, it is worth 20,000 credits or a Level 5 favor. At Level 3, the indenture is worth 40,000 credits or two Level 5 favors. If the indenture is not honored when called in, the character will be subject to the legal consequences, up to and including pursuit by law enforcement and additional criminal penalties from the originating jurisdiction. Gamemasters and players should outline the circumstances that led to the establishment of the indenture.",
@@ -107,7 +107,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 88);
    
    val defferedIndentureLevel3 = EPTrait(
-    name = "Deffered Indenture Level3",
+    name = "Deferred Indenture (Level 3)",
     traitType = Negative,
     applicability = Ego,
     descr = "Due to a prior contract or sentence, this character has a pending indenture that has yet to be redeemed. The character is legally obligated to perform whatever work is asked of them to repay their debt. At Level 1, the value of the indenture is equivalent to 5,000 credits or a Level 4 favor. At Level 2, it is worth 20,000 credits or a Level 5 favor. At Level 3, the indenture is worth 40,000 credits or two Level 5 favors. If the indenture is not honored when called in, the character will be subject to the legal consequences, up to and including pursuit by law enforcement and additional criminal penalties from the originating jurisdiction. Gamemasters and players should outline the circumstances that led to the establishment of the indenture.",
@@ -134,7 +134,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 88);
    
    val domineering = EPTrait(
-    name = "Domineering (Uplifts Only)",
+    name = "Domineering",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to uplifts and is most common among neo-hominids. The character retains pre-sapient neurological urges to gain social status via dominance. The character must make a WIL x 2 Test to use Persuasion skill in any situation where they can safely deploy Intimidation skill instead. Additionally, they must make a WIL x 3 Test to avoid responding to acts of intimidation with threat displays or violence, though such violence need not be lethal (note that they will still back down if someone successfully uses Intimidation skill on them). Since the evolutionary purpose of dominance structures is to minimize conflict, domineering uplifts prefer to surround themselves with submissives and will avoid entering situations where they know their dominance might be challenged. Such domineering characters often suffer poor reputations in modern transhuman reputation networks. They may not start with a rep score higher than 40 in any rep network other than Guanxi.",
@@ -152,7 +152,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 89);
    
    val emotiveBlindness = EPTrait(
-    name = "Emotive Blindness (AGIs and Uplifts Only)",
+    name = "Emotive Blindness",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to AGIs and uplifts. This character has difficulty reading the finer points of social cues, body language, expressions, emoting, and so forth for any transhuman outside of its own species. Apply a −10 modifier to Kinesics Tests used against anyone not of the same species as the character.",
@@ -215,7 +215,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 90);
    
    val impairedProprioception = EPTrait(
-    name = "Impairer Proprioception (Octomorphs and Flying Squid Only)",
+    name = "Impaired Proprioception",
     traitType = Negative,
     applicability = Morph,
     descr = "This trait is only available to octomorphs and flying squid morphs. Baseline cephalopods lack a sense of proprioception in their arms and tentacles, meaning they only know where their limbs are by looking at them. Though a standard proprioceptive sense was added to most octomorph and flying squid models, a number of germlines lack the proper neural structure. A morph with this trait suffers a −10 modifier on Fray Tests to avoid attacks or get out of the way and gains no benefits from the Ambidextrous trait.",
@@ -350,7 +350,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 93); 
    
    val solitary = EPTrait(
-    name = "Solitary (Neo-Octopi Only)",
+    name = "Solitary",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to neo-octopi uplifts. Like its pre-sapient kin, this uplift prefers solitude and has not been fully socialized. As a result, they can only tolerate 2 hours of direct interaction (physical or virtual) with others before they need a break and some alone time (at least 2 hours). If forced into a situation where they must interact or exist in close proximity to others for more than 2 hours, they suffer a cumulative −10 modifier to all Social Skill Tests per 2-hour period, up to a maximum of −30. After 6 hours, they must a WIL x 3 Test to keep their composure and not react towards those around them with aggression, hostility, or even violence. This trait is usually taken in conjunction with the Hardening (Isolation) trait.",
@@ -359,7 +359,7 @@ object TraitsNegativeTranshuman {
     sourcePage = 93); 
    
    val submissive = EPTrait(
-    name = "Submissive (Uplifts Only)",
+    name = "Submissive",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to uplifts. This character retains a tendency to submit to displays of dominance, inherited from their pre-sapient forebears. The character suffers a −20 modifier in Opposed Tests against Intimidation from NPCs with perceived social status.",
