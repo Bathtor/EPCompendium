@@ -34,6 +34,7 @@ object AllData {
     TraitsPositiveEP.list,
     TraitsNegativeEP.list,
     TraitsPositiveTranshuman.list,
+    TraitsNegativeTranshuman.list,
     TraitsFirewall.list,
     TraitsGatecrashing.list,
     TraitsPanopticon.list,
