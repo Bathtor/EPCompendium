@@ -12,7 +12,7 @@ object TraitsNegativeEP {
     traitType = Negative,
     applicability = Both,
     descr = "Addiction comes in two forms: mental (affecting the ego) and physical (affecting the biomorph). The character or morph is addicted to a drug (p. 317), stimulus (XP), or activity (mesh use) to a degree that impacts the character’s physical or mental health. Players and gamemasters should work together to agree on addictions that are appropriate for their game. Addiction comes in three levels of severity: minor, moderate, or major. A minor addiction is largely kept under control—it does not ruin the character’s life, though it may create some difficulties. The character may not even recognize or admit they have a problem. The character must indulge the addiction at least once a week, though they can go for longer without too much difficulty. If they fail to get their weekly dose, they suffer a –10 modifier on all actions until they get their fix.",
-    cp = 10,
+    cp = 5,
     source = Sources.ep,
     sourcePage = 148);
   
@@ -21,7 +21,7 @@ object TraitsNegativeEP {
     traitType = Negative,
     applicability = Both,
     descr = "Addiction comes in two forms: mental (affecting the ego) and physical (affecting the biomorph). The character or morph is addicted to a drug (p. 317), stimulus (XP), or activity (mesh use) to a degree that impacts the character’s physical or mental health. Players and gamemasters should work together to agree on addictions that are appropriate for their game. Addiction comes in three levels of severity: minor, moderate, or major. A moderate addiction is in full swing. The character obviously has a problem, and must satisfy the addiction at least once a day. If they fail to do so, they may suffer mood swings, compulsive behavior, physical sickness, or other side effects until they indulge their craving. Apply a –20 modifier to all of the character’s actions until they get their fix. Additionally, a character with this level of addiction suffers a penalty of –5 DUR (physical addiction) or –10 to Willpower Stress Tests (mental addiction).",
-    cp = 20,
+    cp = 10,
     source = Sources.ep,
     sourcePage = 148);
    
@@ -30,7 +30,7 @@ object TraitsNegativeEP {
     traitType = Negative,
     applicability = Both,
     descr = "Addiction comes in two forms: mental (affecting the ego) and physical (affecting the biomorph). The character or morph is addicted to a drug (p. 317), stimulus (XP), or activity (mesh use) to a degree that impacts the character’s physical or mental health. Players and gamemasters should work together to agree on addictions that are appropriate for their game. Addiction comes in three levels of severity: minor, moderate, or major. A character with a major addiction is on the rapid road to ruin. They face cravings every 6 hours and suffer a penalty of –10 DUR (physical addiction) or –20 to Willpower Stress Tests (mental addiction). If they fail to get their regular dosage, they suffer a –30 modifier on all actions until they do. If their life hasn’t already been ruined by their obsession, it soon will be.",
-    cp = 30,
+    cp = 20,
     source = Sources.ep,
     sourcePage = 148);
 
