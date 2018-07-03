@@ -26,10 +26,7 @@ object Ammo {
 case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
   def name: String = s"${weapon.name}≣${ammo.name}";
   def descr: String = weapon.descr + "\n---\n" + ammo.descr;
-  def dmgD10: Int = ammo.dmgMod.modifyD10(weapon.dmgD10);
-  def dmgDiv: Int = ammo.dmgMod.modifyDiv(weapon.dmgD10, weapon.dmgDiv);
-  def dmgConst: Int = ammo.dmgMod.modifyConst(weapon.dmgConst);
-  def dmgType: DamageType = ammo.typeMod.modify(weapon.dmgType);
+  def damage: Damage = ammo.dmgMod.modify(weapon.damage);
   def area: DamageArea = ammo.areaMod.modify(weapon.area);
   def effect: Option[String] = ammo.dmgMod.modifyEffect(weapon.effect);
   def ap: Int = ammo.apMod.modifyAP(weapon.ap);
@@ -41,8 +38,7 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
     case _: WeaponType.Thrown => "Thrown Weapon with Ammo"
   };
   override def templateKV: Map[String, String] = this.weapon.`type`.templateKV ++
-    Map("Damage" -> dmgString) ++
-    weapon.dmgType.templateKV ++
+    damage.templateKV ++
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
     Map(
       "AP" -> ap.toString,
@@ -53,11 +49,9 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
   override def templateDescr: String = descr;
 
   def summaryString: String = effect match {
-    case Some(e) => s"$name (${dmgString} DV, AP $ap, $e)"
-    case None    => s"$name (${dmgString} DV, AP $ap)"
+    case Some(e) => s"$name (${damage.dmgString} DV, AP $ap, $e)"
+    case None    => s"$name (${damage.dmgString} DV, AP $ap)"
   };
-
-  def dmgString: String = if (weapon.dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10÷${dmgDiv}+${dmgConst}";
 }
 
 sealed trait APMod extends ChatRenderable {
@@ -83,7 +77,7 @@ object APMod {
 }
 
 sealed trait DamageTypeMod extends ChatRenderable {
-  def modify(damageType: DamageType): DamageType;
+  def modify(damage: Damage): Damage;
   def text: String;
   override def templateKV: Map[String, String] = Map("Damage Type Modifier" -> text);
 }
@@ -94,12 +88,12 @@ object DamageTypeMod {
 
   @upickle.key("Id")
   case object Id extends DamageTypeMod {
-    override def modify(damageType: DamageType): DamageType = damageType;
+    override def modify(damage: Damage): Damage = damage;
     override def text: String = "–";
   }
   @upickle.key("Replace")
   case class Replace(damageType: DamageType) extends DamageTypeMod {
-    override def modify(damageType: DamageType): DamageType = this.damageType;
+    override def modify(damage: Damage): Damage = damage.copy(dmgType = this.damageType);
     override def text: String = this.damageType.toString();
   }
 }
@@ -145,6 +139,12 @@ object DamageAreaMod {
 }
 
 sealed trait DamageMod extends ChatRenderable {
+  def modify(dmg: Damage): Damage = {
+    dmg.copy(
+      dmgD10 = modifyD10(dmg.dmgD10),
+      dmgDiv = modifyDiv(dmg.dmgD10, dmg.dmgDiv),
+      dmgConst = modifyConst(dmg.dmgConst))
+  }
   def modifyD10(dmg: Int): Int;
   def modifyDiv(dmgD10: Int, divisor: Int): Int;
   def modifyConst(dmg: Int): Int;

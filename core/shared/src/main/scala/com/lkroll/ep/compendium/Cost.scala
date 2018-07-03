@@ -80,7 +80,4 @@ object Cost {
     override def increment: Cost = ExpensivePlus(minimum + 5000);
     override def decrement: Cost = if (minimum < 25000) Expensive else ExpensivePlus(minimum - 5000);
   }
-  //  object ExpensivePlus {
-  //    implicit def rw: RW[ExpensivePlus] = macroRW;
-  //  }
 }

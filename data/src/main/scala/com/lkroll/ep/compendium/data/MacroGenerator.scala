@@ -19,6 +19,7 @@ object MacroGenerator {
   val disorders = addWrapper(Disorder.dataType, AllData.disorders.flatten.map(_.name).sorted.mkString(sep));
   val armour = addWrapper(Armour.dataType, AllData.armour.flatten.map(_.name).sorted.mkString(sep));
   val gear = addWrapper(Gear.dataType, AllData.gear.flatten.map(_.name).sorted.mkString(sep));
+  val substances = addWrapper(Substance.dataType, AllData.substances.flatten.map(_.name).sorted.mkString(sep));
   val software = addWrapper(Software.dataType, AllData.software.flatten.map(_.name).sorted.mkString(sep));
   val data = List(
     weapons,
@@ -30,6 +31,7 @@ object MacroGenerator {
     disorders,
     armour,
     gear,
+    substances,
     software,
     weaponWithAmmo).mkString("\n");
 

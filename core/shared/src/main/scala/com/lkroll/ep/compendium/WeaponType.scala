@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
 sealed trait WeaponType extends ChatRenderable {
   def skill: String;
@@ -127,18 +128,12 @@ object WeaponType {
   }
 }
 
-sealed trait MissileSize {
+sealed trait MissileSize extends EnumEntry {
   def label: String;
   def adjust(dmgMod: DamageMod): DamageMod;
   def adjust(areaMod: DamageAreaMod): DamageAreaMod;
 }
-object MissileSize {
-  implicit def rw: RW[MissileSize] = RW.merge(
-    macroRW[StandardMissile.type],
-    macroRW[Minimissile.type],
-    macroRW[Micromissile.type]);
-
-  @upickle.key("StandardMissile")
+object MissileSize extends Enum[MissileSize] with UPickleEnum[MissileSize] {
   case object StandardMissile extends MissileSize {
     override def label: String = "Standard Missile";
     override def adjust(dmgMod: DamageMod): DamageMod = dmgMod ++ DamageMod.Double;
@@ -151,14 +146,12 @@ object MissileSize {
     };
   }
 
-  @upickle.key("Minimissile")
   case object Minimissile extends MissileSize {
     override def label: String = "Minimissile";
     override def adjust(dmgMod: DamageMod): DamageMod = dmgMod;
     override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod;
   }
 
-  @upickle.key("Micromissile")
   case object Micromissile extends MissileSize {
     override def label: String = "Micromissile";
     override def adjust(dmgMod: DamageMod): DamageMod = dmgMod ++ DamageMod.Const(-1, 0);
@@ -170,4 +163,6 @@ object MissileSize {
       case DamageAreaMod.Id            => DamageAreaMod.DivRadius(2)
     };
   }
+
+  val values = findValues;
 }

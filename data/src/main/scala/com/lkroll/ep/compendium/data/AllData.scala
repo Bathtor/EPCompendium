@@ -54,6 +54,7 @@ object AllData {
     Sensors.list,
     ExplorationGear.list,
     XenoarcheologyGear.list);
+  val substances: List[List[Substance]] = List(Drugs.list);
   val software: List[List[Software]] = List(SoftwareEP.list, SoftwarePlugins.list);
 
   val authors: Map[String, String] = Map(

@@ -1,34 +1,19 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
-sealed trait MorphType extends ChatRenderable {
-  def label: String;
+sealed trait MorphType extends EnumEntry with ChatRenderable {
+  def label: String = this.entryName;
   override def templateKV: Map[String, String] = Map("Morph Type" -> label);
 }
-object MorphType {
-  implicit def rw: RW[MorphType] = RW.merge(
-    macroRW[Biomorph.type],
-    macroRW[Infomorph.type],
-    macroRW[Pod.type],
-    macroRW[Synthmorph.type]);
+object MorphType extends Enum[MorphType] with UPickleEnum[MorphType] {
+  case object Biomorph extends MorphType;
+  case object Infomorph extends MorphType;
+  case object Pod extends MorphType;
+  case object Synthmorph extends MorphType;
 
-  @upickle.key("Biomorph")
-  case object Biomorph extends MorphType {
-    override def label: String = "Biomorph";
-  }
-  @upickle.key("Infomorph")
-  case object Infomorph extends MorphType {
-    override def label: String = "Infomorph";
-  }
-  @upickle.key("Pod")
-  case object Pod extends MorphType {
-    override def label: String = "Pod";
-  }
-  @upickle.key("Synthmorph")
-  case object Synthmorph extends MorphType {
-    override def label: String = "Synthmorph";
-  }
+  val values = findValues;
 }
 
 case class MorphModel(name: String, morphType: MorphType, descr: String,

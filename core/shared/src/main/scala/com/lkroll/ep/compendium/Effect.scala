@@ -1,0 +1,89 @@
+package com.lkroll.ep.compendium
+
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+
+sealed trait Effect {
+  def text: String;
+}
+object Effect {
+  implicit def rw: RW[Effect] = RW.merge(
+    macroRW[SpeedMod],
+    macroRW[AptitudeMod],
+    macroRW[SkillMod],
+    macroRW[DurMod],
+    macroRW[IgnoreWounds],
+    macroRW[IgnoreTraumas],
+    macroRW[LucMod],
+    macroRW[DamageEffect],
+    macroRW[FreeForm]);
+
+  def render(l: List[Effect]) = l.foldLeft("")((acc, e) => if (acc.isEmpty()) {
+    e.text
+  } else {
+    acc + " & " + e.text
+  });
+
+  private def modToString(i: Int): String = if (i > 0) s"+$i" else i.toString;
+
+  @upickle.key("SpeedMod")
+  case class SpeedMod(mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} SPD";
+  }
+
+  @upickle.key("AptitudeMod")
+  case class AptitudeMod(apt: Aptitude, mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} ${apt.label}";
+  }
+
+  @upickle.key("SkillMod")
+  case class SkillMod(skill: String, mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} $skill skill";
+  }
+
+  @upickle.key("DurMod")
+  case class DurMod(mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} DUR";
+  }
+
+  @upickle.key("IgnoreWounds")
+  case class IgnoreWounds(n: Int) extends Effect {
+    override def text: String = s"Ignore modifiers from $n wounds";
+  }
+
+  @upickle.key("IgnoreTraumas")
+  case class IgnoreTraumas(n: Int) extends Effect {
+    override def text: String = s"Ignore modifiers from $n traumas";
+  }
+
+  @upickle.key("LucMod")
+  case class LucMod(mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} LUC";
+  }
+
+  @upickle.key("DamageEffect")
+  case class DamageEffect(dmg: Damage, freq: Time) extends Effect {
+    override def text: String = s"${dmg.dmgString}DV every ${freq.renderLong}";
+  }
+
+  @upickle.key("FreeForm")
+  case class FreeForm(text: String) extends Effect;
+}
+
+sealed trait Aptitude extends EnumEntry {
+  def label: String = this.entryName;
+
+  def +(mod: Int): Effect.AptitudeMod = Effect.AptitudeMod(this, mod);
+  def -(mod: Int): Effect.AptitudeMod = Effect.AptitudeMod(this, -mod);
+}
+object Aptitude extends Enum[Aptitude] with UPickleEnum[Aptitude] {
+  case object COG extends Aptitude;
+  case object COO extends Aptitude;
+  case object INT extends Aptitude;
+  case object REF extends Aptitude;
+  case object SAV extends Aptitude;
+  case object SOM extends Aptitude;
+  case object WIL extends Aptitude;
+
+  val values = findValues;
+}

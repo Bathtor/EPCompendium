@@ -1,51 +1,41 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
-sealed trait TraitType {
+sealed trait TraitType extends EnumEntry {
   def modifyName(name: String): String;
 }
-object TraitType {
-  implicit def rw: RW[TraitType] = RW.merge(
-    macroRW[Positive.type],
-    macroRW[Negative.type],
-    macroRW[Neutral.type]);
+object TraitType extends Enum[TraitType] with UPickleEnum[TraitType] {
 
-  @upickle.key("Positive")
   case object Positive extends TraitType {
     override def modifyName(name: String): String = s"+ $name";
   }
-  @upickle.key("Negative")
   case object Negative extends TraitType {
     override def modifyName(name: String): String = s"- $name";
   }
-  @upickle.key("Neutral")
   case object Neutral extends TraitType {
     override def modifyName(name: String): String = s"· $name";
   }
+
+  val values = findValues;
 }
 
-sealed trait TraitApplicability {
+sealed trait TraitApplicability extends EnumEntry {
   def label: String;
 }
-object TraitApplicability {
-  implicit def rw: RW[TraitApplicability] = RW.merge(
-    macroRW[Ego.type],
-    macroRW[Morph.type],
-    macroRW[Both.type]);
-
-  @upickle.key("Ego")
+object TraitApplicability extends Enum[TraitApplicability] with UPickleEnum[TraitApplicability] {
   case object Ego extends TraitApplicability {
     override def label: String = "Ego trait";
   }
-  @upickle.key("Morph")
   case object Morph extends TraitApplicability {
     override def label: String = "Morph trait";
   }
-  @upickle.key("Both")
   case object Both extends TraitApplicability {
     override def label: String = "Ego or Morph trait";
   }
+
+  val values = findValues;
 }
 
 case class EPTrait(name: String, traitType: TraitType, applicability: TraitApplicability,

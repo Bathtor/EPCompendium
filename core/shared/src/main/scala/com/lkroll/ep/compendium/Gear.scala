@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
 case class Gear(name: String, category: String, descr: String, price: Cost,
                 source: String, sourcePage: Int) extends ChatRenderable {
@@ -143,4 +144,80 @@ object SoftwareQuality {
   case class Alien(modifier: Int) extends SoftwareQuality {
     override def label: String = "Alien";
   }
+}
+
+case class Substance(name: String, category: String, classification: SubstanceClassification,
+                     application: ApplicationMethod, addiction: Option[Addiction],
+                     onset: Time, duration: Time, effects: List[Effect],
+                     descr: String, price: Cost,
+                     source: String, sourcePage: Int) extends ChatRenderable {
+  override def templateTitle: String = name;
+  override def templateSubTitle: String = category;
+  override def templateKV: Map[String, String] = classification.templateKV ++
+    application.templateKV ++
+    addiction.map(_.templateKV).getOrElse(Map.empty) ++
+    Map(
+      "Onset Time" -> onset.renderLong,
+      "Duration" -> duration.renderLong,
+      "Effect" -> effects.map(_.text).mkString(", ")) ++
+      price.templateKV ++
+      Map("Source" -> s"$source p.${sourcePage}");
+  override def templateDescr: String = descr;
+}
+object Substance {
+  implicit def rw: RW[Substance] = macroRW;
+  val dataType: String = "substance";
+}
+
+case class Addiction(`type`: AddictionType, mod: Int) extends ChatRenderable {
+  override def templateKV: Map[String, String] = Map(
+    "Addiction Type" -> this.`type`.entryName,
+    "Addiction Modifier" -> this.mod.toString);
+}
+object Addiction {
+  implicit def rw: RW[Addiction] = macroRW;
+}
+
+sealed trait AddictionType extends EnumEntry;
+object AddictionType extends Enum[AddictionType] with UPickleEnum[AddictionType] {
+
+  case object Mental extends AddictionType;
+  case object Physical extends AddictionType;
+
+  val values = findValues;
+}
+
+sealed trait SubstanceClassification extends EnumEntry with ChatRenderable {
+  def label: String = this.entryName;
+  override def templateKV: Map[String, String] = Map("Classification" -> label);
+}
+object SubstanceClassification extends Enum[SubstanceClassification] with UPickleEnum[SubstanceClassification] {
+  case object Chemicals extends SubstanceClassification;
+  case object Biologicals extends SubstanceClassification;
+  case object Nanodrugs extends SubstanceClassification;
+  case object Electronic extends SubstanceClassification;
+
+  val values = findValues;
+}
+
+sealed trait ApplicationMethod extends EnumEntry with ChatRenderable {
+  def label: String = this.entryName;
+  def shortLabel: String;
+  override def templateKV: Map[String, String] = Map("Application Method" -> label);
+}
+object ApplicationMethod extends Enum[ApplicationMethod] with UPickleEnum[ApplicationMethod] {
+  case object Dermal extends ApplicationMethod {
+    override def shortLabel: String = "D";
+  }
+  case object Inhalation extends ApplicationMethod {
+    override def shortLabel: String = "INH";
+  }
+  case object Injection extends ApplicationMethod {
+    override def shortLabel: String = "INJ";
+  }
+  case object Oral extends ApplicationMethod {
+    override def shortLabel: String = "O";
+  }
+
+  val values = findValues;
 }

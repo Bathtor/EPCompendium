@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
 case class Derangement(name: String, severity: Severity, descr: String, upgradesTo: List[String] = List.empty,
                        source: String, sourcePage: Int) extends ChatRenderable {
@@ -17,27 +18,13 @@ object Derangement {
   val dataType: String = "derangement";
 }
 
-sealed trait Severity {
-  def label: String;
+sealed trait Severity extends EnumEntry {
+  def label: String = this.entryName;
 }
-object Severity {
-  implicit def rw: RW[Severity] = RW.merge(
-    macroRW[Minor.type],
-    macroRW[Moderate.type],
-    macroRW[Major.type]);
+object Severity extends Enum[Severity] with UPickleEnum[Severity] {
+  case object Minor extends Severity;
+  case object Moderate extends Severity;
+  case object Major extends Severity;
 
-  @upickle.key("Minor")
-  case object Minor extends Severity {
-    override def label: String = "Minor";
-  }
-
-  @upickle.key("Moderate")
-  case object Moderate extends Severity {
-    override def label: String = "Moderate";
-  }
-
-  @upickle.key("Major")
-  case object Major extends Severity {
-    override def label: String = "Major";
-  }
+  val values = findValues;
 }

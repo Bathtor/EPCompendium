@@ -1,29 +1,42 @@
 package com.lkroll.ep.compendium
 
 import util.{ Try, Success, Failure }
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import enumeratum._
+import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
-sealed trait DamageType extends ChatRenderable {
-  def label: String;
+sealed trait DamageType extends EnumEntry with ChatRenderable {
+  def label: String = this.entryName;
   override def templateKV: Map[String, String] = Map("Damage Type" -> label);
 }
-object DamageType {
-  implicit def rw: RW[DamageType] = RW.merge(
-    macroRW[Kinetic.type],
-    macroRW[Energy.type]);
+object DamageType extends Enum[DamageType] with UPickleEnum[DamageType] {
+  case object Kinetic extends DamageType;
+  case object Energy extends DamageType;
+  case object Psychic extends DamageType;
+  case object Untyped extends DamageType;
 
-  @upickle.key("Kinetic")
-  case object Kinetic extends DamageType {
-    override def label: String = "Kinetic";
-  }
-  @upickle.key("Energy")
-  case object Energy extends DamageType {
-    override def label: String = "Energy";
-  }
+  val values = findValues;
+}
+
+case class Damage(dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType = DamageType.Untyped) extends ChatRenderable {
+  override def templateKV: Map[String, String] = Map("Damage" -> dmgString) ++
+    dmgType.templateKV;
+  def dmgString: String = if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10÷${dmgDiv}+${dmgConst}";
+  def +(extraConst: Int): Damage = this.copy(dmgConst = dmgConst + extraConst);
+  def +(extraDice: D10): Damage = this.copy(dmgD10 = dmgD10 + extraDice.num);
+  def kinetic: Damage = this.copy(dmgType = DamageType.Kinetic);
+  def energy: Damage = this.copy(dmgType = DamageType.Energy);
+  def psychic: Damage = this.copy(dmgType = DamageType.Psychic);
+  //  def /(extraDiv: Int): Damage = this.copy(dmgDiv = dmgDiv * extraDiv);
+  //  def *(factor: Int): Damage = this.copy(dmgDiv = dmgDiv * extraDiv);
+}
+object Damage {
+  implicit def rw: RW[Damage] = macroRW;
+
+  val none = Damage(0, 1, 0);
 }
 
 case class Weapon(name: String, `type`: WeaponType, descr: String,
-                  dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType,
+                  damage: Damage,
                   effect: Option[String], ap: Int, area: DamageArea = DamageArea.Point,
                   price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable {
 
@@ -34,8 +47,7 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     case _: WeaponType.Thrown => "Thrown Weapon"
   };
   override def templateKV: Map[String, String] = this.`type`.templateKV ++
-    Map("Damage" -> (if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10÷${dmgDiv}+${dmgConst}")) ++
-    dmgType.templateKV ++
+    damage.templateKV ++
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
     Map(
       "AP" -> ap.toString,
@@ -47,8 +59,8 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
   override def templateDescr: String = descr;
 
   def summaryString: String = effect match {
-    case Some(e) => s"$name (${dmgD10}d10 + $dmgConst DV, AP $ap, $e)"
-    case None    => s"$name (${dmgD10}d10 + $dmgConst DV, AP $ap)"
+    case Some(e) => s"$name (${damage.dmgString} DV, AP $ap, $e)"
+    case None    => s"$name (${damage.dmgString} DV, AP $ap)"
   }
 
   def load(ammo: Ammo): Try[WeaponWithAmmo] = {
@@ -65,9 +77,7 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
           name = s"${this.name} (Railgun)",
           `type` = WeaponType.Railgun,
           descr = this.descr,
-          dmgD10 = this.dmgD10,
-          dmgConst = this.dmgConst + 2,
-          dmgType = DamageType.Kinetic,
+          damage = this.damage + 2,
           effect = this.effect,
           ap = this.ap - 3,
           price = this.price.increment,

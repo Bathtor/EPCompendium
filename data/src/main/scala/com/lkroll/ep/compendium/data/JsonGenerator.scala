@@ -14,6 +14,7 @@ object JsonGenerator {
   val disorders = AllData.disorders.map(d => addWrapper(Disorder.dataType, write(d)));
   val armour = AllData.armour.map(a => addWrapper(Armour.dataType, write(a)));
   val gear = AllData.gear.map(g => addWrapper(Gear.dataType, write(g)));
+  val substances = AllData.substances.map(s => addWrapper(Substance.dataType, write(s)));
   val software = AllData.software.map(s => addWrapper(Software.dataType, write(s)));
   val data = List(
     weapons,
@@ -25,6 +26,7 @@ object JsonGenerator {
     disorders,
     armour,
     gear,
+    substances,
     software).flatten.mkString("", ";\n  ", ";\n");
 
   def generate(open: Boolean): Unit = {
