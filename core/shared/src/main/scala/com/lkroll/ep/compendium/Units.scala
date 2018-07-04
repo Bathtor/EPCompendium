@@ -5,14 +5,16 @@ import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
 trait Units {
   import TimeUnit._;
+  import Time._;
 
   implicit class UnitInt(val i: Int) {
-    def sec: Time = Time(i, Seconds);
-    def turns: Time = Time(i, ActionTurns);
-    def mins: Time = Time(i, Minutes);
-    def hours: Time = Time(i, Hours);
-    def days: Time = Time(i, Days);
+    def sec: Time = TimeNum(i, Seconds);
+    def turns: Time = TimeNum(i, ActionTurns);
+    def mins: Time = TimeNum(i, Minutes);
+    def hours: Time = TimeNum(i, Hours);
+    def days: Time = TimeNum(i, Days);
   }
+  implicit def str2time(s: String): Time = SpecialTime(s);
 }
 
 object Units extends Units;
@@ -29,16 +31,30 @@ case class D10(num: Int) {
   def /(dmgDiv: Int): Damage = Damage(num, dmgDiv, 0);
 }
 
-case class Time(scalar: Int, unit: TimeUnit) {
-  def renderShort: String = s"$scalar${unit.symbol}";
-  def renderLong: String = if (scalar == 1) {
-    s"$scalar ${unit.nameSg}"
-  } else {
-    s"$scalar ${unit.namePl}"
-  };
+sealed trait Time {
+  def renderShort: String;
+  def renderLong: String;
 }
+
 object Time {
-  implicit def rw: RW[Time] = macroRW;
+  implicit def rw: RW[Time] = RW.merge(
+    macroRW[SpecialTime],
+    macroRW[TimeNum])
+
+  @upickle.key("SpecialTime")
+  final case class SpecialTime(s: String) extends Time {
+    override def renderShort: String = s;
+    override def renderLong: String = s;
+  }
+  @upickle.key("TimeNum")
+  final case class TimeNum(scalar: Int, unit: TimeUnit) extends Time {
+    override def renderShort: String = s"$scalar${unit.symbol}";
+    override def renderLong: String = if (scalar == 1) {
+      s"$scalar ${unit.nameSg}"
+    } else {
+      s"$scalar ${unit.namePl}"
+    };
+  }
 }
 sealed trait TimeUnit extends EnumEntry with AnyUnit;
 

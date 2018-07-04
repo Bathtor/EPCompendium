@@ -147,16 +147,16 @@ object SoftwareQuality {
 }
 
 case class Substance(name: String, category: String, classification: SubstanceClassification,
-                     application: ApplicationMethod, addiction: Option[Addiction],
+                     application: List[ApplicationMethod], addiction: Option[Addiction],
                      onset: Time, duration: Time, effects: List[Effect],
                      descr: String, price: Cost,
                      source: String, sourcePage: Int) extends ChatRenderable {
   override def templateTitle: String = name;
   override def templateSubTitle: String = category;
   override def templateKV: Map[String, String] = classification.templateKV ++
-    application.templateKV ++
     addiction.map(_.templateKV).getOrElse(Map.empty) ++
     Map(
+      "Application Method" -> application.map(_.label).mkString(","),
       "Onset Time" -> onset.renderLong,
       "Duration" -> duration.renderLong,
       "Effect" -> effects.map(_.text).mkString(", ")) ++
@@ -173,6 +173,14 @@ case class Addiction(`type`: AddictionType, mod: Int) extends ChatRenderable {
   override def templateKV: Map[String, String] = Map(
     "Addiction Type" -> this.`type`.entryName,
     "Addiction Modifier" -> this.mod.toString);
+
+  def modStr: String = if (mod < 0) {
+    mod.toString
+  } else if (mod == 0) {
+    "–"
+  } else {
+    s"+$mod"
+  };
 }
 object Addiction {
   implicit def rw: RW[Addiction] = macroRW;
@@ -200,10 +208,9 @@ object SubstanceClassification extends Enum[SubstanceClassification] with UPickl
   val values = findValues;
 }
 
-sealed trait ApplicationMethod extends EnumEntry with ChatRenderable {
+sealed trait ApplicationMethod extends EnumEntry {
   def label: String = this.entryName;
   def shortLabel: String;
-  override def templateKV: Map[String, String] = Map("Application Method" -> label);
 }
 object ApplicationMethod extends Enum[ApplicationMethod] with UPickleEnum[ApplicationMethod] {
   case object Dermal extends ApplicationMethod {

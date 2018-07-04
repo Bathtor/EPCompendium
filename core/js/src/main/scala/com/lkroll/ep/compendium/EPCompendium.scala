@@ -24,6 +24,7 @@ object EPCompendium {
   private val armour = mutable.Map.empty[String, Armour];
   private val gear = mutable.Map.empty[String, Gear];
   private val software = mutable.Map.empty[String, Software];
+  private val substances = mutable.Map.empty[String, Substance];
 
   @JSExport
   def addData(version: String, dataType: String, data: js.Any): Unit = {
@@ -40,6 +41,7 @@ object EPCompendium {
       case Armour.dataType        => addArmour(dataS)
       case Gear.dataType          => addGear(dataS)
       case Software.dataType      => addSoftware(dataS)
+      case Substance.dataType     => addSubstances(dataS)
       case _                      => throw new RuntimeException(s"Unkown datatype $dataType")
     }
   }
@@ -57,7 +59,8 @@ object EPCompendium {
       searchIn(lowNeedle, disorders),
       searchIn(lowNeedle, armour),
       searchIn(lowNeedle, gear),
-      searchIn(lowNeedle, software)).flatten;
+      searchIn(lowNeedle, software),
+      searchIn(lowNeedle, substances)).flatten;
     matches.sortBy(_._1).reverse.map(_._2)
   }
 
@@ -221,6 +224,17 @@ object EPCompendium {
   def getSoftware(name: String): Option[Software] = software.get(name);
   def findSoftware(needle: String): Option[Software] = closestMatch(needle, software);
   def findSoftwarePrograms(needle: String): List[Software] = rank(needle, software).map(_._2);
+
+  private def addSubstances(s: String): Unit = {
+    val data = read[List[Substance]](s);
+    data.foreach { s =>
+      substances += (s.name -> s)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} substances.");
+  }
+  def getSubstance(name: String): Option[Substance] = substances.get(name);
+  def findSubstance(needle: String): Option[Substance] = closestMatch(needle, substances);
+  def findSubstances(needle: String): List[Substance] = rank(needle, substances).map(_._2);
 
   private def checkCompatibility(version: String): Unit = {
     val r = for {
