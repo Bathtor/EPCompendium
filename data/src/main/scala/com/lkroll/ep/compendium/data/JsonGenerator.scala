@@ -6,6 +6,7 @@ import java.io.{ File, PrintWriter }
 
 object JsonGenerator {
   val weapons = AllData.weapons.map(w => addWrapper(Weapon.dataType, write(w)));
+  val weaponAccessories = AllData.weaponAccessories.map(w => addWrapper(WeaponAccessory.dataType, write(w)));
   val morphModels = AllData.morphModels.map(m => addWrapper(MorphModel.dataType, write(m)));
   val morphInstances = AllData.morphInstances.map(m => addWrapper(MorphInstance.dataType, write(m)));
   val ammo = AllData.ammo.map(a => addWrapper(Ammo.dataType, write(a)));
@@ -13,11 +14,14 @@ object JsonGenerator {
   val derangements = AllData.derangements.map(d => addWrapper(Derangement.dataType, write(d)));
   val disorders = AllData.disorders.map(d => addWrapper(Disorder.dataType, write(d)));
   val armour = AllData.armour.map(a => addWrapper(Armour.dataType, write(a)));
+  val armourMods = AllData.armourMods.map(a => addWrapper(ArmourMod.dataType, write(a)));
   val gear = AllData.gear.map(g => addWrapper(Gear.dataType, write(g)));
+  val augmentations = AllData.augmentations.map(g => addWrapper(Augmentation.dataType, write(g)));
   val substances = AllData.substances.map(s => addWrapper(Substance.dataType, write(s)));
   val software = AllData.software.map(s => addWrapper(Software.dataType, write(s)));
   val data = List(
     weapons,
+    weaponAccessories,
     morphModels,
     morphInstances,
     ammo,
@@ -25,7 +29,9 @@ object JsonGenerator {
     derangements,
     disorders,
     armour,
+    armourMods,
     gear,
+    augmentations,
     substances,
     software).flatten.mkString("", ";\n  ", ";\n");
 

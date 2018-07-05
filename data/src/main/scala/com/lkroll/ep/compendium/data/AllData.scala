@@ -15,6 +15,7 @@ object AllData {
     ExoticWeapons.list,
     Grenades.micro,
     Grenades.standard);
+  val weaponAccessories: List[List[WeaponAccessory]] = List(WeaponAccessories.list);
   val morphModels: List[List[MorphModel]] = List(
     MorphsAC.list,
     MorphsDF.list,
@@ -44,6 +45,7 @@ object AllData {
   val derangements: List[List[Derangement]] = List(Derangements.list);
   val disorders: List[List[Disorder]] = List(Disorders.list);
   val armour: List[List[Armour]] = List(ArmourEP.list, Exoskeletons.list);
+  val armourMods: List[List[ArmourMod]] = List(ArmourMods.list);
   val gear: List[List[Gear]] = List(
     CommunicationsGear.list,
     CovertTech.list,
@@ -54,6 +56,7 @@ object AllData {
     Sensors.list,
     ExplorationGear.list,
     XenoarcheologyGear.list);
+  val augmentations: List[List[Augmentation]] = List(StandardAugmentations.list);
   val substances: List[List[Substance]] = List(Drugs.list);
   val software: List[List[Software]] = List(SoftwareEP.list, SoftwarePlugins.list);
 

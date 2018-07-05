@@ -36,7 +36,7 @@ object Damage {
 }
 
 case class Weapon(name: String, `type`: WeaponType, descr: String,
-                  damage: Damage,
+                  damage: Damage, attackBonus: Int = 0,
                   effect: Option[String], ap: Int, area: DamageArea = DamageArea.Point,
                   price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable {
 
@@ -51,7 +51,8 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
     Map(
       "AP" -> ap.toString,
-      "Area" -> area.text) ++
+      "Area" -> area.text,
+      "Attack Bonus" -> attackBonus.asMod) ++
       price.templateKV ++
       range.templateKV ++
       (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
@@ -187,4 +188,29 @@ object DamageArea {
     override def *(i: Int): DamageArea = this;
     override def /(i: Int): DamageArea = this;
   }
+}
+
+case class WeaponAccessory(name: String, descr: String,
+                           attackBonus: Int = 0, magazineFactor: Float = 1.0f,
+                           price: Cost, source: String, sourcePage: Int) extends ChatRenderable {
+  override def templateTitle: String = name;
+  override def templateSubTitle: String = "Weapon Accessory";
+  override def templateKV: Map[String, String] = price.templateKV ++
+    Map(
+      "Attack Bonus" -> s"${attackBonus.asMod}",
+      "Magazine" -> s"${magazineFactor.asFactor}",
+      "Source" -> s"$source p.${sourcePage}");
+  override def templateDescr: String = descr;
+
+  def mod(w: Weapon): Weapon = w.copy(
+    name = s"${w.name} with ${this.name}",
+    descr = s"""${w.descr}
+---
+${this.descr}""",
+    attackBonus = w.attackBonus + this.attackBonus,
+    gun = w.gun.map(g => g.copy(magazineSize = (g.magazineSize * magazineFactor).toInt)));
+}
+object WeaponAccessory {
+  implicit def rw: RW[WeaponAccessory] = macroRW;
+  val dataType: String = "weaponaccessory";
 }

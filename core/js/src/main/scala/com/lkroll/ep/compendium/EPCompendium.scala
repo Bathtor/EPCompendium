@@ -25,24 +25,30 @@ object EPCompendium {
   private val gear = mutable.Map.empty[String, Gear];
   private val software = mutable.Map.empty[String, Software];
   private val substances = mutable.Map.empty[String, Substance];
+  private val augmentations = mutable.Map.empty[String, Augmentation];
+  private val armourMods = mutable.Map.empty[String, ArmourMod];
+  private val weaponAccessories = mutable.Map.empty[String, WeaponAccessory];
 
   @JSExport
   def addData(version: String, dataType: String, data: js.Any): Unit = {
     checkCompatibility(version);
     val dataS = js.JSON.stringify(data);
     dataType match {
-      case Weapon.dataType        => addWeapons(dataS)
-      case Ammo.dataType          => addAmmo(dataS)
-      case MorphModel.dataType    => addMorphModels(dataS)
-      case MorphInstance.dataType => addMorphInstances(dataS)
-      case EPTrait.dataType       => addTraits(dataS)
-      case Derangement.dataType   => addDerangements(dataS)
-      case Disorder.dataType      => addDisorders(dataS)
-      case Armour.dataType        => addArmour(dataS)
-      case Gear.dataType          => addGear(dataS)
-      case Software.dataType      => addSoftware(dataS)
-      case Substance.dataType     => addSubstances(dataS)
-      case _                      => throw new RuntimeException(s"Unkown datatype $dataType")
+      case Weapon.dataType          => addWeapons(dataS)
+      case Ammo.dataType            => addAmmo(dataS)
+      case MorphModel.dataType      => addMorphModels(dataS)
+      case MorphInstance.dataType   => addMorphInstances(dataS)
+      case EPTrait.dataType         => addTraits(dataS)
+      case Derangement.dataType     => addDerangements(dataS)
+      case Disorder.dataType        => addDisorders(dataS)
+      case Armour.dataType          => addArmour(dataS)
+      case Gear.dataType            => addGear(dataS)
+      case Software.dataType        => addSoftware(dataS)
+      case Substance.dataType       => addSubstances(dataS)
+      case Augmentation.dataType    => addAugmentations(dataS)
+      case ArmourMod.dataType       => addArmourMods(dataS)
+      case WeaponAccessory.dataType => addWeaponAccessories(dataS)
+      case _                        => throw new RuntimeException(s"Unkown datatype $dataType")
     }
   }
 
@@ -60,7 +66,10 @@ object EPCompendium {
       searchIn(lowNeedle, armour),
       searchIn(lowNeedle, gear),
       searchIn(lowNeedle, software),
-      searchIn(lowNeedle, substances)).flatten;
+      searchIn(lowNeedle, substances),
+      searchIn(lowNeedle, augmentations),
+      searchIn(lowNeedle, armourMods),
+      searchIn(lowNeedle, weaponAccessories)).flatten;
     matches.sortBy(_._1).reverse.map(_._2)
   }
 
@@ -235,6 +244,39 @@ object EPCompendium {
   def getSubstance(name: String): Option[Substance] = substances.get(name);
   def findSubstance(needle: String): Option[Substance] = closestMatch(needle, substances);
   def findSubstances(needle: String): List[Substance] = rank(needle, substances).map(_._2);
+
+  private def addAugmentations(s: String): Unit = {
+    val data = read[List[Augmentation]](s);
+    data.foreach { s =>
+      augmentations += (s.name -> s)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} augmentations.");
+  }
+  def getAugmentation(name: String): Option[Augmentation] = augmentations.get(name);
+  def findAugmentation(needle: String): Option[Augmentation] = closestMatch(needle, augmentations);
+  def findAugmentations(needle: String): List[Augmentation] = rank(needle, augmentations).map(_._2);
+
+  private def addArmourMods(s: String): Unit = {
+    val data = read[List[ArmourMod]](s);
+    data.foreach { s =>
+      armourMods += (s.name -> s)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} armour mods.");
+  }
+  def getArmourMod(name: String): Option[ArmourMod] = armourMods.get(name);
+  def findArmourMod(needle: String): Option[ArmourMod] = closestMatch(needle, armourMods);
+  def findArmourMods(needle: String): List[ArmourMod] = rank(needle, armourMods).map(_._2);
+
+  private def addWeaponAccessories(s: String): Unit = {
+    val data = read[List[WeaponAccessory]](s);
+    data.foreach { s =>
+      weaponAccessories += (s.name -> s)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} weapon accessories.");
+  }
+  def getWeaponAccessory(name: String): Option[WeaponAccessory] = weaponAccessories.get(name);
+  def findWeaponAccessory(needle: String): Option[WeaponAccessory] = closestMatch(needle, weaponAccessories);
+  def findWeaponAccessories(needle: String): List[WeaponAccessory] = rank(needle, weaponAccessories).map(_._2);
 
   private def checkCompatibility(version: String): Unit = {
     val r = for {
