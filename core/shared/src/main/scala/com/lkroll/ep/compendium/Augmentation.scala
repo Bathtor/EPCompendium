@@ -5,7 +5,8 @@ import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
 
 case class Augmentation(name: String, category: String,
                         appliesTo: List[MorphType], descr: String,
-                        price: Cost, source: String, sourcePage: Int) extends ChatRenderable {
+                        related: List[CompendiumRef] = List.empty,
+                        price:   Cost, source: String, sourcePage: Int) extends ChatRenderable {
   override def templateTitle: String = name;
   override def templateSubTitle: String = category;
   override def templateKV: Map[String, String] = price.templateKV ++

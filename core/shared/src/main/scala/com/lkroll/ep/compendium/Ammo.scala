@@ -24,7 +24,7 @@ object Ammo {
 }
 
 case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
-  def name: String = s"${weapon.name}≣${ammo.name}";
+  def name: String = s"${weapon.name} ≣ ${ammo.name}";
   def descr: String = weapon.descr + "\n---\n" + ammo.descr;
   def damage: Damage = ammo.dmgMod.modify(weapon.damage);
   def area: DamageArea = ammo.areaMod.modify(weapon.area);
