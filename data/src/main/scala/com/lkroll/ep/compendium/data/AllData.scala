@@ -58,7 +58,10 @@ object AllData {
     XenoarcheologyGear.list);
   val augmentations: List[List[Augmentation]] = List(StandardAugmentations.list);
   val substances: List[List[Substance]] = List(Drugs.list);
-  val software: List[List[Software]] = List(SoftwareEP.list, SoftwarePlugins.list);
+  val software: List[List[Software]] = List(
+    SoftwareEP.list,
+    SoftwarePlugins.list,
+    SoftwareOther.list);
 
   val authors: Map[String, String] = Map(
     "Lars Kroll" -> "bathtor@googlemail.com",

@@ -41,5 +41,12 @@ object SoftwarePlugins {
     price = Cost.Low,
     source = Sources.transhuman, sourcePage = 140);
 
+  // Panopticon
+  val fakeBrainprint = Software(
+    name = "Fake Brainprint Plug-in",
+    descr = "This software plug-in can be used by infomorphs or characters with cyberbrains to attempt to deceive brainprint scanners. Make a Variable Opposed Test between the Interfacing skill of the person or AI running the scan with a −30 modifier and the Infosec skill of the subject (or their muse). If the character being checked succeeds and the scanner fails, the fake brainprint passes. If both succeed, an anomaly has been detected, though the nature of the anomaly will be unclear. Further scans can be made to try and identify the problem (repeat the test). If the scanner succeeds and the fake brainprint user fails, the deception is detected. Another test can be made to identify the real print (without the −30 modifier this time), and the scanner will likely have some uncomfortable questions to ask. This software is considered contraband in most law-abiding habitats.",
+    price = Cost.Expensive,
+    source = Sources.panopticon, sourcePage = 156);
+
   val list: List[Software] = Macros.memberList[Software];
 }
