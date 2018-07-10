@@ -21,7 +21,7 @@ case class MorphModel(name: String, morphType: MorphType, descr: String,
                       movement: Seq[String] = Seq("Walker 4/20"), aptitudeMax: AptitudeValues,
                       aptitudeBonus: AptitudeValues = AptitudeValues.none, skillBonus: Seq[SkillMod] = Seq.empty,
                       playerDecisions: Option[String] = None, attacks: Seq[Weapon] = Seq.empty,
-                      durability: Int, armour: Option[(Int, Int)] = None, cpCost: Int, price: Cost, source: String) extends ChatRenderable {
+                      durability: Int, armour: Option[(Int, Int)] = None, cpCost: Int, price: Cost, source: String) extends ChatRenderable with Data {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = morphType.label
@@ -41,6 +41,7 @@ case class MorphModel(name: String, morphType: MorphType, descr: String,
       "Source" -> source) ++
       price.templateKV;
   override def templateDescr: String = descr;
+  override def described: DescribedData = DescribedData.MorphModelD(this);
 }
 object MorphModel {
   implicit def rw: RW[MorphModel] = macroRW;
@@ -53,7 +54,7 @@ case class MorphInstance(label: String, model: String, morphType: MorphType, des
                          enhancements: Seq[String], traits: Seq[String] = Seq.empty,
                          movement: Seq[String] = Seq("Walker 4/20"), aptitudeMax: AptitudeValues,
                          aptitudeBonus: AptitudeValues = AptitudeValues.none, skillBonus: Seq[SkillMod] = Seq.empty,
-                         attacks: Seq[Weapon] = Seq.empty, durability: Int, armour: Option[(Int, Int)] = None) extends ChatRenderable {
+                         attacks: Seq[Weapon] = Seq.empty, durability: Int, armour: Option[(Int, Int)] = None) extends ChatRenderable with Data {
 
   override def templateTitle: String = s"$label ($model)";
   override def templateSubTitle: String = morphType.label
@@ -73,6 +74,7 @@ case class MorphInstance(label: String, model: String, morphType: MorphType, des
       "Durability" -> durability.toString(),
       "Armour" -> armour.map(t => s"${t._1}/${t._2}").getOrElse("0/0"));
   override def templateDescr: String = descr;
+  override def described: DescribedData = DescribedData.MorphInstanceD(this);
 }
 object MorphInstance {
   implicit def rw: RW[MorphInstance] = macroRW;

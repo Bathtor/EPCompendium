@@ -23,7 +23,7 @@ object Ammo {
   val dataType: String = "ammo";
 }
 
-case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
+case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable with Data {
   def name: String = s"${weapon.name} ≣ ${ammo.name}";
   def descr: String = weapon.descr + "\n---\n" + ammo.descr;
   def damage: Damage = ammo.dmgMod.modify(weapon.damage);
@@ -52,6 +52,12 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable {
     case Some(e) => s"$name (${damage.dmgString} DV, AP $ap, $e)"
     case None    => s"$name (${damage.dmgString} DV, AP $ap)"
   };
+
+  override def described: DescribedData = DescribedData.WeaponWithAmmoD(this);
+}
+
+object WeaponWithAmmo {
+  implicit def rw: RW[WeaponWithAmmo] = macroRW;
 }
 
 sealed trait APMod extends ChatRenderable {

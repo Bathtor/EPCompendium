@@ -38,7 +38,7 @@ object Damage {
 case class Weapon(name: String, `type`: WeaponType, descr: String,
                   damage: Damage, attackBonus: Int = 0,
                   effect: Option[String], ap: Int, area: DamageArea = DamageArea.Point,
-                  price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable {
+                  price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable with Data {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = this.`type` match {
@@ -58,6 +58,8 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
       (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
       Map("Source" -> source);
   override def templateDescr: String = descr;
+
+  override def described: DescribedData = DescribedData.WeaponD(this);
 
   def summaryString: String = effect match {
     case Some(e) => s"$name (${damage.dmgString} DV, AP $ap, $e)"

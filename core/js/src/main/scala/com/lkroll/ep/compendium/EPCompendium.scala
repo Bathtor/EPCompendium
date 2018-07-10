@@ -52,6 +52,13 @@ object EPCompendium {
     }
   }
 
+  def readData(s: String): Try[Data] = {
+    Try {
+      val dd = read[DescribedData](s);
+      dd.value
+    }
+  }
+
   def findAnything(needle: String): List[ChatRenderable] = {
     val lowNeedle = needle.toLowerCase();
     //val searchSpace: List[(String, ChatRenderable)] = weapons.toList ++ morphModels.toList ++ morphModels.toList;
