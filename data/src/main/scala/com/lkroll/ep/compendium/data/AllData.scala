@@ -56,7 +56,11 @@ object AllData {
     Sensors.list,
     ExplorationGear.list,
     XenoarcheologyGear.list);
-  val augmentations: List[List[Augmentation]] = List(StandardAugmentations.list);
+  val augmentations: List[List[Augmentation]] = List(
+    StandardAugmentations.list,
+    Bioware.list,
+    Cyberware.list,
+    Nanoware.list);
   val substances: List[List[Substance]] = List(Drugs.list);
   val software: List[List[Software]] = List(
     SoftwareEP.list,
@@ -66,5 +70,6 @@ object AllData {
   val authors: Map[String, String] = Map(
     "Lars Kroll" -> "bathtor@googlemail.com",
     "Liroth" -> "liroth@gmx.net",
-    "Alex Ormenisan" -> "ormenisan.adrian@gmail.com");
+    "Alex Ormenisan" -> "ormenisan.adrian@gmail.com",
+    "Jakob Oesinghaus" -> "jakob.oesinghaus@gmail.com");
 }
