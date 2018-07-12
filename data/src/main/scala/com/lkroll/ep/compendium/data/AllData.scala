@@ -61,7 +61,7 @@ object AllData {
     Bioware.list,
     Cyberware.list,
     Nanoware.list);
-  val substances: List[List[Substance]] = List(Drugs.list);
+  val substances: List[List[Substance]] = List(Drugs.list, SpecialSubstances.list);
   val software: List[List[Software]] = List(
     SoftwareEP.list,
     SoftwarePlugins.list,

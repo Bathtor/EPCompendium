@@ -4,6 +4,8 @@ import com.lkroll.ep.compendium._
 import com.lkroll.common.macros.Macros
 
 object MorphAttacks {
+  import FiringMode._;
+
   val beakAttack = Weapon(
     name = "Beak/Claw Attack",
     `type` = WeaponType.Unarmed,
@@ -24,6 +26,23 @@ object MorphAttacks {
     ap = 0,
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
+    gun = GunExtras(
+      modes = Set(SS), // doesn't really say
+      magazineSize = 50),
+    source = Sources.ep);
+
+  val handLaser = Weapon(
+    name = "Hand Laser",
+    `type` = WeaponType.Beam,
+    descr = "Weapon-grade Laser implanted into the morph's forearm.",
+    damage = (2.d10 + 0).energy,
+    effect = None,
+    ap = 0,
+    price = Cost.Moderate,
+    range = Range.Ranged(30, 80, 125, 230),
+    gun = GunExtras(
+      modes = Set(SS), // doesn't really say
+      magazineSize = 50),
     source = Sources.ep);
 
   val bite = Weapon(
@@ -44,6 +63,28 @@ object MorphAttacks {
     damage = (2.d10 + 0).kinetic,
     effect = None,
     ap = 0,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.ep);
+
+  val bioClaw = Weapon(
+    name = "Bioware Claw",
+    `type` = WeaponType.Unarmed,
+    descr = "Claw Attack",
+    damage = (1.d10 + 1).kinetic,
+    effect = None,
+    ap = -1,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.ep);
+
+  val cyberClaw = Weapon(
+    name = "Cyberclaw",
+    `type` = WeaponType.Unarmed,
+    descr = "Claw Attack",
+    damage = (1.d10 + 3).kinetic,
+    effect = None,
+    ap = -2,
     price = Cost.None,
     range = Range.Melee,
     source = Sources.ep);

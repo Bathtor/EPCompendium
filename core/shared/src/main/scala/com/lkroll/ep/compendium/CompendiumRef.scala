@@ -13,4 +13,5 @@ object CompendiumRefImplicits {
   implicit def weapon2ref(w: Weapon): CompendiumRef = CompendiumRef(Weapon.dataType, w.name);
   implicit def substance2ref(s: Substance): CompendiumRef = CompendiumRef(Substance.dataType, s.name);
   implicit def software2ref(s: Software): CompendiumRef = CompendiumRef(Software.dataType, s.name);
+  implicit def trait2ref(t: EPTrait): CompendiumRef = CompendiumRef(EPTrait.dataType, t.name);
 }
