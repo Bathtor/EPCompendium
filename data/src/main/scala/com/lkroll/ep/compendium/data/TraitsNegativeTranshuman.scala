@@ -24,7 +24,7 @@ object TraitsNegativeTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 87);
-  
+
   val beta = EPTrait(
     name = "Beta",
     traitType = Negative,
@@ -33,7 +33,7 @@ object TraitsNegativeTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 87);
-  
+
   val botchedMerge = EPTrait(
     name = "Botched Merge",
     traitType = Negative,
@@ -42,7 +42,7 @@ object TraitsNegativeTranshuman {
     cp = 15,
     source = Sources.transhuman,
     sourcePage = 87);
-  
+
   val botchedUplift = EPTrait(
     name = "Botched Uplift",
     traitType = Negative,
@@ -51,7 +51,7 @@ object TraitsNegativeTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 87);
-  
+
   val curbedIntelligence = EPTrait(
     name = "Curbed Intelligence",
     traitType = Negative,
@@ -60,7 +60,7 @@ object TraitsNegativeTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 88);
-   
+
   val debtLevel1 = EPTrait(
     name = "Debt (Level 1)",
     traitType = Negative,
@@ -69,8 +69,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 88);
-  
-   val debtLevel2 = EPTrait(
+
+  val debtLevel2 = EPTrait(
     name = "Debt (Level 2)",
     traitType = Negative,
     applicability = Ego,
@@ -78,8 +78,8 @@ object TraitsNegativeTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val debtLevel3 = EPTrait(
+
+  val debtLevel3 = EPTrait(
     name = "Debt (Level 3)",
     traitType = Negative,
     applicability = Ego,
@@ -87,8 +87,8 @@ object TraitsNegativeTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 88);
-  
-   val defferedIndentureLevel1 = EPTrait(
+
+  val defferedIndentureLevel1 = EPTrait(
     name = "Deferred Indenture (Level 1)",
     traitType = Negative,
     applicability = Ego,
@@ -96,8 +96,8 @@ object TraitsNegativeTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val defferedIndentureLevel2 = EPTrait(
+
+  val defferedIndentureLevel2 = EPTrait(
     name = "Deferred Indenture (Level 2)",
     traitType = Negative,
     applicability = Ego,
@@ -105,8 +105,8 @@ object TraitsNegativeTranshuman {
     cp = 15,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val defferedIndentureLevel3 = EPTrait(
+
+  val defferedIndentureLevel3 = EPTrait(
     name = "Deferred Indenture (Level 3)",
     traitType = Negative,
     applicability = Ego,
@@ -114,8 +114,8 @@ object TraitsNegativeTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val dependent = EPTrait(
+
+  val dependent = EPTrait(
     name = "Dependent",
     traitType = Negative,
     applicability = Ego,
@@ -123,8 +123,8 @@ object TraitsNegativeTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val divergentPersonality = EPTrait(
+
+  val divergentPersonality = EPTrait(
     name = "Divergent Personality",
     traitType = Negative,
     applicability = Ego,
@@ -132,8 +132,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val domineering = EPTrait(
+
+  val domineering = EPTrait(
     name = "Domineering",
     traitType = Negative,
     applicability = Ego,
@@ -141,8 +141,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 88);
-   
-   val drugFiend = EPTrait(
+
+  val drugFiend = EPTrait(
     name = "Drug Fiend",
     traitType = Negative,
     applicability = Both,
@@ -150,8 +150,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 89);
-   
-   val emotiveBlindness = EPTrait(
+
+  val emotiveBlindness = EPTrait(
     name = "Emotive Blindness",
     traitType = Negative,
     applicability = Ego,
@@ -159,8 +159,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 89);
-   
-   val errantFork = EPTrait(
+
+  val errantFork = EPTrait(
     name = "Errant Fork",
     traitType = Negative,
     applicability = Ego,
@@ -168,8 +168,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 89);
-   
-   val faultyEducation = EPTrait(
+
+  val faultyEducation = EPTrait(
     name = "Faulty Education",
     traitType = Negative,
     applicability = Ego,
@@ -177,8 +177,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 89);
-   
-   val frailSanityLevel1 = EPTrait(
+
+  val frailSanityLevel1 = EPTrait(
     name = "Frail Sanity Level1",
     traitType = Negative,
     applicability = Ego,
@@ -186,8 +186,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val frailSanityLevel2 = EPTrait(
+
+  val frailSanityLevel2 = EPTrait(
     name = "Frail Sanity Level2",
     traitType = Negative,
     applicability = Ego,
@@ -195,8 +195,8 @@ object TraitsNegativeTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val hoarder = EPTrait(
+
+  val hoarder = EPTrait(
     name = "Hoarder",
     traitType = Negative,
     applicability = Ego,
@@ -204,8 +204,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val identifiablyQuirk = EPTrait(
+
+  val identifiablyQuirk = EPTrait(
     name = "Identifiable Quirk",
     traitType = Negative,
     applicability = Ego,
@@ -213,8 +213,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val impairedProprioception = EPTrait(
+
+  val impairedProprioception = EPTrait(
     name = "Impaired Proprioception",
     traitType = Negative,
     applicability = Morph,
@@ -222,8 +222,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val intenseRelationship = EPTrait(
+
+  val intenseRelationship = EPTrait(
     name = "Intense Relationship",
     traitType = Negative,
     applicability = Ego,
@@ -231,8 +231,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val lacksManipulators = EPTrait(
+
+  val lacksManipulators = EPTrait(
     name = "Lacks Manipulators",
     traitType = Negative,
     applicability = Morph,
@@ -240,8 +240,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 90);
-   
-   val lostFork = EPTrait(
+
+  val lostFork = EPTrait(
     name = "Lost Fork",
     traitType = Negative,
     applicability = Ego,
@@ -249,8 +249,8 @@ object TraitsNegativeTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 91);
-   
-   val lowGravityAdaptation = EPTrait(
+
+  val lowGravityAdaptation = EPTrait(
     name = "Low Gravity Adaptation",
     traitType = Negative,
     applicability = Morph,
@@ -258,8 +258,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 91);
-   
-   val memoryArtifact = EPTrait(
+
+  val memoryArtifact = EPTrait(
     name = "Memory Artifact",
     traitType = Negative,
     applicability = Morph,
@@ -267,8 +267,8 @@ object TraitsNegativeTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 91);
-   
-   val neurochemicalImbalance = EPTrait(
+
+  val neurochemicalImbalance = EPTrait(
     name = "Neurochemical Imbalance",
     traitType = Negative,
     applicability = Morph,
@@ -276,8 +276,8 @@ object TraitsNegativeTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 91);
-   
-   val notATeamPlayer = EPTrait(
+
+  val notATeamPlayer = EPTrait(
     name = "Not A Team Player",
     traitType = Negative,
     applicability = Morph,
@@ -285,8 +285,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 91);
-   
-   val overwhelmedByEmotions = EPTrait(
+
+  val overwhelmedByEmotions = EPTrait(
     name = "Overwhelmed By Emotions (AGIs Only)",
     traitType = Negative,
     applicability = Ego,
@@ -294,8 +294,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 91);
-   
-   val personalityArtifact = EPTrait(
+
+  val personalityArtifact = EPTrait(
     name = "Personality Artifact",
     traitType = Negative,
     applicability = Morph,
@@ -303,8 +303,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 92);
-   
-   val phobiaDisorder = EPTrait(
+
+  val phobiaDisorder = EPTrait(
     name = "Phobia Disorder",
     traitType = Negative,
     applicability = Ego,
@@ -312,8 +312,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 92);
-   
-   val poorlySocialized = EPTrait(
+
+  val poorlySocialized = EPTrait(
     name = "Poorly Socialized",
     traitType = Negative,
     applicability = Ego,
@@ -321,8 +321,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 93);
-   
-   val proprietaryTech = EPTrait(
+
+  val proprietaryTech = EPTrait(
     name = "Proprietary Tech (Synthmorphs Only)",
     traitType = Negative,
     applicability = Morph,
@@ -330,8 +330,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 93);
-   
-   val reducedSize = EPTrait(
+
+  val reducedSize = EPTrait(
     name = "Reduced Size",
     traitType = Negative,
     applicability = Morph,
@@ -339,35 +339,35 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 93);
-   
-   val sociallyGraceless = EPTrait(
+
+  val sociallyGraceless = EPTrait(
     name = "Socially Graceless",
     traitType = Negative,
     applicability = Ego,
     descr = "Something about the character makes them a walking social disaster. While the character can be charming and confident, they forget basic social etiquette, overlook customs and rules, miss social cues, and overstep their bounds. Once per game session, the gamemaster can treat one social interaction (preferably where a Social Skill Test by the character was involved) as a critical failure. Usually this results in someone being offended, becoming hostile, or refusing to work with the character. Protocol may not be used to wipe away this social gaffe, nor may Moxie negate it.",
     cp = 10,
     source = Sources.transhuman,
-    sourcePage = 93); 
-   
-   val solitary = EPTrait(
+    sourcePage = 93);
+
+  val solitary = EPTrait(
     name = "Solitary",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to neo-octopi uplifts. Like its pre-sapient kin, this uplift prefers solitude and has not been fully socialized. As a result, they can only tolerate 2 hours of direct interaction (physical or virtual) with others before they need a break and some alone time (at least 2 hours). If forced into a situation where they must interact or exist in close proximity to others for more than 2 hours, they suffer a cumulative −10 modifier to all Social Skill Tests per 2-hour period, up to a maximum of −30. After 6 hours, they must a WIL x 3 Test to keep their composure and not react towards those around them with aggression, hostility, or even violence. This trait is usually taken in conjunction with the Hardening (Isolation) trait.",
     cp = 10,
     source = Sources.transhuman,
-    sourcePage = 93); 
-   
-   val submissive = EPTrait(
+    sourcePage = 93);
+
+  val submissive = EPTrait(
     name = "Submissive",
     traitType = Negative,
     applicability = Ego,
     descr = "This trait is only available to uplifts. This character retains a tendency to submit to displays of dominance, inherited from their pre-sapient forebears. The character suffers a −20 modifier in Opposed Tests against Intimidation from NPCs with perceived social status.",
     cp = 5,
     source = Sources.transhuman,
-    sourcePage = 93); 
-   
-   val subvertedMind = EPTrait(
+    sourcePage = 93);
+
+  val subvertedMind = EPTrait(
     name = "Subverted Mind",
     traitType = Negative,
     applicability = Ego,
@@ -375,8 +375,8 @@ object TraitsNegativeTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 93);
-   
-   val trustingHeart = EPTrait(
+
+  val trustingHeart = EPTrait(
     name = "Trusting Heart",
     traitType = Negative,
     applicability = Ego,
@@ -384,8 +384,8 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 94);
-   
-   val uncontrollableUrge = EPTrait(
+
+  val uncontrollableUrge = EPTrait(
     name = "Uncontrolable Urge",
     traitType = Negative,
     applicability = Both,
@@ -393,6 +393,6 @@ object TraitsNegativeTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 94);
-   
+
   val list: List[EPTrait] = Macros.memberList[EPTrait];
 }

@@ -25,7 +25,7 @@ object MorphsTX {
     cpCost = 60,
     price = ExpensivePlus(45000),
     source = mrg);
-  
+
   val theseus = MorphModel(
     name = "Theseus",
     morphType = Biomorph,
@@ -39,11 +39,11 @@ object MorphsTX {
     cpCost = 30,
     price = Expensive,
     source = mrg);
-    
+
   val vacuumPod = MorphModel(
     name = "Vacuum Pod",
     morphType = Pod,
-    descr = "Optimized for vacwork, this pod is preferred in situations where novacrabs or synths don’t fare as well socially. The vacuum pod is based on the bouncer morph and looks superficially identical to one.", 
+    descr = "Optimized for vacwork, this pod is preferred in situations where novacrabs or synths don’t fare as well socially. The vacuum pod is based on the bouncer morph and looks superficially identical to one.",
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Bioweave Armor (Light)", "Cortical Stack", "Cyberbrain", "Enhanced Respiration", "Grip Pads", "Mnemonic Augmentation", "Oxygen Reserve", "Prehensile Feet", "Puppet Sock", "Vacuum Sealing"),
     traits = Seq("Limber (Level 1)", "Social Stigma (Pod)"),
     movement = Seq("Walker 4/20"),
@@ -54,12 +54,12 @@ object MorphsTX {
     cpCost = 30,
     price = Expensive,
     source = mrg);
-  
+
   val venusianGlider = MorphModel(
     name = "Venusian Glider",
     morphType = Biomorph,
-    descr = "The glider is designed to survive for many hours in Venus’s unbreathable atmosphere. Tall and thin, with long, strong limbs and a lightweight build, this morph also features gliding membranes (p. 166, Sunward) that allow it to soar through the upper Venusian atmosphere. It can even gain altitude by riding thermals (which it can see using its enhanced vision). Once Venusian terraforming efforts are complete, an upgraded version of this morph will be able to breathe normally.", 
-    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Enhanced Respiration", "Enhanced Vision", "Gliding Membranes", "Grip Pads", "Prehensile Feet", "Respirocytes"), 
+    descr = "The glider is designed to survive for many hours in Venus’s unbreathable atmosphere. Tall and thin, with long, strong limbs and a lightweight build, this morph also features gliding membranes (p. 166, Sunward) that allow it to soar through the upper Venusian atmosphere. It can even gain altitude by riding thermals (which it can see using its enhanced vision). Once Venusian terraforming efforts are complete, an upgraded version of this morph will be able to breathe normally.",
+    enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Enhanced Respiration", "Enhanced Vision", "Gliding Membranes", "Grip Pads", "Prehensile Feet", "Respirocytes"),
     traits = Seq("Limber (Level 1)"),
     movement = Seq("Walker 4/20", "Gliding"),
     aptitudeMax = 30,
@@ -69,7 +69,7 @@ object MorphsTX {
     cpCost = 40,
     price = Expensive,
     source = mrg);
-     
+
   val whiplash = MorphModel(
     name = "Whiplash",
     morphType = Pod,
@@ -85,7 +85,7 @@ object MorphsTX {
     cpCost = 50,
     price = ExpensivePlus(50000),
     source = mrg);
-  
+
   val workerPod = MorphModel(
     name = "Worker Pod",
     morphType = Pod,
@@ -100,12 +100,12 @@ object MorphsTX {
     cpCost = 20,
     price = High,
     source = mrg);
-  
+
   val xuFu = MorphModel(
     name = "Xu Fu",
     morphType = Synthmorph,
     descr = "Named after a historical Chinese explorer, many gatecrashers consider xu fus the ideal exoplanet exploration synthmorph. Its main body sits atop 6 legs (up to 2 meters long, though retractable) that end in multidirectional smart wheels for quick travel, capable of rolling in any direction and over rough terrain. For exceptionally difficult terrain, the wheels can be retracted and the xu fu can maneuver as a walker. In addition to two standard arms, it features a third 2-meter long sensor-equipped limb for reaching far distances, overseeing obstacles, etc. Xu fus have an impressive sensor package and are ideal for surface-based scouting as well as investigating tunnels, collecting samples, and so on.",
-    enhancements = Seq("360° Vision", "Access Jacks", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Direction Sense", "Echolocation", "Electrical Sense", "Enhanced Hearing", "Enhanced Vision", "Extra Limbs (3 Arms/6 Legs)", "Grip Pads", "Lidar", "Mnemonic Augmentation", "Pneumatic Limbs", "Radar", "Puppet Sock", "Radiation Sense", "Telescoping Limbs (Legs, 1 Arm)", "T-Ray Emitter"), 
+    enhancements = Seq("360° Vision", "Access Jacks", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Direction Sense", "Echolocation", "Electrical Sense", "Enhanced Hearing", "Enhanced Vision", "Extra Limbs (3 Arms/6 Legs)", "Grip Pads", "Lidar", "Mnemonic Augmentation", "Pneumatic Limbs", "Radar", "Puppet Sock", "Radiation Sense", "Telescoping Limbs (Legs, 1 Arm)", "T-Ray Emitter"),
     movement = Seq("Walker 4/20", "Wheeled 4/32"),
     aptitudeMax = 30,
     durability = 40,
@@ -114,6 +114,6 @@ object MorphsTX {
     cpCost = 60,
     price = ExpensivePlus(50000),
     source = mrg);
-    
+
   val list: List[MorphModel] = Macros.memberList[MorphModel];
 }

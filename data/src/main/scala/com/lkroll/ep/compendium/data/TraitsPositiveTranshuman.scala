@@ -11,7 +11,7 @@ object TraitsPositiveTranshuman {
     name = "Agi Afinity",
     traitType = Positive,
     applicability = Ego,
-    descr = "The character has spent a significant amount of time around AGIs, to the point where socializing with an AGI is far easier. The character gains a +10 modifier on Social Skill Tests against AGIs as well as characters with the Real World Naiveté trait.", 
+    descr = "The character has spent a significant amount of time around AGIs, to the point where socializing with an AGI is far easier. The character gains a +10 modifier on Social Skill Tests against AGIs as well as characters with the Real World Naiveté trait.",
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 82);
@@ -25,7 +25,7 @@ object TraitsPositiveTranshuman {
     source = Sources.transhuman,
     sourcePage = 83);
 
-   val asyncFamiliarity = EPTrait(
+  val asyncFamiliarity = EPTrait(
     name = "Async Familiarity",
     traitType = Positive,
     applicability = Ego,
@@ -34,7 +34,7 @@ object TraitsPositiveTranshuman {
     source = Sources.transhuman,
     sourcePage = 83);
 
-   val digitalGhost = EPTrait(
+  val digitalGhost = EPTrait(
     name = "Digital Ghost",
     traitType = Positive,
     applicability = Ego,
@@ -42,8 +42,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 83);
-   
-   val dominantStrain = EPTrait(
+
+  val dominantStrain = EPTrait(
     name = "Dominant Strain (Async Only)",
     traitType = Positive,
     applicability = Ego,
@@ -51,8 +51,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 83);
-   
-   val drugException = EPTrait(
+
+  val drugException = EPTrait(
     name = "Drug Exception",
     traitType = Positive,
     applicability = Both,
@@ -60,8 +60,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 83);
-    
-   val egoPlasticityLevel1 = EPTrait(
+
+  val egoPlasticityLevel1 = EPTrait(
     name = "Ego Plasticity Level1",
     traitType = Positive,
     applicability = Both,
@@ -69,8 +69,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 83);
-    
-   val egoPlasticityLevel2 = EPTrait(
+
+  val egoPlasticityLevel2 = EPTrait(
     name = "Ego Plasticity Level2",
     traitType = Positive,
     applicability = Both,
@@ -78,8 +78,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 83);
-   
-   val egoPlasticityLevel3 = EPTrait(
+
+  val egoPlasticityLevel3 = EPTrait(
     name = "Ego Plasticity Level3",
     traitType = Positive,
     applicability = Both,
@@ -87,8 +87,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 83);
-    
-   val enlargedSize = EPTrait(
+
+  val enlargedSize = EPTrait(
     name = "Enlarged Size",
     traitType = Positive,
     applicability = Morph,
@@ -96,8 +96,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 83);
-   
-   val entrepreneurLevel1 = EPTrait(
+
+  val entrepreneurLevel1 = EPTrait(
     name = "Entrepreneur Level1",
     traitType = Positive,
     applicability = Ego,
@@ -105,8 +105,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 83);
-   
-   val entrepreneurLevel2 = EPTrait(
+
+  val entrepreneurLevel2 = EPTrait(
     name = "Entrepreneur Level2",
     traitType = Positive,
     applicability = Ego,
@@ -114,8 +114,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 83);
-    
-   val entrepreneurLevel3 = EPTrait(
+
+  val entrepreneurLevel3 = EPTrait(
     name = "Entrepreneur Level3",
     traitType = Positive,
     applicability = Ego,
@@ -123,8 +123,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 83);
-     
-   val establishedFork = EPTrait(
+
+  val establishedFork = EPTrait(
     name = "Established Fork",
     traitType = Positive,
     applicability = Ego,
@@ -132,8 +132,8 @@ object TraitsPositiveTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val goldStar = EPTrait(
+
+  val goldStar = EPTrait(
     name = "Gold Star",
     traitType = Positive,
     applicability = Ego,
@@ -141,8 +141,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val hardening = EPTrait(
+
+  val hardening = EPTrait(
     name = "Hardening",
     traitType = Positive,
     applicability = Ego,
@@ -150,8 +150,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val heighenedInstinct = EPTrait(
+
+  val heighenedInstinct = EPTrait(
     name = "Heightened Instinct (Uplift Only)",
     traitType = Positive,
     applicability = Ego,
@@ -159,8 +159,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val indentureHolder = EPTrait(
+
+  val indentureHolder = EPTrait(
     name = "Indenture Holder",
     traitType = Positive,
     applicability = Ego,
@@ -168,8 +168,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val intuitiveCrackerLevel1 = EPTrait(
+
+  val intuitiveCrackerLevel1 = EPTrait(
     name = "Intuitive Cracker Level1",
     traitType = Positive,
     applicability = Ego,
@@ -177,8 +177,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val intuitiveCrackerLevel2 = EPTrait(
+
+  val intuitiveCrackerLevel2 = EPTrait(
     name = "Intuitive Cracker Level2",
     traitType = Positive,
     applicability = Ego,
@@ -186,8 +186,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 84);
-   
-   val killerInstinct = EPTrait(
+
+  val killerInstinct = EPTrait(
     name = "Killer Instinct (Uplift Only)",
     traitType = Positive,
     applicability = Ego,
@@ -195,8 +195,8 @@ object TraitsPositiveTranshuman {
     cp = 15,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val machineIntuition = EPTrait(
+
+  val machineIntuition = EPTrait(
     name = "Machine Intuition (AGI Only)",
     traitType = Positive,
     applicability = Ego,
@@ -204,8 +204,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val malleableMindLevel1 = EPTrait(
+
+  val malleableMindLevel1 = EPTrait(
     name = "Malleable Mind Level1",
     traitType = Positive,
     applicability = Ego,
@@ -213,8 +213,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val malleableMindLevel2 = EPTrait(
+
+  val malleableMindLevel2 = EPTrait(
     name = "Malleable Mind Level2",
     traitType = Positive,
     applicability = Ego,
@@ -222,8 +222,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val malleableMindLevel3 = EPTrait(
+
+  val malleableMindLevel3 = EPTrait(
     name = "Malleable Mind Level3",
     traitType = Positive,
     applicability = Ego,
@@ -231,8 +231,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 85);
-    
-   val minionPartner = EPTrait(
+
+  val minionPartner = EPTrait(
     name = "Minion/Partner",
     traitType = Positive,
     applicability = Ego,
@@ -240,8 +240,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val morphFeverResistance = EPTrait(
+
+  val morphFeverResistance = EPTrait(
     name = "Morph Fever Resistence(Async Only)",
     traitType = Positive,
     applicability = Ego,
@@ -249,8 +249,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val murderSimulatorAddict = EPTrait(
+
+  val murderSimulatorAddict = EPTrait(
     name = "Murder Simulator Addict",
     traitType = Positive,
     applicability = Ego,
@@ -258,8 +258,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val personalConnection = EPTrait(
+
+  val personalConnection = EPTrait(
     name = "Personal Connection",
     traitType = Positive,
     applicability = Ego,
@@ -267,8 +267,8 @@ object TraitsPositiveTranshuman {
     cp = 15,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val phoenixLevel1 = EPTrait(
+
+  val phoenixLevel1 = EPTrait(
     name = "Phoenix Level1",
     traitType = Positive,
     applicability = Ego,
@@ -276,8 +276,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val phoenixLevel2 = EPTrait(
+
+  val phoenixLevel2 = EPTrait(
     name = "Phoenix Level2",
     traitType = Positive,
     applicability = Ego,
@@ -285,8 +285,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val potentMind = EPTrait(
+
+  val potentMind = EPTrait(
     name = "Potent Mind (Async Only)",
     traitType = Positive,
     applicability = Ego,
@@ -294,8 +294,8 @@ object TraitsPositiveTranshuman {
     cp = 5,
     source = Sources.transhuman,
     sourcePage = 85);
-   
-   val predator = EPTrait(
+
+  val predator = EPTrait(
     name = "Predator (Uplifts Only)",
     traitType = Positive,
     applicability = Ego,
@@ -303,8 +303,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val skillArtifactLevel1 = EPTrait(
+
+  val skillArtifactLevel1 = EPTrait(
     name = "Skill Artifact Level1",
     traitType = Positive,
     applicability = Morph,
@@ -312,8 +312,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val skillArtifactLevel2 = EPTrait(
+
+  val skillArtifactLevel2 = EPTrait(
     name = "Skill Artifact Level2",
     traitType = Positive,
     applicability = Morph,
@@ -321,8 +321,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val socialAnimal = EPTrait(
+
+  val socialAnimal = EPTrait(
     name = "Social Animal (Hominid/Cetacean Uplifts Only)",
     traitType = Positive,
     applicability = Ego,
@@ -330,8 +330,8 @@ object TraitsPositiveTranshuman {
     cp = 15,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val spacecraft = EPTrait(
+
+  val spacecraft = EPTrait(
     name = "Spacecraft",
     traitType = Positive,
     applicability = Ego,
@@ -339,8 +339,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val tacnetSniper = EPTrait(
+
+  val tacnetSniper = EPTrait(
     name = "Tacnet Sniper",
     traitType = Positive,
     applicability = Ego,
@@ -348,8 +348,8 @@ object TraitsPositiveTranshuman {
     cp = 30,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val tenure = EPTrait(
+
+  val tenure = EPTrait(
     name = "Tenure",
     traitType = Positive,
     applicability = Ego,
@@ -357,8 +357,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val traumaToleranceLevel1 = EPTrait(
+
+  val traumaToleranceLevel1 = EPTrait(
     name = "Trauma Tolerance Level1",
     traitType = Positive,
     applicability = Ego,
@@ -366,8 +366,8 @@ object TraitsPositiveTranshuman {
     cp = 10,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val traumaToleranceLevel2 = EPTrait(
+
+  val traumaToleranceLevel2 = EPTrait(
     name = "Trauma Tolerance Level2",
     traitType = Positive,
     applicability = Ego,
@@ -375,8 +375,8 @@ object TraitsPositiveTranshuman {
     cp = 20,
     source = Sources.transhuman,
     sourcePage = 86);
-   
-   val untarnishedReputation = EPTrait(
+
+  val untarnishedReputation = EPTrait(
     name = "Untarnished Reputation",
     traitType = Positive,
     applicability = Ego,
@@ -384,6 +384,6 @@ object TraitsPositiveTranshuman {
     cp = 15,
     source = Sources.transhuman,
     sourcePage = 86);
-   
+
   val list: List[EPTrait] = Macros.memberList[EPTrait];
 }

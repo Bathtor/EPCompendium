@@ -15,7 +15,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 94);
-  
+
   val largeSize = EPTrait(
     name = "Large Size",
     traitType = Neutral,
@@ -24,7 +24,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 94);
-  
+
   val nonHumanBiochemistry = EPTrait(
     name = "Non Human Biochemistry",
     traitType = Neutral,
@@ -33,7 +33,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 94);
-  
+
   val nonMammalianBiochemistry = EPTrait(
     name = "Non Mammalian Biochemistry",
     traitType = Neutral,
@@ -42,7 +42,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 94);
-  
+
   val smallSize = EPTrait(
     name = "Small Size",
     traitType = Neutral,
@@ -51,7 +51,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 95);
-  
+
   val uniqueLook = EPTrait(
     name = "Unique Look",
     traitType = Neutral,
@@ -60,7 +60,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 95);
-  
+
   val veryLargeSize = EPTrait(
     name = "Very Large Size",
     traitType = Neutral,
@@ -69,7 +69,7 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 95);
-  
+
   val verySmallSize = EPTrait(
     name = "Very Small Size (Bots/Creatures Only)",
     traitType = Neutral,
@@ -78,6 +78,6 @@ object TraitsNeutralTranshuman {
     cp = 0,
     source = Sources.transhuman,
     sourcePage = 96);
-   
+
   val list: List[EPTrait] = Macros.memberList[EPTrait];
 }

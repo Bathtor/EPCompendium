@@ -15,8 +15,8 @@ object TraitsNegativeEP {
     cp = 5,
     source = Sources.ep,
     sourcePage = 148);
-  
-   val addictionModerate = EPTrait(
+
+  val addictionModerate = EPTrait(
     name = "Addiction Moderate",
     traitType = Negative,
     applicability = Both,
@@ -24,8 +24,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 148);
-   
-   val addictionMajor = EPTrait(
+
+  val addictionMajor = EPTrait(
     name = "Addiction Major",
     traitType = Negative,
     applicability = Both,
@@ -34,7 +34,7 @@ object TraitsNegativeEP {
     source = Sources.ep,
     sourcePage = 148);
 
-   val aged = EPTrait(
+  val aged = EPTrait(
     name = "Aged",
     traitType = Negative,
     applicability = Morph,
@@ -42,8 +42,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 148);
-   
-   val badLuck = EPTrait(
+
+  val badLuck = EPTrait(
     name = "Bad Luck",
     traitType = Negative,
     applicability = Ego,
@@ -51,8 +51,8 @@ object TraitsNegativeEP {
     cp = 30,
     source = Sources.ep,
     sourcePage = 148);
-   
-   val blacklistedOther = EPTrait(
+
+  val blacklistedOther = EPTrait(
     name = "Blacklisted Other Faction",
     traitType = Negative,
     applicability = Ego,
@@ -60,8 +60,8 @@ object TraitsNegativeEP {
     cp = 5,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val blacklistedOwn = EPTrait(
+
+  val blacklistedOwn = EPTrait(
     name = "Blacklisted Own Faction",
     traitType = Negative,
     applicability = Ego,
@@ -69,8 +69,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val blackMarkLevel1 = EPTrait(
+
+  val blackMarkLevel1 = EPTrait(
     name = "Black Mark Level1",
     traitType = Negative,
     applicability = Ego,
@@ -78,8 +78,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val blackMarkLevel2 = EPTrait(
+
+  val blackMarkLevel2 = EPTrait(
     name = "Black Mark Level2",
     traitType = Negative,
     applicability = Ego,
@@ -87,8 +87,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val blackMarkLevel3 = EPTrait(
+
+  val blackMarkLevel3 = EPTrait(
     name = "Black Mark Level3",
     traitType = Negative,
     applicability = Ego,
@@ -96,8 +96,8 @@ object TraitsNegativeEP {
     cp = 30,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val combatParalysis = EPTrait(
+
+  val combatParalysis = EPTrait(
     name = "Combat Paralysis",
     traitType = Negative,
     applicability = Ego,
@@ -105,8 +105,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val editedMemories = EPTrait(
+
+  val editedMemories = EPTrait(
     name = "Edited Memories",
     traitType = Negative,
     applicability = Ego,
@@ -114,8 +114,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val enemy = EPTrait(
+
+  val enemy = EPTrait(
     name = "Enemy",
     traitType = Negative,
     applicability = Ego,
@@ -123,8 +123,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val feeble = EPTrait(
+
+  val feeble = EPTrait(
     name = "Feeble",
     traitType = Negative,
     applicability = Ego,
@@ -132,8 +132,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val frailLevel1 = EPTrait(
+
+  val frailLevel1 = EPTrait(
     name = "Frail Level1",
     traitType = Negative,
     applicability = Morph,
@@ -141,8 +141,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val frailLevel2 = EPTrait(
+
+  val frailLevel2 = EPTrait(
     name = "Frail Level2",
     traitType = Negative,
     applicability = Morph,
@@ -150,8 +150,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val geneticDefectMinor = EPTrait(
+
+  val geneticDefectMinor = EPTrait(
     name = "Genetic Defect Minor",
     traitType = Negative,
     applicability = Morph,
@@ -159,8 +159,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val geneticDefectMajor = EPTrait(
+
+  val geneticDefectMajor = EPTrait(
     name = "Genetic Defect Major",
     traitType = Negative,
     applicability = Morph,
@@ -168,8 +168,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val identityCrysis = EPTrait(
+
+  val identityCrysis = EPTrait(
     name = "Identity Crysis",
     traitType = Negative,
     applicability = Ego,
@@ -177,8 +177,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val illiterate = EPTrait(
+
+  val illiterate = EPTrait(
     name = "Illiterate",
     traitType = Negative,
     applicability = Ego,
@@ -186,8 +186,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val immortalityBlues = EPTrait(
+
+  val immortalityBlues = EPTrait(
     name = "Immortality Blues",
     traitType = Negative,
     applicability = Ego,
@@ -195,8 +195,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 149);
-   
-   val implantRejectionLevel1 = EPTrait(
+
+  val implantRejectionLevel1 = EPTrait(
     name = "Immortality Blues Level1",
     traitType = Negative,
     applicability = Morph,
@@ -204,8 +204,8 @@ object TraitsNegativeEP {
     cp = 5,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val implantRejectionLevel2 = EPTrait(
+
+  val implantRejectionLevel2 = EPTrait(
     name = "Immortality Blues Level2",
     traitType = Negative,
     applicability = Morph,
@@ -213,8 +213,8 @@ object TraitsNegativeEP {
     cp = 15,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val incompetent = EPTrait(
+
+  val incompetent = EPTrait(
     name = "Incompetent",
     traitType = Negative,
     applicability = Ego,
@@ -222,8 +222,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val lemon = EPTrait(
+
+  val lemon = EPTrait(
     name = "Lemon",
     traitType = Negative,
     applicability = Morph,
@@ -231,8 +231,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val lowPainTolerance = EPTrait(
+
+  val lowPainTolerance = EPTrait(
     name = "Low Pain Tolerance",
     traitType = Negative,
     applicability = Both,
@@ -240,8 +240,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val mentalDisorder = EPTrait(
+
+  val mentalDisorder = EPTrait(
     name = "Mental Disorder",
     traitType = Negative,
     applicability = Ego,
@@ -249,8 +249,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val mildAllergy = EPTrait(
+
+  val mildAllergy = EPTrait(
     name = "Mild Allergy",
     traitType = Negative,
     applicability = Morph,
@@ -258,8 +258,8 @@ object TraitsNegativeEP {
     cp = 5,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val modifiedBehaviourLevel1 = EPTrait(
+
+  val modifiedBehaviourLevel1 = EPTrait(
     name = "Modified Behaviour Level1",
     traitType = Negative,
     applicability = Ego,
@@ -267,8 +267,8 @@ object TraitsNegativeEP {
     cp = 5,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val modifiedBehaviourLevel2 = EPTrait(
+
+  val modifiedBehaviourLevel2 = EPTrait(
     name = "Modified Behaviour Level2",
     traitType = Negative,
     applicability = Ego,
@@ -276,8 +276,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val modifiedBehaviourLevel3 = EPTrait(
+
+  val modifiedBehaviourLevel3 = EPTrait(
     name = "Modified Behaviour Level3",
     traitType = Negative,
     applicability = Ego,
@@ -285,8 +285,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val morphingDisorderLevel1 = EPTrait(
+
+  val morphingDisorderLevel1 = EPTrait(
     name = "Morphing Disorder Level1",
     traitType = Negative,
     applicability = Ego,
@@ -294,8 +294,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val morphingDisorderLevel2 = EPTrait(
+
+  val morphingDisorderLevel2 = EPTrait(
     name = "Morphing Disorder Level2",
     traitType = Negative,
     applicability = Ego,
@@ -303,8 +303,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val morphingDisorderLevel3 = EPTrait(
+
+  val morphingDisorderLevel3 = EPTrait(
     name = "Morphing Disorder Level3",
     traitType = Negative,
     applicability = Ego,
@@ -312,8 +312,8 @@ object TraitsNegativeEP {
     cp = 30,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val neuralDamage = EPTrait(
+
+  val neuralDamage = EPTrait(
     name = "Neural Damage",
     traitType = Negative,
     applicability = Ego,
@@ -321,8 +321,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 150);
-   
-   val noCorticalStack = EPTrait(
+
+  val noCorticalStack = EPTrait(
     name = "No Cortical Stack",
     traitType = Negative,
     applicability = Morph,
@@ -330,8 +330,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val oblivious = EPTrait(
+
+  val oblivious = EPTrait(
     name = "Oblivious",
     traitType = Negative,
     applicability = Ego,
@@ -339,8 +339,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val onTheRun = EPTrait(
+
+  val onTheRun = EPTrait(
     name = "On The Run",
     traitType = Negative,
     applicability = Ego,
@@ -348,8 +348,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val psyVulnerability = EPTrait(
+
+  val psyVulnerability = EPTrait(
     name = "Psy Vulnerability",
     traitType = Negative,
     applicability = Both,
@@ -357,8 +357,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val realWorldNaivete = EPTrait(
+
+  val realWorldNaivete = EPTrait(
     name = "Real World Naivete",
     traitType = Negative,
     applicability = Ego,
@@ -366,8 +366,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val severeAllergyUncommon = EPTrait(
+
+  val severeAllergyUncommon = EPTrait(
     name = "Severe Allergy Uncommon",
     traitType = Negative,
     applicability = Morph,
@@ -375,8 +375,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val severeAllergyCommon = EPTrait(
+
+  val severeAllergyCommon = EPTrait(
     name = "Severe Allergy Common",
     traitType = Negative,
     applicability = Morph,
@@ -384,26 +384,26 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val slowLearner = EPTrait(
+
+  val slowLearner = EPTrait(
     name = "Slow Learner",
     traitType = Negative,
     applicability = Ego,
-    descr = "New skills are not easy for this character to pick up. The character takes twice as long as normal to improve skills or learn new ones (p. 152).", 
+    descr = "New skills are not easy for this character to pick up. The character takes twice as long as normal to improve skills or learn new ones (p. 152).",
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val socialStigma = EPTrait(
+
+  val socialStigma = EPTrait(
     name = "Social Stigma",
     traitType = Negative,
     applicability = Both,
-    descr = "An unfortunate aspect of the character’s background means that they suffer from a stigma in certain social situations. They may be sleeved in a morph viewed with repugnance, be a survivor of the infamous Lost generation, or may be an AGI in a post-Fall society plagued by fear of artificial intelligence. In social situations where the character’s nature is known to someone who view that nature with distaste, fear, or repugnance, they suffer a –10 to –30 modifier (gamemaster’s discretion) to social skill tests.", 
+    descr = "An unfortunate aspect of the character’s background means that they suffer from a stigma in certain social situations. They may be sleeved in a morph viewed with repugnance, be a survivor of the infamous Lost generation, or may be an AGI in a post-Fall society plagued by fear of artificial intelligence. In social situations where the character’s nature is known to someone who view that nature with distaste, fear, or repugnance, they suffer a –10 to –30 modifier (gamemaster’s discretion) to social skill tests.",
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val timid = EPTrait(
+
+  val timid = EPTrait(
     name = "Timid",
     traitType = Negative,
     applicability = Ego,
@@ -411,35 +411,35 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val unattractiveLevel1 = EPTrait(
+
+  val unattractiveLevel1 = EPTrait(
     name = "Unattractive Level1",
     traitType = Negative,
     applicability = Morph,
-    descr = "In a time when good looks are easily purchased, this morph is conspicuously ugly. As unattractiveness is increasingly associated with being poor, backward, or genetically defective, responses to a lack of good looks range from distaste to horror. The character suffers a –10 modifier on social tests for Level 1, –20 for Level 2, and –30 for Level 3. Only biomorphs may take this trait. This modifier does not apply to interactions with xenomorphs or those with the infolife or uplift backgrounds. This modifier may be purchased for uplift morphs, but at half the bonus, and it is only effective against characters with that specific uplift background (i.e., neo-avians, neo-hominids, etc.).", 
+    descr = "In a time when good looks are easily purchased, this morph is conspicuously ugly. As unattractiveness is increasingly associated with being poor, backward, or genetically defective, responses to a lack of good looks range from distaste to horror. The character suffers a –10 modifier on social tests for Level 1, –20 for Level 2, and –30 for Level 3. Only biomorphs may take this trait. This modifier does not apply to interactions with xenomorphs or those with the infolife or uplift backgrounds. This modifier may be purchased for uplift morphs, but at half the bonus, and it is only effective against characters with that specific uplift background (i.e., neo-avians, neo-hominids, etc.).",
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val unattractiveLevel2 = EPTrait(
+
+  val unattractiveLevel2 = EPTrait(
     name = "Unattractive Level2",
     traitType = Negative,
     applicability = Morph,
-    descr = "In a time when good looks are easily purchased, this morph is conspicuously ugly. As unattractiveness is increasingly associated with being poor, backward, or genetically defective, responses to a lack of good looks range from distaste to horror. The character suffers a –10 modifier on social tests for Level 1, –20 for Level 2, and –30 for Level 3. Only biomorphs may take this trait. This modifier does not apply to interactions with xenomorphs or those with the infolife or uplift backgrounds. This modifier may be purchased for uplift morphs, but at half the bonus, and it is only effective against characters with that specific uplift background (i.e., neo-avians, neo-hominids, etc.).", 
+    descr = "In a time when good looks are easily purchased, this morph is conspicuously ugly. As unattractiveness is increasingly associated with being poor, backward, or genetically defective, responses to a lack of good looks range from distaste to horror. The character suffers a –10 modifier on social tests for Level 1, –20 for Level 2, and –30 for Level 3. Only biomorphs may take this trait. This modifier does not apply to interactions with xenomorphs or those with the infolife or uplift backgrounds. This modifier may be purchased for uplift morphs, but at half the bonus, and it is only effective against characters with that specific uplift background (i.e., neo-avians, neo-hominids, etc.).",
     cp = 20,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val unattractiveLevel3 = EPTrait(
+
+  val unattractiveLevel3 = EPTrait(
     name = "Unattractive Level3",
     traitType = Negative,
     applicability = Morph,
-    descr = "In a time when good looks are easily purchased, this morph is conspicuously ugly. As unattractiveness is increasingly associated with being poor, backward, or genetically defective, responses to a lack of good looks range from distaste to horror. The character suffers a –10 modifier on social tests for Level 1, –20 for Level 2, and –30 for Level 3. Only biomorphs may take this trait. This modifier does not apply to interactions with xenomorphs or those with the infolife or uplift backgrounds. This modifier may be purchased for uplift morphs, but at half the bonus, and it is only effective against characters with that specific uplift background (i.e., neo-avians, neo-hominids, etc.).", 
+    descr = "In a time when good looks are easily purchased, this morph is conspicuously ugly. As unattractiveness is increasingly associated with being poor, backward, or genetically defective, responses to a lack of good looks range from distaste to horror. The character suffers a –10 modifier on social tests for Level 1, –20 for Level 2, and –30 for Level 3. Only biomorphs may take this trait. This modifier does not apply to interactions with xenomorphs or those with the infolife or uplift backgrounds. This modifier may be purchased for uplift morphs, but at half the bonus, and it is only effective against characters with that specific uplift background (i.e., neo-avians, neo-hominids, etc.).",
     cp = 30,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val uncannyValley = EPTrait(
+
+  val uncannyValley = EPTrait(
     name = "Unanny Valley",
     traitType = Negative,
     applicability = Morph,
@@ -447,8 +447,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val unfitLevel1 = EPTrait(
+
+  val unfitLevel1 = EPTrait(
     name = "Unfit Level1",
     traitType = Negative,
     applicability = Morph,
@@ -456,8 +456,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 151);
-   
-   val unfitLevel2 = EPTrait(
+
+  val unfitLevel2 = EPTrait(
     name = "Unfit Level2",
     traitType = Negative,
     applicability = Morph,
@@ -465,8 +465,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 152);
-   
-   val vrVertigo = EPTrait(
+
+  val vrVertigo = EPTrait(
     name = "VR Vertigo",
     traitType = Negative,
     applicability = Ego,
@@ -474,8 +474,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 152);
-   
-   val weakImmuneSystemLevel1 = EPTrait(
+
+  val weakImmuneSystemLevel1 = EPTrait(
     name = "Weak Immune System Level1",
     traitType = Negative,
     applicability = Morph,
@@ -483,8 +483,8 @@ object TraitsNegativeEP {
     cp = 10,
     source = Sources.ep,
     sourcePage = 152);
-   
-   val weakImmuneSystemLevel2 = EPTrait(
+
+  val weakImmuneSystemLevel2 = EPTrait(
     name = "Weak Immune System Level2",
     traitType = Negative,
     applicability = Morph,
@@ -492,8 +492,8 @@ object TraitsNegativeEP {
     cp = 20,
     source = Sources.ep,
     sourcePage = 152);
-   
-   val zerogNausea = EPTrait(
+
+  val zerogNausea = EPTrait(
     name = "Zero-G Nausea",
     traitType = Negative,
     applicability = Morph,
