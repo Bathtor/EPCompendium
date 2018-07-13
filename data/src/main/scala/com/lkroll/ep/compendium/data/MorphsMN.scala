@@ -8,6 +8,7 @@ object MorphsMN {
   import MorphType._
   import Cost._
   import Sources._
+  import Effect._
 
   val martianAlpiner = MorphModel(
     name = "Martian Alpiner",
@@ -17,7 +18,7 @@ object MorphsMN {
     traits = Seq(" Fast Metabolism", "Planned Obsolescence"),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(som = 5),
-    skillBonus = Seq(("Climbing" -> 10)),
+    otherEffects = List(SkillMod(skill = "Climbing", mod = 10)),
     durability = 40,
     cpCost = 30,
     price = Expensive,
@@ -93,7 +94,7 @@ object MorphsMN {
     movement = Seq("Swim 16/40"),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(coo = 5, int = 5, som = 5),
-    skillBonus = Seq(("Swimming" -> 40)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 40)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.ramming),
     durability = 35,
@@ -110,7 +111,7 @@ object MorphsMN {
     movement = Seq("Swim 16/48"),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(coo = 5, int = 5, som = 5),
-    skillBonus = Seq(("Swimming" -> 40)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 40)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.ramming),
     durability = 30,
@@ -140,7 +141,7 @@ object MorphsMN {
     traits = Seq("Non-Human Biochemistry"),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(coo = 5, int = 5, som = 5),
-    skillBonus = Seq(("Climbing" -> 10)),
+    otherEffects = List(SkillMod(skill = "Climbing", mod = 10)),
     playerDecisions = Some("+5 to one other aptitude"),
     durability = 30,
     cpCost = 25,
@@ -170,7 +171,7 @@ object MorphsMN {
     movement = Seq("Swim 16/60"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, int = 5, som = 10),
-    skillBonus = Seq(("Swimming" -> 40), ("Unarmed Combat" -> 20)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 40), SkillMod(skill = "Unarmed Combat", mod = 20)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.neoOrcaBite),
     durability = 40,
@@ -201,7 +202,7 @@ object MorphsMN {
     movement = Seq("Swim 16/56"),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(int = 5, som = 5),
-    skillBonus = Seq(("Swimming" -> 50)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 50)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.ramming),
     durability = 25,
@@ -232,7 +233,7 @@ object MorphsMN {
     movement = Seq("Swim 16/40"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, int = 5, som = 5),
-    skillBonus = Seq(("Swimming" -> 40)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 40)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.neoWhaleRamming, MorphAttacks.neoWhaleBite),
     durability = 100,

@@ -8,6 +8,7 @@ object MorphsDF {
   import MorphType._
   import Cost._
   import Sources._
+  import Effect._
 
   val daitya = MorphModel(
     name = "Daitya",
@@ -89,6 +90,7 @@ object MorphsDF {
     traits = Seq("Psi Chameleon", "Psi Defense (Level 1)"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(cog = 10, wil = 10, int = 5),
+    otherEffects = List(IgnoreWounds(1), SkillMod(skill = "Deception", mod = 20)),
     playerDecisions = Some("+5 to one other aptitude"),
     durability = 35,
     cpCost = 85,
@@ -177,7 +179,7 @@ object MorphsDF {
     movement = Seq("Submarine 4/36", "Thrust Vector 4/28"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, som = 5),
-    skillBonus = Seq(("Swimming" -> 30)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 30)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.beakAttack),
     durability = 40,

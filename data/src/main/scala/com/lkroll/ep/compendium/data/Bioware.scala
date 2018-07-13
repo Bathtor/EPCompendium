@@ -196,7 +196,6 @@ object Bioware {
     source = Sources.ep,
     sourcePage = 304);
 
-  // TODO have some importable for pure effects without a substance, or attach effects to morphs
   val endocrineControl = Augmentation(
     name = "Endocrine Control",
     category = c,

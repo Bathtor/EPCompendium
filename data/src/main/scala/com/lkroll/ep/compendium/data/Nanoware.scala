@@ -31,7 +31,6 @@ object Nanoware {
     source = Sources.ep,
     sourcePage = 308);
 
-  // TODO Morph MOA? Morph Initiative Bonus?
   val mentalSpeed = Augmentation(
     name = "Mental Speed",
     category = c,

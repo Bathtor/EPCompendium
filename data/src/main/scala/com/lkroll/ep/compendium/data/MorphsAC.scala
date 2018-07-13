@@ -8,6 +8,7 @@ object MorphsAC {
   import MorphType._
   import Cost._
   import Sources._
+  import Effect._
 
   val aquanaut = MorphModel(
     name = "Aquanaut",
@@ -18,7 +19,7 @@ object MorphsAC {
     movement = Seq("Walker 4/20", "Swimming 2/10"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, som = 10),
-    skillBonus = Seq(("Swimming" -> 10)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 10)),
     playerDecisions = Some("+5 to one other aptitude"),
     durability = 40,
     cpCost = 50,
@@ -119,7 +120,7 @@ object MorphsAC {
     movement = Seq("Walker 2/16", "Hopper 4/20", "Winged 8/40"),
     aptitudeMax = 30.copy(som = Some(20)),
     aptitudeBonus = AptitudeValues(coo = 5, ref = 5),
-    skillBonus = Seq(("Flight" -> 10), ("Infiltration" -> 10)),
+    otherEffects = List(SkillMod(skill = "Flight", mod = 10), SkillMod(skill = "Infiltration", mod = 10)),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.beakAttack),
     durability = 25,
@@ -151,7 +152,7 @@ object MorphsAC {
     traits = Seq("Unattractive (Level 1)", "Large Size"),
     aptitudeMax = 30.copy(som = Some(40)),
     aptitudeBonus = AptitudeValues(som = 15, ref = 5),
-    skillBonus = Seq(("Intimidation" -> 10)),
+    otherEffects = List(SkillMod(skill = "Intimidation", mod = 10)),
     playerDecisions = Some("+5 to one other aptitude"),
     durability = 60,
     cpCost = 60,

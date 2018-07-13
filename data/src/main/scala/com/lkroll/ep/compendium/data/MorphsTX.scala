@@ -9,6 +9,7 @@ object MorphsTX {
   import MorphType._
   import Cost._
   import Sources._
+  import Effect._
 
   val takko = MorphModel(
     name = "Takko",
@@ -19,7 +20,7 @@ object MorphsTX {
     aptitudeMax = 30,
     durability = 40,
     attacks = Seq(MorphAttacks.takkoBeak),
-    skillBonus = Seq(("Free Fall" -> 10), ("Climbing" -> 10)),
+    otherEffects = List(SkillMod(skill = "Free Fall", mod = 10), SkillMod(skill = "Climbing", mod = 10)),
     aptitudeBonus = AptitudeValues(int = 5, coo = 5, som = 5),
     armour = (8, 8),
     cpCost = 60,

@@ -4,10 +4,11 @@ import com.lkroll.ep.compendium._
 import com.lkroll.common.macros.Macros
 
 object MorphsOR {
-  import MorphImplicits._
-  import MorphType._
-  import Cost._
-  import Sources._
+  import MorphImplicits._;
+  import MorphType._;
+  import Cost._;
+  import Sources._;
+  import Effect._;
 
   val observer = MorphModel(
     name = "Observer",
@@ -34,7 +35,7 @@ object MorphsOR {
     aptitudeBonus = AptitudeValues(coo = 5, int = 5),
     playerDecisions = Some("+5 to one other aptitude"),
     attacks = Seq(MorphAttacks.octomorphBeak, MorphAttacks.octomorphInk),
-    skillBonus = Seq(("Swimming" -> 30), ("Climbing" -> 10)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 30), SkillMod(skill = "Climbing", mod = 10)),
     traits = Seq("Non-Mammalian Biochemistry"),
     cpCost = 50,
     price = ExpensivePlus(30000),
@@ -63,7 +64,7 @@ object MorphsOR {
     aptitudeMax = 30, //TODO 25 SOM ???
     aptitudeBonus = AptitudeValues(coo = 5, int = 5, ref = 5),
     playerDecisions = Some("+5 to one other aptitude"),
-    skillBonus = Seq(("Climbing" -> 10), ("Flight" -> 10)),
+    otherEffects = List(SkillMod(skill = "Flight", mod = 10), SkillMod(skill = "Climbing", mod = 10)),
     traits = Seq("Small size"),
     armour = (2, 2),
     durability = 25,
@@ -111,7 +112,8 @@ object MorphsOR {
     movement = Seq("Walker 4/20", "Hopper 4/20", "Ionic 12/40", "Vectored Thrust 4/20"),
     aptitudeMax = 40,
     aptitudeBonus = AptitudeValues(coo = 5, ref = 10, som = 10),
-    durability = 60, //TODO 50 base, 60 with structural enhancement
+    otherEffects = List(SpeedMod(1)),
+    durability = 60,
     armour = (16, 16),
     cpCost = 100,
     price = ExpensivePlus(50000),

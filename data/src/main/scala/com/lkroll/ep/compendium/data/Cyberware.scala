@@ -93,7 +93,6 @@ object Cyberware {
     source = Sources.ep,
     sourcePage = 307);
 
-  // TODO Add morph field for MOA
   val multiTasking = Augmentation(
     name = "Multi-Tasking",
     category = c,

@@ -8,6 +8,7 @@ object MorphsS {
   import MorphType._
   import Cost._
   import Sources._
+  import Effect._
 
   val salamander = MorphModel(
     name = "Salamander",
@@ -30,7 +31,7 @@ object MorphsS {
     descr = "The samsa was the first attempt to create a combat pod model with a terrifying appearance. The samsa is an intimidating, two-meter-tall, four-armed, four-legged, humanoid insect. Samsas are an unsettling sight to many transhumans. They are most commonly used by mercenaries and enforcers in the rim. Their armored carapace provides protection and the extra limbs allow a character to dual wield rifles or other two-handed weapons.",
     enhancements = Seq("360-Degree Vision", "Basic Biomods", "Basic Mesh Inserts", "Carapace Armor", "Chameleon Skin", "Cortical Stack", "Cyberbrain", "Cyberclaws", "Enhanced Vision", "Extra Limbs (4 Arms, 4 Legs)", "Grip Pads", "Hardened Skeleton", "Mnemonic Augmentation", "Neurachem (Level 1)", "Puppet Sock", "Temperature Tolerance"), //TODO speed+1
     traits = Seq("Social Stigma (Pod)", "Unattractive (Level 2)"),
-    skillBonus = Seq(("Intimidation" -> 20)),
+    otherEffects = List(SkillMod(skill = "Intimidation", mod = 20)),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(som = 10, coo = 5, ref = 5), //TODO with Hardened Skeleton
@@ -64,7 +65,7 @@ object MorphsS {
     descr = "Scurriers are pods developed from the non-sapient extraterrestrials known as sciurids (p. 172, Gatecrashing). In appearance, scurrier pods are similar to raccoon-sized flying squirrels with a lash-like manipulator rather than a fluffy tail, though still regarded as highly cute. They make excellent climbers and are capable of gliding due to the membrane between their limbs. Scurriers are gaining popularity for their usefulness in exploring tunnels and small areas as well as high areas reached by climbing. They have also been used for maintenance and tech works tasks due to their nimbleness and manual dexterity.",
     enhancements = Seq("Access Jacks", "Basic Biomod", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Gliding Membrane", "Mnemonic Augmentation", "Prehensile Tail", "Puppet Sock", "6 limbs"),
     traits = Seq("Limber (Level 1)", "Alien Biochemistry", "Social Stigma (Alien)", "Social Stigma (Pod)", "Small size"),
-    skillBonus = Seq(("Climbing" -> 10), ("Freerunning" -> 10)),
+    otherEffects = List(SkillMod(skill = "Freerunning", mod = 10), SkillMod(skill = "Climbing", mod = 10)),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(sav = 5, coo = 10, som = 5),
     playerDecisions = Some("+5 to one other aptitude"),
@@ -95,7 +96,7 @@ object MorphsS {
     descr = "Selkies look like a human-seal hybrid, and in fact their genetics are aquanaut with heavy splices of seal traits. Their arms are standard human-shaped, but their legs are fused into a pair of hind flippers for powerful swimming. On land, they can stand but have difficulty moving, as they must flop, roll, or hop like a seal. They are adapted for the lack of air, deep cold, and crushing pressure of subcrustal seas.",
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Echolocation", "Enhanced Hearing", "Enhanced Vision", "Enhanced Respiration", "Gills", "Hydrostatic Pressure Adaptation", "Swim Bladder", "Temperature Tolerance (Improved Cold)", "Toxin Filters"),
     traits = Seq("Non-Human Biochemistry"),
-    skillBonus = Seq(("Swimming" -> 10)),
+    otherEffects = List(SkillMod(skill = "Swimming", mod = 10)),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(som = 10, coo = 5),
     playerDecisions = Some("+5 to one other aptitude"),
@@ -110,7 +111,6 @@ object MorphsS {
     movement = Seq("Walker 4/20"),
     descr = "Shapers are the ultimate disguise morph. Constructed as pods, the default shaper look is intentionally generic, based on the computer-generated composite average look of the solar system’s residents. They lack the distinctive seam lines applied to most pod morph designs. The skinflex system allows the morph to quickly change its outward appearance. Additional modifications help the morph evade or fool sensor and biometric systems. Shapers are a favorite tool for spies and are excellent for infiltration or fooling surveillance. They are often remotely operated via puppet sock. Shapers are illegal in many habitats.",
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Chameleon Skin", "Clean Metabolism", "Cortical Stack", "Cyberbrain", "Emotional Dampers", "Gait Masking", "Mnemonic Augmentation", "Nanotat ID Flux", "Puppet Sock", "Sex Switch", "Skinflex"),
-    skillBonus = Seq(("Swimming" -> 10)),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(int = 5, sav = 5),
     playerDecisions = Some("+5 to one other aptitude"),
@@ -244,13 +244,14 @@ object MorphsS {
     name = "Sundiver",
     morphType = Synthmorph,
     descr = "The sundiver is a synthetic morph designed for solar research and emergency rescue operations. Sundivers are sleek mechanisms, about six meters long. They look a little like ramjets, except for a pair of articulated arms that extend forward from the morph’s pointed nose, allowing it to reach for and grasp objects. Because sundivers operate in the coronal environment, they are built to survive superheated plasma and shielded against radiation. Sundivers are equipped with a powerful electromagnetic propulsion system that allows them to skate along solar magnetic lines of force much like the surya do.",
-    enhancements = Seq("360-Degree Vision", "Access Jacks", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Enhanced Vision", "Heavy Combat Armor", "Internal Rocket", "Mnemonic Augmentation", "Radar", "Reflex Booster", "Coronal Adaptation"), //TODO speed+1
+    enhancements = Seq("360-Degree Vision", "Access Jacks", "Basic Mesh Inserts", "Cortical Stack", "Cyberbrain", "Enhanced Vision", "Heavy Combat Armor", "Internal Rocket", "Mnemonic Augmentation", "Radar", "Reflex Booster", "Coronal Adaptation"),
     movement = Seq("Thrust Vector 12/60"),
     aptitudeMax = 30,
     durability = 120,
     aptitudeBonus = AptitudeValues(ref = 20, coo = 5), //speed booster ref+10
     traits = Seq("Large size"),
     armour = (16, 16),
+    otherEffects = List(SpeedMod(1)),
     cpCost = 70,
     price = ExpensivePlus(40000),
     source = mrg);
@@ -265,7 +266,7 @@ object MorphsS {
     durability = 100,
     aptitudeBonus = AptitudeValues(coo = 10, ref = 5, som = 5),
     traits = Seq("Coronal Adaptation", "Non-Human Biochemistry", "Very Large Size"),
-    skillBonus = Seq(("Free Fall" -> 10)),
+    otherEffects = List(SkillMod(skill = "Free Fall", mod = 10)),
     cpCost = 50,
     price = ExpensivePlus(50000),
     source = mrg);

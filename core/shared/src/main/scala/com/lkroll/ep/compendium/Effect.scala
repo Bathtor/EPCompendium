@@ -9,6 +9,8 @@ sealed trait Effect {
 object Effect {
   implicit def rw: RW[Effect] = RW.merge(
     macroRW[SpeedMod],
+    macroRW[MOAMod],
+    macroRW[IniMod],
     macroRW[AptitudeMod],
     macroRW[SkillMod],
     macroRW[DurMod],
@@ -31,14 +33,27 @@ object Effect {
     override def text: String = s"${modToString(mod)} SPD";
   }
 
+  @upickle.key("MOAMod")
+  case class MOAMod(mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} MOA";
+  }
+
+  @upickle.key("IniMod")
+  case class IniMod(mod: Int) extends Effect {
+    override def text: String = s"${modToString(mod)} INI";
+  }
+
   @upickle.key("AptitudeMod")
   case class AptitudeMod(apt: Aptitude, mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} ${apt.label}";
   }
 
   @upickle.key("SkillMod")
-  case class SkillMod(skill: String, mod: Int) extends Effect {
-    override def text: String = s"${modToString(mod)} $skill skill";
+  case class SkillMod(skill: String, field: Option[String] = None, mod: Int) extends Effect {
+    def text: String = field match {
+      case Some(f) if mod > 0 => s"${modToString(mod)} $skill ($f) skill"
+      case None if mod > 0    => s"${modToString(mod)} $skill skill"
+    }
   }
 
   @upickle.key("DurMod")
