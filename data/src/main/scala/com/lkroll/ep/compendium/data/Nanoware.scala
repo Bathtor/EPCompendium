@@ -34,7 +34,7 @@ object Nanoware {
   val mentalSpeed = Augmentation(
     name = "Mental Speed",
     category = c,
-    appliesTo = List(Biomorph, Pod, Synthmorph),
+    appliesTo = List(Biomorph, Pod, Synthmorph, Infomorph),
     descr =
       """With this nanoware system, nanobots alter the character’s neural architecture and augment the functioning of their neurons. The character can deliberately speed up their mind to think and also receive and process sensory information far faster than ordinary humans. Time seems to subjectively slow down for the character, allowing them to carefully plan their next action, even if they only have a split second to do so. With this system active, the character can discern things occurring too fast for a normal human to perceive, such as the individual frames of an old analog film or understanding sounds that were accelerated to many times their normal speed. The character can also read 10 times faster than normal and can track the paths of bullets and similar fastmoving objects with a successful Perception Test.
         |When using this augmentation, the character gains two extra Complex Actions during each Action Phase that may only be used for mental actions. The character also receives a +3 Initiative bonus. The character thinks at normal speed whenever this nanoware is inactive. This nanoware is incompatible with any other augmentation that provides any form of extra actions, such as multi-tasking. This augmentation can be used as often as desired, but actively using it renders ordinary conversation and social interactions difficult and requires concentration to maintain.""".stripMargin,
@@ -54,7 +54,7 @@ object Nanoware {
   val oracles = Augmentation(
     name = "Oracles",
     category = c,
-    appliesTo = List(Biomorph, Pod, Synthmorph),
+    appliesTo = List(Biomorph, Pod, Synthmorph, Infomorph),
     descr = "These neural macrosensing nanobots pay attention to the sensory input on which the character is not focusing, alerting them about important things they might otherwise overlook. Oracles also act as a sort of memory buffer and search aid, extending short term memory, helping the character recall memories and details, and crosschecking them with other memories. Oracles negate Perception modifiers for distraction, apply a +10 modifier to Investigation Tests, and add a +30 bonus to memory-related tests.",
     price = Cost.Moderate,
     source = Sources.ep,
@@ -72,7 +72,7 @@ object Nanoware {
   val skillware = Augmentation(
     name = "Skillware",
     category = c,
-    appliesTo = List(Biomorph, Pod, Synthmorph),
+    appliesTo = List(Biomorph, Pod, Synthmorph, Infomorph),
     descr = "The morph’s brain is laced with a network of artificial neurons that may be formatted with downloaded information. This allows the user to download skillsofts (p. 332) into their brains, gaining the use of those programmed skills until the skillsoft is erased or replaced. Skillware systems are only capable of handling 100 total skill points worth of skillsofts at a timeThe morph’s brain is laced with a network of artificial neurons that may be formatted with downloaded information. This allows the user to download skillsofts (p. 332) into their brains, gaining the use of those programmed skills until the skillsoft is erased or replaced. Skillware systems are only capable of handling 100 total skill points worth of skillsofts at a time.",
     price = Cost.High,
     source = Sources.ep,
@@ -105,6 +105,63 @@ object Nanoware {
     related = List(MorphAttacks.bioClaw),
     source = Sources.ep,
     sourcePage = 309);
+
+  // Gatecrashing
+  val personalPowerPlant = Augmentation(
+    name = "Personal Power Plant",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "For gatecrashers worried about being trapped on an exoplanet with no source of food, this nanoware system provides a solution. The nanobots in this system are powered by the isotope gadolinium-148. They transfer this nuclear energy to the body so that it is absorbed in a safe and consistent manner. This effectively fuels the body without the need to eat. With a half life of 78 years, the character can go for a century and possibly longer without regularly eating. A tiny bit of food consumption is still necessary to replace cells, though a small food stash could literally be stretched out for years. Likewise, vitamin and protein supplements would be necessary for long-term health, but as an alternative to starving to death, the personal power plant cannot be beat.",
+    price = Cost.Moderate,
+    source = Sources.gatecrashing,
+    sourcePage = 153);
+
+  // Panopticon
+  val gaitMasking = Augmentation(
+    name = "Gait Maskin",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "Gait masking nanosystems alter the bone density, muscle tone, and shape of the user’s feet and legs in minute but effective ways, altering their gait pattern just enough to avoid detection. The process of reconfigura- tion takes 20 minutes. Gait masking is illegal in many habitats. Gait masking can also be used to mimic an existing gait profile; apply a +30 modifier on Disguise Tests to fool gait biometric scanners. ",
+    price = Cost.Expensive,
+    source = Sources.panopticon,
+    sourcePage = 149);
+
+  val nanotatIdFlux = Augmentation(
+    name = "Nanotat ID Flux",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This highly illegal system is a programmable version of the nanotat ID. Any new (fake) ID may be programmed in, and the nanotat may be reconfigured in seconds (1 Action Turn) to switch to another ID pattern in storage. This nanoware may not be configured for legal IDs unless they are actually legal or their encryption has been cracked.",
+    price = Cost.Expensive,
+    source = Sources.panopticon,
+    sourcePage = 149);
+
+  val skeletalDisguise = Augmentation(
+    name = "Skeletal Disguise",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This implanted nanobot system is designed to disguise a subject’s skeletal structure and create false sensor readings, either to avoid identification or to mimic an existing skeletal pattern. An existing pattern can only be mimicked if the character is of equivalent body mass and size. Altering the skeletal signature takes 20 minutes. Apply a −30 modifier to the scanner system’s Perception Test.",
+    price = Cost.Expensive,
+    source = Sources.panopticon,
+    sourcePage = 149);
+
+  // Rimward
+  val longTermLifesupport = Augmentation(
+    name = "Long-Term Life Support",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "The biomorph is adapted for harsh environmental conditions and can survive for long periods of time as a closed system thanks to symbiotic bacteria and nanomachines. This augmentation allows any biomorph or pod to recycle air, food, and water for up to one year. This augmentation’s implanted miniature maker allows the morph to process ice and various simple organic chemicals into air, water, and food. The morph need not eat or breathe but must ingest about five kilograms of ice and carbon grit per day. It must also balance out or replenish chemical reserves once a month, either by exchanging with other similarly augmented morphs or applying a Low-cost chemical reserve pack.",
+    price = Cost.Expensive,
+    source = Sources.rimward,
+    sourcePage = 189);
+
+  val neuralEnhancers = Augmentation(
+    name = "Neural Enhancers",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This active nanotechnology bonds with the morph’s neural structures, creating a series of specialized cognitive subprocessors that enhance the user’s intelligence. It provides users with a +5 modifier to COG. However, enhancing intelligence is a difficult process and this enhancement is based on techniques used on existing morphs. It has no effect if used on a morph that has a COG modifier of +10 or more. This augmentation can be used on biomorphs, pods, and synthmorphs.",
+    price = Cost.Expensive,
+    source = Sources.rimward,
+    sourcePage = 189);
 
   val list: List[Augmentation] = Macros.memberList[Augmentation]
 }

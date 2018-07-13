@@ -58,7 +58,7 @@ object Bioware {
   val eideticMemory = Augmentation(
     name = "Eidetic Memory",
     category = c,
-    appliesTo = List(Biomorph, Pod),
+    appliesTo = List(Biomorph, Pod, Infomorph),
     descr = "The character can remember everything that ever happened to them, in detail, with no long term memory loss. For example, they can recite a page they read in a book a month ago, recall a string of 200 random characters they viewed a year ago, or even tell you what they had for breakfast on a particular date a decade ago. However, they can only remember things to which they paid attention. The character will not remember the contents of a note on someone’s desk if they merely glanced at it; they must specifically have read it. No effort is required to use this augmentation, the character merely needs toattempt to remember a specific fact.",
     price = Cost.Low,
     source = Sources.ep,
@@ -67,7 +67,7 @@ object Bioware {
   val hyperLinguist = Augmentation(
     name = "Hyper Linguist",
     category = c,
-    appliesTo = List(Biomorph, Pod),
+    appliesTo = List(Biomorph, Pod, Infomorph),
     descr = "The morph’s brain maintains the linguistic flexibility of a small child, allowing the character to learn languages with great ease. This functions as the Hyper Linguist trait, p. 146.",
     related = List(TraitsPositiveEP.hyperLinguist),
     price = Cost.Low,
@@ -77,7 +77,7 @@ object Bioware {
   val mathBoost = Augmentation(
     name = "Math Boost",
     category = c,
-    appliesTo = List(Biomorph, Pod),
+    appliesTo = List(Biomorph, Pod, Infomorph),
     descr = "The character can perform any feat of calculation, including the most complex and advanced mathematics, instantly and with great precision, with the same ease an unmodified human can add 2 + 3. The character can calculate odds, find correlations in numerical data, and perform similar tasks with great ease. Apply a +30 modifier on tests involving math calculations.",
     price = Cost.Low,
     source = Sources.ep,
@@ -199,7 +199,7 @@ object Bioware {
   val endocrineControl = Augmentation(
     name = "Endocrine Control",
     category = c,
-    appliesTo = List(Biomorph, Pod),
+    appliesTo = List(Biomorph, Pod, Infomorph),
     price = Cost.High,
     descr = "This augmentation modifies the morph’s endocrine system, giving the character fine control over their hormone output. This allows the character to completely control their appetite and emotions and to regulate pain. They receive a +30 modifier against the effects of hunger, fear, and any forms of emotional manipulation, such as the Drive Emotion sleight. This augmentation also allows character to lie with perfect conviction and to completely fool all methods of lie detection that do not rely on the target’s neural output; apply a +20 modifier to Deception Tests. It also allows the character to remain awake for 48 hours without penalty, but after this time the character begins experiencing normal fatigue. Finally, the ability to regulate pain reception allows the character to ignore the –10 modifier from 1 wound.",
     source = Sources.ep,
@@ -340,6 +340,158 @@ object Bioware {
     descr = "To possess this augmentation, the character must also possess some form of bioware armor or carapace armor. The morph has been specially designed to survive the effects of vacuum. The character’s skin resists vacuum as well as protecting the wearer from temperatures from –75 to 100 C. In addition, the character’s mouth, nose, and other orifices can seal sufficiently well to resist vacuum, and the morph possesses a special membrane that extends over their eyes, allowing the character to see in vacuum without risking any eye damage. This augmentation is usually combined with either the enhanced respiration or oxygen storage augmentation, or both together.",
     source = Sources.ep,
     sourcePage = 306);
+
+  // Gatecrashing
+  val diggingClaws = Augmentation(
+    name = "Digging Claws",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Low,
+    descr = "Adapted from the genetics of hole-digging creatures like moles and aardvarks, digging claws are lengthier, sturdier hands with hardy claws for loosening ground, cutting through hard surfaces, and shoveling dirt aside. Despite these changes, digging claws are still capable of grasping and fine manipulation like regular human hands. They can also be wielded offensively with Unarmed Combat skill, inflicting 1d10 + 2 + (SOM ÷ 10) DV with an AP of –1.",
+    related = List(MorphAttacks.diggingClaw),
+    source = Sources.gatecrashing,
+    sourcePage = 152);
+
+  val enhancedRespirationExo = Augmentation(
+    name = "Enhanced Respiration (Specific)",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Low,
+    descr = "The Enhanced Respiration bioware on p. 305 of the Eclipse Phase core rulebook is partly what allows rusters to breathe the atmosphere of Mars. There are many exoplanets with atmospheres that are not breathable by normal transhumans, but that are close enough that they would be with a bit of modification (see What Worlds Are Breathable?, p. 170). On some of these planets, rusters with standard enhanced respiration could breathe the air, but on others a different version of this biomod, specific to the atmosphere in question, may be called for. ",
+    source = Sources.gatecrashing,
+    sourcePage = 152);
+
+  val highGAdaptation = Augmentation(
+    name = "High-g Adaptation",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Moderate,
+    descr = "This augmentation is specifically designed to allow a morph to operate in environments where gravity is significantly greater than Earth’s. The morph’s heart and circulatory system are strengthened and its skeleton altered in composition and proportion to be harder, slightly thicker, and considerably more durable. The morph’s muscle density is also increased and tendons and ligaments bolstered for improved efficiency in higher gravity. Apply a +5 Durability and +5 SOM bonus. In addition, the character suffers no negative modifiers from gravities up to 2g, and reduces all penalties for higher gravities by 1g.",
+    source = Sources.gatecrashing,
+    sourcePage = 152);
+
+  val swimBladder = Augmentation(
+    name = "Swim Bladder",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Low,
+    descr = "This transgenic organ is a series of gas-filled sacs that allow the character to control their buoyancy underwater. This bladder is also linked to the inner ear, enabling the character to accurately gauge water pressure/depth and also improving their hearing underwater (+10 to hearing based Perception underwater).",
+    source = Sources.gatecrashing,
+    sourcePage = 152);
+
+  // Panopticon
+  val polarizationVision = Augmentation(
+    name = "Polarization Vision",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Low,
+    descr = """Characters capable of seeing polarized light can view an aspect of light most humans only see weakly. Polarization reveals visual characteristics much in the way that color does for normal vision: it enhances contrast, foils camouflage, and helps to detect patterns and objects, particularly in light that is reflected off a shiny surface or scattered through the atmosphere or water. One major use of polarization is easier orien- tation in relation to polarized light sources (such as navigating underwater by the direction of sunlight). It also allows better detection of water surfaces, reflec- tive surfaces, and certain patterns made in the water or on skin (which can be created by chameleon skin). Polarization vision can discriminate watery surfaces from mirages and better detect transparent objects. In game terms, polarization vision allows the character to ignore negative visual Perception modifiers for camou- flage, transparency, or viewing underwater. At the game- master’s discretion, it may provide a bonus modifier for Perception Tests to detect patterns and Navigation Tests where orientation to light sources is beneficial.
+Octomorphs have natural polarization vision by default.""",
+    source = Sources.panopticon,
+    sourcePage = 148);
+
+  val scentAffinity = Augmentation(
+    name = "Scent Affinity",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Trivial,
+    descr = "This modification may only be applied to smart animals. This particular animal has been modified to identify and trust a particular scent or pheromonal signature. Anyone giving off this particular olfactory signature receives a +30 modifier to Animal Handling Tests against this creature, assuming the critter can smell them. Trainers, smart animal handlers, and wealthy owners use this bioware to maintain better control over their pets/investments.",
+    source = Sources.panopticon,
+    sourcePage = 148);
+
+  val ultravioletVision = Augmentation(
+    name = "Ultraviolet Vision",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Trivial,
+    descr = "This is a minor enhancement, simply adding perception of ultraviolet frequencies (p. 303, EP) to the character’s visual capabilities. Neo-avians have natural ultraviolet vision by default.",
+    source = Sources.panopticon,
+    sourcePage = 148);
+
+  // Rimward
+  val hydrostaticPressureAdaptation = Augmentation(
+    name = "Hydrostatic Pressure Adaptation",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Expensive,
+    descr = "The morph is capable of operating under extreme pressure conditions. Biomorphs (including pods) with this mod can withstand up to 500 atmospheres; the synthmorph equivalent can handle up to 2,500 atmospheres. The morph can also acclimate to changing pressures more quickly and is immune to oxygen toxicity, nitrogen narcosis, and the bends.",
+    source = Sources.rimward,
+    sourcePage = 188);
+
+  val radiationTolerance = Augmentation(
+    name = "Radiation Tolerance",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Expensive,
+    descr = "This mod may only be installed in morphs with medichines. The biomorph’s DNA is redundantly encoded and vital tissues are actively replaced. Additionally, vital systems are protected with special shielding sleeves and blood filters, and many chemical processes are reinforced against disruption. The morph can survive radiation exposure thirty times as effectively as if unaugmented.",
+    source = Sources.rimward,
+    sourcePage = 189);
+
+  val temperatureToleranceCryonic = Augmentation(
+    name = "Temperature Tolerance (Cryonic)",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.High,
+    descr = "The morph is treated as having the Temperature Tolerance bioware (p. 305, EP), but the addition of both an integral nuclear battery and specially bioformed insulation allows this morph to indefinitely tolerate temperatures as low as –200ºC without harm as long as the morph is in an atmosphere with a pressure of less than 0.1 atmosphere. In a dense atmosphere, like that of Titan, the morph can endure temperatures as low as –120ºC.",
+    source = Sources.rimward,
+    sourcePage = 189);
+
+  val winterist = Augmentation(
+    name = "Winterist",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Low,
+    descr = "The character has the androgynous appearance and non-sexual erogenous zones common to inhabitants of Winter hab (p. 64). The character has a monthly hormonal cycle driving their desire for erogenous contact. The character also produces fertile gametes once a month in accordance with this cycle, but these must be harvested through a medical procedure and placed in a Winterist exowomb in order to be fertilized. This augmentation can be added to any biomorph but may not be taken in combination with the sex switch augmentation or any other augmentation directly linked to the character’s sex. Characters with this augmentation are immune to the effects of tailored pheromones.",
+    source = Sources.rimward,
+    sourcePage = 189);
+
+  // Sunward
+  val glidingMembrane = Augmentation(
+    name = "Gliding Membrane",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    price = Cost.Low,
+    descr = """Gliding membranes are thin, muscular sheets that stretch from wrist to ankle, that allow the character to glide through the air. For human-sized morphs in standard Earth or Venusian gravity (1 g), these gliding membranes allow the glider to maintain a glide ratio of 10:1, so it can glide 10 meters for every meter of altitude it loses. In low-gravity environments, this ratio doubles to 20:1 or more. Gliding membranes provide a +10 modifier to Free Fall Tests made to cross long distances. Gliding membranes can also be used to ride thermal updrafts, allowing the morph to ascend to higher altitudes. Use the Flight skill to make tests when using gliding membranes.
+Gliding membranes can be wrapped around the morph’s arms, legs, and torso when not being used, allowing the morph to move and wear clothes normally when not gliding.""",
+    source = Sources.sunward,
+    sourcePage = 166);
+
+  val lateralLine = Augmentation(
+    name = "Lateral Line",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    price = Cost.Low,
+    descr = "A transgenic organ developed from aquatic creatures, a lateral line hears low-frequency sounds and can detect movement and vibrations through nearby liquids. Suryas use lateral lines to “hear” in the corona’s plasma atmosphere.",
+    source = Sources.sunward,
+    sourcePage = 166);
+
+  val lowPressureTolerance = Augmentation(
+    name = "Low Pressure Tolerance",
+    category = c,
+    appliesTo = List(Biomorph, Pod),
+    price = Cost.Low,
+    descr = "The morph can tolerate extremely low atmospheric pressures, such as those found at high altitudes on Mars, with no ill effects. Morphs with this mod are also somewhat more resistant to vacuum exposure and are able to spend up to five minutes in hard vacuum without incurring damage. However, morphs without respirocytes or an oxygen reserve still suffer asphyxiation.",
+    source = Sources.sunward,
+    sourcePage = 166);
+
+  val temperatureToleranceImpCold = Augmentation(
+    name = "Temperature Tolerance (Improved Cold)",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    price = Cost.Moderate,
+    descr = "The morph is treated as having the Temperature Tolerance biomod (p. 305, EP), but with an even greater resistance to low temperatures. The morph can tolerate temperatures as low as –80ºC without ill effects.",
+    source = Sources.sunward,
+    sourcePage = 166);
+
+  val wings = Augmentation(
+    name = "Wings",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    price = Cost.Moderate,
+    descr = """Wings enable the morph to fly at Earth/Venusian gravities if small (child-sized) and light, or at low gravities if human-sized or larger. Tests made while flying use the Flight skill. Most wing designs are transgenic and based on bat-wing physiology, so they may be easily folded when not in use. Though the Movement Rate depends on the morph in question and the particular design, a standard Movement Rate is 8/40.
+Neo-avians have wings by default, as part of their physiology.""",
+    source = Sources.sunward,
+    sourcePage = 166);
 
   val list: List[Augmentation] = Macros.memberList[Augmentation]
 }

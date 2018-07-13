@@ -176,5 +176,109 @@ object Cyberware {
     source = Sources.ep,
     sourcePage = 308);
 
-  val list: List[Augmentation] = Macros.memberList[Augmentation]
+  // Firewall
+  val failsafe = Augmentation(
+    name = "Failsafe",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = """This augmentation must be used in combination with the nanophages nanoware (p. 309, EP) and cortical stack (p. 300, EP). This implant is specifically designed for users who regularly risk exsurgent infection and do not want to be a danger to others. If a strain of the exsurgent virus manages to overcome the nanophages, the failsafe goes into action. As soon as the nanophage defenses reach a point where they are certain to be overwhelmed, the failsafe discon- nects the user’s cortical stack and isolates it, keeping it free from any exsurgent infection. It then physi- cally ejects the cortical stack from the user’s body for easy retrieval (ejected stacks typically fall 1d10 ÷ 2 meters away). The failsafe also immediately triggers a swift and potent neurotoxin, killing the user’s body and destroying their brain. The synthmorph equivalent shuts down the body and securely erases the cyberbrain. In either case, the result is a swift and painless death.
+If the user has the emergency farcaster augmentation installed in this morph, the failsafe triggers it instead of ejecting the stack and activating the neurotoxin/cyberbrain erasure.""",
+    price = Cost.Low,
+    source = Sources.firewall,
+    sourcePage = 174);
+
+  val qecomm = Augmentation(
+    name = "QE Comm",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This is an implanted version of the portable QE comm (p. 315, EP) with a low-capacity qubit reservor. Due to the size of the qubit reservoir, it must usually be implanted in the thoracic cavity. Though uncommon, this implant is sometimes used by moles that require a covert method of communication.",
+    price = Cost.Expensive,
+    source = Sources.firewall,
+    sourcePage = 174);
+
+  val truthFilters = Augmentation(
+    name = "Truth Fitlters",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "Truth filters can only be used with a cyberbrain or mesh inserts. This module scrambles the signals read from subject’s brain in such a way as to make digital deception scanners (p. 176) worthless. A character with this implant will automatically succeed on Deception Tests against such scanners.\nTruth filters offer no protection against analog deception scanners.",
+    price = Cost.Trivial,
+    source = Sources.firewall,
+    sourcePage = 174);
+
+  // Panopticon
+  val cybercortex = Augmentation(
+    name = "Cybercortex",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "Similar but less sophisticated than a cyberbrain, a cybercortex is a limited artificial version of the neo- cortex for smart animals. A cybercortex is not sufficient to raise an animal to sapience, but it does boost the animal’s ability to learn, comprehend instructions/commands, and reason. Apply a +10 modifier to Animal Handling Tests with this animal. The cybercortex also overrides many instinctive behaviors that would be undesirable in a service animal.",
+    price = Cost.Low,
+    source = Sources.panopticon,
+    sourcePage = 148);
+
+  val implantMasking = Augmentation(
+    name = "Implant Masking",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "Implant masking is not a separate implant, but a modification to an existing one. Masked cybernetic implants are composed of electromagnetic- and acoustic-absorbent smart materials that are less likely to be detected by surveillance and security systems using radar, x-rays, or ultrasound. Apply a −30 modifier to any attempts to detect the implant. [Increase the masked implant's cost by one category]",
+    price = Cost.None,
+    source = Sources.panopticon,
+    sourcePage = 148);
+
+  val lifeRecorder = Augmentation(
+    name = "Life Recorder",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = """Not everyone wants to broadcast their lifelog, whether for public viewing or for private storage elsewhere on the mesh. Some people want to retain a lifelog, but prefer to avoid possible interception of the contents online. Certain security, spy, political, and diplomatic professions may mandate this. Others may commonly find themselves in situations where they are cut off from regular mesh access (such as gatecrashers or remote asteroid herders). Most people also don’t want to be bothered with carrying a storage device on their person at all time. In these cases, a life recorder serves the purpose. The life recorder is a micro-sized memory diamond storage device, typically implanted in the head (though occasionally elsewhere in the body). This implant records all sensory input as experienced by the brain to which it is linked. Life recorders are designed as one-way information receivers, simply storing data until they are removed; they are not meant to be accessed, much like cortical stacks.""",
+    price = Cost.Low,
+    source = Sources.panopticon,
+    sourcePage = 148);
+
+  val memoryLock = Augmentation(
+    name = "Memory Lock",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph, Infomorph),
+    descr = "This implant, when activated, prevents information from being stored in the subject’s long-term memory or from being recorded via lifelog, mnemonic augmentation, or other sensory link. It also temporarily blocks up-to-the second cortical stack backups. The individual will retain short-term memories, but for no more than a few minutes. This implant is usually a requirement for personal aides, consultants, and other underlings of powerful people. The implants can be remotely activated by the superior during confidential meetings or other secret affairs to ensure privacy and deniability. This implant is also a popular option among some personal couriers who intentionally retain no memories of the party that hired them in case they are intercepted.",
+    price = Cost.Low,
+    source = Sources.panopticon,
+    sourcePage = 149);
+
+  val senseFilter = Augmentation(
+    name = "Sendse Filter",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This implant enables a character with a biological hyper- spectral enhanced sense (enhanced hearing, smell, or vision) to filter out certain wavelengths and inputs like an equivalent technological sensor device. Normally a person with enhanced vision would experience terahertz, infrared, standard visual, ultraviolet, and gamma ray frequencies all at once. With this implant, however, they can tune out some wavelengths, ignoring them while still seeing the others. The same effect applies to audio or olfactory input, and the filter also allows the user to isolate specific noises or smells, canceling out sensory clutter or focusing on a specific source. This implant must be acquired separately for each sense.",
+    price = Cost.Low,
+    source = Sources.panopticon,
+    sourcePage = 149);
+
+  // Rimward
+  val parallelProcessor = Augmentation(
+    name = "Parallel Processor",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph, Infomorph),
+    descr = "A modified derivative of the neo-syngergist hypermesh link, this augmentation allows users to link their minds together together in a manner similar to parallel processing computers, allowing them to borrow processing power from other linked egos to solve intellectual problems. In addition to automatically providing the appropriate teamwork bonus for the problem (to a maximum of +30) without the others needing to take any actions, as long as three or more users are linked together, each user also gains a +5 COG bonus for the duration of the linkage. These bonuses only apply when the users are linked. Users must possess the mental speed augmentation to use this implant. While the implant is active, the character’s Trauma Threshold is reduced by 1. To avoid possible personality bleed-over, users are advised to use this augmentation for no more than six hours per day.",
+    price = Cost.High,
+    source = Sources.rimward,
+    sourcePage = 189);
+
+  val plasmaSailImplant = Augmentation(
+    name = "Plasma Sail Implant",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This augmentation installs a miniature plasma sail in the morph. This implant includes a potent battery-powered superconducting magnet and a tank holding sufficient compressed hydrogen to allow the plasma sail to operate for three months. This implant allows the user to fly through space with an acceleration of up to 0.01 g, though beyond the orbit of Saturn the solar wind becomes too faint to provide any acceleration. In open space, this sail can achieve a maximum velocity of 80 kilometers per second, but can only be used to accelerate away from the sun (tacking can be used to sail toward the sun, but at a maximum of 10 kps). It can be used to maneuver in any direction, however, as long as the user is within a planet’s strong magnetic field. Within 70,000 km of Earth, 3,000,000 km of Jupiter, 1,500,000 km of Saturn, 450,000 km of Uranus, or 500,000 km from Neptune, the plasma sail allows the user to maneuver freely and to land on and take off from any moon with a surface gravity of less than 0.05 g. Using it requires Flight skill. This is a relatively large implant and produces a characteristic humpback shape on almost all morphs.",
+    price = Cost.Expensive,
+    source = Sources.rimward,
+    sourcePage = 189);
+
+  // Sunward
+  val gasJetSystem = Augmentation(
+    name = "Gas Jet System",
+    category = c,
+    appliesTo = List(Biomorph, Pod, Synthmorph),
+    descr = "This cybernetic system implants nozzles in the morph’s chest, back, and limbs, allowing it to maneuver in microgravity using vectored bursts of gas. It either inputs atmospheric gases through implanted intakes or draws gas from an oxygen reserve implant. This mod applies a +10 modifier to Free Fall Tests.",
+    price = Cost.Moderate,
+    source = Sources.sunward,
+    sourcePage = 166);
+
+  val list: List[Augmentation] = Macros.memberList[Augmentation];
 }

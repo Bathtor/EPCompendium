@@ -89,6 +89,17 @@ object MorphAttacks {
     range = Range.Melee,
     source = Sources.ep);
 
+  val diggingClaw = Weapon(
+    name = "Digging Claw",
+    `type` = WeaponType.Unarmed,
+    descr = "Claw Attack",
+    damage = (1.d10 + 2).kinetic,
+    effect = None,
+    ap = -1,
+    price = Cost.None,
+    range = Range.Melee,
+    source = Sources.ep);
+
   val disassemblyTools = Weapon(
     name = "Disassembly Tools",
     `type` = WeaponType.Unarmed,
