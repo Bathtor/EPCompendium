@@ -240,7 +240,7 @@ object Drugs {
     sourcePage = 320);
 
   val juice = Substance(
-    name = "Hither",
+    name = "Juice",
     category = c,
     classification = Chemicals,
     application = List(Oral, Inhalation),
