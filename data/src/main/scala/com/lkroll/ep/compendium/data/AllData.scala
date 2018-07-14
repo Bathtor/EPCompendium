@@ -65,7 +65,7 @@ object AllData {
     RoboticEnhancements.list,
     SoftwareUpgrades.list);
   val substances: List[List[Substance]] = List(
-    DrugsEP.list,
+    Drugs.list,
     NanodrugsEP.list,
     NarcoalgorithmsEP.list,
     ChemicalsEP.list,
@@ -73,8 +73,7 @@ object AllData {
     NanotoxinsEP.list,
     PathogensEP.list,
     PsyDrugsEP.list,
-    SpecialSubstances.list,
-    DrugsPanoptycon.list);
+    SpecialSubstances.list);
   val software: List[List[Software]] = List(
     SoftwareEP.list,
     SoftwarePlugins.list,
