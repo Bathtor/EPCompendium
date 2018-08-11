@@ -1,4 +1,5 @@
 enablePlugins(ScalaJSPlugin)
+import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
 //scalacOptions in ThisBuild ++= Seq("-Ymacro-debug-verbose")
 
@@ -8,7 +9,7 @@ resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
 lazy val commonSettings = Seq(
   organization := "com.lkroll.ep",
   version := "3.0.0",
-  scalaVersion := "2.12.4",
+  scalaVersion := "2.12.6",
   libraryDependencies ++= Seq(//"org.typelevel"  %% "squants"  % "1.3.0",
   	"com.lihaoyi" %%% "scalatags" % "0.6.+",
   	"com.lihaoyi" %%% "upickle" % "0.6.4",
@@ -26,7 +27,7 @@ lazy val root = (project in file(".")).settings(
 	skip in publish := true,
 ).aggregate(epCompendiumCoreJVM, epCompendiumCoreJS, data)
 
-lazy val epccore = (crossProject in file("core")).
+lazy val epccore = crossProject(JSPlatform, JVMPlatform).in(file("core")).
    enablePlugins(BuildInfoPlugin).
    settings(
 	commonSettings,
