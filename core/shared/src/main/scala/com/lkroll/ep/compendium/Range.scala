@@ -47,9 +47,13 @@ object Range {
   sealed trait Thrown extends Range {
     def variant: String;
     def shortUpper(som: Int): Int;
+    def shortFactor: Double;
     def mediumUpper(som: Int): Int;
+    def mediumFactor: Double;
     def longUpper(som: Int): Int;
+    def longFactor: Double;
     def extremeUpperUpper(som: Int): Int;
+    def extremeFactor: Double;
     override def templateKV: Map[String, String] = Map("Range" -> s"Thrown (${variant})"); // TODO make nice maybe
   }
   object Thrown {
@@ -62,9 +66,13 @@ object Range {
   case object ThrownBlades extends Thrown {
     override def variant: String = "Blades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
+    override def shortFactor: Double = 0.2;
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
+    override def mediumFactor: Double = 0.5;
     override def longUpper(som: Int): Int = som;
+    override def longFactor: Double = 1.0;
     override def extremeUpperUpper(som: Int): Int = som * 2;
+    override def extremeFactor: Double = 2;
     override def templateKV: Map[String, String] = Map(
       "Range 1-Short" -> s"2 - SOM%5m",
       "Range 2-Medium" -> s"SOM%5 + 1 - SOM%2m",
@@ -75,9 +83,13 @@ object Range {
   case object ThrownMinigrenades extends Thrown {
     override def variant: String = "Minigrenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 2);
+    override def shortFactor: Double = 0.5;
     override def mediumUpper(som: Int): Int = som;
+    override def mediumFactor: Double = 1.0;
     override def longUpper(som: Int): Int = som * 2;
+    override def longFactor: Double = 2.0;
     override def extremeUpperUpper(som: Int): Int = som * 3;
+    override def extremeFactor: Double = 3.0;
     override def templateKV: Map[String, String] = Map(
       "Range 1-Short" -> s"2 - SOM%2 meters",
       "Range 2-Medium" -> s"SOM%2 + 1 - SOM meters",
@@ -88,9 +100,13 @@ object Range {
   case object ThrownGrenades extends Thrown {
     override def variant: String = "Grenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
+    override def shortFactor: Double = 0.2;
     override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
+    override def mediumFactor: Double = 0.5;
     override def longUpper(som: Int): Int = som;
+    override def longFactor: Double = 1.0;
     override def extremeUpperUpper(som: Int): Int = som * 3;
+    override def extremeFactor: Double = 3.0;
     override def templateKV: Map[String, String] = Map(
       "Range 1-Short" -> s"2 - SOM%5m",
       "Range 2-Medium" -> s"SOM%5 + 1 - SOM%2m",
