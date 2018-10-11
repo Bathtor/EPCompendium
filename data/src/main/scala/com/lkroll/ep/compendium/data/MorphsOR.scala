@@ -179,6 +179,23 @@ object MorphsOR {
     price = ExpensivePlus(60000),
     source = mrg);
 
+  val roverSpaceFighter = MorphModel(
+    name = "Rover (Space Fighter Variant))",
+    morphType = Synthmorph,
+    descr = """Rover morphs are a smaller, defense-oriented version of the sphere morph. Each rover is 0.6 meters in diameter and, with its limbs retracted, has the ominous appearance of a reflective, shiny, black globe. It can extrude three arms, each with a built-in weapon: extendable claws, a small laser, and a heavy rail pistol loaded with 200 rounds of ammunition. Rovers are stealthy and highly maneuverable and so favored for bodyguard and police purposes in some areas. They are often deployed via remote control.
+===
+This version of the rover is fitted with a miniature metallic-hydrogen rocket with an acceleration up to 0.25 g, so that it is useful in short-range space battles. Several of these morphs can be launched from a spaceship to attack another ship or a habitat.""",
+    enhancements = Seq("360-Degree Vision", "Access Jacks", "Basic Mesh Inserts", "Chameleon Skin", "Cyberclaws", "Cortical Stack", "Cyberbrain", "Enhanced Vision", "Extra Limbs (3 Arms)", "Gas-Jet System", "Hand Laser", "Internal Rocket", "Mnemonic Augmentation", "Neurachem (Level 1)", "Puppet Sock", "Radar Absorbent", "Reduced Signature", "T-Ray Emitter", "Telescoping Limbs", "Weapon Mount (Articulated, Heavy Rail Pistol)"), // TODO speed+1
+    movement = Seq("Roller 8/32", "Thrust Vector 12/40"),
+    aptitudeMax = 30,
+    aptitudeBonus = AptitudeValues(int = 5, coo = 5, ref = 5),
+    traits = Seq("Small size"),
+    durability = 25,
+    armour = (10, 10),
+    cpCost = 60,
+    price = ExpensivePlus(60000),
+    source = mrg);
+
   val ruster = MorphModel(
     name = "Ruster",
     morphType = Biomorph,

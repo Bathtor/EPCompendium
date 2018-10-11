@@ -78,6 +78,9 @@ object AllData {
     SoftwareEP.list,
     SoftwarePlugins.list,
     SoftwareOther.list);
+  val psiSleights: List[List[PsiSleight]] = List(
+    PsiChiSleights.list,
+    PsiGammaSleights.list);
 
   val authors: Map[String, String] = Map(
     "Lars Kroll" -> "bathtor@googlemail.com",

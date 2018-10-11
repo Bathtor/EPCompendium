@@ -134,6 +134,23 @@ object MorphsS {
     price = Expensive,
     source = mrg);
 
+  val spaceMarine = MorphModel(
+    name = "Space Marine",
+    morphType = Pod,
+    movement = Seq("Walker 4/20"),
+    descr = """Originally developed for joint-nation peace-keeping missions and border/enclave security roles, security pods were essentially mass-produced AI-operated soldiers. For obvious reasons, they fell out of favor during the Fall, but they are slowly regaining acceptance. They are a favored morph by mercenaries for infiltration and guerrilla warfare purposes.
+===
+The space marine variant of the security pod was optimized for orbital skirmishes, boarding actions, suppressing asteroid miner revolts, and other space-theater operations.""",
+    enhancements = Seq("Adrenal Boost", "Basic Biomods", "Basic Mesh Inserts", "Bioweave Armor (Light)", "Claws", "Cortical Stack", "Cyberbrain", "Eelware", "Enhanced Vision", "Grip Pads", "Mnemonic Augmentation", "Oxygen Reserve", "Prehensile Feet", "Puppet Sock", "T-Ray Emitter", "Vacuum Sealing"),
+    traits = Seq("Social Stigma (Pod)"),
+    aptitudeMax = 30,
+    aptitudeBonus = AptitudeValues(som = 10),
+    playerDecisions = Some("+5 to one other aptitude"),
+    durability = 35,
+    cpCost = 30,
+    price = Expensive,
+    source = mrg);
+
   val spare = MorphModel(
     name = "Spare",
     morphType = Synthmorph,

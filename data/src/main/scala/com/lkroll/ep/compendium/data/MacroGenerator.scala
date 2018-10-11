@@ -25,6 +25,7 @@ object MacroGenerator {
   val gear = addWrapper(Gear.dataType, AllData.gear.flatten.map(_.name).sorted.mkString(sep));
   val substances = addWrapper(Substance.dataType, AllData.substances.flatten.map(_.name).sorted.mkString(sep));
   val software = addWrapper(Software.dataType, AllData.software.flatten.map(_.name).sorted.mkString(sep));
+  val sleights = addWrapper(PsiSleight.dataType, AllData.psiSleights.flatten.map(_.name).sorted.mkString(sep));
   val data = List(
     morphModels,
     morphInstances,
@@ -33,6 +34,7 @@ object MacroGenerator {
     disorders,
     armourWithStuff,
     gear,
+    sleights,
     substances,
     software,
     weaponWithStuff).mkString("\n");

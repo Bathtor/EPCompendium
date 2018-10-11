@@ -131,5 +131,37 @@ object Disorders {
     source = Sources.ep,
     sourcePage = 214);
 
+  /*
+   * Transhuman
+   */
+
+  val alienBehaviouralDisorder = Disorder(
+    name = "Alien Behavioural Disorder",
+    descr = "The character has strange urges to behave in an alien fashion. They may feel a weird compulsion to burrow, the sensation of urgently needing to lay eggs without any means to fulfill this urge, an instinct to gesture with or clean phantom appendages that don’t map in any way to their anatomy, or a desire to eat substances that would be non-nutritive or even dangerous to terrestrial animal life.",
+    gameEffect = "Under stress, the character exhibits the symptoms of the impulse control disorder (p. 213, EP), but the behavior on which they feel the need to act is something wholly inhuman. Because some of the urges on which they feel impelled to act are anatomically impossible, the character may seek out unusual augmentations or even self-mutilate in the attempt.",
+    source = Sources.transhuman,
+    sourcePage = 154);
+
+  val alienSensoryDisorder = Disorder(
+    name = "Alien Sensory Disorder",
+    descr = "The character’s mind attempts to use an alien sensory organ the character doesn’t have, becomes confused, and as a result may short-circuit the neural pathways of existing sense.",
+    gameEffect = "If the async rolls a critical failure on the use of a psi sleight or if they take more than 3 DV from a single use of a sleight, there’s a 50% chance that instead of taking the damage, one of their basic 5 senses, determined at random, is temporarily disabled. The sensory organs themselves continue to function; the effect is at the interface between sensory input and the brain. Therefore, implants using that sense are also disabled. For example, if sight is lost, the effect is to the visual cortex of the brain, so the character loses input from cybernetic eyes and the ability to view visual augmented reality input. The virus will re-route around the disabled sense in 1d10 ÷ 2 hours, but during this time, the character may receive disturbing phantom feedback on the new sensory channel.",
+    source = Sources.transhuman,
+    sourcePage = 155);
+
+  val cosmicAnxietyDisorder = Disorder(
+    name = "Cosmic Anxiety Disorder",
+    descr = "Faced with the possibility of an incomprehensibly advanced alien civilization exterminating transhu- manity from afar, the sufferer exhibits symptoms of extreme anxiety or even phobias. The symptoms may overlap with general anxiety disorder (p. 213, EP) and be treated as such. Other characters may suffer from panic attacks or reactions of extreme terror when confronted by the reality of advanced alien civilizations.",
+    gameEffect = "When faced with TITAN artifacts or war machines, the character may experience panic attacks where they tremble or have difficulty breathing, leaving them unable to act. Alternately, they may exhibit terror, fleeing from the stimulus.",
+    source = Sources.transhuman,
+    sourcePage = 155);
+
+  val speciesDysmorphia = Disorder(
+    name = "Species Dysmorphia",
+    descr = "The alien stirrings of the Watts-MacLeod virus have left the character convinced that they are something other than transhuman, an alien being trapped in a body of terrestrial origin.",
+    gameEffect = "Very similar to body dysmorphia (p. 212, EP), except that the character’s desire is to emerge as an alien being. The character has difficulty when resleeving (–10 to –30 on Alienation Tests if the morphs is not alien enough) and may seek out exotic body modifications in a quest to become more “alien.”",
+    source = Sources.transhuman,
+    sourcePage = 155);
+
   val list: List[Disorder] = Macros.memberList[Disorder];
 }

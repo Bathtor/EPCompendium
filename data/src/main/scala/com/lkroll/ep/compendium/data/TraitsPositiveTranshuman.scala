@@ -8,7 +8,7 @@ object TraitsPositiveTranshuman {
   import TraitApplicability.{ Ego, Morph, Both };
 
   val agiAfinity = EPTrait(
-    name = "Agi Afinity",
+    name = "Agi Affinity",
     traitType = Positive,
     applicability = Ego,
     descr = "The character has spent a significant amount of time around AGIs, to the point where socializing with an AGI is far easier. The character gains a +10 modifier on Social Skill Tests against AGIs as well as characters with the Real World Naiveté trait.",

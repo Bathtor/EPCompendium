@@ -23,7 +23,8 @@ object DescribedData {
     macroRW[SoftwareD],
     macroRW[SubstanceD],
     macroRW[MorphModelD],
-    macroRW[MorphInstanceD]);
+    macroRW[MorphInstanceD],
+    macroRW[PsiSleightD]);
 
   @upickle.key("Armour")
   final case class ArmourD(value: Armour) extends DescribedData;
@@ -49,4 +50,6 @@ object DescribedData {
   final case class MorphModelD(value: MorphModel) extends DescribedData;
   @upickle.key("MorphInstance")
   final case class MorphInstanceD(value: MorphInstance) extends DescribedData;
+  @upickle.key("PsiSleight")
+  final case class PsiSleightD(value: PsiSleight) extends DescribedData;
 }
