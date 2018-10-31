@@ -80,7 +80,7 @@ object TraitsPositiveEP {
     sourcePage = 145);
 
   val directionSense = EPTrait(
-    name = "Direction Sense",
+    name = "Direction Sense (Trait)",
     traitType = Positive,
     applicability = Ego,
     descr = "Somehow the character always knows which way is up, north, etc., even when blinded. The character receives a +10 modifier for figuring out complex directions, reading maps, and remembering or retracing a path they have taken.",
@@ -89,7 +89,7 @@ object TraitsPositiveEP {
     sourcePage = 145);
 
   val eideticMemory = EPTrait(
-    name = "Eidetic Memory",
+    name = "Eidetic Memory (Trait)",
     traitType = Positive,
     applicability = Both,
     descr = "Much like a computer, the character has perfect memory recall. They can remember anything they have sensed, often even from a single glance. This works the same as the eidetic memory implant (p. 301).",
@@ -143,7 +143,7 @@ object TraitsPositiveEP {
     sourcePage = 146);
 
   val hyperLinguist = EPTrait(
-    name = "Hyper Linguist",
+    name = "Hyper Linguist (Trait)",
     traitType = Positive,
     applicability = Ego,
     descr = "The character has an intuitive understanding of linguistic structures that facilitates learning new languages easily. The character requires one-third the normal amount of time to learn any language (see Improving Skills, p. 152). The character can also learn any human language in one day simply by constant immersive exposure to it. Additionally, the character receives a +10 modifier when attempting to interpret languages they don’t know.",

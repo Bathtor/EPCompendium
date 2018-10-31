@@ -20,12 +20,14 @@ object Armour {
 }
 
 case class ArmourMod(name: String, descr: String, armour: (Int, Int) = (0, 0),
-                     price: Cost, source: String, sourcePage: Int) extends ChatRenderable {
+                     price: Cost, source: String, sourcePage: Int) extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Armour Mod";
   override def templateKV: Map[String, String] = price.templateKV ++
     Map("Armour Value" -> s"${armour._1.asMod}/${armour._2.asMod}", "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
+
+  override def described = DescribedData.ArmourModD(this);
 }
 object ArmourMod {
   implicit def rw: RW[ArmourMod] = macroRW;

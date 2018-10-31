@@ -58,7 +58,7 @@ object ToxinsEP {
     sourcePage = 324);
 
   val flight = Substance(
-    name = "Flight",
+    name = "Flight (Toxin)",
     category = c,
     classification = Biologicals,
     application = Inhalation,

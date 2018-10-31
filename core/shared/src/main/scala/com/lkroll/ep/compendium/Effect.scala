@@ -51,8 +51,8 @@ object Effect {
   @upickle.key("SkillMod")
   case class SkillMod(skill: String, field: Option[String] = None, mod: Int) extends Effect {
     def text: String = field match {
-      case Some(f) if mod > 0 => s"${modToString(mod)} $skill ($f) skill"
-      case None if mod > 0    => s"${modToString(mod)} $skill skill"
+      case Some(f) => s"${modToString(mod)} $skill ($f) skill"
+      case None    => s"${modToString(mod)} $skill skill"
     }
   }
 
@@ -83,22 +83,4 @@ object Effect {
 
   @upickle.key("FreeForm")
   case class FreeForm(text: String) extends Effect;
-}
-
-sealed trait Aptitude extends EnumEntry {
-  def label: String = this.entryName;
-
-  def +(mod: Int): Effect.AptitudeMod = Effect.AptitudeMod(this, mod);
-  def -(mod: Int): Effect.AptitudeMod = Effect.AptitudeMod(this, -mod);
-}
-object Aptitude extends Enum[Aptitude] with UPickleEnum[Aptitude] {
-  case object COG extends Aptitude;
-  case object COO extends Aptitude;
-  case object INT extends Aptitude;
-  case object REF extends Aptitude;
-  case object SAV extends Aptitude;
-  case object SOM extends Aptitude;
-  case object WIL extends Aptitude;
-
-  val values = findValues;
 }

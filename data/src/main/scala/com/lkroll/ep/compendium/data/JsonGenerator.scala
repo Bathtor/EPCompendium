@@ -20,6 +20,7 @@ object JsonGenerator {
   val substances = AllData.substances.map(s => addWrapper(Substance.dataType, write(s)));
   val software = AllData.software.map(s => addWrapper(Software.dataType, write(s)));
   val sleights = AllData.psiSleights.map(s => addWrapper(PsiSleight.dataType, write(s)));
+  val skills = AllData.skills.map(s => addWrapper(SkillDef.dataType, write(s)));
   val data = List(
     weapons,
     weaponAccessories,
@@ -35,7 +36,8 @@ object JsonGenerator {
     augmentations,
     substances,
     software,
-    sleights).flatten.mkString("", ";\n  ", ";\n");
+    sleights,
+    skills).flatten.mkString("", ";\n  ", ";\n");
 
   def generate(open: Boolean): Unit = {
     val script = s"""$licenseText

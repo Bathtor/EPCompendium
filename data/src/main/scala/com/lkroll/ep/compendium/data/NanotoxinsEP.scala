@@ -30,7 +30,7 @@ object NanotoxinsEP {
   val c = "Nanotoxins";
 
   val disruption = Substance(
-    name = "Disruption",
+    name = "Disruption (Nanotoxin)",
     category = c,
     classification = Nanodrugs,
     application = List(Injection, Oral),

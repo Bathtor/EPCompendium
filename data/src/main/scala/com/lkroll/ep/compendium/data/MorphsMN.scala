@@ -165,7 +165,7 @@ object MorphsMN {
   val neoOrca = MorphModel(
     name = "Neo-Orca",
     morphType = Biomorph,
-    descr = "Though colloquially referred to as killer whales, orcas are actually members of the dolphin family. The average neo-orca length is 7 ",
+    descr = "Though colloquially referred to as killer whales, orcas are actually members of the dolphin family. The average neo-orca length is 7 meters for males, 6 meters for females. Males also have larger and more triangular pectoral fins.",
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "Echolocation", "Enhanced Hearing", "Oxygen Reserve"),
     traits = Seq("Large Size", "Non-Human Biochemistry", "Lack of Smell"),
     movement = Seq("Swim 16/60"),

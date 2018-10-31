@@ -16,7 +16,7 @@ object Unarmed {
     source = "Eclipse Phase");
 
   val cyberclaws = Weapon(
-    name = "Cyberclaws",
+    name = "Cyberclaw",
     `type` = WeaponType.Unarmed,
     descr = "The bones on the back of the morph’s hand are bonded to smart material claws. These claws can extend through concealed ports in the morph’s skin and extend 6 inches past the morph’s knuckles. These razor-sharp weapons inﬂict 1d10 + 3 + (SOM ÷ 10) damage and have an AP of –2. If combined with eelware (p. 304), they can also inﬂict electric shocks. Likewise, cyberclaws can also deliver poison or nanotoxins secreted from a poison gland (p. 305) or implanted nanotoxins.",
     damage = (1.d10 + 3).kinetic,

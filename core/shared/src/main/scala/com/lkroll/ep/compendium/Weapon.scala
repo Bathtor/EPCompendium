@@ -194,7 +194,7 @@ object DamageArea {
 
 case class WeaponAccessory(name: String, descr: String,
                            attackBonus: Int = 0, magazineFactor: Float = 1.0f,
-                           price: Cost, source: String, sourcePage: Int) extends ChatRenderable {
+                           price: Cost, source: String, sourcePage: Int) extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Weapon Accessory";
   override def templateKV: Map[String, String] = price.templateKV ++
@@ -203,6 +203,8 @@ case class WeaponAccessory(name: String, descr: String,
       "Magazine" -> s"${magazineFactor.asFactor}",
       "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
+
+  override def described = DescribedData.WeaponAccessoryD(this);
 
   def mod(w: Weapon): Weapon = w.copy(
     name = s"${w.name} with ${this.name}",

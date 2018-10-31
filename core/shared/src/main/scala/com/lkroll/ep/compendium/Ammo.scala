@@ -5,7 +5,7 @@ import utils.OptionPickler.{ ReadWriter => RW, macroRW }
 case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
                 apMod: APMod = APMod.Id, dmgMod: DamageMod = DamageMod.Id,
                 typeMod: DamageTypeMod = DamageTypeMod.Id, areaMod: DamageAreaMod = DamageAreaMod.Id,
-                price: Cost, source: String) extends ChatRenderable {
+                price: Cost, source: String) extends Data {
   def appliesTo(t: WeaponType): Boolean = appliesTo.contains(t);
 
   override def templateTitle: String = name;
@@ -17,6 +17,8 @@ case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
     price.templateKV ++
     Map("Source" -> source);
   override def templateDescr: String = descr;
+
+  override def described = DescribedData.AmmoD(this);
 }
 object Ammo {
   implicit def rw: RW[Ammo] = macroRW;

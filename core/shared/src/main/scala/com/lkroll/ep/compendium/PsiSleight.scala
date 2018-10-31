@@ -69,19 +69,26 @@ object PsiRange extends Enum[PsiRange] with UPickleEnum[PsiRange] {
   val values = findValues;
 }
 
-sealed trait PsiDuration extends EnumEntry {
-  def label: String = this.toString();
+sealed trait PsiDuration { self =>
+  def label: String = self.toString();
 }
-object PsiDuration extends Enum[PsiDuration] with UPickleEnum[PsiDuration] {
+object PsiDuration {
+  implicit val rw: RW[PsiDuration] = RW.merge(
+    macroRW[Constant.type],
+    macroRW[Instant.type],
+    macroRW[Sustained.type],
+    macroRW[Temp]);
 
+  @upickle.key("Constant")
   case object Constant extends PsiDuration;
+  @upickle.key("Instant")
   case object Instant extends PsiDuration;
+  @upickle.key("Sustained")
   case object Sustained extends PsiDuration;
+  @upickle.key("Temp")
   case class Temp(units: String) extends PsiDuration {
     override def label: String = s"Temp ($units)";
   }
-
-  val values = findValues;
 }
 
 object PsiSkill {

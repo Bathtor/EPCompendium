@@ -1,7 +1,6 @@
 package com.lkroll.ep.compendium
 
 import utils.OptionPickler.{ ReadWriter => RW, macroRW }
-import scalatags.Text.all._
 
 sealed trait Range extends ChatRenderable {
 }

@@ -130,7 +130,7 @@ object PsiGammaSleights {
     sourcePage = 227);
 
   val mimic = PsiSleight(
-    name = "Mimic",
+    name = "Mimic (Sleight)",
     sleightType = st,
     psiType = Active(
       action = "Quick",

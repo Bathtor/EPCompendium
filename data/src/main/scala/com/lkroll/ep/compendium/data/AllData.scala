@@ -64,6 +64,7 @@ object AllData {
     CosmeticMods.list,
     RoboticEnhancements.list,
     SoftwareUpgrades.list);
+  val skills: List[List[SkillDef]] = List(DefaultSkills.list);
   val substances: List[List[Substance]] = List(
     Drugs.list,
     NanodrugsEP.list,
@@ -82,9 +83,29 @@ object AllData {
     PsiChiSleights.list,
     PsiGammaSleights.list);
 
+  val described: List[DescribedData] = List(
+    flatDescribed(weapons),
+    flatDescribed(weaponAccessories),
+    flatDescribed(morphModels),
+    flatDescribed(morphInstances),
+    flatDescribed(ammo),
+    flatDescribed(traits),
+    flatDescribed(derangements),
+    flatDescribed(disorders),
+    flatDescribed(armour),
+    flatDescribed(armourMods),
+    flatDescribed(gear),
+    flatDescribed(augmentations),
+    flatDescribed(skills),
+    flatDescribed(substances),
+    flatDescribed(software),
+    flatDescribed(psiSleights)).flatten;
+
   val authors: Map[String, String] = Map(
     "Lars Kroll" -> "bathtor@googlemail.com",
     "Liroth" -> "liroth@gmx.net",
     "Alex Ormenisan" -> "ormenisan.adrian@gmail.com",
     "Jakob Oesinghaus" -> "jakob.oesinghaus@gmail.com");
+
+  private def flatDescribed[D <: Data](l: List[List[D]]): List[DescribedData] = l.flatten.map(_.described);
 }

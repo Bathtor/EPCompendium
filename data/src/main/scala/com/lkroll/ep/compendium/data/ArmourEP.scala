@@ -82,7 +82,7 @@ object ArmourEP {
     sourcePage = 312);
 
   val secondSkin = Armour(
-    name = "Second Skin",
+    name = "Second Skin (Armour)",
     descr = "This lightweight bodysuit, woven from spider silks and fullerenes, is typically worn as an underlayer, though some athletes use it as a uniform. It provides minimal protection, but may be worn with other armor without penalty. It provides an Armor Value of 1/3.",
     accessory = true,
     armour = (1, 3),
