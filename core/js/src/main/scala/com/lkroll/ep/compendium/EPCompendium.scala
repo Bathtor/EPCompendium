@@ -12,6 +12,8 @@ import util.{ Try, Success, Failure }
 @JSExportTopLevel("EPCompendium")
 object EPCompendium {
 
+  private var verify: Boolean = false;
+
   lazy val version: String = BuildInfo.version;
 
   private val weapons = mutable.Map.empty[String, Weapon];
@@ -28,6 +30,13 @@ object EPCompendium {
   private val augmentations = mutable.Map.empty[String, Augmentation];
   private val armourMods = mutable.Map.empty[String, ArmourMod];
   private val weaponAccessories = mutable.Map.empty[String, WeaponAccessory];
+  private val psiSleights = mutable.Map.empty[String, PsiSleight];
+  private val skillDefs = mutable.Map.empty[String, SkillDef];
+
+  @JSExport
+  def setVerify(b: Boolean): Unit = {
+    this.verify = b;
+  }
 
   @JSExport
   def addData(version: String, dataType: String, data: js.Any): Unit = {
@@ -48,7 +57,9 @@ object EPCompendium {
       case Augmentation.dataType    => addAugmentations(dataS)
       case ArmourMod.dataType       => addArmourMods(dataS)
       case WeaponAccessory.dataType => addWeaponAccessories(dataS)
-      case _                        => throw new RuntimeException(s"Unkown datatype $dataType")
+      case PsiSleight.dataType      => addPsiSleight(dataS)
+      case SkillDef.dataType        => addSkillDef(dataS);
+      case _                        => throw new RuntimeException(s"Unknown datatype $dataType")
     }
   }
 
@@ -121,9 +132,32 @@ object EPCompendium {
     }
   }
 
+  private def verify(d: Data): Unit = {
+    try {
+      val tempTitle = d.templateTitle;
+      val tempSubTitle = d.templateSubTitle;
+      val tempKV = d.templateKV.map(t => s"${t._1} -> ${t._2}").mkString("\n");
+      val tempDescr = d.templateDescr;
+      Roll20API.log(s"""INFO:
+  === $tempTitle ===
+  --- $tempSubTitle ---
+  $tempKV
+  ---
+  $tempDescr
+""");
+    } catch {
+      case t: Throwable => {
+        Roll20API.log(s"ERROR: During verification of `${d.lookupName}`: ${t.getMessage}");
+      }
+    }
+  }
+
   private def addWeapons(s: String): Unit = {
     val data = read[List[Weapon]](s);
     data.foreach { w =>
+      if (verify) {
+        verify(w);
+      }
       weapons += (w.name -> w)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} weapons.");
@@ -134,8 +168,11 @@ object EPCompendium {
 
   private def addAmmo(s: String): Unit = {
     val data = read[List[Ammo]](s);
-    data.foreach { w =>
-      ammo += (w.name -> w)
+    data.foreach { a =>
+      if (verify) {
+        verify(a);
+      }
+      ammo += (a.name -> a)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} ammo.");
   }
@@ -146,6 +183,9 @@ object EPCompendium {
   private def addMorphModels(s: String): Unit = {
     val data = read[List[MorphModel]](s);
     data.foreach { m =>
+      if (verify) {
+        verify(m);
+      }
       morphModels += (m.name -> m)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} morph models.");
@@ -158,6 +198,9 @@ object EPCompendium {
   private def addMorphInstances(s: String): Unit = {
     val data = read[List[MorphInstance]](s);
     data.foreach { m =>
+      if (verify) {
+        verify(m);
+      }
       morphInstances += (m.label -> m)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} morph instances.");
@@ -170,6 +213,9 @@ object EPCompendium {
   private def addTraits(s: String): Unit = {
     val data = read[List[EPTrait]](s);
     data.foreach { t =>
+      if (verify) {
+        verify(t);
+      }
       traits += (t.name -> t)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} traits.");
@@ -182,6 +228,9 @@ object EPCompendium {
   private def addDerangements(s: String): Unit = {
     val data = read[List[Derangement]](s);
     data.foreach { d =>
+      if (verify) {
+        verify(d);
+      }
       derangements += (d.name -> d)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} derangements.");
@@ -200,6 +249,9 @@ object EPCompendium {
   private def addDisorders(s: String): Unit = {
     val data = read[List[Disorder]](s);
     data.foreach { d =>
+      if (verify) {
+        verify(d);
+      }
       disorders += (d.name -> d)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} disorders.");
@@ -211,6 +263,9 @@ object EPCompendium {
   private def addArmour(s: String): Unit = {
     val data = read[List[Armour]](s);
     data.foreach { a =>
+      if (verify) {
+        verify(a);
+      }
       armour += (a.name -> a)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} armour items.");
@@ -222,6 +277,9 @@ object EPCompendium {
   private def addGear(s: String): Unit = {
     val data = read[List[Gear]](s);
     data.foreach { g =>
+      if (verify) {
+        verify(g);
+      }
       gear += (g.name -> g)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} gear items.");
@@ -233,6 +291,9 @@ object EPCompendium {
   private def addSoftware(s: String): Unit = {
     val data = read[List[Software]](s);
     data.foreach { s =>
+      if (verify) {
+        verify(s);
+      }
       software += (s.name -> s)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} programs.");
@@ -244,6 +305,9 @@ object EPCompendium {
   private def addSubstances(s: String): Unit = {
     val data = read[List[Substance]](s);
     data.foreach { s =>
+      if (verify) {
+        verify(s);
+      }
       substances += (s.name -> s)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} substances.");
@@ -255,6 +319,9 @@ object EPCompendium {
   private def addAugmentations(s: String): Unit = {
     val data = read[List[Augmentation]](s);
     data.foreach { s =>
+      if (verify) {
+        verify(s);
+      }
       augmentations += (s.name -> s)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} augmentations.");
@@ -265,8 +332,11 @@ object EPCompendium {
 
   private def addArmourMods(s: String): Unit = {
     val data = read[List[ArmourMod]](s);
-    data.foreach { s =>
-      armourMods += (s.name -> s)
+    data.foreach { a =>
+      if (verify) {
+        verify(a);
+      }
+      armourMods += (a.name -> a)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} armour mods.");
   }
@@ -276,14 +346,45 @@ object EPCompendium {
 
   private def addWeaponAccessories(s: String): Unit = {
     val data = read[List[WeaponAccessory]](s);
-    data.foreach { s =>
-      weaponAccessories += (s.name -> s)
+    data.foreach { w =>
+      if (verify) {
+        verify(w);
+      }
+      weaponAccessories += (w.name -> w)
     };
     Roll20API.log(s"INFO: EPCompendium added ${data.size} weapon accessories.");
   }
   def getWeaponAccessory(name: String): Option[WeaponAccessory] = weaponAccessories.get(name);
   def findWeaponAccessory(needle: String): Option[WeaponAccessory] = closestMatch(needle, weaponAccessories);
   def findWeaponAccessories(needle: String): List[WeaponAccessory] = rank(needle, weaponAccessories).map(_._2);
+
+  private def addPsiSleight(s: String): Unit = {
+    val data = read[List[PsiSleight]](s);
+    data.foreach { p =>
+      if (verify) {
+        verify(p);
+      }
+      psiSleights += (p.name -> p)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} psi sleights.");
+  }
+  def getPsiSleight(name: String): Option[PsiSleight] = psiSleights.get(name);
+  def findPsiSleight(needle: String): Option[PsiSleight] = closestMatch(needle, psiSleights);
+  def findPsiSleights(needle: String): List[PsiSleight] = rank(needle, psiSleights).map(_._2);
+
+  private def addSkillDef(s: String): Unit = {
+    val data = read[List[SkillDef]](s);
+    data.foreach { s =>
+      if (verify) {
+        verify(s);
+      }
+      skillDefs += (s.name -> s)
+    };
+    Roll20API.log(s"INFO: EPCompendium added ${data.size} skill definitions.");
+  }
+  def getSkillDef(name: String): Option[SkillDef] = skillDefs.get(name);
+  def findSkillDef(needle: String): Option[SkillDef] = closestMatch(needle, skillDefs);
+  def findSkillDefs(needle: String): List[SkillDef] = rank(needle, skillDefs).map(_._2);
 
   private def checkCompatibility(version: String): Unit = {
     val r = for {

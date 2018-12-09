@@ -8,7 +8,7 @@ resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
 
 lazy val commonSettings = Seq(
   organization := "com.lkroll.ep",
-  version := "3.2.0-SNAPSHOT",
+  version := "3.3.0-SNAPSHOT",
   scalaVersion := "2.12.7",
   libraryDependencies ++= Seq(
   	"com.lihaoyi" %%% "upickle" % "0.6.4",

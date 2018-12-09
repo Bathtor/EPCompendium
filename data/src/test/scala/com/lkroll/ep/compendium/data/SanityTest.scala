@@ -5,7 +5,7 @@ import scala.collection.mutable
 import com.lkroll.ep.compendium._
 import com.lkroll.ep.compendium.utils.OptionPickler._
 
-class LookupTest extends FunSuite with Matchers {
+class SanityTest extends FunSuite with Matchers {
 
   test("All lookup names must be unique") {
     val allIds = mutable.Set.empty[String];
@@ -46,6 +46,35 @@ class LookupTest extends FunSuite with Matchers {
         }
       };
       ddRead should equal (dd);
+    }
+  }
+
+  test("All items must correctly generate template entries") {
+    AllData.described.foreach { dd =>
+      try {
+        val tempTitle = dd.value.templateTitle;
+        tempTitle should not be (null);
+        val tempSubTitle = dd.value.templateSubTitle;
+        tempSubTitle should not be (null);
+        val tempKV = dd.value.templateKV.map(t => s"${t._1} -> ${t._2}").mkString("\n");
+        tempKV should not be (null);
+        val tempDescr = dd.value.templateDescr;
+        tempDescr should not be (null);
+        if (tempTitle.equalsIgnoreCase("Grin")) {
+          println(s"""=== $tempTitle ===
+  --- $tempSubTitle ---
+  $tempKV
+  ---
+  $tempDescr
+""");
+        }
+      } catch {
+        case t: Throwable => {
+          Console.err.println(s"Error during templating of ${dd}");
+          fail(t)
+          ???
+        }
+      }
     }
   }
 }
