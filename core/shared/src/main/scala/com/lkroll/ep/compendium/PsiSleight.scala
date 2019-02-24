@@ -23,7 +23,7 @@ case class PsiSleight(name: String, sleightType: SleightType, psiType: PsiType,
   override def templateKV: Map[String, String] = psiType.templateKV ++
     Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.PsiSleightD(this);
+  override def described: DescribedData = DescribedData.PsiSleightD(this, BuildInfo.version);
 }
 object PsiSleight {
   implicit def rw: RW[PsiSleight] = macroRW;
@@ -37,6 +37,14 @@ sealed trait PsiType extends ChatRenderable {
   def duration: PsiDuration;
   def strainMod: Option[Int];
   def skill: Option[String];
+
+  override def templateKV: Map[String, String] = Map(
+    "Psi Type" -> label,
+    "Action" -> action,
+    "Range" -> range.label,
+    "Duration" -> duration.label,
+    "Strain Mod" -> strainMod.map(_.toString).getOrElse("–"),
+    "Skill" -> skill.getOrElse("–"));
 }
 object PsiType {
   implicit def rw: RW[PsiType] = RW.merge(

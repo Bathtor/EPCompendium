@@ -282,8 +282,8 @@ object Drugs {
     source = Sources.panopticon,
     sourcePage = 151);
 
-  val kongAfterEffect = Substance(
-    name = "Kong After Effect",
+  val kongAftereffect = Substance(
+    name = "Kong Aftereffect",
     category = c,
     classification = Chemicals,
     application = List(Inhalation, Injection, Oral),
@@ -352,6 +352,65 @@ object Drugs {
     price = Cost.Moderate,
     source = Sources.firewall,
     sourcePage = 175);
+
+  // Homebrew
+  val sweetbo = Substance(
+    name = "Sweet Bo",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection, Oral),
+    addiction = (Physical, -10),
+    onset = 1.mins,
+    duration = 3.hours,
+    effects = List(SOM + 5, WIL - 5, FreeForm("Massive Libido Boost")),
+    descr = "Sweet Bo is a rather uncommon drug cocktail that boosts the natural libido of non-human primates, especially Bonobos. Primate Uplifts, Hominids/Humans, and smart animals under the influence of Sweet Bo must make a WIL x 3 Test or automatically attempt to have sex with the next best compatible individual, sexual preferences not withstanding. Sweet Bo users receive a +5 SOM bonus (extra stamina, yay!), but suffer a −5 WIL modifier (no self-control). Attempts to control primates under the influence of Sweet Bo suffer a −30 modifier to their Animal Handling Tests. Once the effects of this drug wear off, the user suffers −5 SOM for an equivalent duration.",
+    price = Cost.Moderate,
+    source = "Homebrew",
+    sourcePage = 0);
+
+  val sweetboAftereffect = Substance(
+    name = "Sweet Bo Aftereffect",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection, Oral),
+    addiction = (Physical, -10),
+    onset = 1.mins,
+    duration = 3.hours,
+    effects = List(SOM - 5),
+    descr = "Sweet Bo is a rather uncommon drug cocktail that boosts the natural libido of non-human primates, especially Bonobos. Primate Uplifts, Hominids/Humans, and smart animals under the influence of Sweet Bo must make a WIL x 3 Test or automatically attempt to have sex with the next best compatible individual, sexual preferences not withstanding. Sweet Bo users receive a +5 SOM bonus (extra stamina, yay!), but suffer a −5 WIL modifier (no self-control). Attempts to control primates under the influence of Sweet Bo suffer a −30 modifier to their Animal Handling Tests. Once the effects of this drug wear off, the user suffers −5 SOM for an equivalent duration.",
+    price = Cost.Moderate,
+    source = "Homebrew",
+    sourcePage = 0);
+
+  val flyingWallabyPrimary = Substance(
+    name = "Flying Wallaby (Primary Effect)",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection, Oral),
+    addiction = (Physical, -10),
+    onset = 1.mins,
+    duration = 2.hours,
+    effects = List(REF + 10, SkillMod(skill = "Climbing", mod = 20), SkillMod(skill = "Freerunning", mod = 20), FreeForm("+20 to SOMx3 tests for jumping")),
+    descr = """Flying Wallaby is a strange cocktail mixing effects of Opium with those of Kick, for a truly fascinating result. After 1 minute users suddenly become increasingly nervous, bordering on hyperactive. Many experience the sudden urge to jump, climb, and dance in a barely controlled manner. Characters under the influence of Flying Wallaby are just as twitchy as Kick users, though, and react in a jumpy fashion to sudden or unexpected stimuli. At the gamemaster's discretion, they must make a WIL x 2 Test or react without thinking towards unexpected noises or other surprises.
+    After about 2 hours the effects suddenly reverse and a deep fatigue and relaxation sets in. At this point the user is hard pressed to move or react to anything, but nothing really bothers them either.""",
+    price = Cost.Moderate,
+    source = "Homebrew",
+    sourcePage = 0);
+
+  val flyingWallabySecondary = Substance(
+    name = "Flying Wallaby (Secondary Effect)",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection, Oral),
+    addiction = (Physical, -10),
+    onset = 2.hours,
+    duration = 6.hours,
+    effects = List(REF - 5, SOM - 5, LucMod(10), IgnoreTraumas(2)),
+    descr = """Flying Wallaby is a strange cocktail mixing effects of Opium with those of Kick, for a truly fascinating result. After 1 minute users suddenly become increasingly nervous, bordering on hyperactive. Many experience the sudden urge to jump, climb, and dance in a barely controlled manner. Characters under the influence of Flying Wallaby are just as twitchy as Kick users, though, and react in a jumpy fashion to sudden or unexpected stimuli. At the gamemaster's discretion, they must make a WIL x 2 Test or react without thinking towards unexpected noises or other surprises.
+    After about 2 hours the effects suddenly reverse and a deep fatigue and relaxation sets in. At this point the user is hard pressed to move or react to anything, but nothing really bothers them either. This effect slowly tapers off over the next 6 hours.""",
+    price = Cost.Low,
+    source = "Homebrew",
+    sourcePage = 0);
 
   val list: List[Substance] = Macros.memberList[Substance];
 }

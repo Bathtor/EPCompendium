@@ -15,7 +15,7 @@ case class Augmentation(name: String, category: String,
       "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
-  override def described = DescribedData.AugmentationD(this);
+  override def described = DescribedData.AugmentationD(this, BuildInfo.version);
 }
 
 object Augmentation {

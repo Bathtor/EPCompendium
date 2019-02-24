@@ -13,7 +13,7 @@ case class Derangement(name: String, severity: Severity, descr: String, upgrades
     "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
-  override def described: DescribedData = DescribedData.DerangementD(this);
+  override def described: DescribedData = DescribedData.DerangementD(this, BuildInfo.version);
 }
 object Derangement {
   implicit def rw: RW[Derangement] = macroRW;

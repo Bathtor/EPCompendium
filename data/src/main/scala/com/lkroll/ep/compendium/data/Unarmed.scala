@@ -52,7 +52,7 @@ object Unarmed {
     name = "Shock Gloves",
     `type` = WeaponType.Unarmed,
     descr = "When activated, these gloves deliver an incapacitating shock along with every punch or grab. Note that the effect is the same whether wearing one glove or two.",
-    damage = (1.d10 + 10).kinetic,
+    damage = (1.d10 + 0).kinetic,
     effect = Some("Shock"),
     ap = 0,
     price = Cost.Low,

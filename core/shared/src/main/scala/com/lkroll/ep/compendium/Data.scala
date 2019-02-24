@@ -8,6 +8,7 @@ trait Data extends ChatRenderable {
 
 sealed trait DescribedData {
   def value: Data;
+  def version: String;
 }
 
 object DescribedData {
@@ -29,42 +30,46 @@ object DescribedData {
     macroRW[MorphModelD],
     macroRW[MorphInstanceD],
     macroRW[PsiSleightD],
-    macroRW[SkillDefD]);
+    macroRW[SkillDefD],
+    macroRW[CharacterD]);
 
   @upickle.key("Ammo")
-  final case class AmmoD(value: Ammo) extends DescribedData;
+  final case class AmmoD(value: Ammo, version: String) extends DescribedData;
   @upickle.key("Armour")
-  final case class ArmourD(value: Armour) extends DescribedData;
+  final case class ArmourD(value: Armour, version: String) extends DescribedData;
   @upickle.key("ArmourMod")
-  final case class ArmourModD(value: ArmourMod) extends DescribedData;
+  final case class ArmourModD(value: ArmourMod, version: String) extends DescribedData;
   @upickle.key("Augmentation")
-  final case class AugmentationD(value: Augmentation) extends DescribedData;
+  final case class AugmentationD(value: Augmentation, version: String) extends DescribedData;
   @upickle.key("ModdedArmour")
-  final case class ModdedArmourD(value: ModdedArmour) extends DescribedData;
+  final case class ModdedArmourD(value: ModdedArmour, version: String) extends DescribedData;
   @upickle.key("WeaponWithAmmo")
-  final case class WeaponWithAmmoD(value: WeaponWithAmmo) extends DescribedData;
+  final case class WeaponWithAmmoD(value: WeaponWithAmmo, version: String) extends DescribedData;
   @upickle.key("Weapon")
-  final case class WeaponD(value: Weapon) extends DescribedData;
+  final case class WeaponD(value: Weapon, version: String) extends DescribedData;
   @upickle.key("WeaponAccessory")
-  final case class WeaponAccessoryD(value: WeaponAccessory) extends DescribedData;
+  final case class WeaponAccessoryD(value: WeaponAccessory, version: String) extends DescribedData;
   @upickle.key("Derangment")
-  final case class DerangementD(value: Derangement) extends DescribedData;
+  final case class DerangementD(value: Derangement, version: String) extends DescribedData;
   @upickle.key("Disorder")
-  final case class DisorderD(value: Disorder) extends DescribedData;
+  final case class DisorderD(value: Disorder, version: String) extends DescribedData;
   @upickle.key("EPTrait")
-  final case class EPTraitD(value: EPTrait) extends DescribedData;
+  final case class EPTraitD(value: EPTrait, version: String) extends DescribedData;
   @upickle.key("Gear")
-  final case class GearD(value: Gear) extends DescribedData;
+  final case class GearD(value: Gear, version: String) extends DescribedData;
   @upickle.key("Software")
-  final case class SoftwareD(value: Software) extends DescribedData;
+  final case class SoftwareD(value: Software, version: String) extends DescribedData;
   @upickle.key("Substance")
-  final case class SubstanceD(value: Substance) extends DescribedData;
+  final case class SubstanceD(value: Substance, version: String) extends DescribedData;
   @upickle.key("MorphModel")
-  final case class MorphModelD(value: MorphModel) extends DescribedData;
+  final case class MorphModelD(value: MorphModel, version: String) extends DescribedData;
   @upickle.key("MorphInstance")
-  final case class MorphInstanceD(value: MorphInstance) extends DescribedData;
+  final case class MorphInstanceD(value: MorphInstance, version: String) extends DescribedData;
   @upickle.key("PsiSleight")
-  final case class PsiSleightD(value: PsiSleight) extends DescribedData;
+  final case class PsiSleightD(value: PsiSleight, version: String) extends DescribedData;
   @upickle.key("SkillDef")
-  final case class SkillDefD(value: SkillDef) extends DescribedData;
+  final case class SkillDefD(value: SkillDef, version: String) extends DescribedData;
+
+  @upickle.key("Character")
+  final case class CharacterD(value: EPCharacter, version: String) extends DescribedData;
 }

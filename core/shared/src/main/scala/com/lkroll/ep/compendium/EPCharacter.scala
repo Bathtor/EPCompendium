@@ -25,7 +25,21 @@ case class EPCharacter(
   gear:             List[GearEntry]                      = Nil,
   weapons:          List[Either[Weapon, WeaponWithAmmo]] = Nil,
   armour:           List[Either[Armour, ModdedArmour]]   = Nil,
-  software:         List[Software]                       = Nil) {
+  software:         List[Software]                       = Nil) extends Data {
+
+  override def templateTitle: String = name;
+  override def templateSubTitle: String = s"${gender.entryName} character";
+  override def templateKV: Map[String, String] = Map(
+    "Age" -> age.toString,
+    "Background" -> background,
+    "Motivations" -> motivations.map(_.text).mkString(", "),
+    "Faction" -> faction,
+    "Starting Morph" -> startingMorph.name,
+    "Active Morph" -> activeMorph.model,
+    "Async?" -> isAsync.toString(),
+    "Traits" -> traits.map(_.templateTitle).mkString(", "));
+  override def templateDescr: String = history.map(entry => s"- $entry").mkString("\n");
+  override def described: DescribedData = DescribedData.CharacterD(this, BuildInfo.version);
 }
 
 object EPCharacter {

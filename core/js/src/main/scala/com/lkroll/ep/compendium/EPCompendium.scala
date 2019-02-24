@@ -66,6 +66,7 @@ object EPCompendium {
   def readData(s: String): Try[Data] = {
     Try {
       val dd = read[DescribedData](s);
+      checkCompatibility(dd.version);
       dd.value
     }
   }
@@ -87,7 +88,9 @@ object EPCompendium {
       searchIn(lowNeedle, substances),
       searchIn(lowNeedle, augmentations),
       searchIn(lowNeedle, armourMods),
-      searchIn(lowNeedle, weaponAccessories)).flatten;
+      searchIn(lowNeedle, weaponAccessories),
+      searchIn(lowNeedle, psiSleights),
+      searchIn(lowNeedle, skillDefs)).flatten;
     matches.sortBy(_._1).reverse.map(_._2)
   }
 

@@ -18,7 +18,7 @@ case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
     Map("Source" -> source);
   override def templateDescr: String = descr;
 
-  override def described = DescribedData.AmmoD(this);
+  override def described = DescribedData.AmmoD(this, BuildInfo.version);
 }
 object Ammo {
   implicit def rw: RW[Ammo] = macroRW;
@@ -55,7 +55,7 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable wit
     case None    => s"$name (${damage.dmgString} DV, AP $ap)"
   };
 
-  override def described: DescribedData = DescribedData.WeaponWithAmmoD(this);
+  override def described: DescribedData = DescribedData.WeaponWithAmmoD(this, BuildInfo.version);
 }
 
 object WeaponWithAmmo {

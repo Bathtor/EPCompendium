@@ -29,7 +29,7 @@ case class SkillDef(
     "Sample Specs" -> sampleSpecs.mkString(", ")) ++
     sampleFields.map(sf => ("Sample Fields" -> sf.mkString(", "))).toMap;
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.SkillDefD(this);
+  override def described: DescribedData = DescribedData.SkillDefD(this, BuildInfo.version);
 
   def matches(other: SkillDef): Boolean = {
     if (this.name == other.name) {

@@ -45,7 +45,7 @@ case class EPTrait(name: String, traitType: TraitType, applicability: TraitAppli
   override def templateSubTitle: String = applicability.label;
   override def templateKV: Map[String, String] = Map("CP" -> cp.toString, "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.EPTraitD(this);
+  override def described: DescribedData = DescribedData.EPTraitD(this, BuildInfo.version);
 }
 object EPTrait {
   implicit def rw: RW[EPTrait] = macroRW;

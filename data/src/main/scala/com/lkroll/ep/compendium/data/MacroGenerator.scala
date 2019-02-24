@@ -26,6 +26,7 @@ object MacroGenerator {
   val substances = addWrapper(Substance.dataType, AllData.substances.flatten.map(_.name).sorted.mkString(sep));
   val software = addWrapper(Software.dataType, AllData.software.flatten.map(_.name).sorted.mkString(sep));
   val sleights = addWrapper(PsiSleight.dataType, AllData.psiSleights.flatten.map(_.name).sorted.mkString(sep));
+  val skills = addWrapper(SkillDef.dataType, AllData.skills.flatten.map(_.name).sorted.mkString(sep));
   val data = List(
     morphModels,
     morphInstances,
@@ -34,6 +35,7 @@ object MacroGenerator {
     disorders,
     armourWithStuff,
     gear,
+    skills,
     sleights,
     substances,
     software,
@@ -69,6 +71,8 @@ $data
     val cmd = dataType match {
       case "morphmodel"    => "morph-model"
       case "morphinstance" => "morph"
+      case "skilldef"      => "skill"
+      case "psisleight"    => "psi-sleight"
       case s               => s
     };
     s"""

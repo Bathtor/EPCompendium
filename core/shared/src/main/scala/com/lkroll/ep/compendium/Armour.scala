@@ -12,7 +12,7 @@ case class Armour(name: String, descr: String, accessory: Boolean = false, armou
 
   def withMod(mod: ArmourMod): ModdedArmour = ModdedArmour(this, mod);
 
-  override def described: DescribedData = DescribedData.ArmourD(this);
+  override def described: DescribedData = DescribedData.ArmourD(this, BuildInfo.version);
 }
 object Armour {
   implicit def rw: RW[Armour] = macroRW;
@@ -27,7 +27,7 @@ case class ArmourMod(name: String, descr: String, armour: (Int, Int) = (0, 0),
     Map("Armour Value" -> s"${armour._1.asMod}/${armour._2.asMod}", "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
-  override def described = DescribedData.ArmourModD(this);
+  override def described = DescribedData.ArmourModD(this, BuildInfo.version);
 }
 object ArmourMod {
   implicit def rw: RW[ArmourMod] = macroRW;
@@ -50,7 +50,7 @@ ${mod.descr}""";
     Map("Armour" -> s"${armour._1}/${armour._2}");
   override def templateDescr: String = descr;
 
-  override def described: DescribedData = DescribedData.ModdedArmourD(this);
+  override def described: DescribedData = DescribedData.ModdedArmourD(this, BuildInfo.version);
 }
 object ModdedArmour {
   implicit def rw: RW[ModdedArmour] = macroRW;

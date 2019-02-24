@@ -55,6 +55,14 @@ object EverydayTech {
   //    source = Sources.ep,
   //    sourcePage = 325);
 
+  val specs = Gear(
+    name = "Specs",
+    category = c,
+    descr = "Specs are vision-enhancing glasses. They deliver sensory data directly into the wearer’s visual cortex by connecting with their basic mesh inserts (p. 300), though visual displays are available for bioconservatives and other characters without implants. Specs extend the range of the wearer’s vision from terahertz waves to gamma rays (p. 303). Specs include a t-ray emitter (p. 306), however, using x-rays, or gamma rays for visual purposes requires a separate emitter, since neither of these sorts of radiation are common inside habitats, or in any safe environments. Specs have a variable focus equivalent to 5 power magnifiers and provide the wearer with a +10 bonus to all Perception Tests involving vision.",
+    price = Cost.Low,
+    source = Sources.ep,
+    sourcePage = 326);
+
   val toolKit = Gear(
     name = "Tool Kit",
     category = c,

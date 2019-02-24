@@ -1,4 +1,7 @@
 # EPCompendium
+Core: [ ![Download](https://api.bintray.com/packages/lkrollcom/maven/epcompendium-core/images/download.svg) ](https://bintray.com/lkrollcom/maven/epcompendium-core/_latestVersion)
+Data: [ ![Download](https://api.bintray.com/packages/lkrollcom/maven/epcompendium-data/images/download.svg) ](https://bintray.com/lkrollcom/maven/epcompendium-data/_latestVersion)
+
 
 This repository contains both data models and the data to build a custom **Roll20** *Compendium* for *Eclipse Phase*.
 
@@ -13,11 +16,11 @@ resolvers += Resolver.bintrayRepo("lkrollcom", "maven")
 
 Then add the library dependency:
 ```scala
-libraryDependencies += "com.lkroll.ep" %% "epcompendium-core" % "1.1.+"
+libraryDependencies += "com.lkroll.ep" %% "epcompendium-core" % "4.0.0"
 ```
 Or for ScalaJS:
 ```scala
-libraryDependencies += "com.lkroll.ep" %%% "epcompendium-core" % "1.1.+"
+libraryDependencies += "com.lkroll.ep" %%% "epcompendium-core" % "4.0.0"
 ```
 
 ## Licenses

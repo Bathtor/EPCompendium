@@ -8,7 +8,7 @@ case class Disorder(name: String, descr: String, gameEffect: String,
   override def templateSubTitle: String = "Disorder";
   override def templateKV: Map[String, String] = Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr ++ "<br />--- Suggested Game Effect ---<br />" ++ gameEffect;
-  override def described: DescribedData = DescribedData.DisorderD(this);
+  override def described: DescribedData = DescribedData.DisorderD(this, BuildInfo.version);
 }
 object Disorder {
   implicit def rw: RW[Disorder] = macroRW;

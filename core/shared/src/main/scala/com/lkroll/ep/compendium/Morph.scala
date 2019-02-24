@@ -42,7 +42,7 @@ case class MorphModel(name: String, morphType: MorphType, descr: String,
       "Source" -> source) ++
       price.templateKV;
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.MorphModelD(this);
+  override def described: DescribedData = DescribedData.MorphModelD(this, BuildInfo.version);
 }
 object MorphModel {
   implicit def rw: RW[MorphModel] = macroRW;
@@ -75,7 +75,7 @@ case class MorphInstance(label: String, model: String, morphType: MorphType, des
       "Durability" -> durability.toString(),
       "Armour" -> armour.map(t => s"${t._1}/${t._2}").getOrElse("0/0"));
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.MorphInstanceD(this);
+  override def described: DescribedData = DescribedData.MorphInstanceD(this, BuildInfo.version);
 }
 object MorphInstance {
   implicit def rw: RW[MorphInstance] = macroRW;

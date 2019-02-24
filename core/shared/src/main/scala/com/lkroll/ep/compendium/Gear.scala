@@ -9,7 +9,7 @@ case class Gear(name: String, category: String, descr: String, price: Cost,
   override def templateSubTitle: String = category;
   override def templateKV: Map[String, String] = price.templateKV ++ Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.GearD(this);
+  override def described: DescribedData = DescribedData.GearD(this, BuildInfo.version);
 }
 object Gear {
   implicit def rw: RW[Gear] = macroRW;
@@ -24,7 +24,7 @@ case class Software(name: String, descr: String, quality: SoftwareQuality = Soft
     price.templateKV ++
     Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.SoftwareD(this);
+  override def described: DescribedData = DescribedData.SoftwareD(this, BuildInfo.version);
 }
 object Software {
   implicit def rw: RW[Software] = macroRW;
@@ -165,7 +165,7 @@ case class Substance(name: String, category: String, classification: SubstanceCl
       price.templateKV ++
       Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
-  override def described: DescribedData = DescribedData.SubstanceD(this);
+  override def described: DescribedData = DescribedData.SubstanceD(this, BuildInfo.version);
 }
 object Substance {
   implicit def rw: RW[Substance] = macroRW;

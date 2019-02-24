@@ -59,7 +59,7 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
       Map("Source" -> source);
   override def templateDescr: String = descr;
 
-  override def described: DescribedData = DescribedData.WeaponD(this);
+  override def described: DescribedData = DescribedData.WeaponD(this, BuildInfo.version);
 
   def summaryString: String = effect match {
     case Some(e) => s"$name (${damage.dmgString} DV, AP $ap, $e)"
@@ -204,7 +204,7 @@ case class WeaponAccessory(name: String, descr: String,
       "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
-  override def described = DescribedData.WeaponAccessoryD(this);
+  override def described = DescribedData.WeaponAccessoryD(this, BuildInfo.version);
 
   def mod(w: Weapon): Weapon = w.copy(
     name = s"${w.name} with ${this.name}",
