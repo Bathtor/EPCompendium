@@ -21,7 +21,7 @@ object Cost {
     macroRW[Expensive.type],
     macroRW[ExpensivePlus]);
 
-  @upickle.key("None")
+  @upickle.implicits.key("None")
   case object None extends Cost {
     override def text: String = "None";
     override def range: (Int, Int) = (0, 0);
@@ -30,7 +30,7 @@ object Cost {
     override def decrement: Cost = None;
   }
 
-  @upickle.key("Trivial")
+  @upickle.implicits.key("Trivial")
   case object Trivial extends Cost {
     override def text: String = "Trivial";
     override def range: (Int, Int) = (1, 99);
@@ -38,7 +38,7 @@ object Cost {
     override def increment: Cost = Low;
     override def decrement: Cost = None;
   }
-  @upickle.key("Low")
+  @upickle.implicits.key("Low")
   case object Low extends Cost {
     override def text: String = "Low";
     override def range: (Int, Int) = (100, 499);
@@ -46,7 +46,7 @@ object Cost {
     override def increment: Cost = Moderate;
     override def decrement: Cost = Trivial;
   }
-  @upickle.key("Moderate")
+  @upickle.implicits.key("Moderate")
   case object Moderate extends Cost {
     override def text: String = "Moderate";
     override def range: (Int, Int) = (500, 1499);
@@ -54,7 +54,7 @@ object Cost {
     override def increment: Cost = High;
     override def decrement: Cost = Low;
   }
-  @upickle.key("High")
+  @upickle.implicits.key("High")
   case object High extends Cost {
     override def text: String = "High";
     override def range: (Int, Int) = (1500, 9999);
@@ -62,7 +62,7 @@ object Cost {
     override def increment: Cost = Expensive;
     override def decrement: Cost = Moderate;
   }
-  @upickle.key("Expensive")
+  @upickle.implicits.key("Expensive")
   case object Expensive extends Cost {
     override def text: String = "Expensive";
     override def range: (Int, Int) = (10000, 30000);
@@ -70,7 +70,7 @@ object Cost {
     override def increment: Cost = ExpensivePlus(30000);
     override def decrement: Cost = High;
   }
-  @upickle.key("ExpensivePlus")
+  @upickle.implicits.key("ExpensivePlus")
   case class ExpensivePlus(minimum: Int) extends Cost {
     override def text: String = s"Expensive (minimum $minimum)";
     override def range: (Int, Int) = (30000, Int.MaxValue);

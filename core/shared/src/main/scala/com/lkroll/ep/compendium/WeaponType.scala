@@ -21,17 +21,17 @@ object WeaponType {
       macroRW[ExoticMeleeWeapon]);
   }
 
-  @upickle.key("Blades")
+  @upickle.implicits.key("Blades")
   case object Blades extends Melee {
     override def skill: String = "Blades";
     override def label: String = "Blades";
   }
-  @upickle.key("Clubs")
+  @upickle.implicits.key("Clubs")
   case object Clubs extends Melee {
     override def skill: String = "Clubs";
     override def label: String = "Clubs";
   }
-  @upickle.key("ExoticMeleeWeapon")
+  @upickle.implicits.key("ExoticMeleeWeapon")
   case class ExoticMeleeWeapon(weapon: String) extends Melee {
     override def skill: String = s"Exotic Melee Weapons (${weapon})";
     override def label: String = s"Exotic Melee Weapons";
@@ -39,7 +39,7 @@ object WeaponType {
   //  object ExoticMeleeWeapon {
   //    implicit def rw: RW[ExoticMeleeWeapon] = macroRW;
   //  }
-  @upickle.key("Unarmed")
+  @upickle.implicits.key("Unarmed")
   case object Unarmed extends Melee {
     override def skill: String = "Unarmed Combat";
     override def label: String = "Unarmed";
@@ -56,33 +56,33 @@ object WeaponType {
       macroRW[ExoticRangedWeapon]);
   }
 
-  @upickle.key("Kinetic")
+  @upickle.implicits.key("Kinetic")
   case object Kinetic extends Ranged {
     override def skill: String = "Kinetic Weapons";
     override def label: String = "Firearms";
   }
-  @upickle.key("Railgun")
+  @upickle.implicits.key("Railgun")
   case object Railgun extends Ranged {
     override def skill: String = "Kinetic Weapons";
     override def label: String = "Railguns";
   }
-  @upickle.key("Beam")
+  @upickle.implicits.key("Beam")
   case object Beam extends Ranged {
     override def skill: String = "Beam Weapons";
     override def label: String = "Beam Weapons";
   }
-  @upickle.key("Seeker")
+  @upickle.implicits.key("Seeker")
   case class Seeker(size: MissileSize) extends Ranged {
     override def skill: String = "Seeker Weapons";
     override def label: String = s"Seekers (${size.label})";
   }
 
-  @upickle.key("Spray")
+  @upickle.implicits.key("Spray")
   case object Spray extends Ranged {
     override def skill: String = "Spray Weapons";
     override def label: String = "Spray Weapons";
   }
-  @upickle.key("ExoticRangedWeapon")
+  @upickle.implicits.key("ExoticRangedWeapon")
   case class ExoticRangedWeapon(weapon: String) extends Ranged {
     override def skill: String = s"Exotic Ranged Weapons (${weapon})";
     override def label: String = "Exotic Ranged Weapons";
@@ -104,7 +104,7 @@ object WeaponType {
       macroRW[Microgrenade.type]);
   }
 
-  @upickle.key("StandardGrenade")
+  @upickle.implicits.key("StandardGrenade")
   case object StandardGrenade extends Grenade {
     override def skill: String = "Throwing Weapons";
     override def label: String = "Standard Grenade";
@@ -112,7 +112,7 @@ object WeaponType {
     override def adjust(areaMod: DamageAreaMod): DamageAreaMod = areaMod;
     override def range: Range = Range.ThrownGrenades;
   }
-  @upickle.key("Microgrenade")
+  @upickle.implicits.key("Microgrenade")
   case object Microgrenade extends Grenade {
     override def skill: String = "Throwing Weapons";
     override def label: String = "Microgrenade";

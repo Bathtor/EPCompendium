@@ -72,12 +72,12 @@ object APMod {
     macroRW[Id.type],
     macroRW[Const]);
 
-  @upickle.key("Id")
+  @upickle.implicits.key("Id")
   case object Id extends APMod {
     override def modifyAP(ap: Int): Int = ap;
     override def text: String = "–";
   }
-  @upickle.key("Const")
+  @upickle.implicits.key("Const")
   case class Const(apMod: Int) extends APMod {
     override def modifyAP(ap: Int): Int = Math.min(0, ap + apMod);
     override def text: String = apMod.toString();
@@ -94,12 +94,12 @@ object DamageTypeMod {
     macroRW[Id.type],
     macroRW[Replace]);
 
-  @upickle.key("Id")
+  @upickle.implicits.key("Id")
   case object Id extends DamageTypeMod {
     override def modify(damage: Damage): Damage = damage;
     override def text: String = "–";
   }
-  @upickle.key("Replace")
+  @upickle.implicits.key("Replace")
   case class Replace(damageType: DamageType) extends DamageTypeMod {
     override def modify(damage: Damage): Damage = damage.copy(dmgType = this.damageType);
     override def text: String = this.damageType.toString();
@@ -119,27 +119,27 @@ object DamageAreaMod {
     macroRW[MultRadius],
     macroRW[DivRadius]);
 
-  @upickle.key("Id")
+  @upickle.implicits.key("Id")
   case object Id extends DamageAreaMod {
     override def modify(area: DamageArea): DamageArea = area;
     override def text: String = "–";
   }
-  @upickle.key("Replace")
+  @upickle.implicits.key("Replace")
   case class Replace(area: DamageArea) extends DamageAreaMod {
     override def modify(area: DamageArea): DamageArea = this.area;
     override def text: String = this.area.text;
   }
-  @upickle.key("AddRadius")
+  @upickle.implicits.key("AddRadius")
   case class AddRadius(r: Int) extends DamageAreaMod {
     override def modify(area: DamageArea): DamageArea = area + r;
     override def text: String = if (r > 0) s"+${r}m" else s"${r}m";
   }
-  @upickle.key("MultRadius")
+  @upickle.implicits.key("MultRadius")
   case class MultRadius(r: Int) extends DamageAreaMod {
     override def modify(area: DamageArea): DamageArea = area * r;
     override def text: String = s"*${r}m";
   }
-  @upickle.key("DivRadius")
+  @upickle.implicits.key("DivRadius")
   case class DivRadius(r: Int) extends DamageAreaMod {
     override def modify(area: DamageArea): DamageArea = area / r;
     override def text: String = s"%${r}m";
@@ -191,7 +191,7 @@ object DamageMod {
     case _           => Chain(mods)
   }
 
-  @upickle.key("NoDamage")
+  @upickle.implicits.key("NoDamage")
   case object NoDamage extends DamageMod {
     override def modifyD10(dmg: Int): Int = 0;
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = 1;
@@ -199,7 +199,7 @@ object DamageMod {
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = "no damage";
   }
-  @upickle.key("Id")
+  @upickle.implicits.key("Id")
   case object Id extends DamageMod {
     override def modifyD10(dmg: Int): Int = dmg;
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = divisor;
@@ -207,7 +207,7 @@ object DamageMod {
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = "–";
   }
-  @upickle.key("Half")
+  @upickle.implicits.key("Half")
   case object Half extends DamageMod {
     override def modifyD10(dmg: Int): Int = if (dmg % 2 == 0) dmg / 2 else dmg;
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = if (dmgD10 % 2 == 0) 1 else 2;
@@ -215,7 +215,7 @@ object DamageMod {
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = "-half";
   }
-  @upickle.key("Double")
+  @upickle.implicits.key("Double")
   case object Double extends DamageMod {
     override def modifyD10(dmg: Int): Int = dmg * 2;
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = divisor;
@@ -223,7 +223,7 @@ object DamageMod {
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = "double";
   }
-  @upickle.key("Const")
+  @upickle.implicits.key("Const")
   case class Const(d10Dmg: Int, constDmg: Int) extends DamageMod {
     override def modifyD10(dmg: Int): Int = Math.max(0, dmg + d10Dmg);
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = divisor; // TODO this isn't actually quite right if divisor != 1
@@ -235,7 +235,7 @@ object DamageMod {
       if (d10Dmg == 0) constS else s"${d10S}d10$constS"
     }
   }
-  @upickle.key("Effect")
+  @upickle.implicits.key("Effect")
   case class Effect(addEffect: String) extends DamageMod {
     override def modifyD10(dmg: Int): Int = dmg;
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = divisor;
@@ -247,7 +247,7 @@ object DamageMod {
     override def text: String = addEffect;
   }
 
-  @upickle.key("Chain")
+  @upickle.implicits.key("Chain")
   case class Chain(mods: List[DamageMod]) extends DamageMod {
     override def modifyD10(dmg: Int): Int = mods.foldLeft(dmg)((acc, mod) => mod.modifyD10(acc));
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = mods.foldLeft((dmgD10, divisor))((acc, mod) => acc match {

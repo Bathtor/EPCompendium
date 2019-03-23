@@ -12,11 +12,11 @@ object Range {
     Ranged.rw);
 
   import Math.ceil;
-  @upickle.key("Melee")
+  @upickle.implicits.key("Melee")
   case object Melee extends Range {
     override def templateKV: Map[String, String] = Map("Range" -> "Melee");
   }
-  @upickle.key("Ranged")
+  @upickle.implicits.key("Ranged")
   case class Ranged(shortUpper: Int, mediumUpper: Int, longUpper: Int, extremeUpper: Int) extends Range {
     override def templateKV: Map[String, String] = Map(
       "Range 1-Short" -> s"2-${shortUpper}m",
@@ -61,7 +61,7 @@ object Range {
       macroRW[ThrownMinigrenades.type],
       macroRW[ThrownGrenades.type]);
   }
-  @upickle.key("ThrownBlades")
+  @upickle.implicits.key("ThrownBlades")
   case object ThrownBlades extends Thrown {
     override def variant: String = "Blades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);
@@ -78,7 +78,7 @@ object Range {
       "Range 3-Long" -> s"SOM%2 + 1 - SOMm",
       "Range 4-Extreme" -> s"SOM + 1 - SOMx2m");
   }
-  @upickle.key("ThrownMinigrenades")
+  @upickle.implicits.key("ThrownMinigrenades")
   case object ThrownMinigrenades extends Thrown {
     override def variant: String = "Minigrenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 2);
@@ -95,7 +95,7 @@ object Range {
       "Range 3-Long" -> s"SOM + 1 - SOMx2 meters",
       "Range 4-Extreme" -> s"SOMx2 + 1 - SOMx3 meters");
   }
-  @upickle.key("ThrownGrenades")
+  @upickle.implicits.key("ThrownGrenades")
   case object ThrownGrenades extends Thrown {
     override def variant: String = "Grenades";
     override def shortUpper(som: Int): Int = ceilDiv(som, 5);

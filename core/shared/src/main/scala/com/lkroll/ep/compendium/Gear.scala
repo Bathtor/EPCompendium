@@ -55,94 +55,94 @@ object SoftwareQuality {
     macroRW[TITAN],
     macroRW[Alien]);
 
-  @upickle.key("Standard")
+  @upickle.implicits.key("Standard")
   case object Standard extends SoftwareQuality {
     override def label: String = "Standard";
     override def modifier: Int = 0;
   }
 
-  @upickle.key("Custom")
+  @upickle.implicits.key("Custom")
   case class Custom(label: String, modifier: Int) extends SoftwareQuality {
   }
 
-  @upickle.key("Relic")
+  @upickle.implicits.key("Relic")
   case object Relic extends SoftwareQuality {
     override def label: String = "Relic from the early expansion into space";
     override def modifier: Int = -30;
   }
 
-  @upickle.key("EOL")
+  @upickle.implicits.key("EOL")
   case object EndOfLife extends SoftwareQuality {
     override def label: String = "End-of-Life/No-longer-supported";
     override def modifier: Int = -30;
   }
 
-  @upickle.key("Inferior")
+  @upickle.implicits.key("Inferior")
   case object Inferior extends SoftwareQuality {
     override def label: String = "Malfunctioning/Inferior";
     override def modifier: Int = -20;
   }
 
-  @upickle.key("Buggy")
+  @upickle.implicits.key("Buggy")
   case object Buggy extends SoftwareQuality {
     override def label: String = "Buggy";
     override def modifier: Int = -20;
   }
 
-  @upickle.key("PreFall")
+  @upickle.implicits.key("PreFall")
   case object PreFall extends SoftwareQuality {
     override def label: String = "Pre-Fall";
     override def modifier: Int = -20;
   }
 
-  @upickle.key("Outdated")
+  @upickle.implicits.key("Outdated")
   case object Outdated extends SoftwareQuality {
     override def label: String = "Outdated";
     override def modifier: Int = -10;
   }
 
-  @upickle.key("Low")
+  @upickle.implicits.key("Low")
   case object LowQuality extends SoftwareQuality {
     override def label: String = "Low Quality";
     override def modifier: Int = -10;
   }
 
-  @upickle.key("High")
+  @upickle.implicits.key("High")
   case object HighQuality extends SoftwareQuality {
     override def label: String = "High Quality";
     override def modifier: Int = 10;
   }
 
-  @upickle.key("Security")
+  @upickle.implicits.key("Security")
   case object SecurityGrade extends SoftwareQuality {
     override def label: String = "Security Grade";
     override def modifier: Int = 10;
   }
 
-  @upickle.key("NextGen")
+  @upickle.implicits.key("NextGen")
   case object NextGen extends SoftwareQuality {
     override def label: String = "Next-Generation";
     override def modifier: Int = 20;
   }
 
-  @upickle.key("Advanced")
+  @upickle.implicits.key("Advanced")
   case object Advanced extends SoftwareQuality {
     override def label: String = "Advanced";
     override def modifier: Int = 20;
   }
 
-  @upickle.key("Sota")
+  @upickle.implicits.key("Sota")
   case object Sota extends SoftwareQuality {
     override def label: String = "State-of-the-art";
     override def modifier: Int = 20;
   }
 
-  @upickle.key("TITAN")
+  @upickle.implicits.key("TITAN")
   case class TITAN(modifier: Int) extends SoftwareQuality {
     override def label: String = "TITAN";
   }
 
-  @upickle.key("Alien")
+  @upickle.implicits.key("Alien")
   case class Alien(modifier: Int) extends SoftwareQuality {
     override def label: String = "Alien";
   }

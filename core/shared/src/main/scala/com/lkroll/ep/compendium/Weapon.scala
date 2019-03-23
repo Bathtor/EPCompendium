@@ -146,7 +146,7 @@ object DamageArea {
     macroRW[UniformBlast],
     macroRW[Cone.type]);
 
-  @upickle.key("Point")
+  @upickle.implicits.key("Point")
   case object Point extends DamageArea {
     override def text: String = "Point of Impact";
     override def +(i: Int): DamageArea = Math.max(0, i) match {
@@ -157,7 +157,7 @@ object DamageArea {
     override def /(i: Int): DamageArea = this;
   }
 
-  @upickle.key("Blast")
+  @upickle.implicits.key("Blast")
   case object Blast extends DamageArea {
     override def text: String = "Blast";
     override def +(i: Int): DamageArea = Math.max(0, i) match {
@@ -167,7 +167,7 @@ object DamageArea {
     override def *(i: Int): DamageArea = this;
     override def /(i: Int): DamageArea = this;
   }
-  @upickle.key("UniformBlast")
+  @upickle.implicits.key("UniformBlast")
   case class UniformBlast(radius: Int) extends DamageArea {
     override def text: String = s"Uniform Blast (r=${radius}m)";
     override def +(i: Int): DamageArea = Math.max(0, radius + i) match {
@@ -183,7 +183,7 @@ object DamageArea {
       case r => UniformBlast(r)
     };
   }
-  @upickle.key("Cone")
+  @upickle.implicits.key("Cone")
   case object Cone extends DamageArea {
     override def text: String = "Cone";
     override def +(i: Int): DamageArea = this; // doesn't seem sensible to extend a cone

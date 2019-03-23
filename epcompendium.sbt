@@ -8,13 +8,13 @@ resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
 
 lazy val commonSettings = Seq(
   organization := "com.lkroll.ep",
-  version := "4.0.0",
+  version := "5.0.0",
   scalaVersion := "2.12.8",
   libraryDependencies ++= Seq(
-  	"com.lihaoyi" %%% "upickle" % "0.6.4",
-    "com.beachape" %%% "enumeratum" % "1.5.13",
-  	"com.lkroll.common" %%% "common-data-tools" % "1.1.+",
-  	"org.scalatest" %%% "scalatest" % "3.0.4" % "test"),
+  	"com.lihaoyi" %%% "upickle" % Dependencies.upickleV,
+    "com.beachape" %%% "enumeratum" % Dependencies.enumeratumV,
+  	"com.lkroll.common" %%% "common-data-tools" % Dependencies.dataToolsV,
+  	"org.scalatest" %%% "scalatest" % Dependencies.scalatestV % "test"),
   bintrayOrganization := Some("lkrollcom"),
   licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 )
@@ -39,14 +39,14 @@ lazy val epccore = crossProject(JSPlatform, JVMPlatform).in(file("core")).
   jvmSettings(
     // Add JVM-specific settings here
     libraryDependencies ++= Seq(
-	  	"ch.qos.logback" % "logback-classic" % "1.2.3",
-	  	"com.typesafe.scala-logging" %% "scala-logging" % "3.8.0"),
+	  	"ch.qos.logback" % "logback-classic" % Dependencies.logbackV,
+	  	"com.typesafe.scala-logging" %% "scala-logging" % Dependencies.scalaloggingV),
     parallelExecution in Test := false,
     logBuffered in Test := false
   ).
   jsSettings(
     // Add JS-specific settings here
-    libraryDependencies += "com.lkroll.roll20" %%% "roll20-api-facade" % "1.2.0-SNAPSHOT"
+    libraryDependencies += "com.lkroll.roll20" %%% "roll20-api-facade" % Dependencies.apiFacadeV
   )
 
 lazy val epCompendiumCoreJVM = epccore.jvm
@@ -56,8 +56,8 @@ lazy val data = (project in file("data")).settings(
 	commonSettings,
 	//skip in publish := true,
 	libraryDependencies ++= Seq(
-	  	"ch.qos.logback" % "logback-classic" % "1.2.3",
-	  	"com.typesafe.scala-logging" %% "scala-logging" % "3.8.0",
-	  	"org.rogach" %% "scallop" % "3.1.2"),
+	  	"ch.qos.logback" % "logback-classic" % Dependencies.logbackV,
+	  	"com.typesafe.scala-logging" %% "scala-logging" % Dependencies.scalaloggingV,
+	  	"org.rogach" %% "scallop" % Dependencies.scallopV),
 	name := "EPCompendium Data"
 ).dependsOn(epCompendiumCoreJVM)

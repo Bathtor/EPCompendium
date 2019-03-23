@@ -28,27 +28,27 @@ object Effect {
 
   private def modToString(i: Int): String = if (i > 0) s"+$i" else i.toString;
 
-  @upickle.key("SpeedMod")
+  @upickle.implicits.key("SpeedMod")
   case class SpeedMod(mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} SPD";
   }
 
-  @upickle.key("MOAMod")
+  @upickle.implicits.key("MOAMod")
   case class MOAMod(mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} MOA";
   }
 
-  @upickle.key("IniMod")
+  @upickle.implicits.key("IniMod")
   case class IniMod(mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} INI";
   }
 
-  @upickle.key("AptitudeMod")
+  @upickle.implicits.key("AptitudeMod")
   case class AptitudeMod(apt: Aptitude, mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} ${apt.label}";
   }
 
-  @upickle.key("SkillMod")
+  @upickle.implicits.key("SkillMod")
   case class SkillMod(skill: String, field: Option[String] = None, mod: Int) extends Effect {
     def text: String = field match {
       case Some(f) => s"${modToString(mod)} $skill ($f) skill"
@@ -56,31 +56,31 @@ object Effect {
     }
   }
 
-  @upickle.key("DurMod")
+  @upickle.implicits.key("DurMod")
   case class DurMod(mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} DUR";
   }
 
-  @upickle.key("IgnoreWounds")
+  @upickle.implicits.key("IgnoreWounds")
   case class IgnoreWounds(n: Int) extends Effect {
     override def text: String = s"Ignore modifiers from $n wounds";
   }
 
-  @upickle.key("IgnoreTraumas")
+  @upickle.implicits.key("IgnoreTraumas")
   case class IgnoreTraumas(n: Int) extends Effect {
     override def text: String = s"Ignore modifiers from $n traumas";
   }
 
-  @upickle.key("LucMod")
+  @upickle.implicits.key("LucMod")
   case class LucMod(mod: Int) extends Effect {
     override def text: String = s"${modToString(mod)} LUC";
   }
 
-  @upickle.key("DamageEffect")
+  @upickle.implicits.key("DamageEffect")
   case class DamageEffect(dmg: Damage, freq: Time) extends Effect {
     override def text: String = s"${dmg.dmgString}DV every ${freq.renderLong}";
   }
 
-  @upickle.key("FreeForm")
+  @upickle.implicits.key("FreeForm")
   case class FreeForm(text: String) extends Effect;
 }

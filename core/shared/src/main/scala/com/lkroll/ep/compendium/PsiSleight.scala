@@ -51,12 +51,12 @@ object PsiType {
     macroRW[Active],
     macroRW[Passive])
 
-  @upickle.key("Active")
+  @upickle.implicits.key("Active")
   case class Active(action: String, range: PsiRange, duration: PsiDuration, strainMod: Option[Int], skill: Option[String] = None) extends PsiType {
     override def label: String = "Active";
   }
 
-  @upickle.key("Passive")
+  @upickle.implicits.key("Passive")
   case class Passive(action: String = "Automatic", range: PsiRange = PsiRange.Self, duration: PsiDuration = PsiDuration.Constant) extends PsiType {
     override def label: String = "Passive";
 
@@ -87,13 +87,13 @@ object PsiDuration {
     macroRW[Sustained.type],
     macroRW[Temp]);
 
-  @upickle.key("Constant")
+  @upickle.implicits.key("Constant")
   case object Constant extends PsiDuration;
-  @upickle.key("Instant")
+  @upickle.implicits.key("Instant")
   case object Instant extends PsiDuration;
-  @upickle.key("Sustained")
+  @upickle.implicits.key("Sustained")
   case object Sustained extends PsiDuration;
-  @upickle.key("Temp")
+  @upickle.implicits.key("Temp")
   case class Temp(units: String) extends PsiDuration {
     override def label: String = s"Temp ($units)";
   }

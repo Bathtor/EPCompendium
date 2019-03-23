@@ -41,12 +41,12 @@ object Time {
     macroRW[SpecialTime],
     macroRW[TimeNum])
 
-  @upickle.key("SpecialTime")
+  @upickle.implicits.key("SpecialTime")
   final case class SpecialTime(s: String) extends Time {
     override def renderShort: String = s;
     override def renderLong: String = s;
   }
-  @upickle.key("TimeNum")
+  @upickle.implicits.key("TimeNum")
   final case class TimeNum(scalar: Int, unit: TimeUnit) extends Time {
     override def renderShort: String = s"$scalar${unit.symbol}";
     override def renderLong: String = if (scalar == 1) {
