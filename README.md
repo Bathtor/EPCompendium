@@ -16,11 +16,11 @@ resolvers += Resolver.bintrayRepo("lkrollcom", "maven")
 
 Then add the library dependency:
 ```scala
-libraryDependencies += "com.lkroll.ep" %% "epcompendium-core" % "4.0.0"
+libraryDependencies += "com.lkroll.ep" %% "epcompendium-core" % "5.0.0"
 ```
 Or for ScalaJS:
 ```scala
-libraryDependencies += "com.lkroll.ep" %%% "epcompendium-core" % "4.0.0"
+libraryDependencies += "com.lkroll.ep" %%% "epcompendium-core" % "5.0.0"
 ```
 
 ## Licenses
