@@ -118,7 +118,7 @@ object Nanoware {
 
   // Panopticon
   val gaitMasking = Augmentation(
-    name = "Gait Maskin",
+    name = "Gait Masking",
     category = c,
     appliesTo = List(Biomorph, Pod, Synthmorph),
     descr = "Gait masking nanosystems alter the bone density, muscle tone, and shape of the user’s feet and legs in minute but effective ways, altering their gait pattern just enough to avoid detection. The process of reconfigura- tion takes 20 minutes. Gait masking is illegal in many habitats. Gait masking can also be used to mimic an existing gait profile; apply a +30 modifier on Disguise Tests to fool gait biometric scanners. ",
