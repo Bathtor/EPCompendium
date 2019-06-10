@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.utils
 
 import enumeratum._
+import io.lemonlabs.uri.Url
 
 object OptionPickler extends upickle.AttributeTagged {
   override implicit def OptionWriter[T: Writer]: Writer[Option[T]] =
@@ -22,4 +23,8 @@ object OptionPickler extends upickle.AttributeTagged {
       str => this.withName(str));
 
   }
+
+  implicit val urlReadWriter: ReadWriter[Url] = readwriter[String].bimap[Url](
+    x => x.toString(),
+    str => Url.parse(str));
 }

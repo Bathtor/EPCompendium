@@ -2,8 +2,11 @@ package com.lkroll.ep.compendium
 
 import org.scalatest._
 import com.lkroll.ep.compendium.utils.OptionPickler._
+import io.lemonlabs.uri.Url
 
 class DataTests extends FunSuite with Matchers {
+  import utils.Implicits.instance2Option;
+
   test("Data Import/Export should work") {
     val example: Data = Gear(
       name = "Shroud",
@@ -17,5 +20,22 @@ class DataTests extends FunSuite with Matchers {
     println(outS);
     val inD = read[DescribedData](outS);
     example should equal (inD.value);
+  }
+
+  test("ImageSources should read") {
+    val image = Image(
+      key = "test",
+      source = UrlImageSource(Url(scheme = "http", host = "localhost", port = 8088, path = "test.png")),
+      metadata = ImageMetadata(
+        caption = "Test Image.",
+        source = "Nowhere",
+        author = "Me",
+        license = "CC"));
+
+    val serdeImage = image.toSerialisable;
+    val outS = write(serdeImage);
+    println(outS);
+    val inD = read[SerdeImage](outS);
+    serdeImage should equal (inD);
   }
 }

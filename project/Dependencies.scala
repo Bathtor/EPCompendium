@@ -5,6 +5,8 @@ object Dependencies {
   val scallopV = "3.2.+";
   val logbackV = "1.2.+";
   val scalaloggingV = "3.9.+";
+  val scalauriV = "1.4.5";
+  val guavaV = "27.1-jre";
 
   val apiFacadeV = "1.2.+";
 

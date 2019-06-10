@@ -56,8 +56,8 @@ object MorphsDF {
     price = High,
     source = mrg);
 
-  val dverg = MorphModel(
-    name = "Dverg",
+  val dvergr = MorphModel(
+    name = "Dvergr",
     morphType = Biomorph,
     descr = "Dvergar (plural of dvergr) are biomorphs designed for comfortable operation in highgravity environments. They feature a reinforced skeletal structure and sturdier muscle masses. They are easily identifed by their slightly squat, thick-necked, tough appearances.",
     enhancements = Seq("Basic Biomods", "Basic Mesh Inserts", "Cortical Stack", "High-G Adaptation"),
