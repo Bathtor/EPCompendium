@@ -22,7 +22,7 @@ object SurvivalGear {
     source = Sources.ep,
     sourcePage = 332);
 
-  val electronicsRope = Gear(
+  val electronicRope = Gear(
     name = "Electronic Rope",
     category = c,
     descr = "The fibers in this rope can be controlled electronically, making it move in a snake-like fashion, stiffen up, and even wrap around objects. Typically comes in a 50-meter length capable of supporting 250kg.",

@@ -62,7 +62,7 @@ object KineticWeapons {
       magazineSize = 20),
     source = "Eclipse Phase");
 
-  val auomaticRifle = Weapon(
+  val automaticRifle = Weapon(
     name = "Automatic Rifle",
     `type` = WeaponType.Kinetic,
     descr = "Automatic rifles use rifle ammunition and have greater range and penetration than SMGs. They fire in semi-auto, burst fire, or full auto modes. They are two-handed weapons.",

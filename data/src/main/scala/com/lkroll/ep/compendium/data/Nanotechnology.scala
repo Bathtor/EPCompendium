@@ -22,7 +22,7 @@ object Nanotechnology {
     source = Sources.ep,
     sourcePage = 327);
 
-  val desktopCornu = Gear(
+  val desktopCornucopiaMachine = Gear(
     name = "Desktop Cornucopia Machine",
     category = c,
     descr = "Cornucopia machines (CMs) are general-purpose nanofabricators. The smallest CMs are desk-sized cubes approximately half a meter on a side with a volume of at least 40 liters. They can produce any small object, from tools to well-folded suits of clothing to handguns or a bowl of cereal. It is sometimes possible to assemble larger items, but they must be manufactured in smaller pieces and then assembled (likely requiring an appropriate Hardware Test).\nWhile users can purchase bulk raw materials, CMs also come equipped with a disassembler. The user loads garbage and other objects into the disassembler so that they can be turned into raw materials for the CM. All legally available disassemblers only deconstruct non-living material.",
