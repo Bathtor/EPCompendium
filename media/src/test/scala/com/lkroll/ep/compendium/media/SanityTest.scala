@@ -8,12 +8,21 @@ import io.lemonlabs.uri.Url
 
 class SanityTest extends FunSuite with Matchers {
   test("MRG serialise") {
+    testSerialise(MorphRecognitionGuide.list)
+  }
+  test("ECP serialise") {
+    testSerialise(EclipsePhaseCore.list)
+  }
+  test("Firewall serialise") {
+    testSerialise(Firewall.list)
+  }
+  private def testSerialise(list: List[Image[ClassPathImageSource]]): Unit = {
 
     implicit val urlmapper = (source: ClassPathImageSource) => {
       source.toUrl(loc => Url(scheme = "http", host = "localhost", port = 8088, path = loc))
     };
 
-    MorphRecognitionGuide.list.foreach { image =>
+    list.foreach { image =>
       //println(s"Key: ${image.key}");
       val serdeImage = image.toSerialisable;
 
@@ -25,8 +34,17 @@ class SanityTest extends FunSuite with Matchers {
   }
 
   test("MRG check paths") {
+    testPaths(MorphRecognitionGuide.list)
+  }
+  test("ECP check paths") {
+    testPaths(EclipsePhaseCore.list)
+  }
+  test("Firewall check paths") {
+    testPaths(Firewall.list)
+  }
+  private def testPaths(list: List[Image[ClassPathImageSource]]): Unit = {
 
-    MorphRecognitionGuide.list.foreach { image =>
+    list.foreach { image =>
       val imageData = image.source.load();
       imageData.size should not be (0);
     }

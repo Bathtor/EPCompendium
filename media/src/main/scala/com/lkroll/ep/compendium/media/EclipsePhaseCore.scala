@@ -83,7 +83,7 @@ object EclipsePhaseCore {
     KineticWeapons.sniperRifle, KineticWeapons.sniperRifle.toRailgun);
 
   val submachineGuns = multiImage(
-    source = "IMG/Submachine Guns.jpg",
+    source = "IMG/Submachine Gun.jpg",
     caption = "A Submachine Gun.")(
     KineticWeapons.submachineGun, KineticWeapons.submachineGun.toRailgun);
 

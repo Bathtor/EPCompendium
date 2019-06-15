@@ -4,9 +4,11 @@ import com.lkroll.ep.compendium._;
 
 object EPImageLibrary {
 
+  val allMedia: List[Image[ClassPathImageSource]] = MorphRecognitionGuide.list ++ EclipsePhaseCore.list ++ Firewall.list;
+
   private lazy val index: Map[String, List[Image[_]]] = {
     val builder = scala.collection.mutable.Map.empty[String, List[Image[_]]].withDefaultValue(List.empty);
-    MorphRecognitionGuide.list.foreach{ img =>
+    allMedia.foreach{ img =>
       val cur = builder(img.key);
       builder += (img.key -> (img :: cur));
     }
