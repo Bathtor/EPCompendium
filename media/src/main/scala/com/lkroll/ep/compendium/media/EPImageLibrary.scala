@@ -8,7 +8,8 @@ object EPImageLibrary {
     EclipsePhaseCore.list ++
     Firewall.list ++
     Gatecrashing.list ++
-    Panopticon.list;
+    Panopticon.list ++
+    Rimward.list;
 
   private lazy val index: Map[String, List[Image[_]]] = {
     val builder = scala.collection.mutable.Map.empty[String, List[Image[_]]].withDefaultValue(List.empty);

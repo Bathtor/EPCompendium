@@ -22,18 +22,7 @@ object Panopticon {
 
   val list: List[Image[ClassPathImageSource]] = fieldList;
 
-  private def multiImage(source: String, caption: String)(
-      data: Data*
-  ): List[Image[ClassPathImageSource]] = {
-    data
-      .map(
-        d =>
-          Image(
-            key = d,
-            source = source.toCPSource,
-            metadata = metaWithCaption(caption)
-          )
-      )
-      .toList
+  private def multiImage(source: String, caption: String)(morphs: MorphModel*): List[Image[ClassPathImageSource]] = {
+    morphs.map(m => Image(key = m, source = source.toCPSource, metadata = metaWithCaption(caption))).toList
   }
 }

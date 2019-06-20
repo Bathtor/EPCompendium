@@ -3,21 +3,22 @@ package com.lkroll.ep.compendium.media
 import com.lkroll.ep.compendium._;
 import com.lkroll.common.macros.Macros
 
-object Gatecrashing {
+object Rimward {
   import ClassPathImageSource._;
   import utils.Implicits.instance2Option;
   import data._;
 
-  val src = "Gatecrashing";
+  val src = "Rimward";
   val auth = "Posthuman Studios";
-  val lic =
-    "Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License";
+  val lic = "Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License";
   def metaWithCaption(c: String): ImageMetadata =
     ImageMetadata(caption = c, source = src, author = auth, license = lic);
 
-  val blueBox = Image(key = ExplorationGear.blueBox,
-                      source = "IMG/Blue Box.jpg".toCPSource,
-                      metadata = metaWithCaption("Explorers connecting a Blue Box to a Pandora Gate."));
+  val hulder = Image(
+    key = MorphsGL.hulder,
+    source = "IMG/Hulder Habitat.jpg".toCPSource,
+    metadata = metaWithCaption("A Hulder with Titanian Caribou in their natural habitat on Titan.")
+  );
 
   private val fieldList: List[Image[ClassPathImageSource]] = Macros.memberList[Image[ClassPathImageSource]];
 
