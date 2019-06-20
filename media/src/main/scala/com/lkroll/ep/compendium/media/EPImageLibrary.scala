@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium.media
 
 import com.lkroll.ep.compendium._;
+import com.lkroll.ep.compendium.data.TraitsNeutralTranshuman
 
 object EPImageLibrary {
 
@@ -10,7 +11,8 @@ object EPImageLibrary {
     Gatecrashing.list ++
     Panopticon.list ++
     Rimward.list ++
-    Sunward.list;
+    Sunward.list ++
+    Transhuman.list;
 
   private lazy val index: Map[String, List[Image[_]]] = {
     val builder = scala.collection.mutable.Map.empty[String, List[Image[_]]].withDefaultValue(List.empty);
