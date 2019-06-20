@@ -9,7 +9,8 @@ object EPImageLibrary {
     Firewall.list ++
     Gatecrashing.list ++
     Panopticon.list ++
-    Rimward.list;
+    Rimward.list ++
+    Sunward.list;
 
   private lazy val index: Map[String, List[Image[_]]] = {
     val builder = scala.collection.mutable.Map.empty[String, List[Image[_]]].withDefaultValue(List.empty);
