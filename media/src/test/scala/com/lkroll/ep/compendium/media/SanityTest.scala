@@ -19,6 +19,9 @@ class SanityTest extends FunSuite with Matchers {
   test("Gatecrashing serialise") {
     testSerialise(Gatecrashing.list)
   }
+  test("Panopticon serialise") {
+    testSerialise(Panopticon.list)
+  }
   private def testSerialise(list: List[Image[ClassPathImageSource]]): Unit = {
 
     implicit val urlmapper = (source: ClassPathImageSource) => {
@@ -47,6 +50,9 @@ class SanityTest extends FunSuite with Matchers {
   }
   test("Gatecrashing check paths") {
     testPaths(Gatecrashing.list)
+  }
+  test("Panopticon check paths") {
+    testPaths(Panopticon.list)
   }
   private def testPaths(list: List[Image[ClassPathImageSource]]): Unit = {
 
