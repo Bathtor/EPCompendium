@@ -1,21 +1,28 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import utils.OptionPickler.{ReadWriter => RW, macroRW}
 
-case class Ammo(name: String, descr: String, appliesTo: List[WeaponType],
-                apMod: APMod = APMod.Id, dmgMod: DamageMod = DamageMod.Id,
-                typeMod: DamageTypeMod = DamageTypeMod.Id, areaMod: DamageAreaMod = DamageAreaMod.Id,
-                price: Cost, source: String) extends Data {
+case class Ammo(name: String,
+                descr: String,
+                appliesTo: List[WeaponType],
+                apMod: APMod = APMod.Id,
+                dmgMod: DamageMod = DamageMod.Id,
+                typeMod: DamageTypeMod = DamageTypeMod.Id,
+                areaMod: DamageAreaMod = DamageAreaMod.Id,
+                price: Cost,
+                source: String)
+    extends Data {
   def appliesTo(t: WeaponType): Boolean = appliesTo.contains(t);
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Ammo for " + appliesTo.mkString(", ");
-  override def templateKV: Map[String, String] = apMod.templateKV ++
-    dmgMod.templateKV ++
-    typeMod.templateKV ++
-    areaMod.templateKV ++
-    price.templateKV ++
-    Map("Source" -> source);
+  override def templateKV: Map[String, String] =
+    apMod.templateKV ++
+      dmgMod.templateKV ++
+      typeMod.templateKV ++
+      areaMod.templateKV ++
+      price.templateKV ++
+      Map("Source" -> source);
   override def templateDescr: String = descr;
 
   override def described = DescribedData.AmmoD(this, BuildInfo.version);
@@ -39,12 +46,11 @@ case class WeaponWithAmmo(weapon: Weapon, ammo: Ammo) extends ChatRenderable wit
     case _: WeaponType.Ranged => "Ranged Weapon with Ammo"
     case _: WeaponType.Thrown => "Thrown Weapon with Ammo"
   };
-  override def templateKV: Map[String, String] = this.weapon.`type`.templateKV ++
-    damage.templateKV ++
-    (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
-    Map(
-      "AP" -> ap.toString,
-      "Area" -> area.text) ++
+  override def templateKV: Map[String, String] =
+    this.weapon.`type`.templateKV ++
+      damage.templateKV ++
+      (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
+      Map("AP" -> ap.toString, "Area" -> area.text) ++
       weapon.range.templateKV ++
       (weapon.gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
       Map("Source" -> weapon.source);
@@ -68,9 +74,7 @@ sealed trait APMod extends ChatRenderable {
   override def templateKV: Map[String, String] = Map("AP Modifier" -> text);
 }
 object APMod {
-  implicit def rw: RW[APMod] = RW.merge(
-    macroRW[Id.type],
-    macroRW[Const]);
+  implicit def rw: RW[APMod] = RW.merge(macroRW[Id.type], macroRW[Const]);
 
   @upickle.implicits.key("Id")
   case object Id extends APMod {
@@ -90,9 +94,7 @@ sealed trait DamageTypeMod extends ChatRenderable {
   override def templateKV: Map[String, String] = Map("Damage Type Modifier" -> text);
 }
 object DamageTypeMod {
-  implicit def rw: RW[DamageTypeMod] = RW.merge(
-    macroRW[Id.type],
-    macroRW[Replace]);
+  implicit def rw: RW[DamageTypeMod] = RW.merge(macroRW[Id.type], macroRW[Replace]);
 
   @upickle.implicits.key("Id")
   case object Id extends DamageTypeMod {
@@ -112,12 +114,8 @@ sealed trait DamageAreaMod extends ChatRenderable {
   override def templateKV: Map[String, String] = Map("Damage Area Modifier" -> text);
 }
 object DamageAreaMod {
-  implicit def rw: RW[DamageAreaMod] = RW.merge(
-    macroRW[Id.type],
-    macroRW[Replace],
-    macroRW[AddRadius],
-    macroRW[MultRadius],
-    macroRW[DivRadius]);
+  implicit def rw: RW[DamageAreaMod] =
+    RW.merge(macroRW[Id.type], macroRW[Replace], macroRW[AddRadius], macroRW[MultRadius], macroRW[DivRadius]);
 
   @upickle.implicits.key("Id")
   case object Id extends DamageAreaMod {
@@ -148,10 +146,9 @@ object DamageAreaMod {
 
 sealed trait DamageMod extends ChatRenderable {
   def modify(dmg: Damage): Damage = {
-    dmg.copy(
-      dmgD10 = modifyD10(dmg.dmgD10),
-      dmgDiv = modifyDiv(dmg.dmgD10, dmg.dmgDiv),
-      dmgConst = modifyConst(dmg.dmgConst))
+    dmg.copy(dmgD10 = modifyD10(dmg.dmgD10),
+             dmgDiv = modifyDiv(dmg.dmgD10, dmg.dmgDiv),
+             dmgConst = modifyConst(dmg.dmgConst))
   }
   def modifyD10(dmg: Int): Int;
   def modifyDiv(dmgD10: Int, divisor: Int): Int;
@@ -162,7 +159,7 @@ sealed trait DamageMod extends ChatRenderable {
     case _                     => DamageMod(sanitise(List(this, mod)))
   }
   final protected def sanitise(mods: List[DamageMod]): List[DamageMod] = {
-    import DamageMod.{ Half, Double };
+    import DamageMod.{Double, Half};
 
     mods match {
       case Nil                    => Nil
@@ -176,14 +173,14 @@ sealed trait DamageMod extends ChatRenderable {
   override def templateKV: Map[String, String] = Map("DV Modifier" -> text);
 }
 object DamageMod {
-  implicit def rw: RW[DamageMod] = RW.merge(
-    macroRW[NoDamage.type],
-    macroRW[Id.type],
-    macroRW[Half.type],
-    macroRW[Double.type],
-    macroRW[Const],
-    macroRW[Effect],
-    macroRW[Chain]);
+  implicit def rw: RW[DamageMod] =
+    RW.merge(macroRW[NoDamage.type],
+             macroRW[Id.type],
+             macroRW[Half.type],
+             macroRW[Double.type],
+             macroRW[Const],
+             macroRW[Effect],
+             macroRW[Chain]);
 
   def apply(mods: List[DamageMod]): DamageMod = mods match {
     case Nil         => Id
@@ -226,7 +223,8 @@ object DamageMod {
   @upickle.implicits.key("Const")
   case class Const(d10Dmg: Int, constDmg: Int) extends DamageMod {
     override def modifyD10(dmg: Int): Int = Math.max(0, dmg + d10Dmg);
-    override def modifyDiv(dmgD10: Int, divisor: Int): Int = divisor; // TODO this isn't actually quite right if divisor != 1
+    override def modifyDiv(dmgD10: Int, divisor: Int): Int =
+      divisor; // TODO this isn't actually quite right if divisor != 1
     override def modifyConst(dmg: Int): Int = Math.max(0, dmg + constDmg);
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = {
@@ -250,9 +248,15 @@ object DamageMod {
   @upickle.implicits.key("Chain")
   case class Chain(mods: List[DamageMod]) extends DamageMod {
     override def modifyD10(dmg: Int): Int = mods.foldLeft(dmg)((acc, mod) => mod.modifyD10(acc));
-    override def modifyDiv(dmgD10: Int, divisor: Int): Int = mods.foldLeft((dmgD10, divisor))((acc, mod) => acc match {
-      case (d10, div) => (d10, mod.modifyDiv(d10, div))
-    })._2;
+    override def modifyDiv(dmgD10: Int, divisor: Int): Int =
+      mods
+        .foldLeft((dmgD10, divisor))(
+          (acc, mod) =>
+            acc match {
+              case (d10, div) => (d10, mod.modifyDiv(d10, div))
+            }
+        )
+        ._2;
     override def modifyConst(dmg: Int): Int = mods.foldLeft(dmg)((acc, mod) => mod.modifyConst(acc));
     override def modifyEffect(effect: Option[String]): Option[String] =
       mods.foldLeft(effect)((acc, mod) => mod.modifyEffect(acc));
@@ -260,10 +264,14 @@ object DamageMod {
       case Chain(mods) => DamageMod(sanitise(this.mods ++ mods))
       case _           => DamageMod(sanitise(this.mods ++ List(mod)))
     }
-    override def text: String = mods.foldLeft("")((acc, mod) => if (acc.isEmpty()) {
-      mod.text
-    } else {
-      acc + " & " + mod.text
-    });
+    override def text: String =
+      mods.foldLeft("")(
+        (acc, mod) =>
+          if (acc.isEmpty()) {
+            mod.text
+          } else {
+            acc + " & " + mod.text
+          }
+      );
   }
 }

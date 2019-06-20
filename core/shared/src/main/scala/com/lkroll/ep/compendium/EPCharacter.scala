@@ -1,43 +1,45 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
-case class EPCharacter(
-  name:             String,
-  gender:           GenderIdentity,
-  age:              Int                                  = -1,
-  motivations:      List[Motivation]                     = Nil,
-  faction:          String                               = "None",
-  aptitudes:        Aptitudes,
-  moxie:            Int                                  = 0,
-  skills:           List[CharacterSkill],
-  background:       String,
-  startingMorph:    MorphModel,
-  activeMorph:      MorphInstance,
-  traits:           List[EPTrait]                        = Nil,
-  history:          List[String]                         = Nil,
-  startingCredit:   Int                                  = 0,
-  rep:              Map[RepNetwork, Int]                 = Map.empty,
-  isAsync:          Boolean                              = false,
-  psiChiSleights:   List[PsiSleight]                     = Nil,
-  psiGammaSleights: List[PsiSleight]                     = Nil,
-  gear:             List[GearEntry]                      = Nil,
-  weapons:          List[Either[Weapon, WeaponWithAmmo]] = Nil,
-  armour:           List[Either[Armour, ModdedArmour]]   = Nil,
-  software:         List[Software]                       = Nil) extends Data {
+case class EPCharacter(name: String,
+                       gender: GenderIdentity,
+                       age: Int = -1,
+                       motivations: List[Motivation] = Nil,
+                       faction: String = "None",
+                       aptitudes: Aptitudes,
+                       moxie: Int = 0,
+                       skills: List[CharacterSkill],
+                       background: String,
+                       startingMorph: MorphModel,
+                       activeMorph: MorphInstance,
+                       traits: List[EPTrait] = Nil,
+                       history: List[String] = Nil,
+                       startingCredit: Int = 0,
+                       rep: Map[RepNetwork, Int] = Map.empty,
+                       isAsync: Boolean = false,
+                       psiChiSleights: List[PsiSleight] = Nil,
+                       psiGammaSleights: List[PsiSleight] = Nil,
+                       gear: List[GearEntry] = Nil,
+                       weapons: List[Either[Weapon, WeaponWithAmmo]] = Nil,
+                       armour: List[Either[Armour, ModdedArmour]] = Nil,
+                       software: List[Software] = Nil)
+    extends Data {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = s"${gender.entryName} character";
-  override def templateKV: Map[String, String] = Map(
-    "Age" -> age.toString,
-    "Background" -> background,
-    "Motivations" -> motivations.map(_.text).mkString(", "),
-    "Faction" -> faction,
-    "Starting Morph" -> startingMorph.name,
-    "Active Morph" -> activeMorph.model,
-    "Async?" -> isAsync.toString(),
-    "Traits" -> traits.map(_.templateTitle).mkString(", "));
+  override def templateKV: Map[String, String] =
+    Map(
+      "Age" -> age.toString,
+      "Background" -> background,
+      "Motivations" -> motivations.map(_.text).mkString(", "),
+      "Faction" -> faction,
+      "Starting Morph" -> startingMorph.name,
+      "Active Morph" -> activeMorph.model,
+      "Async?" -> isAsync.toString(),
+      "Traits" -> traits.map(_.templateTitle).mkString(", ")
+    );
   override def templateDescr: String = history.map(entry => s"- $entry").mkString("\n");
   override def described: DescribedData = DescribedData.CharacterD(this, BuildInfo.version);
 }
@@ -60,14 +62,14 @@ case class Aptitudes(base: AptitudeValues, morphBoni: AptitudeValues, morphMax: 
   def som: Int = total(Aptitude.SOM);
   def wil: Int = total(Aptitude.WIL);
 
-  def total: AptitudeValues = AptitudeValues(
-    cog = Some(cog),
-    coo = Some(coo),
-    int = Some(int),
-    ref = Some(ref),
-    sav = Some(sav),
-    som = Some(som),
-    wil = Some(wil));
+  def total: AptitudeValues =
+    AptitudeValues(cog = Some(cog),
+                   coo = Some(coo),
+                   int = Some(int),
+                   ref = Some(ref),
+                   sav = Some(sav),
+                   som = Some(som),
+                   wil = Some(wil));
 
   private def total(apt: Aptitude): Int = {
     Math.min(morphMax.getValueFor(apt).getOrElse(20), base.valueFor(apt) + morphBoni.valueFor(apt))

@@ -1,7 +1,7 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 sealed trait Aptitude extends EnumEntry {
   def label: String = this.entryName;
@@ -21,8 +21,12 @@ object Aptitude extends Enum[Aptitude] with UPickleEnum[Aptitude] {
   val values = findValues;
 }
 
-case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int: Option[Int] = None,
-                          ref: Option[Int] = None, sav: Option[Int] = None, som: Option[Int] = None,
+case class AptitudeValues(cog: Option[Int] = None,
+                          coo: Option[Int] = None,
+                          int: Option[Int] = None,
+                          ref: Option[Int] = None,
+                          sav: Option[Int] = None,
+                          som: Option[Int] = None,
                           wil: Option[Int] = None) {
 
   private def allEqual[T](params: T*): Boolean = {
@@ -53,14 +57,8 @@ case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int:
     getValueFor(apt).getOrElse(0)
   }
 
-  def labelledValues: List[(String, Option[Int])] = List(
-    "COG" -> cog,
-    "COO" -> coo,
-    "INT" -> int,
-    "REF" -> ref,
-    "SAV" -> sav,
-    "SOM" -> som,
-    "WIL" -> wil);
+  def labelledValues: List[(String, Option[Int])] =
+    List("COG" -> cog, "COO" -> coo, "INT" -> int, "REF" -> ref, "SAV" -> sav, "SOM" -> som, "WIL" -> wil);
 
   def maxString: String = {
     if (allEqual(cog, coo, int, ref, sav, som, wil)) {
@@ -81,11 +79,16 @@ case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int:
         case None             => ""
       }
     } else {
-      labelledValues.flatMap(t => t._2 match {
-        case Some(i) if i > 0 => Some(s"+$i ${t._1}")
-        case Some(i) if i < 0 => Some(s"$i ${t._1}")
-        case _                => None
-      }).mkString(", ")
+      labelledValues
+        .flatMap(
+          t =>
+            t._2 match {
+              case Some(i) if i > 0 => Some(s"+$i ${t._1}")
+              case Some(i) if i < 0 => Some(s"$i ${t._1}")
+              case _                => None
+            }
+        )
+        .mkString(", ")
     }
   }
 }
@@ -93,6 +96,7 @@ case class AptitudeValues(cog: Option[Int] = None, coo: Option[Int] = None, int:
 object AptitudeValues {
   implicit def rw: RW[AptitudeValues] = macroRW;
 
-  def max(all: Int): AptitudeValues = AptitudeValues(Some(all), Some(all), Some(all), Some(all), Some(all), Some(all), Some(all));
+  def max(all: Int): AptitudeValues =
+    AptitudeValues(Some(all), Some(all), Some(all), Some(all), Some(all), Some(all), Some(all));
   def none: AptitudeValues = AptitudeValues();
 }

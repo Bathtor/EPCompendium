@@ -1,30 +1,36 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 sealed trait Effect {
   def text: String;
 }
 object Effect {
-  implicit def rw: RW[Effect] = RW.merge(
-    macroRW[SpeedMod],
-    macroRW[MOAMod],
-    macroRW[IniMod],
-    macroRW[AptitudeMod],
-    macroRW[SkillMod],
-    macroRW[DurMod],
-    macroRW[IgnoreWounds],
-    macroRW[IgnoreTraumas],
-    macroRW[LucMod],
-    macroRW[DamageEffect],
-    macroRW[FreeForm]);
+  implicit def rw: RW[Effect] =
+    RW.merge(
+      macroRW[SpeedMod],
+      macroRW[MOAMod],
+      macroRW[IniMod],
+      macroRW[AptitudeMod],
+      macroRW[SkillMod],
+      macroRW[DurMod],
+      macroRW[IgnoreWounds],
+      macroRW[IgnoreTraumas],
+      macroRW[LucMod],
+      macroRW[DamageEffect],
+      macroRW[FreeForm]
+    );
 
-  def render(l: List[Effect]) = l.foldLeft("")((acc, e) => if (acc.isEmpty()) {
-    e.text
-  } else {
-    acc + " & " + e.text
-  });
+  def render(l: List[Effect]) =
+    l.foldLeft("")(
+      (acc, e) =>
+        if (acc.isEmpty()) {
+          e.text
+        } else {
+          acc + " & " + e.text
+        }
+    );
 
   private def modToString(i: Int): String = if (i > 0) s"+$i" else i.toString;
 

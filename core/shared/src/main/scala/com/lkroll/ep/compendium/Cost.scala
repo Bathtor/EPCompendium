@@ -1,6 +1,6 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import utils.OptionPickler.{ReadWriter => RW, macroRW}
 
 sealed trait Cost extends ChatRenderable {
   def text: String;
@@ -12,14 +12,14 @@ sealed trait Cost extends ChatRenderable {
   def decrement: Cost;
 }
 object Cost {
-  implicit def rw: RW[Cost] = RW.merge(
-    macroRW[None.type],
-    macroRW[Trivial.type],
-    macroRW[Low.type],
-    macroRW[Moderate.type],
-    macroRW[High.type],
-    macroRW[Expensive.type],
-    macroRW[ExpensivePlus]);
+  implicit def rw: RW[Cost] =
+    RW.merge(macroRW[None.type],
+             macroRW[Trivial.type],
+             macroRW[Low.type],
+             macroRW[Moderate.type],
+             macroRW[High.type],
+             macroRW[Expensive.type],
+             macroRW[ExpensivePlus]);
 
   @upickle.implicits.key("None")
   case object None extends Cost {

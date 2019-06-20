@@ -1,16 +1,20 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
-case class Derangement(name: String, severity: Severity, descr: String, upgradesTo: List[String] = List.empty,
-                       source: String, sourcePage: Int) extends ChatRenderable with Data {
+case class Derangement(name: String,
+                       severity: Severity,
+                       descr: String,
+                       upgradesTo: List[String] = List.empty,
+                       source: String,
+                       sourcePage: Int)
+    extends ChatRenderable
+    with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = s"${severity.label} Derangement";
-  override def templateKV: Map[String, String] = Map(
-    "Lasts" -> "1d10 % 2 hours",
-    "Upgrades" -> upgradesTo.mkString(", "),
-    "Source" -> s"$source p.${sourcePage}");
+  override def templateKV: Map[String, String] =
+    Map("Lasts" -> "1d10 % 2 hours", "Upgrades" -> upgradesTo.mkString(", "), "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
   override def described: DescribedData = DescribedData.DerangementD(this, BuildInfo.version);

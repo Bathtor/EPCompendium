@@ -16,6 +16,9 @@ class SanityTest extends FunSuite with Matchers {
   test("Firewall serialise") {
     testSerialise(Firewall.list)
   }
+  test("Gatecrashing serialise") {
+    testSerialise(Gatecrashing.list)
+  }
   private def testSerialise(list: List[Image[ClassPathImageSource]]): Unit = {
 
     implicit val urlmapper = (source: ClassPathImageSource) => {
@@ -29,7 +32,7 @@ class SanityTest extends FunSuite with Matchers {
       val outS = write(serdeImage);
       //println(outS);
       val inD = read[SerdeImage](outS);
-      serdeImage should equal (inD);
+      serdeImage should equal(inD);
     }
   }
 
@@ -41,6 +44,9 @@ class SanityTest extends FunSuite with Matchers {
   }
   test("Firewall check paths") {
     testPaths(Firewall.list)
+  }
+  test("Gatecrashing check paths") {
+    testPaths(Gatecrashing.list)
   }
   private def testPaths(list: List[Image[ClassPathImageSource]]): Unit = {
 

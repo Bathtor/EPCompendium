@@ -1,7 +1,7 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 sealed trait WeaponType extends ChatRenderable {
   def skill: String;
@@ -14,11 +14,8 @@ object WeaponType {
 
   sealed trait Melee extends WeaponType;
   object Melee {
-    implicit def rw: RW[Melee] = RW.merge(
-      macroRW[Blades.type],
-      macroRW[Clubs.type],
-      macroRW[Unarmed.type],
-      macroRW[ExoticMeleeWeapon]);
+    implicit def rw: RW[Melee] =
+      RW.merge(macroRW[Blades.type], macroRW[Clubs.type], macroRW[Unarmed.type], macroRW[ExoticMeleeWeapon]);
   }
 
   @upickle.implicits.key("Blades")
@@ -47,13 +44,13 @@ object WeaponType {
 
   sealed trait Ranged extends WeaponType;
   object Ranged {
-    implicit def rw: RW[Ranged] = RW.merge(
-      macroRW[Kinetic.type],
-      macroRW[Railgun.type],
-      macroRW[Beam.type],
-      macroRW[Seeker],
-      macroRW[Spray.type],
-      macroRW[ExoticRangedWeapon]);
+    implicit def rw: RW[Ranged] =
+      RW.merge(macroRW[Kinetic.type],
+               macroRW[Railgun.type],
+               macroRW[Beam.type],
+               macroRW[Seeker],
+               macroRW[Spray.type],
+               macroRW[ExoticRangedWeapon]);
   }
 
   @upickle.implicits.key("Kinetic")
@@ -90,8 +87,7 @@ object WeaponType {
 
   sealed trait Thrown extends WeaponType;
   object Thrown {
-    implicit def rw: RW[Thrown] = RW.merge(
-      Grenade.rw);
+    implicit def rw: RW[Thrown] = RW.merge(Grenade.rw);
   }
   sealed trait Grenade extends Thrown {
     def adjust(dmgMod: DamageMod): DamageMod;
@@ -99,9 +95,7 @@ object WeaponType {
     def range: Range;
   }
   object Grenade {
-    implicit def rw: RW[Grenade] = RW.merge(
-      macroRW[StandardGrenade.type],
-      macroRW[Microgrenade.type]);
+    implicit def rw: RW[Grenade] = RW.merge(macroRW[StandardGrenade.type], macroRW[Microgrenade.type]);
   }
 
   @upickle.implicits.key("StandardGrenade")

@@ -1,11 +1,9 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 import io.lemonlabs.uri.Url
 
-case class ImageRef(key: String) {
-
-}
+case class ImageRef(key: String) {}
 object ImageRef {
   implicit def rw: RW[ImageRef] = macroRW;
 }
@@ -24,20 +22,16 @@ object SerdeImage {
 }
 
 trait ImageSource;
-sealed trait SerdeImageSource extends ImageSource {
-
-}
+sealed trait SerdeImageSource extends ImageSource {}
 object SerdeImageSource {
-  implicit def rw: RW[SerdeImageSource] = RW.merge(
-    macroRW[UrlImageSource]);
+  implicit def rw: RW[SerdeImageSource] = RW.merge(macroRW[UrlImageSource]);
 
 }
 
-case class ImageMetadata(
-  caption: String,
-  source:  Option[String] = None,
-  author:  Option[String] = None,
-  license: Option[String] = None)
+case class ImageMetadata(caption: String,
+                         source: Option[String] = None,
+                         author: Option[String] = None,
+                         license: Option[String] = None)
 object ImageMetadata {
   implicit def rw: RW[ImageMetadata] = macroRW;
 }
@@ -48,9 +42,7 @@ trait ImageLibrary {
 }
 
 @upickle.implicits.key("UrlSource")
-final case class UrlImageSource(url: Url) extends SerdeImageSource {
-
-}
+final case class UrlImageSource(url: Url) extends SerdeImageSource {}
 object UrlImageSource {
   implicit def rw: RW[UrlImageSource] = macroRW;
 }

@@ -30,6 +30,10 @@ bin/
 .idea
 etarget/
 
+# Metals specific
+.bloop/
+.metals/
+
 # OS X
 
 # Sublime Text

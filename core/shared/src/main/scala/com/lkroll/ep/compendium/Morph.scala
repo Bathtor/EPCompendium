@@ -1,7 +1,7 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 sealed trait MorphType extends EnumEntry with ChatRenderable {
   def label: String = this.entryName;
@@ -16,13 +16,24 @@ object MorphType extends Enum[MorphType] with UPickleEnum[MorphType] {
   val values = findValues;
 }
 
-case class MorphModel(name: String, morphType: MorphType, descr: String,
-                      enhancements: Seq[String], traits: Seq[String] = Seq.empty,
-                      movement: Seq[String] = Seq("Walker 4/20"), aptitudeMax: AptitudeValues,
+case class MorphModel(name: String,
+                      morphType: MorphType,
+                      descr: String,
+                      enhancements: Seq[String],
+                      traits: Seq[String] = Seq.empty,
+                      movement: Seq[String] = Seq("Walker 4/20"),
+                      aptitudeMax: AptitudeValues,
                       aptitudeBonus: AptitudeValues = AptitudeValues.none,
-                      otherEffects:  List[Effect]   = List.empty, playerDecisions: Option[String] = None,
-                      attacks: Seq[Weapon] = Seq.empty, durability: Int, armour: Option[(Int, Int)] = None,
-                      cpCost: Int, price: Cost, source: String) extends ChatRenderable with Data {
+                      otherEffects: List[Effect] = List.empty,
+                      playerDecisions: Option[String] = None,
+                      attacks: Seq[Weapon] = Seq.empty,
+                      durability: Int,
+                      armour: Option[(Int, Int)] = None,
+                      cpCost: Int,
+                      price: Cost,
+                      source: String)
+    extends ChatRenderable
+    with Data {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = morphType.label
@@ -39,7 +50,8 @@ case class MorphModel(name: String, morphType: MorphType, descr: String,
       "Durability" -> durability.toString(),
       "Armour" -> armour.map(t => s"${t._1}/${t._2}").getOrElse("0/0"),
       "CP" -> cpCost.toString(),
-      "Source" -> source) ++
+      "Source" -> source
+    ) ++
       price.templateKV;
   override def templateDescr: String = descr;
   override def described: DescribedData = DescribedData.MorphModelD(this, BuildInfo.version);
@@ -50,12 +62,24 @@ object MorphModel {
   val dataType = "morphmodel";
 }
 
-case class MorphInstance(label: String, model: String, morphType: MorphType, descr: String,
-                         visibleGender: Option[String] = None, visibleAge: Option[Int] = None, location: Option[String] = None,
-                         enhancements: Seq[String], traits: Seq[String] = Seq.empty,
-                         movement: Seq[String] = Seq("Walker 4/20"), aptitudeMax: AptitudeValues,
-                         aptitudeBonus: AptitudeValues = AptitudeValues.none, otherEffects: List[Effect] = List.empty,
-                         attacks: Seq[Weapon] = Seq.empty, durability: Int, armour: Option[(Int, Int)] = None) extends ChatRenderable with Data {
+case class MorphInstance(label: String,
+                         model: String,
+                         morphType: MorphType,
+                         descr: String,
+                         visibleGender: Option[String] = None,
+                         visibleAge: Option[Int] = None,
+                         location: Option[String] = None,
+                         enhancements: Seq[String],
+                         traits: Seq[String] = Seq.empty,
+                         movement: Seq[String] = Seq("Walker 4/20"),
+                         aptitudeMax: AptitudeValues,
+                         aptitudeBonus: AptitudeValues = AptitudeValues.none,
+                         otherEffects: List[Effect] = List.empty,
+                         attacks: Seq[Weapon] = Seq.empty,
+                         durability: Int,
+                         armour: Option[(Int, Int)] = None)
+    extends ChatRenderable
+    with Data {
 
   override def templateTitle: String = s"$label ($model)";
   override def templateSubTitle: String = morphType.label
@@ -73,7 +97,8 @@ case class MorphInstance(label: String, model: String, morphType: MorphType, des
       "Effects" -> otherEffects.map(b => b.text).mkString(", "),
       "Attacks" -> attacks.map(a => a.summaryString).mkString(", "),
       "Durability" -> durability.toString(),
-      "Armour" -> armour.map(t => s"${t._1}/${t._2}").getOrElse("0/0"));
+      "Armour" -> armour.map(t => s"${t._1}/${t._2}").getOrElse("0/0")
+    );
   override def templateDescr: String = descr;
   override def described: DescribedData = DescribedData.MorphInstanceD(this, BuildInfo.version);
 }
@@ -96,6 +121,7 @@ object MorphInstance {
       otherEffects = model.otherEffects,
       attacks = model.attacks,
       durability = model.durability,
-      armour = model.armour)
+      armour = model.armour
+    )
   }
 }

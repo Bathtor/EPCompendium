@@ -1,10 +1,8 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
-case class CompendiumRef(dataType: String, name: String) {
-
-}
+case class CompendiumRef(dataType: String, name: String) {}
 object CompendiumRef {
   implicit def rw: RW[CompendiumRef] = macroRW;
 }

@@ -15,7 +15,8 @@ object MorphExamples {
       aptitudeBonus = m.aptitudeBonus.copy(som = 5),
       attacks = m.attacks ++ List(MorphAttacks.beakLaser),
       durability = 30,
-      armour = (16, 14))
+      armour = (16, 14)
+    )
   };
 
   val list: List[MorphInstance] = Macros.memberList[MorphInstance];

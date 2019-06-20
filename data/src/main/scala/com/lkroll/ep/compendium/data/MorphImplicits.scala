@@ -9,4 +9,3 @@ object MorphImplicits {
   implicit def tuple2toopt(t: (Int, Int)): Option[(Int, Int)] = Some(t);
   implicit def str2opt(s: String): Option[String] = Some(s);
 }
-

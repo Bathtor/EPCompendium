@@ -3,11 +3,11 @@ package com.lkroll.ep.compendium
 import collection.mutable
 import scalajs.js
 import scalajs.js.annotation._
-import com.lkroll.common.data.{ WordMatch, EditDistance }
+import com.lkroll.common.data.{EditDistance, WordMatch}
 import com.lkroll.ep.compendium.utils.SemanticVersion
 import com.lkroll.roll20.api.facade.Roll20API
 import com.lkroll.ep.compendium.utils.OptionPickler._
-import util.{ Try, Success, Failure }
+import util.{Failure, Success, Try}
 
 @JSExportTopLevel("EPCompendium")
 object EPCompendium {
@@ -90,11 +90,13 @@ object EPCompendium {
       searchIn(lowNeedle, armourMods),
       searchIn(lowNeedle, weaponAccessories),
       searchIn(lowNeedle, psiSleights),
-      searchIn(lowNeedle, skillDefs)).flatten;
+      searchIn(lowNeedle, skillDefs)
+    ).flatten;
     matches.sortBy(_._1).reverse.map(_._2)
   }
 
-  private def searchIn[D <: ChatRenderable](needle: String, m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
+  private def searchIn[D <: ChatRenderable](needle: String,
+                                            m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
     m.flatMap {
       case (name, data) => {
         val m = WordMatch.matchForIgnoreCase(needle, name);
@@ -119,7 +121,8 @@ object EPCompendium {
     }
   }
 
-  private def closestMatch[D <: ChatRenderable](needle: String, m: scala.collection.Map[String, D]): Option[D] = closestMatch(rank(needle, m));
+  private def closestMatch[D <: ChatRenderable](needle: String, m: scala.collection.Map[String, D]): Option[D] =
+    closestMatch(rank(needle, m));
 
   private def rank[D <: ChatRenderable](needle: String, m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
     if (needle == "*") { // pick a random object
@@ -130,7 +133,8 @@ object EPCompendium {
       List((wm, d))
     } else {
       val lowNeedle = needle.toLowerCase();
-      val matches = m.map(t => (WordMatch.matchForIgnoreCase(lowNeedle, t._1) -> t._2)).filter(_._1.isSignificant()).toList;
+      val matches =
+        m.map(t => (WordMatch.matchForIgnoreCase(lowNeedle, t._1) -> t._2)).filter(_._1.isSignificant()).toList;
       matches.sortBy(_._1).reverse
     }
   }
@@ -397,7 +401,9 @@ object EPCompendium {
       if (thisV >= thatV) {
         val diff = thisV - thatV;
         if (diff.major != 0) {
-          throw new RuntimeException(s"Data version ($version) is invalid! Must be same major as script version (${this.version})");
+          throw new RuntimeException(
+            s"Data version ($version) is invalid! Must be same major as script version (${this.version})"
+          );
         }
       } else {
         throw new RuntimeException(s"Data version ($version) may not be greater than script version (${this.version})");

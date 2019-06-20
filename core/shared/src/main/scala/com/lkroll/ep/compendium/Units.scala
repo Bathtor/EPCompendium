@@ -1,7 +1,7 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 trait Units {
   import TimeUnit._;
@@ -37,9 +37,7 @@ sealed trait Time {
 }
 
 object Time {
-  implicit def rw: RW[Time] = RW.merge(
-    macroRW[SpecialTime],
-    macroRW[TimeNum])
+  implicit def rw: RW[Time] = RW.merge(macroRW[SpecialTime], macroRW[TimeNum])
 
   @upickle.implicits.key("SpecialTime")
   final case class SpecialTime(s: String) extends Time {
@@ -49,11 +47,12 @@ object Time {
   @upickle.implicits.key("TimeNum")
   final case class TimeNum(scalar: Int, unit: TimeUnit) extends Time {
     override def renderShort: String = s"$scalar${unit.symbol}";
-    override def renderLong: String = if (scalar == 1) {
-      s"$scalar ${unit.nameSg}"
-    } else {
-      s"$scalar ${unit.namePl}"
-    };
+    override def renderLong: String =
+      if (scalar == 1) {
+        s"$scalar ${unit.nameSg}"
+      } else {
+        s"$scalar ${unit.namePl}"
+      };
   }
 }
 sealed trait TimeUnit extends EnumEntry with AnyUnit;

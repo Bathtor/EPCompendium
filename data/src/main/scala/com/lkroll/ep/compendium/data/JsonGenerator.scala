@@ -2,7 +2,7 @@ package com.lkroll.ep.compendium.data
 
 import com.lkroll.ep.compendium.utils.OptionPickler._
 import com.lkroll.ep.compendium._
-import java.io.{ File, PrintWriter }
+import java.io.{File, PrintWriter}
 
 object JsonGenerator {
   val weapons = AllData.weapons.map(w => addWrapper(Weapon.dataType, write(w)));
@@ -37,7 +37,8 @@ object JsonGenerator {
     substances,
     software,
     sleights,
-    skills).flatten.mkString("", ";\n  ", ";\n");
+    skills
+  ).flatten.mkString("", ";\n  ", ";\n");
 
   def generate(open: Boolean): Unit = {
     val script = s"""$licenseText
@@ -55,7 +56,9 @@ on('ready', function() {
     val size = f.length().toDouble / (1000.0 * 1000.0);
     println(s"Generated output is ${size}MB");
     if (open) {
-      val p = Runtime.getRuntime.exec(Array("/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl", f.getAbsolutePath));
+      val p = Runtime.getRuntime.exec(
+        Array("/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl", f.getAbsolutePath)
+      );
       //val p = Runtime.getRuntime.exec(Array("C:\\Program Files\\Sublime Text 3\\sublime_text.exe", f.getAbsolutePath));
       p.waitFor();
     } else {
@@ -67,14 +70,16 @@ on('ready', function() {
     s"""EPCompendium.addData("${BuildInfo.version}", "${dataType}", $data)""";
   }
 
-  private val licenseText = """
+  private val licenseText =
+    """
 /* 
  * This material is based on *Eclipse Phase* by [Posthuman Studios](http://eclipsephase.com)
  * and is published under Creative Commons (BY-NC-SA) 3.0 [license](https://creativecommons.org/licenses/by-nc-sa/3.0/) 
  * as is the original material.
  */
 """;
-  private def authors: String = AllData.authors.map({ case (author, email) => s" * - [${author}](mailto:${email})" }).mkString("\n");
+  private def authors: String =
+    AllData.authors.map({ case (author, email) => s" * - [${author}](mailto:${email})" }).mkString("\n");
   private val authorRef = s"""
 /*
  * This material was transcribed and collected by the following authors:

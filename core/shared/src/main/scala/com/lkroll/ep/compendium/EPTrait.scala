@@ -1,7 +1,7 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 sealed trait TraitType extends EnumEntry {
   def modifyName(name: String): String;
@@ -38,8 +38,15 @@ object TraitApplicability extends Enum[TraitApplicability] with UPickleEnum[Trai
   val values = findValues;
 }
 
-case class EPTrait(name: String, traitType: TraitType, applicability: TraitApplicability,
-                   descr: String, cp: Int, source: String, sourcePage: Int) extends ChatRenderable with Data {
+case class EPTrait(name: String,
+                   traitType: TraitType,
+                   applicability: TraitApplicability,
+                   descr: String,
+                   cp: Int,
+                   source: String,
+                   sourcePage: Int)
+    extends ChatRenderable
+    with Data {
   override def lookupName: String = name;
   override def templateTitle: String = traitType.modifyName(name);
   override def templateSubTitle: String = applicability.label;

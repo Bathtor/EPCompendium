@@ -1,10 +1,11 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
-case class Gear(name: String, category: String, descr: String, price: Cost,
-                source: String, sourcePage: Int) extends ChatRenderable with Data {
+case class Gear(name: String, category: String, descr: String, price: Cost, source: String, sourcePage: Int)
+    extends ChatRenderable
+    with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = category;
   override def templateKV: Map[String, String] = price.templateKV ++ Map("Source" -> s"$source p.${sourcePage}");
@@ -16,13 +17,20 @@ object Gear {
   val dataType: String = "gear";
 }
 
-case class Software(name: String, descr: String, quality: SoftwareQuality = SoftwareQuality.Standard,
-                    price: Cost, source: String, sourcePage: Int) extends ChatRenderable with Data {
+case class Software(name: String,
+                    descr: String,
+                    quality: SoftwareQuality = SoftwareQuality.Standard,
+                    price: Cost,
+                    source: String,
+                    sourcePage: Int)
+    extends ChatRenderable
+    with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Software";
-  override def templateKV: Map[String, String] = quality.templateKV ++
-    price.templateKV ++
-    Map("Source" -> s"$source p.${sourcePage}");
+  override def templateKV: Map[String, String] =
+    quality.templateKV ++
+      price.templateKV ++
+      Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
   override def described: DescribedData = DescribedData.SoftwareD(this, BuildInfo.version);
 }
@@ -37,23 +45,25 @@ sealed trait SoftwareQuality extends ChatRenderable {
   override def templateKV: Map[String, String] = Map("Quality" -> label, "Quality Modifier" -> modifier.toString);
 }
 object SoftwareQuality {
-  implicit def rw: RW[SoftwareQuality] = RW.merge(
-    macroRW[Standard.type],
-    macroRW[Custom],
-    macroRW[Relic.type],
-    macroRW[EndOfLife.type],
-    macroRW[Inferior.type],
-    macroRW[Buggy.type],
-    macroRW[PreFall.type],
-    macroRW[Outdated.type],
-    macroRW[LowQuality.type],
-    macroRW[HighQuality.type],
-    macroRW[SecurityGrade.type],
-    macroRW[NextGen.type],
-    macroRW[Advanced.type],
-    macroRW[Sota.type],
-    macroRW[TITAN],
-    macroRW[Alien]);
+  implicit def rw: RW[SoftwareQuality] =
+    RW.merge(
+      macroRW[Standard.type],
+      macroRW[Custom],
+      macroRW[Relic.type],
+      macroRW[EndOfLife.type],
+      macroRW[Inferior.type],
+      macroRW[Buggy.type],
+      macroRW[PreFall.type],
+      macroRW[Outdated.type],
+      macroRW[LowQuality.type],
+      macroRW[HighQuality.type],
+      macroRW[SecurityGrade.type],
+      macroRW[NextGen.type],
+      macroRW[Advanced.type],
+      macroRW[Sota.type],
+      macroRW[TITAN],
+      macroRW[Alien]
+    );
 
   @upickle.implicits.key("Standard")
   case object Standard extends SoftwareQuality {
@@ -62,8 +72,7 @@ object SoftwareQuality {
   }
 
   @upickle.implicits.key("Custom")
-  case class Custom(label: String, modifier: Int) extends SoftwareQuality {
-  }
+  case class Custom(label: String, modifier: Int) extends SoftwareQuality {}
 
   @upickle.implicits.key("Relic")
   case object Relic extends SoftwareQuality {
@@ -148,20 +157,31 @@ object SoftwareQuality {
   }
 }
 
-case class Substance(name: String, category: String, classification: SubstanceClassification,
-                     application: List[ApplicationMethod], addiction: Option[Addiction],
-                     onset: Time, duration: Time, effects: List[Effect],
-                     descr: String, price: Cost,
-                     source: String, sourcePage: Int) extends ChatRenderable with Data {
+case class Substance(name: String,
+                     category: String,
+                     classification: SubstanceClassification,
+                     application: List[ApplicationMethod],
+                     addiction: Option[Addiction],
+                     onset: Time,
+                     duration: Time,
+                     effects: List[Effect],
+                     descr: String,
+                     price: Cost,
+                     source: String,
+                     sourcePage: Int)
+    extends ChatRenderable
+    with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = category;
-  override def templateKV: Map[String, String] = classification.templateKV ++
-    addiction.map(_.templateKV).getOrElse(Map.empty) ++
-    Map(
-      "Application Method" -> application.map(_.label).mkString(","),
-      "Onset Time" -> onset.renderLong,
-      "Duration" -> duration.renderLong,
-      "Effect" -> effects.map(_.text).mkString(", ")) ++
+  override def templateKV: Map[String, String] =
+    classification.templateKV ++
+      addiction.map(_.templateKV).getOrElse(Map.empty) ++
+      Map(
+        "Application Method" -> application.map(_.label).mkString(","),
+        "Onset Time" -> onset.renderLong,
+        "Duration" -> duration.renderLong,
+        "Effect" -> effects.map(_.text).mkString(", ")
+      ) ++
       price.templateKV ++
       Map("Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
@@ -173,17 +193,17 @@ object Substance {
 }
 
 case class Addiction(`type`: AddictionType, mod: Int) extends ChatRenderable {
-  override def templateKV: Map[String, String] = Map(
-    "Addiction Type" -> this.`type`.entryName,
-    "Addiction Modifier" -> this.mod.toString);
+  override def templateKV: Map[String, String] =
+    Map("Addiction Type" -> this.`type`.entryName, "Addiction Modifier" -> this.mod.toString);
 
-  def modStr: String = if (mod < 0) {
-    mod.toString
-  } else if (mod == 0) {
-    "–"
-  } else {
-    s"+$mod"
-  };
+  def modStr: String =
+    if (mod < 0) {
+      mod.toString
+    } else if (mod == 0) {
+      "–"
+    } else {
+      s"+$mod"
+    };
 }
 object Addiction {
   implicit def rw: RW[Addiction] = macroRW;

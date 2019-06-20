@@ -38,10 +38,12 @@ object NanodrugsEP {
     onset = "immediate",
     duration = 8.hours,
     effects = List.empty,
-    descr = "Frequency (or Freeq) is a nanodrug designed as a tool for scientific visualization. It releases a small swarm of nanobots into the character’s bloodstream that settle in the epidermis, where they act as sensors of electromagnetic radiation. This sensory input is then injected into the character’s visual and tactile sensoria, hitting the user with a sequence of novel stimuli, typically a light show or weird tactile sensations. Aside from its recreational uses, Frequency is good at picking up on localized field radiation with a standard Perception Test. A character can take advantage of this to spot sensors and hidden electronics. Similar to now-obsolete 20th-century hallucinogens like LSD and psilocybin, however, a Frequency trip can be disorienting and upsetting (the gamemaster should apply any modifiers, mental stress, or even trauma as they feel appropriate). Characters typically experience a period about 1/3 of the way through their trip in which sensory input is extremely intense; during this period, which usually lasts about 2 hours, they are unable to read.",
+    descr =
+      "Frequency (or Freeq) is a nanodrug designed as a tool for scientific visualization. It releases a small swarm of nanobots into the character’s bloodstream that settle in the epidermis, where they act as sensors of electromagnetic radiation. This sensory input is then injected into the character’s visual and tactile sensoria, hitting the user with a sequence of novel stimuli, typically a light show or weird tactile sensations. Aside from its recreational uses, Frequency is good at picking up on localized field radiation with a standard Perception Test. A character can take advantage of this to spot sensors and hidden electronics. Similar to now-obsolete 20th-century hallucinogens like LSD and psilocybin, however, a Frequency trip can be disorienting and upsetting (the gamemaster should apply any modifiers, mental stress, or even trauma as they feel appropriate). Characters typically experience a period about 1/3 of the way through their trip in which sensory input is extremely intense; during this period, which usually lasts about 2 hours, they are unable to read.",
     price = Cost.Moderate,
     source = Sources.ep,
-    sourcePage = 321);
+    sourcePage = 321
+  );
 
   val gravy = Substance(
     name = "Gravy",
@@ -52,10 +54,12 @@ object NanodrugsEP {
     onset = "immediate",
     duration = "immediate",
     effects = List.empty,
-    descr = "Gravy assists characters in acclimating to high gravity environments. It comes in a variety of flavors and is often added as a sauce to food. For Gravy to be 100% effective, the character must begin using it in advance. Reduce penalties for high-gravity acclimation by 20. ",
+    descr =
+      "Gravy assists characters in acclimating to high gravity environments. It comes in a variety of flavors and is often added as a sauce to food. For Gravy to be 100% effective, the character must begin using it in advance. Reduce penalties for high-gravity acclimation by 20. ",
     price = Cost.Low,
     source = Sources.ep,
-    sourcePage = 321);
+    sourcePage = 321
+  );
 
   val schizo = Substance(
     name = "Schizo",
@@ -66,10 +70,12 @@ object NanodrugsEP {
     onset = "immediate",
     duration = 1.days,
     effects = List.empty,
-    descr = "Schizo is a nanodrug that mirrors the effects of paranoid schizophrenia. It is popular in some hyperelite social circles as a truly daring and intriguing experience. A dose of schizo looks like a disposable antique razor blade. Making an incision in the skin releases a swarm of nanobots that travel to the central nervous system and induce the effects of the drug. While in effect, the character is severely paranoid and hears voices. How this plays out is at the discretion of the gamemaster, but should include irrational fears, unusual compulsions based on the instructions of the voice or voices, and a strong possibility that the character will behave in a violent or destructive fashion. The character may make WIL × 3 Tests to avoid violent acts against objects or strangers. Friends and trusted acquaintances are probably less likely to be targets of violence (+30 modifier to avoid hurting people the character cares about or destroying important possessions). Note that the character’s muse is unaffected by Schizo and can make efforts to babysit the character. Characters who take Schizo suffer 1d10 mental stress. ",
+    descr =
+      "Schizo is a nanodrug that mirrors the effects of paranoid schizophrenia. It is popular in some hyperelite social circles as a truly daring and intriguing experience. A dose of schizo looks like a disposable antique razor blade. Making an incision in the skin releases a swarm of nanobots that travel to the central nervous system and induce the effects of the drug. While in effect, the character is severely paranoid and hears voices. How this plays out is at the discretion of the gamemaster, but should include irrational fears, unusual compulsions based on the instructions of the voice or voices, and a strong possibility that the character will behave in a violent or destructive fashion. The character may make WIL × 3 Tests to avoid violent acts against objects or strangers. Friends and trusted acquaintances are probably less likely to be targets of violence (+30 modifier to avoid hurting people the character cares about or destroying important possessions). Note that the character’s muse is unaffected by Schizo and can make efforts to babysit the character. Characters who take Schizo suffer 1d10 mental stress. ",
     price = Cost.Low,
     source = Sources.ep,
-    sourcePage = 321);
+    sourcePage = 321
+  );
 
   val petals = Substance(
     name = "Petals",
@@ -87,7 +93,8 @@ object NanodrugsEP {
       + "On the negative side, some Petal trips go bad, inflicting 1d10 mental stress or more on the user. Perhaps worse, some Petals are loaded with malware that takes over the user’s mesh inserts and worse—some sentinels even whisper of Petals carrying strains of the exsurgent virus.",
     price = Cost.None,
     source = Sources.ep,
-    sourcePage = 322);
+    sourcePage = 322
+  );
 
   val list: List[Substance] = Macros.memberList[Substance];
 }

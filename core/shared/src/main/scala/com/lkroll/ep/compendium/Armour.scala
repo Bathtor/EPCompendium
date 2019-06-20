@@ -1,13 +1,21 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import utils.OptionPickler.{ReadWriter => RW, macroRW}
 
-case class Armour(name: String, descr: String, accessory: Boolean = false, armour: (Int, Int),
-                  price: Cost, source: String, sourcePage: Int) extends ChatRenderable with Data {
+case class Armour(name: String,
+                  descr: String,
+                  accessory: Boolean = false,
+                  armour: (Int, Int),
+                  price: Cost,
+                  source: String,
+                  sourcePage: Int)
+    extends ChatRenderable
+    with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = if (accessory) "Armour Accessory" else "Armour";
-  override def templateKV: Map[String, String] = price.templateKV ++
-    Map("Armour" -> s"${armour._1}/${armour._2}", "Source" -> s"$source p.${sourcePage}");
+  override def templateKV: Map[String, String] =
+    price.templateKV ++
+      Map("Armour" -> s"${armour._1}/${armour._2}", "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
   def withMod(mod: ArmourMod): ModdedArmour = ModdedArmour(this, mod);
@@ -19,12 +27,18 @@ object Armour {
   val dataType: String = "armour";
 }
 
-case class ArmourMod(name: String, descr: String, armour: (Int, Int) = (0, 0),
-                     price: Cost, source: String, sourcePage: Int) extends Data {
+case class ArmourMod(name: String,
+                     descr: String,
+                     armour: (Int, Int) = (0, 0),
+                     price: Cost,
+                     source: String,
+                     sourcePage: Int)
+    extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Armour Mod";
-  override def templateKV: Map[String, String] = price.templateKV ++
-    Map("Armour Value" -> s"${armour._1.asMod}/${armour._2.asMod}", "Source" -> s"$source p.${sourcePage}");
+  override def templateKV: Map[String, String] =
+    price.templateKV ++
+      Map("Armour Value" -> s"${armour._1.asMod}/${armour._2.asMod}", "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
   override def described = DescribedData.ArmourModD(this, BuildInfo.version);

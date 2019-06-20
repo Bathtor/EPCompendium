@@ -15,7 +15,8 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val beakLaser = Weapon(
     name = "Beak Laser",
@@ -26,10 +27,10 @@ object MorphAttacks {
     ap = 0,
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
-    gun = GunExtras(
-      modes = Set(SS), // doesn't really say
-      magazineSize = 50),
-    source = Sources.ep);
+    gun = GunExtras(modes = Set(SS), // doesn't really say
+                    magazineSize = 50),
+    source = Sources.ep
+  );
 
   val handLaser = Weapon(
     name = "Hand Laser",
@@ -40,21 +41,20 @@ object MorphAttacks {
     ap = 0,
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
-    gun = GunExtras(
-      modes = Set(SS), // doesn't really say
-      magazineSize = 50),
-    source = Sources.ep);
+    gun = GunExtras(modes = Set(SS), // doesn't really say
+                    magazineSize = 50),
+    source = Sources.ep
+  );
 
-  val bite = Weapon(
-    name = "Bite",
-    `type` = WeaponType.Unarmed,
-    descr = "Bite",
-    damage = (1.d10 + 1).kinetic,
-    effect = None,
-    ap = -1,
-    price = Cost.None,
-    range = Range.Melee,
-    source = Sources.ep);
+  val bite = Weapon(name = "Bite",
+                    `type` = WeaponType.Unarmed,
+                    descr = "Bite",
+                    damage = (1.d10 + 1).kinetic,
+                    effect = None,
+                    ap = -1,
+                    price = Cost.None,
+                    range = Range.Melee,
+                    source = Sources.ep);
 
   val claw = Weapon(
     name = "Claw",
@@ -65,7 +65,8 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep);
+    source = Sources.ep
+  );
 
   val bioClaw = Weapon(
     name = "Bioware Claw",
@@ -76,7 +77,8 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep);
+    source = Sources.ep
+  );
 
   val cyberClaw = Weapon(
     name = "Cyberclaw",
@@ -87,7 +89,8 @@ object MorphAttacks {
     ap = -2,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep);
+    source = Sources.ep
+  );
 
   val diggingClaw = Weapon(
     name = "Digging Claw",
@@ -98,7 +101,8 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep);
+    source = Sources.ep
+  );
 
   val disassemblyTools = Weapon(
     name = "Disassembly Tools",
@@ -109,7 +113,8 @@ object MorphAttacks {
     ap = -5,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.ep);
+    source = Sources.ep
+  );
 
   val neoAvianBeak = Weapon(
     name = "Beak/Claw Attack",
@@ -120,18 +125,18 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
-  val neoOrcaBite = Weapon(
-    name = "Bite",
-    `type` = WeaponType.Unarmed,
-    descr = "Bite",
-    damage = (2.d10 + 0).kinetic,
-    effect = None,
-    ap = 0,
-    price = Cost.None,
-    range = Range.Melee,
-    source = Sources.ep);
+  val neoOrcaBite = Weapon(name = "Bite",
+                           `type` = WeaponType.Unarmed,
+                           descr = "Bite",
+                           damage = (2.d10 + 0).kinetic,
+                           effect = None,
+                           ap = 0,
+                           price = Cost.None,
+                           range = Range.Melee,
+                           source = Sources.ep);
 
   val ramming = Weapon(
     name = "Ramming Attack",
@@ -142,18 +147,18 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
-  val neoWhaleRamming = Weapon(
-    name = "Bite",
-    `type` = WeaponType.Unarmed,
-    descr = "Bite",
-    damage = (4.d10 + 0).kinetic,
-    effect = None,
-    ap = 0,
-    price = Cost.None,
-    range = Range.Melee,
-    source = Sources.mrg);
+  val neoWhaleRamming = Weapon(name = "Bite",
+                               `type` = WeaponType.Unarmed,
+                               descr = "Bite",
+                               damage = (4.d10 + 0).kinetic,
+                               effect = None,
+                               ap = 0,
+                               price = Cost.None,
+                               range = Range.Melee,
+                               source = Sources.mrg);
 
   val neoWhaleBite = Weapon(
     name = "Ramming Attack",
@@ -164,7 +169,8 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val octomorphBeak = Weapon(
     name = "Beak Attack",
@@ -175,7 +181,8 @@ object MorphAttacks {
     ap = -1,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val octomorphInk = Weapon(
     name = "Ink Attack",
@@ -187,7 +194,8 @@ object MorphAttacks {
     price = Cost.None,
     range = Range.Ranged(5, 15, 30, 50), //TODO - made up value - copy from spray weapon
     area = DamageArea.Cone,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val qmorphClaw = Weapon(
     name = "Q-Morph Claw attack",
@@ -198,7 +206,8 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val ripwingAttack = Weapon(
     name = "Ripwing Beak/Claw attack",
@@ -209,7 +218,8 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val takkoBeak = Weapon(
     name = "Takko Beak Attack",
@@ -220,7 +230,8 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 
   val whiplashTendril = Weapon(
     name = "Whiplash Tendril Attack",
@@ -231,5 +242,6 @@ object MorphAttacks {
     ap = 0,
     price = Cost.None,
     range = Range.Melee,
-    source = Sources.mrg);
+    source = Sources.mrg
+  );
 }

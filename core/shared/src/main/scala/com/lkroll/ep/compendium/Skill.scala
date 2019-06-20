@@ -1,33 +1,35 @@
 package com.lkroll.ep.compendium
 
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
-case class SkillDef(
-  name:         String,
-  field:        Option[String]       = None,
-  cls:          SkillClass,
-  category:     SkillCategory,
-  apt:          Aptitude,
-  noDefaulting: Boolean              = false,
-  sampleFields: Option[List[String]] = None,
-  sampleSpecs:  List[String]         = List("N/A"),
-  descr:        String) extends ChatRenderable with Data {
+case class SkillDef(name: String,
+                    field: Option[String] = None,
+                    cls: SkillClass,
+                    category: SkillCategory,
+                    apt: Aptitude,
+                    noDefaulting: Boolean = false,
+                    sampleFields: Option[List[String]] = None,
+                    sampleSpecs: List[String] = List("N/A"),
+                    descr: String)
+    extends ChatRenderable
+    with Data {
 
   override def lookupName: String = name;
 
-  override def templateTitle: String = if (field.isDefined) {
-    if (field.get == "???") s"$name: [Field]" else s"$name: ${field.get}"
-  } else name;
+  override def templateTitle: String =
+    if (field.isDefined) {
+      if (field.get == "???") s"$name: [Field]" else s"$name: ${field.get}"
+    } else name;
 
   override def templateSubTitle: String = cls match {
     case SkillClass.Active    => s"${category.entryName} Skill"
     case SkillClass.Knowledge => s"Knowledge Skill"
   };
-  override def templateKV: Map[String, String] = Map(
-    "Linked Aptitude" -> (if (noDefaulting) s"${apt.label} (no defaulting)" else apt.label),
-    "Sample Specs" -> sampleSpecs.mkString(", ")) ++
-    sampleFields.map(sf => ("Sample Fields" -> sf.mkString(", "))).toMap;
+  override def templateKV: Map[String, String] =
+    Map("Linked Aptitude" -> (if (noDefaulting) s"${apt.label} (no defaulting)" else apt.label),
+        "Sample Specs" -> sampleSpecs.mkString(", ")) ++
+      sampleFields.map(sf => ("Sample Fields" -> sf.mkString(", "))).toMap;
   override def templateDescr: String = descr;
   override def described: DescribedData = DescribedData.SkillDefD(this, BuildInfo.version);
 
@@ -73,17 +75,15 @@ object SkillCategory extends Enum[SkillCategory] with UPickleEnum[SkillCategory]
   val values = findValues;
 }
 
-case class CharacterSkill(
-  name:         String,
-  field:        Option[String] = None,
-  cls:          SkillClass,
-  category:     SkillCategory,
-  apt:          Aptitude,
-  noDefaulting: Boolean        = false,
-  ranks:        Int            = 0,
-  specs:        List[String]   = Nil)
+case class CharacterSkill(name: String,
+                          field: Option[String] = None,
+                          cls: SkillClass,
+                          category: SkillCategory,
+                          apt: Aptitude,
+                          noDefaulting: Boolean = false,
+                          ranks: Int = 0,
+                          specs: List[String] = Nil)
 
 object CharacterSkill {
   implicit def rw: RW[CharacterSkill] = macroRW;
 }
-

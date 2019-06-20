@@ -1,6 +1,6 @@
 package com.lkroll.ep.compendium
 
-import utils.OptionPickler.{ ReadWriter => RW, macroRW }
+import utils.OptionPickler.{ReadWriter => RW, macroRW}
 
 trait Data extends ChatRenderable {
   def described: DescribedData;
@@ -12,26 +12,28 @@ sealed trait DescribedData {
 }
 
 object DescribedData {
-  implicit def rw: RW[DescribedData] = RW.merge(
-    macroRW[AmmoD],
-    macroRW[ArmourD],
-    macroRW[ArmourModD],
-    macroRW[AugmentationD],
-    macroRW[ModdedArmourD],
-    macroRW[WeaponWithAmmoD],
-    macroRW[WeaponD],
-    macroRW[WeaponAccessoryD],
-    macroRW[DerangementD],
-    macroRW[DisorderD],
-    macroRW[EPTraitD],
-    macroRW[GearD],
-    macroRW[SoftwareD],
-    macroRW[SubstanceD],
-    macroRW[MorphModelD],
-    macroRW[MorphInstanceD],
-    macroRW[PsiSleightD],
-    macroRW[SkillDefD],
-    macroRW[CharacterD]);
+  implicit def rw: RW[DescribedData] =
+    RW.merge(
+      macroRW[AmmoD],
+      macroRW[ArmourD],
+      macroRW[ArmourModD],
+      macroRW[AugmentationD],
+      macroRW[ModdedArmourD],
+      macroRW[WeaponWithAmmoD],
+      macroRW[WeaponD],
+      macroRW[WeaponAccessoryD],
+      macroRW[DerangementD],
+      macroRW[DisorderD],
+      macroRW[EPTraitD],
+      macroRW[GearD],
+      macroRW[SoftwareD],
+      macroRW[SubstanceD],
+      macroRW[MorphModelD],
+      macroRW[MorphInstanceD],
+      macroRW[PsiSleightD],
+      macroRW[SkillDefD],
+      macroRW[CharacterD]
+    );
 
   @upickle.implicits.key("Ammo")
   final case class AmmoD(value: Ammo, version: String) extends DescribedData;

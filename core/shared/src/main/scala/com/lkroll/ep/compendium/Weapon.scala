@@ -1,8 +1,8 @@
 package com.lkroll.ep.compendium
 
-import util.{ Try, Success, Failure }
+import util.{Failure, Success, Try}
 import enumeratum._
-import utils.OptionPickler.{ ReadWriter => RW, macroRW, UPickleEnum }
+import utils.OptionPickler.{ReadWriter => RW, macroRW, UPickleEnum}
 
 sealed trait DamageType extends EnumEntry with ChatRenderable {
   def label: String = this.entryName;
@@ -17,9 +17,11 @@ object DamageType extends Enum[DamageType] with UPickleEnum[DamageType] {
   val values = findValues;
 }
 
-case class Damage(dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType = DamageType.Untyped) extends ChatRenderable {
-  override def templateKV: Map[String, String] = Map("Damage" -> dmgString) ++
-    dmgType.templateKV;
+case class Damage(dmgD10: Int, dmgDiv: Int = 1, dmgConst: Int, dmgType: DamageType = DamageType.Untyped)
+    extends ChatRenderable {
+  override def templateKV: Map[String, String] =
+    Map("Damage" -> dmgString) ++
+      dmgType.templateKV;
   def dmgString: String = if (dmgDiv == 1) s"${dmgD10}d10+${dmgConst}" else s"${dmgD10}d10÷${dmgDiv}+${dmgConst}";
   def +(extraConst: Int): Damage = this.copy(dmgConst = dmgConst + extraConst);
   def +(extraDice: D10): Damage = this.copy(dmgD10 = dmgD10 + extraDice.num);
@@ -35,10 +37,20 @@ object Damage {
   val none = Damage(0, 1, 0);
 }
 
-case class Weapon(name: String, `type`: WeaponType, descr: String,
-                  damage: Damage, attackBonus: Int = 0,
-                  effect: Option[String], ap: Int, area: DamageArea = DamageArea.Point,
-                  price: Cost, range: Range, gun: Option[GunExtras] = None, source: String) extends ChatRenderable with Data {
+case class Weapon(name: String,
+                  `type`: WeaponType,
+                  descr: String,
+                  damage: Damage,
+                  attackBonus: Int = 0,
+                  effect: Option[String],
+                  ap: Int,
+                  area: DamageArea = DamageArea.Point,
+                  price: Cost,
+                  range: Range,
+                  gun: Option[GunExtras] = None,
+                  source: String)
+    extends ChatRenderable
+    with Data {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = this.`type` match {
@@ -46,13 +58,11 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
     case _: WeaponType.Ranged => "Ranged Weapon"
     case _: WeaponType.Thrown => "Thrown Weapon"
   };
-  override def templateKV: Map[String, String] = this.`type`.templateKV ++
-    damage.templateKV ++
-    (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
-    Map(
-      "AP" -> ap.toString,
-      "Area" -> area.text,
-      "Attack Bonus" -> attackBonus.asMod) ++
+  override def templateKV: Map[String, String] =
+    this.`type`.templateKV ++
+      damage.templateKV ++
+      (effect.map(s => Map("Effect" -> s)).getOrElse(Map.empty)) ++
+      Map("AP" -> ap.toString, "Area" -> area.text, "Attack Bonus" -> attackBonus.asMod) ++
       price.templateKV ++
       range.templateKV ++
       (gun.map(g => g.templateKV).getOrElse(Map.empty)) ++
@@ -89,7 +99,8 @@ case class Weapon(name: String, `type`: WeaponType, descr: String,
             case _               => ???
           },
           gun = this.gun,
-          source = this.source)
+          source = this.source
+        )
       }
       case _ => throw new RuntimeException("Only kinetic firearms can be railguns")
     }
@@ -109,7 +120,8 @@ object GunExtras {
   implicit def rw: RW[GunExtras] = macroRW;
 }
 
-case class FiringModes(singleShot: Boolean, semiAutomatic: Boolean, burstFire: Boolean, fullAutomatic: Boolean) extends ChatRenderable {
+case class FiringModes(singleShot: Boolean, semiAutomatic: Boolean, burstFire: Boolean, fullAutomatic: Boolean)
+    extends ChatRenderable {
   lazy val mkString: String =
     ((if (singleShot) "SS " else "") ++
       (if (semiAutomatic) "SA " else "") ++
@@ -140,11 +152,8 @@ sealed trait DamageArea {
   def /(i: Int): DamageArea;
 }
 object DamageArea {
-  implicit def rw: RW[DamageArea] = RW.merge(
-    macroRW[Point.type],
-    macroRW[Blast.type],
-    macroRW[UniformBlast],
-    macroRW[Cone.type]);
+  implicit def rw: RW[DamageArea] =
+    RW.merge(macroRW[Point.type], macroRW[Blast.type], macroRW[UniformBlast], macroRW[Cone.type]);
 
   @upickle.implicits.key("Point")
   case object Point extends DamageArea {
@@ -192,27 +201,34 @@ object DamageArea {
   }
 }
 
-case class WeaponAccessory(name: String, descr: String,
-                           attackBonus: Int = 0, magazineFactor: Float = 1.0f,
-                           price: Cost, source: String, sourcePage: Int) extends Data {
+case class WeaponAccessory(name: String,
+                           descr: String,
+                           attackBonus: Int = 0,
+                           magazineFactor: Float = 1.0f,
+                           price: Cost,
+                           source: String,
+                           sourcePage: Int)
+    extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Weapon Accessory";
-  override def templateKV: Map[String, String] = price.templateKV ++
-    Map(
-      "Attack Bonus" -> s"${attackBonus.asMod}",
-      "Magazine" -> s"${magazineFactor.asFactor}",
-      "Source" -> s"$source p.${sourcePage}");
+  override def templateKV: Map[String, String] =
+    price.templateKV ++
+      Map("Attack Bonus" -> s"${attackBonus.asMod}",
+          "Magazine" -> s"${magazineFactor.asFactor}",
+          "Source" -> s"$source p.${sourcePage}");
   override def templateDescr: String = descr;
 
   override def described = DescribedData.WeaponAccessoryD(this, BuildInfo.version);
 
-  def mod(w: Weapon): Weapon = w.copy(
-    name = s"${w.name} with ${this.name}",
-    descr = s"""${w.descr}
+  def mod(w: Weapon): Weapon =
+    w.copy(
+      name = s"${w.name} with ${this.name}",
+      descr = s"""${w.descr}
 ---
 ${this.descr}""",
-    attackBonus = w.attackBonus + this.attackBonus,
-    gun = w.gun.map(g => g.copy(magazineSize = (g.magazineSize * magazineFactor).toInt)));
+      attackBonus = w.attackBonus + this.attackBonus,
+      gun = w.gun.map(g => g.copy(magazineSize = (g.magazineSize * magazineFactor).toInt))
+    );
 }
 object WeaponAccessory {
   implicit def rw: RW[WeaponAccessory] = macroRW;
