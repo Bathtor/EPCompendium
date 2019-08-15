@@ -340,7 +340,7 @@ object TraitsNegativeTranshuman {
   val notATeamPlayer = EPTrait(
     name = "Not A Team Player",
     traitType = Negative,
-    applicability = Morph,
+    applicability = Ego,
     descr =
       "This character is socially awkward, self-centered, or has such low self esteem that they simply do not work well others. The character does not benefit from teamwork bonuses when others try to aid them, and if they attempt to aid someone else (whether voluntarily or forced), they will apply a −10 modifier to the test rather than aiding with a +10.",
     cp = 10,

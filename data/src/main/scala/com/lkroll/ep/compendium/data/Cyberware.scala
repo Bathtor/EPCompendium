@@ -290,7 +290,7 @@ If the user has the emergency farcaster augmentation installed in this morph, th
   );
 
   val senseFilter = Augmentation(
-    name = "Sendse Filter",
+    name = "Sense Filter",
     category = c,
     appliesTo = List(Biomorph, Pod, Synthmorph),
     descr =

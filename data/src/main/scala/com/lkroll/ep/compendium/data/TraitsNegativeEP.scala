@@ -239,7 +239,7 @@ object TraitsNegativeEP {
   );
 
   val implantRejectionLevel1 = EPTrait(
-    name = "Immortality Blues Level1",
+    name = "Implant Rejection Level 1",
     traitType = Negative,
     applicability = Morph,
     descr =
@@ -250,7 +250,7 @@ object TraitsNegativeEP {
   );
 
   val implantRejectionLevel2 = EPTrait(
-    name = "Immortality Blues Level2",
+    name = "Implant Rejection Level 2",
     traitType = Negative,
     applicability = Morph,
     descr =
@@ -425,8 +425,8 @@ object TraitsNegativeEP {
     sourcePage = 151
   );
 
-  val psyVulnerability = EPTrait(
-    name = "Psy Vulnerability",
+  val psiVulnerability = EPTrait(
+    name = "Psi Vulnerability",
     traitType = Negative,
     applicability = Both,
     descr =
@@ -535,7 +535,7 @@ object TraitsNegativeEP {
   );
 
   val uncannyValley = EPTrait(
-    name = "Unanny Valley",
+    name = "Uncanny Valley",
     traitType = Negative,
     applicability = Morph,
     descr =
