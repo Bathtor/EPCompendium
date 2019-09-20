@@ -7,6 +7,12 @@ import com.lkroll.ep.compendium.utils.OptionPickler._
 import io.lemonlabs.uri.Url
 
 class SanityTest extends FunSuite with Matchers {
+
+  test("Build Index") {
+    val l = EPImageLibrary.getImages("*");
+    l shouldBe empty;
+  }
+
   test("MRG serialise") {
     testSerialise(MorphRecognitionGuide.list)
   }

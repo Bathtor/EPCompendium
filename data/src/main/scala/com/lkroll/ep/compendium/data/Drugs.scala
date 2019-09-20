@@ -334,7 +334,7 @@ object Drugs {
     classification = Chemicals,
     application = List(Inhalation, Injection, Oral),
     addiction = (Physical, -10),
-    onset = 3.turns,
+    onset = 1.hours,
     duration = 1.hours,
     effects = List(SOM - 5),
     descr =
@@ -475,6 +475,42 @@ object Drugs {
       """Flying Wallaby is a strange cocktail mixing effects of Opium with those of Kick, for a truly fascinating result. After 1 minute users suddenly become increasingly nervous, bordering on hyperactive. Many experience the sudden urge to jump, climb, and dance in a barely controlled manner. Characters under the influence of Flying Wallaby are just as twitchy as Kick users, though, and react in a jumpy fashion to sudden or unexpected stimuli. At the gamemaster's discretion, they must make a WIL x 2 Test or react without thinking towards unexpected noises or other surprises.
     After about 2 hours the effects suddenly reverse and a deep fatigue and relaxation sets in. At this point the user is hard pressed to move or react to anything, but nothing really bothers them either. This effect slowly tapers off over the next 6 hours.""",
     price = Cost.Low,
+    source = "Homebrew",
+    sourcePage = 0
+  );
+
+  val rbbNH = Substance(
+    name = "RBB (Neo-Hominid Effect)",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection, Oral),
+    addiction = (Mental, +20),
+    onset = 3.turns,
+    duration = 30.mins,
+    effects = List(WIL + 10, IgnoreTraumas(2)),
+    descr =
+      """Relax Big Boy, or RBB for short, is an experimental drug that is still under active development at Laboratoire Louie LaCroix (LLLX) on Afrik station. It was designed to channel the aggressive tendencies of large Neo-Hominids, such as Neo-Gorillas, into more productive directions.
+      However, cross-simulations with human physiology suggested, that on humans its effects are more akin to combat focus drug. Similar to Grin, RBB allows humans to ignore injuries, but it also increases reaction times and reduces susceptability to distractions, while avoiding Grin's tunnel vision disadvantage.
+      Onset time is 3 Action Turns when injected or 5 minutes when taken as a lozenge.""",
+    price = Cost.High,
+    source = "Homebrew",
+    sourcePage = 0
+  );
+
+  val rbbH = Substance(
+    name = "RBB (Human Effect)",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection, Oral),
+    addiction = (Mental, +10),
+    onset = 3.turns,
+    duration = 30.mins,
+    effects = List(REF + 5, WIL + 10, IgnoreTraumas(2), IgnoreWounds(2)),
+    descr =
+      """Relax Big Boy, or RBB for short, is an experimental drug that is still under active development at Laboratoire Louie LaCroix (LLLX) on Afrik station. It was designed to channel the aggressive tendencies of large Neo-Hominids, such as Neo-Gorillas, into more productive directions.
+      However, cross-simulations with human physiology suggested, that on humans its effects are more akin to combat focus drug. Similar to Grin, RBB allows humans to ignore injuries, but it also increases reaction times and reduces susceptability to distractions, while avoiding Grin's tunnel vision disadvantage.
+      Onset time is 3 Action Turns when injected or 5 minutes when taken as a lozenge.""",
+    price = Cost.High,
     source = "Homebrew",
     sourcePage = 0
   );
