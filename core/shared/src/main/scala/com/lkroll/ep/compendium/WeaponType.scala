@@ -45,12 +45,15 @@ object WeaponType {
   sealed trait Ranged extends WeaponType;
   object Ranged {
     implicit def rw: RW[Ranged] =
-      RW.merge(macroRW[Kinetic.type],
-               macroRW[Railgun.type],
-               macroRW[Beam.type],
-               macroRW[Seeker],
-               macroRW[Spray.type],
-               macroRW[ExoticRangedWeapon]);
+      RW.merge(
+        macroRW[Kinetic.type],
+        macroRW[Railgun.type],
+        macroRW[Beam.type],
+        macroRW[Seeker],
+        macroRW[Spray.type],
+        macroRW[ExoticRangedWeapon],
+        macroRW[Mounted.type]
+      );
   }
 
   @upickle.implicits.key("Kinetic")
@@ -83,6 +86,12 @@ object WeaponType {
   case class ExoticRangedWeapon(weapon: String) extends Ranged {
     override def skill: String = s"Exotic Ranged Weapons (${weapon})";
     override def label: String = "Exotic Ranged Weapons";
+  }
+
+  @upickle.implicits.key("Mounted")
+  case object Mounted extends Ranged {
+    override def skill: String = s"Gunnery";
+    override def label: String = "Mounted Weapons";
   }
 
   sealed trait Thrown extends WeaponType;

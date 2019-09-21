@@ -33,6 +33,7 @@ etarget/
 # Metals specific
 .bloop/
 .metals/
+.vscode/
 
 # OS X
 

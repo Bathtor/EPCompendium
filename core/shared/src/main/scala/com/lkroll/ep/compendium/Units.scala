@@ -90,3 +90,91 @@ object TimeUnit extends Enum[TimeUnit] with UPickleEnum[TimeUnit] {
   }
   val values = findValues;
 }
+
+sealed trait Distance {
+  def renderShort: String;
+  def renderLong: String;
+  def renderNormalised: String;
+}
+object Distance {
+
+  implicit def rw: RW[Distance] = RW.merge(macroRW[DistanceNum])
+
+  @upickle.implicits.key("DistanceNum")
+  final case class DistanceNum(scalar: Long, unit: DistanceUnit) extends Distance {
+    override def renderShort: String = s"$scalar${unit.symbol}";
+    override def renderLong: String =
+      if (scalar == 1) {
+        f"$scalar%,d ${unit.nameSg}"
+      } else {
+        f"$scalar%,d ${unit.namePl}"
+      };
+    def renderNormalised: String = {
+      var curnum = this;
+      while (curnum.scalar > 1000L) {
+        curnum.unit.increment((curnum)) match {
+          case Some(newnum) => curnum = newnum
+          case None         => return curnum.renderShort
+        }
+      }
+      curnum.renderShort
+    }
+  }
+
+}
+sealed trait DistanceUnit extends EnumEntry with AnyUnit {
+  import Distance._;
+
+  def increment(num: DistanceNum): Option[DistanceNum];
+  def decrement(num: DistanceNum): Option[DistanceNum];
+}
+
+object DistanceUnit extends Enum[DistanceUnit] with UPickleEnum[DistanceUnit] {
+  import Distance._;
+
+  case object Millimeters extends DistanceUnit {
+    override def symbol: String = "mm";
+    override def namePl: String = "millimeters";
+    override def nameSg: String = "millimeter";
+    def increment(num: DistanceNum): Option[DistanceNum] = {
+      if (num.scalar > 1000L) {
+        Some(DistanceNum(num.scalar / 1000, Meters))
+      } else {
+        None
+      }
+    }
+    def decrement(num: DistanceNum): Option[DistanceNum] = {
+      None // not implemented
+    }
+  }
+
+  case object Meters extends DistanceUnit {
+    override def symbol: String = "m";
+    override def namePl: String = "meters";
+    override def nameSg: String = "meter";
+    def increment(num: DistanceNum): Option[DistanceNum] = {
+      if (num.scalar > 1000L) {
+        Some(DistanceNum(num.scalar / 1000L, Kilometers))
+      } else {
+        None
+      }
+    }
+    def decrement(num: DistanceNum): Option[DistanceNum] = {
+      Some(DistanceNum(num.scalar * 1000L, Millimeters))
+    }
+  }
+
+  case object Kilometers extends DistanceUnit {
+    override def symbol: String = "km";
+    override def namePl: String = "kilometers";
+    override def nameSg: String = "kilometer";
+    def increment(num: DistanceNum): Option[DistanceNum] = {
+      None // not implemented
+    }
+    def decrement(num: DistanceNum): Option[DistanceNum] = {
+      Some(DistanceNum(num.scalar * 1000L, Meters))
+    }
+  }
+
+  val values = findValues;
+}

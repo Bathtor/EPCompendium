@@ -3,7 +3,7 @@ import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
 
 //scalacOptions in ThisBuild ++= Seq("-Ymacro-debug-verbose")
 
-resolvers in ThisBuild += "Apache" at "http://repo.maven.apache.org/maven2"
+resolvers in ThisBuild += "Apache" at "https://repo.maven.apache.org/maven2"
 resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
 
 lazy val commonSettings = Seq(
@@ -27,7 +27,7 @@ lazy val root = (project in file("."))
     name := "EPCompendium",
     skip in publish := true
   )
-  .aggregate(epCompendiumCoreJVM, epCompendiumCoreJS, data, media)
+  .aggregate(epCompendiumCoreJVM, epCompendiumCoreJS, data, media);
 
 lazy val epccore = crossProject(JSPlatform, JVMPlatform)
   .in(file("core"))
@@ -51,10 +51,10 @@ lazy val epccore = crossProject(JSPlatform, JVMPlatform)
   .jsSettings(
     // Add JS-specific settings here
     libraryDependencies += "com.lkroll.roll20" %%% "roll20-api-facade" % Dependencies.apiFacadeV
-  )
+  );
 
-lazy val epCompendiumCoreJVM = epccore.jvm
-lazy val epCompendiumCoreJS = epccore.js
+lazy val epCompendiumCoreJVM = epccore.jvm;
+lazy val epCompendiumCoreJS = epccore.js;
 
 lazy val data = (project in file("data"))
   .settings(
@@ -67,7 +67,7 @@ lazy val data = (project in file("data"))
     ),
     name := "EPCompendium Data"
   )
-  .dependsOn(epCompendiumCoreJVM)
+  .dependsOn(epCompendiumCoreJVM);
 
 lazy val media = (project in file("media"))
   .settings(
@@ -78,4 +78,4 @@ lazy val media = (project in file("media"))
     ),
     name := "EPCompendium Media"
   )
-  .dependsOn(epCompendiumCoreJVM, data)
+  .dependsOn(epCompendiumCoreJVM, data);

@@ -208,7 +208,7 @@ object DamageMod {
   case object Half extends DamageMod {
     override def modifyD10(dmg: Int): Int = if (dmg % 2 == 0) dmg / 2 else dmg;
     override def modifyDiv(dmgD10: Int, divisor: Int): Int = if (dmgD10 % 2 == 0) 1 else 2;
-    override def modifyConst(dmg: Int): Int = ceilDiv(dmg, 2);
+    override def modifyConst(dmg: Int): Int = ceilDiv(dmg, 2).toInt;
     override def modifyEffect(effect: Option[String]): Option[String] = effect;
     override def text: String = "-half";
   }

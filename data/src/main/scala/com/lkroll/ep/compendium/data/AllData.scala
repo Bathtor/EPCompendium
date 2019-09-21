@@ -14,7 +14,8 @@ object AllData {
     SprayWeapons.list,
     ExoticWeapons.list,
     Grenades.micro,
-    Grenades.standard
+    Grenades.standard,
+    MountedWeapons.list
   );
   val weaponAccessories: List[List[WeaponAccessory]] = List(WeaponAccessories.list);
   val morphModels: List[List[MorphModel]] =

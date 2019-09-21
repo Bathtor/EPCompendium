@@ -102,7 +102,24 @@ case class Weapon(name: String,
           source = this.source
         )
       }
-      case _ => throw new RuntimeException("Only kinetic firearms can be railguns")
+      case WeaponType.Mounted => {
+        Weapon(
+          name = s"${this.name} (Railgun)",
+          `type` = WeaponType.Mounted,
+          descr = this.descr,
+          damage = this.damage + 6,
+          effect = this.effect,
+          ap = this.ap - 9,
+          price = this.price.increment,
+          range = this.range match {
+            case r: Range.Ranged => r * 2.0
+            case _               => ???
+          },
+          gun = this.gun,
+          source = this.source
+        )
+      }
+      case _ => throw new RuntimeException("Only kinetic firearms and mounted weapons can be railguns")
     }
 
   }

@@ -1,6 +1,7 @@
 package com.lkroll.ep.compendium
 
 import utils.OptionPickler.{ReadWriter => RW, macroRW}
+import com.lkroll.ep.compendium.Distance.DistanceNum
 
 sealed trait Range extends ChatRenderable {}
 object Range {
@@ -13,21 +14,24 @@ object Range {
     override def templateKV: Map[String, String] = Map("Range" -> "Melee");
   }
   @upickle.implicits.key("Ranged")
-  case class Ranged(shortUpper: Int, mediumUpper: Int, longUpper: Int, extremeUpper: Int) extends Range {
+  case class Ranged(shortUpper: Long, mediumUpper: Long, longUpper: Long, extremeUpper: Long) extends Range {
+
+    private def norm(n: Long): String = DistanceNum(n, DistanceUnit.Meters).renderNormalised;
+
     override def templateKV: Map[String, String] =
       Map(
-        "Range 1-Short" -> s"2-${shortUpper}m",
-        "Range 2-Medium" -> s"${shortUpper + 1}-${mediumUpper}m",
-        "Range 3-Long" -> s"${mediumUpper + 1}-${longUpper}m",
-        "Range 4-Extreme" -> s"${longUpper + 1}-${extremeUpper}m"
+        "Range 1-Short" -> s"2m-${norm(shortUpper)}",
+        "Range 2-Medium" -> s"${norm(shortUpper + 1L)}-${norm(mediumUpper)}",
+        "Range 3-Long" -> s"${norm(mediumUpper + 1L)}-${norm(longUpper)}",
+        "Range 4-Extreme" -> s"${norm(longUpper + 1L)}-${norm(extremeUpper)}"
       );
 
     def *(d: Double): Ranged =
       Ranged(
-        shortUpper = Math.round(this.shortUpper.toDouble * d).toInt,
-        mediumUpper = Math.round(this.mediumUpper.toDouble * d).toInt,
-        longUpper = Math.round(this.longUpper.toDouble * d).toInt,
-        extremeUpper = Math.round(this.extremeUpper.toDouble * d).toInt
+        shortUpper = Math.round(this.shortUpper.toDouble * d).toLong,
+        mediumUpper = Math.round(this.mediumUpper.toDouble * d).toLong,
+        longUpper = Math.round(this.longUpper.toDouble * d).toLong,
+        extremeUpper = Math.round(this.extremeUpper.toDouble * d).toLong
       );
     def *(i: Int): Ranged =
       Ranged(shortUpper = this.shortUpper * i,
@@ -45,13 +49,13 @@ object Range {
   }
   sealed trait Thrown extends Range {
     def variant: String;
-    def shortUpper(som: Int): Int;
+    def shortUpper(som: Long): Long;
     def shortFactor: Double;
-    def mediumUpper(som: Int): Int;
+    def mediumUpper(som: Long): Long;
     def mediumFactor: Double;
-    def longUpper(som: Int): Int;
+    def longUpper(som: Long): Long;
     def longFactor: Double;
-    def extremeUpperUpper(som: Int): Int;
+    def extremeUpperUpper(som: Long): Long;
     def extremeFactor: Double;
     override def templateKV: Map[String, String] = Map("Range" -> s"Thrown (${variant})"); // TODO make nice maybe
   }
@@ -62,13 +66,13 @@ object Range {
   @upickle.implicits.key("ThrownBlades")
   case object ThrownBlades extends Thrown {
     override def variant: String = "Blades";
-    override def shortUpper(som: Int): Int = ceilDiv(som, 5);
+    override def shortUpper(som: Long): Long = ceilDiv(som, 5);
     override def shortFactor: Double = 0.2;
-    override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
+    override def mediumUpper(som: Long): Long = ceilDiv(som, 2);
     override def mediumFactor: Double = 0.5;
-    override def longUpper(som: Int): Int = som;
+    override def longUpper(som: Long): Long = som;
     override def longFactor: Double = 1.0;
-    override def extremeUpperUpper(som: Int): Int = som * 2;
+    override def extremeUpperUpper(som: Long): Long = som * 2;
     override def extremeFactor: Double = 2;
     override def templateKV: Map[String, String] =
       Map("Range 1-Short" -> s"2 - SOM%5m",
@@ -79,13 +83,13 @@ object Range {
   @upickle.implicits.key("ThrownMinigrenades")
   case object ThrownMinigrenades extends Thrown {
     override def variant: String = "Minigrenades";
-    override def shortUpper(som: Int): Int = ceilDiv(som, 2);
+    override def shortUpper(som: Long): Long = ceilDiv(som, 2);
     override def shortFactor: Double = 0.5;
-    override def mediumUpper(som: Int): Int = som;
+    override def mediumUpper(som: Long): Long = som;
     override def mediumFactor: Double = 1.0;
-    override def longUpper(som: Int): Int = som * 2;
+    override def longUpper(som: Long): Long = som * 2;
     override def longFactor: Double = 2.0;
-    override def extremeUpperUpper(som: Int): Int = som * 3;
+    override def extremeUpperUpper(som: Long): Long = som * 3;
     override def extremeFactor: Double = 3.0;
     override def templateKV: Map[String, String] =
       Map(
@@ -98,13 +102,13 @@ object Range {
   @upickle.implicits.key("ThrownGrenades")
   case object ThrownGrenades extends Thrown {
     override def variant: String = "Grenades";
-    override def shortUpper(som: Int): Int = ceilDiv(som, 5);
+    override def shortUpper(som: Long): Long = ceilDiv(som, 5);
     override def shortFactor: Double = 0.2;
-    override def mediumUpper(som: Int): Int = ceilDiv(som, 2);
+    override def mediumUpper(som: Long): Long = ceilDiv(som, 2);
     override def mediumFactor: Double = 0.5;
-    override def longUpper(som: Int): Int = som;
+    override def longUpper(som: Long): Long = som;
     override def longFactor: Double = 1.0;
-    override def extremeUpperUpper(som: Int): Int = som * 3;
+    override def extremeUpperUpper(som: Long): Long = som * 3;
     override def extremeFactor: Double = 3.0;
     override def templateKV: Map[String, String] =
       Map("Range 1-Short" -> s"2 - SOM%5m",

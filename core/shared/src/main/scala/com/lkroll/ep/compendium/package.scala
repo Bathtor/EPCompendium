@@ -26,9 +26,9 @@ package object compendium {
     def asPercent: String = s"${(f * 100.0f).toInt}%";
   }
 
-  def ceilDiv(x: Int, y: Int): Int = {
-    assert(x >= 0);
-    assert(y > 0);
-    (x + y - 1) / y;
+  def ceilDiv(x: Long, y: Long): Long = {
+    assert(x >= 0L);
+    assert(y > 0L);
+    (x + y - 1L) / y;
   }
 }
