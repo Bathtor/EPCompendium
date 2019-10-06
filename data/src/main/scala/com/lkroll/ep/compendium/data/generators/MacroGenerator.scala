@@ -5,7 +5,7 @@ import com.lkroll.ep.compendium._
 import com.lkroll.ep.compendium.data.AllData
 
 case class Roll20Macro(name: String, content: String) {
-  def toMarkdown: String = """
+  def toMarkdown: String = s"""
 ### Macro 'Import${name}'
 ```
 $content
@@ -47,7 +47,7 @@ object MacroGenerator {
                                      substances,
                                      software,
                                      weaponWithStuff)
-  val markdownList = data.map(_.toMarkdown).mkString("\n");
+  val markdownData = data.map(_.toMarkdown).mkString("\n");
 
   def generate(open: Boolean): Unit = {
     val script = s"""
@@ -56,7 +56,7 @@ For use with the EPCompendium Script.
 $licenseText
 $authorRef
 ## Macros
-$data
+$markdownData
 """;
     val f = File.createTempFile("ep-compendium-macros", ".md");
     f.deleteOnExit();
