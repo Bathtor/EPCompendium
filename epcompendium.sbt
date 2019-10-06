@@ -50,7 +50,8 @@ lazy val epccore = crossProject(JSPlatform, JVMPlatform)
   )
   .jsSettings(
     // Add JS-specific settings here
-    libraryDependencies += "com.lkroll.roll20" %%% "roll20-api-facade" % Dependencies.apiFacadeV
+    //libraryDependencies += "com.lkroll.roll20" %%% "roll20-api-facade" % Dependencies.apiFacadeV
+    libraryDependencies += "com.outr" %%% "scribe" % Dependencies.scribeV
   );
 
 lazy val epCompendiumCoreJVM = epccore.jvm;

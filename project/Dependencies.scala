@@ -8,7 +8,9 @@ object Dependencies {
   val scalauriV = "1.4.5";
   val guavaV = "27.1-jre";
 
-  val apiFacadeV = "1.2.+";
+  val scribeV = "2.7.3";
+
+  //val apiFacadeV = "1.2.+";
 
   // Test
   val scalatestV = "3.0.5";

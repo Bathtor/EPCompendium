@@ -36,7 +36,7 @@ object MountedWeapons {
     effect = None,
     ap = -120,
     price = Cost.ExpensivePlus(1000000),
-    range = Range.Ranged(60000L, 120000L, 180000L, 600000),
+    range = Range.Ranged(100000L, 200000L, 300000L, 1000000L),
     gun = GunExtras(modes = Set(SS), magazineSize = 1),
     source = "Homebrew"
   );

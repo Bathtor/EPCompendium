@@ -5,12 +5,12 @@ import scalajs.js
 import scalajs.js.annotation._
 import com.lkroll.common.data.{EditDistance, WordMatch}
 import com.lkroll.ep.compendium.utils.SemanticVersion
-import com.lkroll.roll20.api.facade.Roll20API
 import com.lkroll.ep.compendium.utils.OptionPickler._
 import util.{Failure, Success, Try}
+import scribe.Logging
 
 @JSExportTopLevel("EPCompendium")
-object EPCompendium {
+object EPCompendium extends Logging {
 
   private var verify: Boolean = false;
 
@@ -145,7 +145,7 @@ object EPCompendium {
       val tempSubTitle = d.templateSubTitle;
       val tempKV = d.templateKV.map(t => s"${t._1} -> ${t._2}").mkString("\n");
       val tempDescr = d.templateDescr;
-      Roll20API.log(s"""INFO:
+      logger.info(s"""
   === $tempTitle ===
   --- $tempSubTitle ---
   $tempKV
@@ -154,7 +154,7 @@ object EPCompendium {
 """);
     } catch {
       case t: Throwable => {
-        Roll20API.log(s"ERROR: During verification of `${d.lookupName}`: ${t.getMessage}");
+        logger.error(s"During verification of `${d.lookupName}`: ${t.getMessage}", t);
       }
     }
   }
@@ -167,7 +167,7 @@ object EPCompendium {
       }
       weapons += (w.name -> w)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} weapons.");
+    logger.info(s"EPCompendium added ${data.size} weapons.");
   }
   def getWeapon(name: String): Option[Weapon] = weapons.get(name);
   def findWeapon(needle: String): Option[Weapon] = closestMatch(needle, weapons);
@@ -181,7 +181,7 @@ object EPCompendium {
       }
       ammo += (a.name -> a)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} ammo.");
+    logger.info(s"EPCompendium added ${data.size} ammo.");
   }
   def getAmmo(name: String): Option[Ammo] = ammo.get(name);
   def findAmmo(needle: String): Option[Ammo] = closestMatch(needle, ammo);
@@ -195,7 +195,7 @@ object EPCompendium {
       }
       morphModels += (m.name -> m)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} morph models.");
+    logger.info(s"EPCompendium added ${data.size} morph models.");
   }
 
   def getMorphModel(name: String): Option[MorphModel] = morphModels.get(name);
@@ -210,7 +210,7 @@ object EPCompendium {
       }
       morphInstances += (m.label -> m)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} morph instances.");
+    logger.info(s"EPCompendium added ${data.size} morph instances.");
   }
 
   def getMorphCustom(name: String): Option[MorphInstance] = morphInstances.get(name);
@@ -225,7 +225,7 @@ object EPCompendium {
       }
       traits += (t.name -> t)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} traits.");
+    logger.info(s"EPCompendium added ${data.size} traits.");
   }
 
   def getTrait(name: String): Option[EPTrait] = traits.get(name);
@@ -240,7 +240,7 @@ object EPCompendium {
       }
       derangements += (d.name -> d)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} derangements.");
+    logger.info(s"EPCompendium added ${data.size} derangements.");
   }
 
   def getDerangement(name: String): Option[Derangement] = {
@@ -261,7 +261,7 @@ object EPCompendium {
       }
       disorders += (d.name -> d)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} disorders.");
+    logger.info(s"EPCompendium added ${data.size} disorders.");
   }
   def getDisorder(name: String): Option[Disorder] = disorders.get(name);
   def findDisorder(needle: String): Option[Disorder] = closestMatch(needle, disorders);
@@ -275,7 +275,7 @@ object EPCompendium {
       }
       armour += (a.name -> a)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} armour items.");
+    logger.info(s"EPCompendium added ${data.size} armour items.");
   }
   def getArmour(name: String): Option[Armour] = armour.get(name);
   def findArmour(needle: String): Option[Armour] = closestMatch(needle, armour);
@@ -289,7 +289,7 @@ object EPCompendium {
       }
       gear += (g.name -> g)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} gear items.");
+    logger.info(s"EPCompendium added ${data.size} gear items.");
   }
   def getGear(name: String): Option[Gear] = gear.get(name);
   def findGear(needle: String): Option[Gear] = closestMatch(needle, gear);
@@ -303,7 +303,7 @@ object EPCompendium {
       }
       software += (s.name -> s)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} programs.");
+    logger.info(s"EPCompendium added ${data.size} programs.");
   }
   def getSoftware(name: String): Option[Software] = software.get(name);
   def findSoftware(needle: String): Option[Software] = closestMatch(needle, software);
@@ -317,7 +317,7 @@ object EPCompendium {
       }
       substances += (s.name -> s)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} substances.");
+    logger.info(s"EPCompendium added ${data.size} substances.");
   }
   def getSubstance(name: String): Option[Substance] = substances.get(name);
   def findSubstance(needle: String): Option[Substance] = closestMatch(needle, substances);
@@ -331,7 +331,7 @@ object EPCompendium {
       }
       augmentations += (s.name -> s)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} augmentations.");
+    logger.info(s"EPCompendium added ${data.size} augmentations.");
   }
   def getAugmentation(name: String): Option[Augmentation] = augmentations.get(name);
   def findAugmentation(needle: String): Option[Augmentation] = closestMatch(needle, augmentations);
@@ -345,7 +345,7 @@ object EPCompendium {
       }
       armourMods += (a.name -> a)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} armour mods.");
+    logger.info(s"EPCompendium added ${data.size} armour mods.");
   }
   def getArmourMod(name: String): Option[ArmourMod] = armourMods.get(name);
   def findArmourMod(needle: String): Option[ArmourMod] = closestMatch(needle, armourMods);
@@ -359,7 +359,7 @@ object EPCompendium {
       }
       weaponAccessories += (w.name -> w)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} weapon accessories.");
+    logger.info(s"EPCompendium added ${data.size} weapon accessories.");
   }
   def getWeaponAccessory(name: String): Option[WeaponAccessory] = weaponAccessories.get(name);
   def findWeaponAccessory(needle: String): Option[WeaponAccessory] = closestMatch(needle, weaponAccessories);
@@ -373,7 +373,7 @@ object EPCompendium {
       }
       psiSleights += (p.name -> p)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} psi sleights.");
+    logger.info(s"EPCompendium added ${data.size} psi sleights.");
   }
   def getPsiSleight(name: String): Option[PsiSleight] = psiSleights.get(name);
   def findPsiSleight(needle: String): Option[PsiSleight] = closestMatch(needle, psiSleights);
@@ -387,7 +387,7 @@ object EPCompendium {
       }
       skillDefs += (s.name -> s)
     };
-    Roll20API.log(s"INFO: EPCompendium added ${data.size} skill definitions.");
+    logger.info(s"EPCompendium added ${data.size} skill definitions.");
   }
   def getSkillDef(name: String): Option[SkillDef] = skillDefs.get(name);
   def findSkillDef(needle: String): Option[SkillDef] = closestMatch(needle, skillDefs);
