@@ -1,18 +1,25 @@
-package com.lkroll.ep.compendium.data
+package com.lkroll.ep.compendium.data.generators
 
 import java.io.{File, PrintWriter}
 import com.lkroll.ep.compendium._
+import com.lkroll.ep.compendium.data.AllData
+
+case class Roll20Macro(name: String, content: String) {
+  def toMarkdown: String = """
+### Macro 'Import${name}'
+```
+$content
+```
+""";
+}
 
 object MacroGenerator {
   private val sep = "|";
 
   val weaponsData = AllData.weapons.flatten.map(_.name).sorted.mkString(sep);
-  //val weapons = addWrapper(Weapon.dataType, weaponsData);
   val ammoData = AllData.ammo.flatten.map(_.name).sorted.mkString(sep);
-  //val ammo = addWrapper(Ammo.dataType, ammoData);
   val accessoryData = AllData.weaponAccessories.flatten.map(_.name).sorted.mkString(sep);
   val weaponWithStuff = addWeaponWithStuff(weaponsData, ammoData, accessoryData);
-  // TODO amour with mod
   val armourData = AllData.armour.flatten.map(_.name).sorted.mkString(sep);
   val armourModData = AllData.armourMods.flatten.map(_.name).sorted.mkString(sep);
   val armourWithStuff = addArmourWithStuff(armourData, armourModData);
@@ -28,18 +35,19 @@ object MacroGenerator {
   val software = addWrapper(Software.dataType, AllData.software.flatten.map(_.name).sorted.mkString(sep));
   val sleights = addWrapper(PsiSleight.dataType, AllData.psiSleights.flatten.map(_.name).sorted.mkString(sep));
   val skills = addWrapper(SkillDef.dataType, AllData.skills.flatten.map(_.name).sorted.mkString(sep));
-  val data = List(morphModels,
-                  morphInstances,
-                  traits,
-                  derangements,
-                  disorders,
-                  armourWithStuff,
-                  gear,
-                  skills,
-                  sleights,
-                  substances,
-                  software,
-                  weaponWithStuff).mkString("\n");
+  val data: List[Roll20Macro] = List(morphModels,
+                                     morphInstances,
+                                     traits,
+                                     derangements,
+                                     disorders,
+                                     armourWithStuff,
+                                     gear,
+                                     skills,
+                                     sleights,
+                                     substances,
+                                     software,
+                                     weaponWithStuff)
+  val markdownList = data.map(_.toMarkdown).mkString("\n");
 
   def generate(open: Boolean): Unit = {
     val script = s"""
@@ -68,7 +76,7 @@ $data
 
   }
 
-  private def addWrapper(dataType: String, data: String): String = {
+  private def addWrapper(dataType: String, data: String): Roll20Macro = {
     val name = dataType(0).toUpper + dataType.substring(1);
     val cmd = dataType match {
       case "morphmodel"    => "morph-model"
@@ -77,32 +85,23 @@ $data
       case "psisleight"    => "psi-sleight"
       case s               => s
     };
-    s"""
-### Macro 'Import${name}'
-```
-!epcompendium-import --${cmd} ?{Select item to import|${data}}
-```
-"""
+    Roll20Macro(name, s"""!epcompendium-import --${cmd} ?{Select item to import|${data}}""")
   }
 
-  private def addWeaponWithStuff(weaponData: String, ammoData: String, accessoryData: String): String = {
+  private def addWeaponWithStuff(weaponData: String, ammoData: String, accessoryData: String): Roll20Macro = {
     val name = "Weapon";
-    s"""
-### Macro 'Import${name}'
-```
-!epcompendium-import --weapon ?{Select weapon to import|${weaponData}} --with-accessory ?{Select weapon accessory to install|None|${accessoryData}} --with-ammo ?{Select ammo to load|None|${ammoData}}
-```
-"""
+    Roll20Macro(
+      name,
+      s"""!epcompendium-import --weapon ?{Select weapon to import|${weaponData}} --with-accessory ?{Select weapon accessory to install|None|${accessoryData}} --with-ammo ?{Select ammo to load|None|${ammoData}}"""
+    )
   }
 
-  private def addArmourWithStuff(armourData: String, modData: String): String = {
+  private def addArmourWithStuff(armourData: String, modData: String): Roll20Macro = {
     val name = "Armour";
-    s"""
-### Macro 'Import${name}'
-```
-!epcompendium-import --armour ?{Select armour to import|${armourData}} --with-mod ?{Select armour mod to install|None|${modData}}
-```
-"""
+    Roll20Macro(
+      name,
+      s"""!epcompendium-import --armour ?{Select armour to import|${armourData}} --with-mod ?{Select armour mod to install|None|${modData}}"""
+    )
   }
 
   private val licenseText =

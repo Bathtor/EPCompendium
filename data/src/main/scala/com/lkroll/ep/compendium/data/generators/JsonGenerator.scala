@@ -1,5 +1,6 @@
-package com.lkroll.ep.compendium.data
+package com.lkroll.ep.compendium.data.generators
 
+import com.lkroll.ep.compendium.data.AllData
 import com.lkroll.ep.compendium.utils.OptionPickler._
 import com.lkroll.ep.compendium._
 import java.io.{File, PrintWriter}
