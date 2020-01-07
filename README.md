@@ -7,6 +7,12 @@ This repository contains both data models and the data to build a custom **Roll2
 
 The data models can be imported in order to use the generated data or generate custom data.
 
+## Setup for Roll20
+
+Information on how to setup and use this compendium with Roll20 can be found [here](https://github.com/Bathtor/EPSheet/blob/master/script/README.md) and the whole process is also described in the following video:
+
+[![Setup Process](https://img.youtube.com/vi/tnlJzZd1yF0/0.jpg)](https://www.youtube.com/watch?v=tnlJzZd1yF0)
+
 ## Dependency
 
 Add the bintray repository to `resolvers`:
