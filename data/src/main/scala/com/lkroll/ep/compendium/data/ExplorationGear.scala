@@ -56,5 +56,15 @@ object ExplorationGear {
     sourcePage = 156
   );
 
+  val portableServer = Gear(
+    name = "Portable Server",
+    category = c,
+    descr =
+      "Created specifically for gatecrashing and other types of remote operation, this device is essentially a mobile server. The server itself is a squat cylinder, roughly the size of a modern piece of carry-on luggage, carried within a protective frame. It may be raised out of the frame for direct access. It features a wheeled mobility system capable of handling stairs and minor obstacles, a radio booster for communication range, and a pair of hidden compartments that are each capable of housing a small robot. It also possesses simple visual and auditory sensors and a small speaker, and a pair of thin retractable limbs for handling objects when remote controlled. It follows the normal rules for bots and vehicles. The server has the capacity for 10 infomorphs.",
+    price = Cost.High,
+    source = Sources.transhuman,
+    sourcePage = 146
+  );
+
   val list: List[Gear] = Macros.memberList[Gear];
 }

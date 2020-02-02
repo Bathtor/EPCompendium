@@ -515,5 +515,29 @@ object Drugs {
     sourcePage = 0
   );
 
+  val khan = Substance(
+    name = "Khan",
+    category = c,
+    classification = Chemicals,
+    application = List(Injection),
+    addiction = None,
+    onset = 1.hours,
+    duration = 8.hours,
+    effects = List(SOM + 5,
+                   COO + 5,
+                   REF + 5,
+                   IgnoreTraumas(2),
+                   FreeForm("+20 to Integration, Alienation, and Continuity tests")),
+    descr =
+      """Khan is an intense combat drug developed by the Ultimates to facilitate their unusual tactic of immediately redeploying fallen soldiers within little over an hour of their death.
+      The drug is specifically designed to streamline the resleeving procedure and reduce associated stress and physical adaptation issues.
+      The downside of the drug is the massive crash that follows when it leaves the users system, leaving em retching, shaking, and sometimes even convulsing for over an hour (treat as -30 to all actions). Experienced Ultimates keep tight track of the drugs decomposition and make sure to find themselves in a safe space, before the crash hits.
+      Khan only works properly when injected during the resleeving procedure. Later injections overtax the body and cause the crash to occur almost immediately and go on for the full 8 hour duration.
+      Khan is not generally available outside the Ultimate faction, and when it is, it comes at very high black market prices.""",
+    price = Cost.Expensive,
+    source = "Homebrew",
+    sourcePage = 0
+  );
+
   val list: List[Substance] = Macros.memberList[Substance];
 }

@@ -34,6 +34,7 @@ etarget/
 .bloop/
 .metals/
 .vscode/
+metals.sbt
 
 # OS X
 
@@ -44,3 +45,4 @@ etarget/
 .DS_Store
 
 # Special
+*.code-workspace
