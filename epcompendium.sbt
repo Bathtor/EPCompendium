@@ -28,18 +28,21 @@ sonatypeCredentialHost := "s01.oss.sonatype.org"
 sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 ThisBuild / publishTo := sonatypePublishToBundle.value
 
-//scalacOptions in ThisBuild ++= Seq("-Ymacro-debug-verbose")
-
-// resolvers in ThisBuild += "Apache" at "https://repo.maven.apache.org/maven2"
-// resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
-
 lazy val commonSettings = Seq(
+  resolvers += Resolver.sonatypeRepo("release"),
   libraryDependencies ++= Seq(
     "com.lihaoyi" %%% "upickle" % Dependencies.upickleV,
     "com.beachape" %%% "enumeratum" % Dependencies.enumeratumV,
-    "com.lkroll.common" %%% "common-data-tools" % Dependencies.dataToolsV,
+    "com.lkroll" %%% "common-data-tools" % Dependencies.dataToolsV,
     "io.lemonlabs" %%% "scala-uri" % Dependencies.scalauriV,
     "org.scalatest" %%% "scalatest" % Dependencies.scalatestV % "test"
+  ),
+  scalacOptions ++= Seq(
+    "-deprecation",
+    "-feature",
+    "-language:implicitConversions",
+    //"-Xfatal-warnings",
+    //"-Ymacro-debug-verbose"
   )
 )
 

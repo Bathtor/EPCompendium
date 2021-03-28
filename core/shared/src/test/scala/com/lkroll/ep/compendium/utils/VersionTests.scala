@@ -1,8 +1,10 @@
 package com.lkroll.ep.compendium.utils
 
 import org.scalatest._
+import org.scalatest.funsuite._
+import org.scalatest.matchers.should._
 
-class VersionTests extends FunSuite with Matchers {
+class VersionTests extends AnyFunSuite with Matchers {
   test("Version comparison should work") {
     val v1s = "1.0.0";
     val v2s = "0.12.0";

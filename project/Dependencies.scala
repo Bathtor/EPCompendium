@@ -1,17 +1,15 @@
 object Dependencies {
-  val upickleV = "0.7.+";
-  val enumeratumV = "1.5.+";
-  val dataToolsV = "1.3.+";
-  val scallopV = "3.2.+";
+  val upickleV = "1.3.+";
+  val enumeratumV = "1.6.+";
+  val dataToolsV = "1.3.3";
+  val scallopV = "4.0.+";
   val logbackV = "1.2.+";
   val scalaloggingV = "3.9.+";
-  val scalauriV = "1.4.5";
-  val guavaV = "27.1-jre";
+  val scalauriV = "3.2.+";
+  val guavaV = "30.1-jre";
 
-  val scribeV = "2.7.3";
-
-  //val apiFacadeV = "1.2.+";
+  val scribeV = "3.5.+";
 
   // Test
-  val scalatestV = "3.0.5";
+  val scalatestV = "3.2.5";
 }

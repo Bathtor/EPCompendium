@@ -1,12 +1,14 @@
 package com.lkroll.ep.compendium.media
 
 import org.scalatest._
+import org.scalatest.funsuite._
+import org.scalatest.matchers.should._
 import scala.collection.mutable
 import com.lkroll.ep.compendium._
 import com.lkroll.ep.compendium.utils.OptionPickler._
 import io.lemonlabs.uri.Url
 
-class SanityTest extends FunSuite with Matchers {
+class SanityTest extends AnyFunSuite with Matchers {
 
   test("Build Index") {
     val l = EPImageLibrary.getImages("*");

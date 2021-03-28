@@ -78,7 +78,7 @@ $markdownData
   }
 
   private def addWrapper(dataType: String, data: String): Roll20Macro = {
-    val name = dataType(0).toUpper + dataType.substring(1);
+    val name = dataType(0).toUpper.toString + dataType.substring(1);
     val cmd = dataType match {
       case "morphmodel"    => "morph-model"
       case "morphinstance" => "morph"

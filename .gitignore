@@ -35,6 +35,7 @@ etarget/
 .metals/
 .vscode/
 metals.sbt
+.bsp
 
 # OS X
 

@@ -1,22 +1,21 @@
 package com.lkroll.ep.compendium
 
 import org.scalatest._
+import org.scalatest.funsuite._
+import org.scalatest.matchers.should._
 import com.lkroll.ep.compendium.utils.OptionPickler._
 import io.lemonlabs.uri.Url
 
-class DataTestsJVM extends FunSuite with Matchers {
+class DataTestsJVM extends AnyFunSuite with Matchers {
   import utils.Implicits.instance2Option;
   import ClassPathImageSource._;
 
   test("ImageSources should work") {
-    val image = Image(
-      key = "test",
-      source = "test.png".toCPSource,
-      metadata = ImageMetadata(
-        caption = "Test Image.",
-        source = "Nowhere",
-        author = "Me",
-        license = "CC"));
+    val image = Image(key = "test",
+                      source = "test.png".toCPSource,
+                      metadata =
+                        ImageMetadata(caption = "Test Image.", source = "Nowhere", author = "Me", license = "CC")
+    );
 
     implicit val urlmapper = (source: ClassPathImageSource) => {
       source.toUrl(loc => Url(scheme = "http", host = "localhost", port = 8088, path = loc))
@@ -27,6 +26,6 @@ class DataTestsJVM extends FunSuite with Matchers {
     val outS = write(serdeImage);
     println(outS);
     val inD = read[SerdeImage](outS);
-    serdeImage should equal (inD);
+    serdeImage should equal(inD);
   }
 }

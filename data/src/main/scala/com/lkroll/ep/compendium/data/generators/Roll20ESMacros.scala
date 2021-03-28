@@ -2,7 +2,6 @@ package com.lkroll.ep.compendium.data.generators
 
 //import upickle.default._
 import com.lkroll.ep.compendium.utils.OptionPickler._
-import ujson.Js
 import ujson.Value.InvalidData
 import java.io.{File, PrintWriter}
 
@@ -58,7 +57,7 @@ case class ESMacroExport2(macros: List[ESMacro]) {
 
 object ESMacroPickles {
   implicit val attributeReadWrite: ReadWriter[ESMacroAttributes] =
-    readwriter[Map[String, Js.Value]].bimap[ESMacroAttributes](
+    readwriter[Map[String, ujson.Value]].bimap[ESMacroAttributes](
       (attr: ESMacroAttributes) => {
         Map(
           "action" -> attr.roll20Macro.content,
@@ -67,7 +66,7 @@ object ESMacroPickles {
           "visibleto" -> attr.visibleTo
         )
       },
-      (rawMap: Map[String, Js.Value]) => {
+      (rawMap: Map[String, ujson.Value]) => {
         val action: String = rawMap("action").str;
         val isTokenAction: Boolean = rawMap("istokenaction").bool;
         val name: String = rawMap("name").str;
@@ -78,41 +77,41 @@ object ESMacroPickles {
     );
 
   implicit val macrobarReadWrite: ReadWriter[ESMacrobar] =
-    readwriter[Map[String, Js.Value]].bimap[ESMacrobar](
+    readwriter[Map[String, ujson.Value]].bimap[ESMacrobar](
       (macrobar: ESMacrobar) => {
         Map(
-          "color" -> macrobar.color.map(Js.Str(_)).getOrElse(Js.Null),
-          "name" -> macrobar.name.map(Js.Str(_)).getOrElse(Js.Null)
+          "color" -> macrobar.color.map(ujson.Str(_)).getOrElse(ujson.Null),
+          "name" -> macrobar.name.map(ujson.Str(_)).getOrElse(ujson.Null)
         )
       },
-      (rawMap: Map[String, Js.Value]) => {
+      (rawMap: Map[String, ujson.Value]) => {
         val color = rawMap
           .get("color")
           .flatMap(_ match {
-            case Js.Str(s) => Some(s)
-            case Js.Null   => None
-            case v         => throw new InvalidData(v, "Expected Str or Null")
+            case ujson.Str(s) => Some(s)
+            case ujson.Null   => None
+            case v            => throw new InvalidData(v, "Expected Str or Null")
           });
         val name = rawMap
           .get("name")
           .flatMap(_ match {
-            case Js.Str(s) => Some(s)
-            case Js.Null   => None
-            case v         => throw new InvalidData(v, "Expected Str or Null")
+            case ujson.Str(s) => Some(s)
+            case ujson.Null   => None
+            case v            => throw new InvalidData(v, "Expected Str or Null")
           });
         ESMacrobar(color, name)
       }
     );
 
   implicit val macroReadWrite: ReadWriter[ESMacro] =
-    readwriter[Map[String, Js.Value]].bimap[ESMacro](
+    readwriter[Map[String, ujson.Value]].bimap[ESMacro](
       (esm: ESMacro) => {
         Map(
           "attributes" -> attributeReadWrite.write(ujson.Value, esm.attributes),
           "macrobar" -> macrobarReadWrite.write(ujson.Value, esm.macrobar)
         )
       },
-      (rawMap: Map[String, Js.Value]) => {
+      (rawMap: Map[String, ujson.Value]) => {
         val attributes: ESMacroAttributes = read(rawMap("attributes").obj)(attributeReadWrite);
         val macrobar: ESMacrobar = read(rawMap("macrobar").obj)(macrobarReadWrite);
         ESMacro(attributes, macrobar)
@@ -120,14 +119,14 @@ object ESMacroPickles {
     );
 
   implicit val macroExportReadWrite: ReadWriter[ESMacroExport2] =
-    readwriter[Js.Obj].bimap[ESMacroExport2](
+    readwriter[ujson.Obj].bimap[ESMacroExport2](
       (esm: ESMacroExport2) => {
-        Js.Obj(
-          "schema_version" -> Js.Num(esm.schemaVersion),
-          "macros" -> Js.Arr(esm.macros.map(m => macroReadWrite.write(ujson.Value, m)): _*)
+        ujson.Obj(
+          "schema_version" -> ujson.Num(esm.schemaVersion),
+          "macros" -> ujson.Arr(esm.macros.map(m => macroReadWrite.write(ujson.Value, m)): _*)
         )
       },
-      (raw: Js.Obj) => {
+      (raw: ujson.Obj) => {
         val schemaVersion: Int = raw("attributes").num.toInt;
         assert(schemaVersion == 2, "Can only unpickle schema_version=2!");
         val macros: List[ESMacro] = raw("macros").arr.map(m => read(m)(macroReadWrite)).toList;

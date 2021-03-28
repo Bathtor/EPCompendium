@@ -76,7 +76,7 @@ case class AptitudeValues(cog: Option[Int] = None,
     if (allEqual(cog, coo, int, ref, sav, som, wil)) {
       cog match {
         case Some(x) if x > 0 => s"+$x"
-        case Some(x) if x < 0 => s"$x"
+        case Some(x)          => s"$x"
         case None             => ""
       }
     } else {
@@ -84,7 +84,7 @@ case class AptitudeValues(cog: Option[Int] = None,
         .flatMap(t =>
           t._2 match {
             case Some(i) if i > 0 => Some(s"+$i ${t._1}")
-            case Some(i) if i < 0 => Some(s"$i ${t._1}")
+            case Some(i)          => Some(s"$i ${t._1}")
             case _                => None
           }
         )

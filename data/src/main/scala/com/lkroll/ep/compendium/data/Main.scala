@@ -13,8 +13,8 @@ class Conf(_args: Seq[String]) extends ScallopConf(_args) {
 }
 
 object Main {
-  def main(args: Array[String]) {
-    val conf = new Conf(args);
+  def main(args: Array[String]): Unit = {
+    val conf = new Conf(args.toIndexedSeq);
     if (conf.script()) {
       generators.JsonGenerator.generate(conf.open());
     } else if (conf.macros()) {
