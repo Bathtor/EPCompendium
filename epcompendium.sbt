@@ -1,31 +1,53 @@
 enablePlugins(ScalaJSPlugin)
 import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
 
+ThisBuild / organization := "com.lkroll"
+
+ThisBuild / version := "6.1.0"
+
+ThisBuild / scalaVersion := "2.13.5"
+ThisBuild / crossScalaVersions := Seq("2.12.13", "2.13.5")
+
+ThisBuild / licenses ++= Seq(
+  "MIT" -> url("http://opensource.org/licenses/MIT"),
+  "Creative Commons (BY-NC-SA) 3.0" -> url("https://creativecommons.org/licenses/by-nc-sa/3.0/")
+)
+
+ThisBuild / homepage := Some(url("https://github.com/Bathtor/EPCompendium"))
+ThisBuild / scmInfo := Some(
+                ScmInfo(url("https://github.com/Bathtor/EPCompendium"),
+                            "git@github.com:Bathtor/EPCompendium.git"))
+ThisBuild / developers := List(Developer(id = "lkroll",
+                             name = "Lars Kroll",
+                             email = "bathtor@googlemail.com",
+                             url = url("https://github.com/Bathtor")))
+publishMavenStyle := true
+
+// Add sonatype repository settings
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+ThisBuild / publishTo := sonatypePublishToBundle.value
+
 //scalacOptions in ThisBuild ++= Seq("-Ymacro-debug-verbose")
 
-resolvers in ThisBuild += "Apache" at "https://repo.maven.apache.org/maven2"
-resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
+// resolvers in ThisBuild += "Apache" at "https://repo.maven.apache.org/maven2"
+// resolvers in ThisBuild += Resolver.bintrayRepo("lkrollcom", "maven")
 
 lazy val commonSettings = Seq(
-  organization := "com.lkroll.ep",
-  version := "6.0.0",
-  scalaVersion := "2.12.10",
   libraryDependencies ++= Seq(
     "com.lihaoyi" %%% "upickle" % Dependencies.upickleV,
     "com.beachape" %%% "enumeratum" % Dependencies.enumeratumV,
     "com.lkroll.common" %%% "common-data-tools" % Dependencies.dataToolsV,
     "io.lemonlabs" %%% "scala-uri" % Dependencies.scalauriV,
     "org.scalatest" %%% "scalatest" % Dependencies.scalatestV % "test"
-  ),
-  bintrayOrganization := Some("lkrollcom"),
-  licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+  )
 )
 
 lazy val root = (project in file("."))
   .settings(
     commonSettings,
     name := "EPCompendium",
-    skip in publish := true
+    publish / skip := true
   )
   .aggregate(epCompendiumCoreJVM, epCompendiumCoreJS, data, media);
 
@@ -73,7 +95,6 @@ lazy val data = (project in file("data"))
 lazy val media = (project in file("media"))
   .settings(
     commonSettings,
-    //skip in publish := true,
     libraryDependencies ++= Seq(
       "com.typesafe.scala-logging" %% "scala-logging" % Dependencies.scalaloggingV
     ),
