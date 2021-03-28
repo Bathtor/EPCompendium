@@ -1,6 +1,8 @@
 # EPCompendium
-Core: [ ![Download](https://api.bintray.com/packages/lkrollcom/maven/epcompendium-core/images/download.svg) ](https://bintray.com/lkrollcom/maven/epcompendium-core/_latestVersion)
-Data: [ ![Download](https://api.bintray.com/packages/lkrollcom/maven/epcompendium-data/images/download.svg) ](https://bintray.com/lkrollcom/maven/epcompendium-data/_latestVersion)
+
+- Core: [![Maven Central](https://img.shields.io/maven-central/v/com.lkroll/epcompendium-core_2.13)](https://search.maven.org/artifact/com.lkroll/epcompendium-core_2.13)
+- Data: [![Maven Central](https://img.shields.io/maven-central/v/com.lkroll/epcompendium-data_2.13)](https://search.maven.org/artifact/com.lkroll/epcompendium-data_2.13)
+- Media: [![Maven Central](https://img.shields.io/maven-central/v/com.lkroll/epcompendium-media_2.13)](https://search.maven.org/artifact/com.lkroll/epcompendium-media_2.13)
 
 
 This repository contains both data models and the data to build a custom **Roll20** *Compendium* for *Eclipse Phase*.
@@ -15,21 +17,20 @@ Information on how to setup and use this compendium with Roll20 can be found [he
 
 ## Dependency
 
-Add the bintray repository to `resolvers`:
+Then add the library dependencies (pick which ones you need):
 ```scala
-resolvers += Resolver.bintrayRepo("lkrollcom", "maven")
-```
-
-Then add the library dependency:
-```scala
-libraryDependencies += "com.lkroll.ep" %% "epcompendium-core" % "5.0.0"
+libraryDependencies += "com.lkroll" %% "epcompendium-core" % "6.1.0"
+libraryDependencies += "com.lkroll" %% "epcompendium-data" % "6.1.0"
+libraryDependencies += "com.lkroll" %% "epcompendium-media" % "6.1.0"
 ```
 Or for ScalaJS:
 ```scala
-libraryDependencies += "com.lkroll.ep" %%% "epcompendium-core" % "5.0.0"
+libraryDependencies += "com.lkroll" %%% "epcompendium-core" % "6.2.0"
+libraryDependencies += "com.lkroll" %%% "epcompendium-data" % "6.1.0"
+libraryDependencies += "com.lkroll" %%% "epcompendium-media" % "6.1.0"
 ```
 
 ## Licenses
 The material in the `core` folder is my own work and published under MIT license.
 
-The material in the `data` folder is based on *Eclipse Phase* by (Posthuman Studios)[http://eclipsephase.com] and is published under Creative Commons (BY-NC-SA) 3.0 (license)[https://creativecommons.org/licenses/by-nc-sa/3.0/] as is the original material.
+The material in the `data` and `media` folders are based on *Eclipse Phase* by (Posthuman Studios)[http://eclipsephase.com] and is published under Creative Commons (BY-NC-SA) 3.0 (license)[https://creativecommons.org/licenses/by-nc-sa/3.0/] as is the original material.
