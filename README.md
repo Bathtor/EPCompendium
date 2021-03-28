@@ -25,7 +25,7 @@ libraryDependencies += "com.lkroll" %% "epcompendium-media" % "6.1.0"
 ```
 Or for ScalaJS:
 ```scala
-libraryDependencies += "com.lkroll" %%% "epcompendium-core" % "6.2.0"
+libraryDependencies += "com.lkroll" %%% "epcompendium-core" % "6.1.0"
 libraryDependencies += "com.lkroll" %%% "epcompendium-data" % "6.1.0"
 libraryDependencies += "com.lkroll" %%% "epcompendium-media" % "6.1.0"
 ```
