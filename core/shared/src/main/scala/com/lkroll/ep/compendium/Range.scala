@@ -37,12 +37,14 @@ object Range {
       Ranged(shortUpper = this.shortUpper * i,
              mediumUpper = this.mediumUpper * i,
              longUpper = this.longUpper * i,
-             extremeUpper = this.extremeUpper * i);
+             extremeUpper = this.extremeUpper * i
+      );
     def +(i: Int): Ranged =
       Ranged(shortUpper = this.shortUpper + i,
              mediumUpper = this.mediumUpper + i,
              longUpper = this.longUpper + i,
-             extremeUpper = this.extremeUpper + i);
+             extremeUpper = this.extremeUpper + i
+      );
   }
   object Ranged {
     implicit def rw: RW[Ranged] = macroRW;
@@ -78,7 +80,8 @@ object Range {
       Map("Range 1-Short" -> s"2 - SOM%5m",
           "Range 2-Medium" -> s"SOM%5 + 1 - SOM%2m",
           "Range 3-Long" -> s"SOM%2 + 1 - SOMm",
-          "Range 4-Extreme" -> s"SOM + 1 - SOMx2m");
+          "Range 4-Extreme" -> s"SOM + 1 - SOMx2m"
+      );
   }
   @upickle.implicits.key("ThrownMinigrenades")
   case object ThrownMinigrenades extends Thrown {
@@ -114,6 +117,7 @@ object Range {
       Map("Range 1-Short" -> s"2 - SOM%5m",
           "Range 2-Medium" -> s"SOM%5 + 1 - SOM%2m",
           "Range 3-Long" -> s"SOM%2 + 1 - SOMm",
-          "Range 4-Extreme" -> s"SOM + 1 - SOMx3m");
+          "Range 4-Extreme" -> s"SOM + 1 - SOMx3m"
+      );
   }
 }

@@ -142,7 +142,8 @@ object MorphsTX {
                        "Cortical Stack",
                        "Cyberbrain",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Alien Biochemistry", "Social Stigma (Alien)", "Social Stigma (Pod)"),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30,
@@ -165,7 +166,8 @@ object MorphsTX {
                        "Cortical Stack",
                        "Cyberbrain",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Social Stigma (Pod)"),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30,

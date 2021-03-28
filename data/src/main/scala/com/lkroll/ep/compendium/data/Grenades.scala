@@ -19,7 +19,8 @@ object Grenades {
                typeMod: DamageTypeMod = DamageTypeMod.Id,
                areaMod: DamageAreaMod = DamageAreaMod.Id,
                price: Cost,
-               source: String): GrenadeTemplate = (g: Grenade) => {
+               source: String
+  ): GrenadeTemplate = (g: Grenade) => {
     val adjDmgMod = g.adjust(dmgMod);
     Weapon(
       s"$name ${g.label}",

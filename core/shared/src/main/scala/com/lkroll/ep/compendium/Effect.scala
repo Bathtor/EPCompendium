@@ -23,13 +23,12 @@ object Effect {
     );
 
   def render(l: List[Effect]) =
-    l.foldLeft("")(
-      (acc, e) =>
-        if (acc.isEmpty()) {
-          e.text
-        } else {
-          acc + " & " + e.text
-        }
+    l.foldLeft("")((acc, e) =>
+      if (acc.isEmpty()) {
+        e.text
+      } else {
+        acc + " & " + e.text
+      }
     );
 
   private def modToString(i: Int): String = if (i > 0) s"+$i" else i.toString;

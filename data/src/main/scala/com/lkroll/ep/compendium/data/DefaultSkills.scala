@@ -48,8 +48,7 @@ object DefaultSkills {
       )
     ),
     sampleSpecs = appr,
-    descr =
-      """What it is: Academics covers any sort of specialized non-applied knowledge you can only get through intensive education. Most theoretical and applied sciences, social sciences, transhumanities, etc. are covered by this skill. Most of the other skills listed in this chapter could also be taken as an Academics field, reflecting a working theoretical knowledge of the skill—for example, Academics: Armorer or Academics: Interrogation. 
+    descr = """What it is: Academics covers any sort of specialized non-applied knowledge you can only get through intensive education. Most theoretical and applied sciences, social sciences, transhumanities, etc. are covered by this skill. Most of the other skills listed in this chapter could also be taken as an Academics field, reflecting a working theoretical knowledge of the skill—for example, Academics: Armorer or Academics: Interrogation. 
 When you use it: Academics is used when a character wishes to call upon a specific body of knowledge. For example, Academics: Chemistry could be used to identify a particular substance, understand an unusual chemical reaction, or determine what elements are needed to nanofabricate something that requires exotic materials. At the gamemaster’s discretion, some Academics-related tests might not be defaultable, given that only someone who has been educated in that subject is likely to be able to tackle it."""
   );
 
@@ -83,11 +82,11 @@ When you use it: Animal Handling is used whenever you are trying to manipulate a
            "Simulspace Design",
            "Singing",
            "Speech",
-           "Writing")
+           "Writing"
+      )
     ),
     sampleSpecs = appr,
-    descr =
-      """What it is: Art confers the ability to create and evaluate artistic endeavors. This is a particularly useful skill in Eclipse Phase, especially in the post-scarcity economies where creativity and vision can be a key component to a character’s reputation.
+    descr = """What it is: Art confers the ability to create and evaluate artistic endeavors. This is a particularly useful skill in Eclipse Phase, especially in the post-scarcity economies where creativity and vision can be a key component to a character’s reputation.
 When you use it: The Art skill can be used to either create a new work of art or to duplicate an existing piece of art in the hopes of passing it off as your own. The skill can also determine the approximate value of a piece of art either on the open market, for monetary exchange systems, or in terms of reputation for the artist."""
   );
 
@@ -98,8 +97,7 @@ When you use it: The Art skill can be used to either create a new work of art or
     category = Combat,
     apt = COO,
     sampleSpecs = List("Lasers", "Microwave Weapons", "Particle Beam Weapons", "Plasma Rifles"),
-    descr =
-      """What it is: The Beam Weapons skill covers the usage and maintenance of standard coherent beam energy weapons such as lasers, particle beam weapons, plasma rifles, and microwave weapons (p. 338).
+    descr = """What it is: The Beam Weapons skill covers the usage and maintenance of standard coherent beam energy weapons such as lasers, particle beam weapons, plasma rifles, and microwave weapons (p. 338).
 When you use it: A player uses their Beam Weapons skill whenever attacking with a beam weapon in combat (p. 191). Beam Weapons may also be used for tests involving maintenance of the weapon, but not for repairing or modifying the weapon (that would be Hardware: Armorer skill)."""
   );
 
@@ -110,8 +108,7 @@ When you use it: A player uses their Beam Weapons skill whenever attacking with 
     category = Combat,
     apt = SOM,
     sampleSpecs = List("Axes", "Implant Blades", "Knives", "Swords"),
-    descr =
-      """What it is: The Blades skill covers the usage and maintenance of standard bladed weapons (p. 334).
+    descr = """What it is: The Blades skill covers the usage and maintenance of standard bladed weapons (p. 334).
 When you use it: A player uses their Blades skill whenever attacking with a blade weapon in melee combat (p. 191). Blades may also be used for tests involving maintenance of the weapon, but not for repairing or modifying the weapon (that would be Hardware: Armorer skill). This skill is used for blade weapons implanted in the body at the end of an appendage (hands, forearms, feet, octomorph arms, etc.), but the Exotic Melee Weapon skill is used for blades implanted in other parts of the body."""
   );
 
@@ -122,8 +119,7 @@ When you use it: A player uses their Blades skill whenever attacking with a blad
     category = Physical,
     apt = SOM,
     sampleSpecs = List("Assisted", "Freehand", "Rappelling"),
-    descr =
-      """What it is: Climbing is the skill of ascending and descending sheer surfaces with or without the aid of specialized equipment.
+    descr = """What it is: Climbing is the skill of ascending and descending sheer surfaces with or without the aid of specialized equipment.
 When you use it: This skill is used whenever a character wishes to scale a climbable surface. For heights greater than one story, climbing is handled as a Task Action with a timeframe equivalent to one meter per Combat Turn. For rappelling, the timeframe for descent is 50 meters per Action Turn. Climbing gear (Grip Pads, p. 305; Traction Pads, p. 317; Spindle Climber, p. 333) provides appropriate modifiers."""
   );
 
@@ -134,8 +130,7 @@ When you use it: This skill is used whenever a character wishes to scale a climb
     category = Combat,
     apt = SOM,
     sampleSpecs = List("Batons", "Hammers", "Staffs"),
-    descr =
-      """What it is: The Clubs skill covers the usage and maintenance of standard blunt melee weapons such as batons or sticks (see Clubs, p. 334).
+    descr = """What it is: The Clubs skill covers the usage and maintenance of standard blunt melee weapons such as batons or sticks (see Clubs, p. 334).
 When you use it: Players use their Clubs skill whenever they want to attack with a blunt weapon in melee combat (p. 191). The Clubs skill may also be used for tests involving maintenance of the weapon, but not for repairing or modifying the weapon (that would be Hardware: Armorer skill)."""
   );
 
@@ -172,8 +167,7 @@ When you use it: Use this skill whenever you want to deceive someone with words 
     apt = COG,
     noDefaulting = true,
     sampleSpecs = List("Commercial Explosives", "Disarming", "Improvised Explosives"),
-    descr =
-      """What it is: Demolitions covers the use of controlled explosives.
+    descr = """What it is: Demolitions covers the use of controlled explosives.
 When you use it: Use it when making, placing, and disarming explosives and explosive devices. see Demolitions, p. 197"""
   );
 
@@ -184,8 +178,7 @@ When you use it: Use it when making, placing, and disarming explosives and explo
     category = Physical,
     apt = INT,
     sampleSpecs = List("Cosmetic", "Theatrical"),
-    descr =
-      """What it is: Disguise is the art of physically altering your appearance so that you look like someone else. This includes both the use of props (wigs, contacts,skin pigments) and the altering of subtle physical characteristics (gait, posture, poise).
+    descr = """What it is: Disguise is the art of physically altering your appearance so that you look like someone else. This includes both the use of props (wigs, contacts,skin pigments) and the altering of subtle physical characteristics (gait, posture, poise).
 When you use it: Use Disguise to fool someone into thinking you’re someone you’re not. This can be used to hide your identity or to make yourself look like someone in particular. When used against someone who knows your true look or the appearance of the person you are imitating, this is handled as an Opposed Test against Perception or Investigation."""
   );
 
@@ -232,8 +225,7 @@ When you use it: Use this skill whenever you need to make an aerial maneuver, la
     category = Combat,
     apt = REF,
     sampleSpecs = List("Blades", "Clubs", "Full Defense", "Unarmed"),
-    descr =
-      """What it is: Fray is the ability to get out of the way of incoming attacks, debris, or inconvenient passers-by. Characters that have a high Fray score are able to react quicker than others when dodging or maneuvering.
+    descr = """What it is: Fray is the ability to get out of the way of incoming attacks, debris, or inconvenient passers-by. Characters that have a high Fray score are able to react quicker than others when dodging or maneuvering.
 When you use it: Whenever a character is physically attacked by an opponent in melee combat, roll Fray to avoid getting hit (see Step 2: Declare Defense, p. 191). Fray may also be used to dodge other events that may harm the character, such as avoiding a charging vehicle or jumping out of the way of a collapsing stack of crates."""
   );
 
@@ -244,8 +236,7 @@ When you use it: Whenever a character is physically attacked by an opponent in m
     category = Physical,
     apt = REF,
     sampleSpecs = List("Microgravity", "Parachuting", "Vacsuits"),
-    descr =
-      """What it is: Free Fall is about moving in free-fall and microgravity environments.
+    descr = """What it is: Free Fall is about moving in free-fall and microgravity environments.
 When you use it: Use whenever you need to maneuver in a zero-g situation, such as propelling yourself across a large open space or making sure you don’t accidentally send yourself spinning off into space. Free Fall is also used when moving with spacesuit maneuvering jets and when parachuting."""
   );
 
@@ -256,8 +247,7 @@ When you use it: Use whenever you need to maneuver in a zero-g situation, such a
     category = Physical,
     apt = SOM,
     sampleSpecs = List("Balance", "Gymnastics", "Jumping", "Running"),
-    descr =
-      """What it is: Freerunning is part running, part gymnastics. It is about moving fast, maneuvering over/under/around/through obstacles, and placing your body where it needs to go. Freerunning/parkour is a popular pastime in habitats where open space is limited.
+    descr = """What it is: Freerunning is part running, part gymnastics. It is about moving fast, maneuvering over/under/around/through obstacles, and placing your body where it needs to go. Freerunning/parkour is a popular pastime in habitats where open space is limited.
 When you use it: Use Freerunning whenever you need to overcome an obstacle via movement, such as hurdling a railing, rolling across the hood of a car, jumping across a pit, or swinging around a pole. Freerunning is also used for sprinting (p. 191) and full defense against attacks (p. 198)."""
   );
 
@@ -283,8 +273,7 @@ When you use it: Use Gunnery when attacking with a vehicle-mounted weapon or wea
       List("Aerospace", "Armorer", "Electronics", "Groundcraft", "Implants", "Industrial", "Nautical", "Robotics")
     ),
     sampleSpecs = appr,
-    descr =
-      """What it is: This skill encompasses the ability to build, repair, physically hack, and upgrade equipment of a specific type.
+    descr = """What it is: This skill encompasses the ability to build, repair, physically hack, and upgrade equipment of a specific type.
 When you use it: Hardware is primarily used to repair devices, vehicles, habitat systems, or synthetic morphs. See Building, Repairing, and Modifying below."""
   );
 
@@ -307,8 +296,7 @@ When you use it: Sometimes it’s fun to pretend you’re someone else, and some
     category = Physical,
     apt = COO,
     sampleSpecs = List("Blending In", "Hiding", "Shadowing", "Sneaking"),
-    descr =
-      """What it is: The art of escaping detection.
+    descr = """What it is: The art of escaping detection.
 When you use it: Use Infiltration whenever you need to physically hide or move with stealth to avoid someone sensing you, whether you are hiding behind a tree, sneaking past a guard, or blending into a crowd. Infiltration can also be used to follow people (shadowing) without them detecting you. Infiltration is an Opposed Test against the Perception of whomever you are hiding from. The gamemaster may wish to roll such tests in secret so the player does not know whether they have succeeded or failed."""
   );
 
@@ -363,8 +351,7 @@ When you use it: Use the Interest skill whenever you need to recall or use knowl
     category = Technical,
     apt = COG,
     sampleSpecs = List("Forgery", "Scanning", "Stealthing"),
-    descr =
-      """What it is: Interfacing is about using computerized electronic devices and software.
+    descr = """What it is: Interfacing is about using computerized electronic devices and software.
 When you use it: Use Interfacing to understand an electronic device you are not familiar with, use a program according to its normal operating parameters, manipulate electronic files of various types (including images, video, XP, and audio files), scan for wireless devices, and otherwise interact with and command your ecto, muse, and other computerized devices. Some Interfacing actions may be Task Actions with a timeframe determined by the gamemaster. For more detail, see The Mesh chapter, p. 234."""
   );
 
@@ -375,8 +362,7 @@ When you use it: Use Interfacing to understand an electronic device you are not 
     category = Social,
     apt = SAV,
     sampleSpecs = List("Interrogation", "Physical", "Verbal"),
-    descr =
-      """What it is: Intimidation is convincing someone to do what you want based on direct threats (implied or actual) or sheer force of personality.
+    descr = """What it is: Intimidation is convincing someone to do what you want based on direct threats (implied or actual) or sheer force of personality.
 When you use it: Use Intimidation to scare someone into submission, browbeat them into getting your way, command them to follow your orders, or berate them into giving up information. Influence is handled as an Opposed Test, pitted against the target’s WIL + WIL + SAV."""
   );
 
@@ -387,8 +373,7 @@ When you use it: Use Intimidation to scare someone into submission, browbeat the
     category = Mental,
     apt = INT,
     sampleSpecs = List("Evidence Analysis", "Logical Deductions", "Physical Investigation", "Physical Tracking"),
-    descr =
-      """What it is: Investigation is the art of analyzing evidence, piecing together clues, solving mysteries, and making logical deductions from groups of facts. Investigation differs from Perception in that it is the conscious search for clues or pieces of a puzzle.
+    descr = """What it is: Investigation is the art of analyzing evidence, piecing together clues, solving mysteries, and making logical deductions from groups of facts. Investigation differs from Perception in that it is the conscious search for clues or pieces of a puzzle.
 When you use it: Use Investigation to draw conclusions from assorted details. For example, Investigation could be used to determine the likely sequence of events at a crime scene, determine a possible social connection between two people, or deduce how an enemy made their escape. Investigation is a great way to provide clues to players, especially when the subject matter is something their character might know well but the player does not."""
   );
 
@@ -399,8 +384,7 @@ When you use it: Use Investigation to draw conclusions from assorted details. Fo
     category = Social,
     apt = SAV,
     sampleSpecs = List("Judge Intent", "Nonvocal Communication"),
-    descr =
-      """What it is: Kinesics is the art of empathy and non-vocal communication.
+    descr = """What it is: Kinesics is the art of empathy and non-vocal communication.
 When you use it: Use Kinesics to read body language, tells, social cues, and other subconscious indicators. It can also be used to emote more effectively. Kinesics is used defensively whenever someone is trying to deceive you; make an Opposed Test against that person’s Deception or Impersonation skill.
 Though synthetic morphs are also designed to emote, reading them is not as easy. Apply a –30 modifier when judging a synthetic morph inhabited by a character or AGI. Likewise, standard AIs are also difficult to read; apply a –60 modifier when judging a synthetic morph or pod operated by an AI."""
   );
@@ -425,8 +409,7 @@ When you use it: Use this skill whenever attacking with a kinetic weapon in rang
     apt = INT,
     sampleFields = Some(Languages.list.map(_.toString)),
     sampleSpecs = List("As appropriate to the field, representing dialects, technical jargon, and subcultural slang"),
-    descr =
-      """What it is: Language covers the speaking and reading of languages other than the player’s native tongue. A speaker is considered fluent at a skill level of 50; anything above this indicates further refinement in technical vocabulary, accents, and knowledge of dialects.
+    descr = """What it is: Language covers the speaking and reading of languages other than the player’s native tongue. A speaker is considered fluent at a skill level of 50; anything above this indicates further refinement in technical vocabulary, accents, and knowledge of dialects.
 When you use it: Use the Language skill whenever you want to speak, understand, or read something in a language at which you are skilled. Most speaking and reading comprehension tests can be considered Simple Success Tests if your skill is over 50, unless the gamemaster rules the subject is sufficiently complex that a non-native speaker would have trouble understanding it."""
   );
 
@@ -454,8 +437,7 @@ When you use it: Use the Language skill whenever you want to speak, understand, 
       )
     ),
     sampleSpecs = appr,
-    descr =
-      """What it is: Medicine is the applied care and maintenance of biological beings and life.
+    descr = """What it is: Medicine is the applied care and maintenance of biological beings and life.
 When you use it: Use Medicine whenever you need to apply medical care beyond the immediate help provided by first responders. This includes conducting physical exams, diagnosing ailments, treating problems and illnesses, surgery, using biotech and nano-tech medical tools, and long-term care. see Healing and Repair, p. 208."""
   );
 
@@ -486,7 +468,8 @@ When you use it: Use Navigation whenever you need to plot out a course, determin
            "Media",
            "Scientists",
            "Ultimates",
-           "Gatecrashers")
+           "Gatecrashers"
+      )
     ),
     sampleSpecs = appr,
     descr =
@@ -501,8 +484,7 @@ When you use it: Use Networking to gather information or call on services using 
     category = Physical,
     apt = COO,
     sampleSpecs = List("Pickpocketing", "Shoplifting", "Tricks"),
-    descr =
-      """What it is: Palming is the skill of handling items quickly and nimbly without others noticing. Palming is not only about dexterous manipulation of objects but also relies heavily on obfuscation, timing, and misdirection.
+    descr = """What it is: Palming is the skill of handling items quickly and nimbly without others noticing. Palming is not only about dexterous manipulation of objects but also relies heavily on obfuscation, timing, and misdirection.
 When you use it: Use Palming any time you are trying to conceal an item on your person, shoplift, pick a pocket, surreptitiously discard something, or perform a magic trick. Palming is an Opposed Test against the Perception of any onlookers. The gamemaster may wish to make this roll secretly."""
   );
 
@@ -513,8 +495,7 @@ When you use it: Use Palming any time you are trying to conceal an item on your 
     category = Mental,
     apt = INT,
     sampleSpecs = List("Aural", "Olfactory", "Tactile", "Taste", "Visual"),
-    descr =
-      """What it is: Perception is the use of your physical senses (including cybernetic) and awareness of the physical world around you. Perception differs from Investigation in that it is noticing things by chance, rather than actively searching for something.
+    descr = """What it is: Perception is the use of your physical senses (including cybernetic) and awareness of the physical world around you. Perception differs from Investigation in that it is noticing things by chance, rather than actively searching for something.
 When you use it: Use Perception whenever you want to take a detailed account of your surround- ings (see Detailed Perception, p. 190). Perception can also be considered an Automatic Action (see Basic Perception, p. 190) and so the gamemaster may call for a Perception Test to determine if you notice something; it is recommended that such tests be rolled secretly by the gamemaster. Perception is also used as an Opposed Test whenever someone around you is trying to be sneaky with Infiltration or Palming."""
   );
 
@@ -525,8 +506,7 @@ When you use it: Use Perception whenever you want to take a detailed account of 
     category = Social,
     apt = SAV,
     sampleSpecs = List("Diplomacy", "Morale Boosting", "Negotiating", "Seduction"),
-    descr =
-      """What it is: Persuasion is the art of convincing someone to do what you want through the use of words and gestures. This does not include persuasion through threats or force (that is covered by Intimidation) or by lying (covered by Deception).
+    descr = """What it is: Persuasion is the art of convincing someone to do what you want through the use of words and gestures. This does not include persuasion through threats or force (that is covered by Intimidation) or by lying (covered by Deception).
 When you use it: Use Persuasion any time you are trying to bargain with, convince, or manipulate someone. This can include motivating your subordinates or peers to take action, seducing a companion, winning a political debate, or negotiating a contract, among other things. Persuasion is handled as an Opposed Test against the target’s WIL + WIL + SAV when one person is simply trying to win over another. If both parties are trying to convince each other, make it an Opposed Test between Persuasion skills."""
   );
 
@@ -538,8 +518,7 @@ When you use it: Use Persuasion any time you are trying to bargain with, convinc
     apt = REF,
     sampleFields = Some(List("Aircraft", "Anthroform", "Exotic Vehicle", "Groundcraft", "Spacecraft", "Watercraft")),
     sampleSpecs = appr,
-    descr =
-      """What it is: Pilot is your skill at driving/flying a vehicle of a particular type.
+    descr = """What it is: Pilot is your skill at driving/flying a vehicle of a particular type.
 When you use it: You use Pilot skill whenever you need to maneuver, control, or avoid crashing a vehicle, whether you are in the pilot’s seat, remote controlling a robot, or directly jamming a vehicle with VR. Each vehicle has a Handling modifier that applies to this test, along with other situational modifiers (see Bots, Synthmorphs, and Vehicles, p. 195)."""
   );
 
@@ -572,8 +551,7 @@ When you use it: You use Pilot skill whenever you need to maneuver, control, or 
       )
     ),
     sampleSpecs = appr,
-    descr =
-      """What it is: Profession skills indicate training in a profession practiced in Eclipse Phase. This can indi- cate either formal training or informal, on-the-job type training and includes both legal and extralegal trades.
+    descr = """What it is: Profession skills indicate training in a profession practiced in Eclipse Phase. This can indi- cate either formal training or informal, on-the-job type training and includes both legal and extralegal trades.
 When you use it: Use Profession to perform work-related tasks for a specific trade (i.e. mining, balancing accounts, designing a security system, etc.) or to reference specialized knowledge that someone trained in that profession might have."""
   );
 
@@ -597,8 +575,7 @@ When you use it: Use Profession to perform work-related tasks for a specific tra
       "Nanofabrication (Forgery)",
       "Nanofabrication (Weapons)"
     ),
-    descr =
-      """What it is: Programming is your talent at writing and modifying software code.
+    descr = """What it is: Programming is your talent at writing and modifying software code.
 When you use it: Use Programming to write new programs, modify or patch existing software, break copy protection, find or introduce exploitable flaws, write viruses or worms, design virtual settings, and so on. See The Mesh chapter, p. 234. Programming is also applied when using nanofabrication devices."""
   );
 
@@ -618,9 +595,9 @@ When you use it: Use Programming to write new programs, modify or patch existing
                        "Reclaimer",
                        "Preservationist",
                        "Scum",
-                       "Ultimate"),
-    descr =
-      """What it is: Protocol is the art of making a good impression in social settings. This includes keeping up with the latest memes, trends, gossip, interests and habits of various (sub)cultural groups.
+                       "Ultimate"
+    ),
+    descr = """What it is: Protocol is the art of making a good impression in social settings. This includes keeping up with the latest memes, trends, gossip, interests and habits of various (sub)cultural groups.
 When you use it: Use Protocol whenever you need to choose your words carefully, determine who is the appropriate person to speak to, impress someone with your grasp of customs, or otherwise fit into a specific social/cultural grouping. Part etiquette, part street-wise, Protocol allows you to navigate treacherous social waters and put people at ease. If the character is dealing with a suspicious or hostile audience, make this an Opposed Test against the target’s WIL + WIL + SAV."""
   );
 
@@ -644,8 +621,7 @@ What it does: Use Psi Assault when attacking another ego’s mind in psi combat.
     category = Technical,
     apt = INT,
     sampleSpecs = List("Memory Manipulation", "Personality Editing", "Psychotherapy"),
-    descr =
-      """What it is: Psychosurgery is the use of machine-aided psychological techniques to repair, damage, or manipulate the psyche.
+    descr = """What it is: Psychosurgery is the use of machine-aided psychological techniques to repair, damage, or manipulate the psyche.
 When you use it: Use Psychosurgery to attempt the tricky process of editing someone’s mind (see Psychosurgery, p. 229). Psychosurgery can be used beneficially to help patients who remember their deaths, feel disconnected after remorphing, or have experienced other sorts of mental traumas. This skill may also be used to interrogate, torture, or otherwise mess with captive minds in a VR environment."""
   );
 
@@ -656,8 +632,7 @@ When you use it: Use Psychosurgery to attempt the tricky process of editing some
     category = Technical,
     apt = COG,
     sampleSpecs = List("Tracking"),
-    descr =
-      """What it is: Research is the skill for looking up information on the mesh: searching, sifting, mining, and interpreting data. This includes knowing where to look, what links to follow, and how to optimize your queries.
+    descr = """What it is: Research is the skill for looking up information on the mesh: searching, sifting, mining, and interpreting data. This includes knowing where to look, what links to follow, and how to optimize your queries.
 When you use it: Use the Research skill whenever you need to look up the answer to a question, find databases, search archives, or track down anything online. Research is typically a Task Action with the timeframe and difficulty modifier determined by the gamemaster. See Online Research, p. 249."""
   );
 
@@ -717,8 +692,7 @@ When you use it: A player uses their Spray Weapons skill whenever they are attac
     category = Physical,
     apt = SOM,
     sampleSpecs = List("Diving", "Freestyle", "Underwater Diving"),
-    descr =
-      """What it is: Swimming is the art of moving and not drowning within fluids. It includes floating, surface swimming, snorkeling, diving, and related equipment use.
+    descr = """What it is: Swimming is the art of moving and not drowning within fluids. It includes floating, surface swimming, snorkeling, diving, and related equipment use.
 When you use it: Use Swimming whenever you need to move and survive in water or another liquid environment. Swimming in a non-threatening environment can be handled as a Simple Success Test. Swimming over a long distance could be handled as a Task Action. Diving off a cliff into a lake, prevent- ing yourself from being swept away in a raging river current, or making sure you’ve set a proper gas mix for a deep-sea dive, among other things, requires a Success Test."""
   );
 
@@ -741,8 +715,7 @@ When you use it: Use Throwing Weapons skill whenever you are attacking with a th
     category = Combat,
     apt = SOM,
     sampleSpecs = List("Implant Weaponry", "Kick", "Punch", "Subdual"),
-    descr =
-      """What it is: Unarmed Combat is your ability to attack and defend without using weapons.
+    descr = """What it is: Unarmed Combat is your ability to attack and defend without using weapons.
 When you use it: Use Unarmed Combat whenever you want to attack someone with your fists, feet, elbows, knees, or other body parts in melee combat (p. 191)."""
   );
 

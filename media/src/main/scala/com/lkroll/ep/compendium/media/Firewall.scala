@@ -16,11 +16,13 @@ object Firewall {
 
   val bouncer = Image(key = MorphsAC.bouncer,
                       source = "IMG/Bouncer2.jpg".toCPSource,
-                      metadata = metaWithCaption("A Bouncer Morph."));
+                      metadata = metaWithCaption("A Bouncer Morph.")
+  );
 
   val crasher = Image(key = MorphsAC.crasher,
                       source = "IMG/Crasher2.jpg".toCPSource,
-                      metadata = metaWithCaption("A Crasher Morph."));
+                      metadata = metaWithCaption("A Crasher Morph.")
+  );
 
   val exalt = multiImage(source = "IMG/Exalt2.jpg", caption = "An Exalt Morph holding a Plasma Blade.")(
     MorphsDF.exalt,
@@ -38,11 +40,13 @@ object Firewall {
 
   val neoNeanderthal = Image(key = MorphsMN.neoNeanderthal,
                              source = "IMG/Neo-Neanderthal2.jpg".toCPSource,
-                             metadata = metaWithCaption("A Neo-Neanderthal Morph."));
+                             metadata = metaWithCaption("A Neo-Neanderthal Morph.")
+  );
 
   val observer = Image(key = MorphsOR.observer,
                        source = "IMG/Observer2.jpg".toCPSource,
-                       metadata = metaWithCaption("A Observer Morph."));
+                       metadata = metaWithCaption("A Observer Morph.")
+  );
 
   val remade =
     Image(key = MorphsOR.remade, source = "IMG/Remade2.jpg".toCPSource, metadata = metaWithCaption("A Remade Morph."));
@@ -55,7 +59,8 @@ object Firewall {
 
   val slitheroid = Image(key = MorphsS.slitheroid,
                          source = "IMG/Slitheroid2.jpg".toCPSource,
-                         metadata = metaWithCaption("A Slitheroid Morph."));
+                         metadata = metaWithCaption("A Slitheroid Morph.")
+  );
 
   val synth =
     Image(key = MorphsS.synth, source = "IMG/Synth2.jpg".toCPSource, metadata = metaWithCaption("A Synth Morph."));
@@ -65,7 +70,8 @@ object Firewall {
 
   val torch = Image(key = SprayWeapons.torch,
                     source = "IMG/Flamethrower.jpg".toCPSource,
-                    metadata = metaWithCaption("A Sentinel holding a Torch."));
+                    metadata = metaWithCaption("A Sentinel holding a Torch.")
+  );
 
   private val fieldList: List[Image[ClassPathImageSource]] = Macros.memberList[Image[ClassPathImageSource]];
 

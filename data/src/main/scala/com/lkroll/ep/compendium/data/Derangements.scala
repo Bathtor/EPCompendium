@@ -21,13 +21,15 @@ object Derangements {
                            severity = Major,
                            descr = "You have a major freak out over the source of the stress and attack it.",
                            source = Sources.ep,
-                           sourcePage = 211);
+                           sourcePage = 211
+  );
 
   val hallucinations = Derangement(name = "Hallucinations",
                                    severity = Major,
                                    descr = "You see, hear, or otherwise sense things that aren’t really there.",
                                    source = Sources.ep,
-                                   sourcePage = 211);
+                                   sourcePage = 211
+  );
 
   val hysteria = Derangement(
     name = "Hysteria",

@@ -21,7 +21,8 @@ object MorphsGL {
                        "Cortical Stack",
                        "Cyberbrain",
                        "Enhanced Hearing",
-                       "Mnemonic Augmentation"),
+                       "Mnemonic Augmentation"
+    ),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(sav = 10, coo = 5, int = 5),
     playerDecisions = Some("+5 to one other aptitude"),
@@ -76,7 +77,8 @@ object MorphsGL {
                        "Cortical Stack",
                        "Adrenal Boost",
                        "Enhanced Vision",
-                       "Grip Pads"),
+                       "Grip Pads"
+    ),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 10, ref = 5, som = 5, wil = 5),
     playerDecisions = Some("+5 to one other aptitude"),
@@ -123,7 +125,8 @@ object MorphsGL {
                        "Holographic Projector",
                        "Loudspeakers",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Lemon", "No Cortical Stack", "Social Stigma (Griefer)"),
     movement = Seq("Walker 4/16"),
     aptitudeMax = 20,
@@ -210,7 +213,8 @@ object MorphsGL {
                        "Enhanced Vision",
                        "Radiation Sense",
                        "Respirocytes",
-                       "Temperature Tolerance (Improved Cold)"),
+                       "Temperature Tolerance (Improved Cold)"
+    ),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, wil = 5),
     playerDecisions = Some("+5 to two other aptitudes"),
@@ -305,7 +309,8 @@ object MorphsGL {
                        "Cyberbrain",
                        "Mnemonic Augmentation",
                        "Prehensile Feet",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Limber (Level 2)", "Social Stigma (Pod)", "Non-Human Biochemistry trait", "Small Size trait"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(int = 5, ref = 5),

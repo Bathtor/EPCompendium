@@ -28,7 +28,8 @@ object MorphAttacks {
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
     gun = GunExtras(modes = Set(SS), // doesn't really say
-                    magazineSize = 50),
+                    magazineSize = 50
+    ),
     source = Sources.ep
   );
 
@@ -42,7 +43,8 @@ object MorphAttacks {
     price = Cost.Moderate,
     range = Range.Ranged(30, 80, 125, 230),
     gun = GunExtras(modes = Set(SS), // doesn't really say
-                    magazineSize = 50),
+                    magazineSize = 50
+    ),
     source = Sources.ep
   );
 
@@ -54,7 +56,8 @@ object MorphAttacks {
                     ap = -1,
                     price = Cost.None,
                     range = Range.Melee,
-                    source = Sources.ep);
+                    source = Sources.ep
+  );
 
   val claw = Weapon(
     name = "Claw",
@@ -136,7 +139,8 @@ object MorphAttacks {
                            ap = 0,
                            price = Cost.None,
                            range = Range.Melee,
-                           source = Sources.ep);
+                           source = Sources.ep
+  );
 
   val ramming = Weapon(
     name = "Ramming Attack",
@@ -158,7 +162,8 @@ object MorphAttacks {
                                ap = 0,
                                price = Cost.None,
                                range = Range.Melee,
-                               source = Sources.mrg);
+                               source = Sources.mrg
+  );
 
   val neoWhaleBite = Weapon(
     name = "Ramming Attack",

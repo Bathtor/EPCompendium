@@ -8,8 +8,8 @@ case class Derangement(name: String,
                        descr: String,
                        upgradesTo: List[String] = List.empty,
                        source: String,
-                       sourcePage: Int)
-    extends ChatRenderable
+                       sourcePage: Int
+) extends ChatRenderable
     with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = s"${severity.label} Derangement";

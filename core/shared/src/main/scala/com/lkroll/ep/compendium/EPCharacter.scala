@@ -24,8 +24,8 @@ case class EPCharacter(name: String,
                        gear: List[GearEntry] = Nil,
                        weapons: List[Either[Weapon, WeaponWithAmmo]] = Nil,
                        armour: List[Either[Armour, ModdedArmour]] = Nil,
-                       software: List[Software] = Nil)
-    extends Data {
+                       software: List[Software] = Nil
+) extends Data {
 
   override def templateTitle: String = name;
   override def templateSubTitle: String = s"${gender.entryName} character";
@@ -69,7 +69,8 @@ case class Aptitudes(base: AptitudeValues, morphBoni: AptitudeValues, morphMax: 
                    ref = Some(ref),
                    sav = Some(sav),
                    som = Some(som),
-                   wil = Some(wil));
+                   wil = Some(wil)
+    );
 
   private def total(apt: Aptitude): Int = {
     Math.min(morphMax.getValueFor(apt).getOrElse(20), base.valueFor(apt) + morphBoni.valueFor(apt))

@@ -17,7 +17,8 @@ object Gatecrashing {
 
   val blueBox = Image(key = ExplorationGear.blueBox,
                       source = "IMG/Blue Box.jpg".toCPSource,
-                      metadata = metaWithCaption("Explorers connecting a Blue Box to a Pandora Gate."));
+                      metadata = metaWithCaption("Explorers connecting a Blue Box to a Pandora Gate.")
+  );
 
   private val fieldList: List[Image[ClassPathImageSource]] = Macros.memberList[Image[ClassPathImageSource]];
 

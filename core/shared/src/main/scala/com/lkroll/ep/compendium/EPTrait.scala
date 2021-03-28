@@ -44,8 +44,8 @@ case class EPTrait(name: String,
                    descr: String,
                    cp: Int,
                    source: String,
-                   sourcePage: Int)
-    extends ChatRenderable
+                   sourcePage: Int
+) extends ChatRenderable
     with Data {
   override def lookupName: String = name;
   override def templateTitle: String = traitType.modifyName(name);

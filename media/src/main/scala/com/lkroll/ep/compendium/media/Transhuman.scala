@@ -15,7 +15,8 @@ object Transhuman {
     ImageMetadata(caption = c, source = src, author = auth, license = lic);
 
   val eidolons = multiImage(source = "IMG/Portable Server.jpg",
-                            caption = "An Infomorph (Eidolon) using a Portable Server for mobility.")(
+                            caption = "An Infomorph (Eidolon) using a Portable Server for mobility."
+  )(
     MorphsGL.infomorph,
     MorphsGL.agent,
     MorphsGL.digimorph,
@@ -29,11 +30,13 @@ object Transhuman {
 
   val crasher = Image(key = MorphsAC.crasher,
                       source = "IMG/Crasher3.jpg".toCPSource,
-                      metadata = metaWithCaption("A Crasher Morph."));
+                      metadata = metaWithCaption("A Crasher Morph.")
+  );
 
   val neoRaven = Image(key = MorphsMN.neoAvian,
                        source = "IMG/Neo-Raven2.jpg".toCPSource,
-                       metadata = metaWithCaption("A Neo-Raven with Neo-Pig body guards."));
+                       metadata = metaWithCaption("A Neo-Raven with Neo-Pig body guards.")
+  );
 
   val egoBridge = Image(
     key = Nanotechnology.egoBridge,
@@ -43,20 +46,24 @@ object Transhuman {
 
   val flexbot = Image(key = MorphsDF.flexbot,
                       source = "IMG/Flexbot2.jpg".toCPSource,
-                      metadata = metaWithCaption("A Flexbot Morph."));
+                      metadata = metaWithCaption("A Flexbot Morph.")
+  );
 
   val neoPig =
     Image(key = MorphsMN.neoPig,
           source = "IMG/Neo-Pig2.jpg".toCPSource,
-          metadata = metaWithCaption("A Neo-Pig Morph."));
+          metadata = metaWithCaption("A Neo-Pig Morph.")
+    );
 
   val octomorph = Image(key = MorphsOR.octomorph,
                         source = "IMG/Octomorph3.jpg".toCPSource,
-                        metadata = metaWithCaption("A Octomorph."));
+                        metadata = metaWithCaption("A Octomorph.")
+  );
 
   val steelMorphMasked = Image(key = MorphsS.steelMaskedMorph,
                                source = "IMG/Steel Morph Masked.jpg".toCPSource,
-                               metadata = metaWithCaption("A Steel Morph (Masked Variant)."));
+                               metadata = metaWithCaption("A Steel Morph (Masked Variant).")
+  );
 
   private val fieldList: List[Image[ClassPathImageSource]] = Macros.memberList[Image[ClassPathImageSource]];
 

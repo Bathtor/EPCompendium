@@ -48,7 +48,8 @@ object RoboticEnhancements {
     name = "Hopper",
     category = c,
     appliesTo = List(Synthmorph),
-    descr = "Hoppers have two or more legs designed to propel the morph forward or up, much like a frog or grasshopper.",
+    descr =
+      "Hoppers have two or more legs designed to propel the morph forward or up, much like a frog or grasshopper.",
     price = Cost.Moderate,
     source = Sources.ep,
     sourcePage = 310

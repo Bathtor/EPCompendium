@@ -24,8 +24,7 @@ object Nanoware {
     name = "Medichines",
     category = c,
     appliesTo = List(Biomorph, Pod, Synthmorph),
-    descr =
-      """This is the most common form of nanoware. These nanobots monitor the user’s body at a cellular level and fix any problems that arise.
+    descr = """This is the most common form of nanoware. These nanobots monitor the user’s body at a cellular level and fix any problems that arise.
         |Medichines eliminate most diseases, drugs, and toxins (but not nanodrugs or nanotoxins) before they can do more than minor harm to the host (see Drug Effects, p. 318). If desired, the user can temporarily override this protection to permit intoxication or other effects, but unless the character activates a second specially labeled override, medichines prevent the toxins from accumulating to lethal or permanently harmful levels. In this case, they can also be activated at a later point to reduce a drug or toxin’s remaining duration by half.
         |Medichines allow the character to ignore the effects of 1 wound. They also speed normal healing as noted under see Biomorph Healing, p. 208. If the user suffers 5 or more wounds at once, or more than 6 wounds in an hour, the damage has exceeded the medichines’ ability to repair. In this case, the medichines place the character into a medical stasis, where their mind and body are perfectly preserved, but where the character cannot act in any way. Under these circumstances the medichines also send out a priority call for emergency services via the character’s mesh inserts.
         |Medichines for synthmorphs and bots consist of nanobots that monitor and repair the shell’s integrity and internal system functions. Note that the synthmorph version of medichines allows the synthmorph to self-repair in the same manner by which a biomorph with medichines would naturally heal (p. 208).""".stripMargin,

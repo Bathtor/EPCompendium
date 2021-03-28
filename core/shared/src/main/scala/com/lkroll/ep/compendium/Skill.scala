@@ -11,8 +11,8 @@ case class SkillDef(name: String,
                     noDefaulting: Boolean = false,
                     sampleFields: Option[List[String]] = None,
                     sampleSpecs: List[String] = List("N/A"),
-                    descr: String)
-    extends ChatRenderable
+                    descr: String
+) extends ChatRenderable
     with Data {
 
   override def lookupName: String = name;
@@ -28,7 +28,8 @@ case class SkillDef(name: String,
   };
   override def templateKV: Map[String, String] =
     Map("Linked Aptitude" -> (if (noDefaulting) s"${apt.label} (no defaulting)" else apt.label),
-        "Sample Specs" -> sampleSpecs.mkString(", ")) ++
+        "Sample Specs" -> sampleSpecs.mkString(", ")
+    ) ++
       sampleFields.map(sf => ("Sample Fields" -> sf.mkString(", "))).toMap;
   override def templateDescr: String = descr;
   override def described: DescribedData = DescribedData.SkillDefD(this, BuildInfo.version);
@@ -82,7 +83,8 @@ case class CharacterSkill(name: String,
                           apt: Aptitude,
                           noDefaulting: Boolean = false,
                           ranks: Int = 0,
-                          specs: List[String] = Nil)
+                          specs: List[String] = Nil
+)
 
 object CharacterSkill {
   implicit def rw: RW[CharacterSkill] = macroRW;

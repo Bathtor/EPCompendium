@@ -48,8 +48,8 @@ case class Weapon(name: String,
                   price: Cost,
                   range: Range,
                   gun: Option[GunExtras] = None,
-                  source: String)
-    extends ChatRenderable
+                  source: String
+) extends ChatRenderable
     with Data {
 
   override def templateTitle: String = name;
@@ -224,15 +224,16 @@ case class WeaponAccessory(name: String,
                            magazineFactor: Float = 1.0f,
                            price: Cost,
                            source: String,
-                           sourcePage: Int)
-    extends Data {
+                           sourcePage: Int
+) extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Weapon Accessory";
   override def templateKV: Map[String, String] =
     price.templateKV ++
       Map("Attack Bonus" -> s"${attackBonus.asMod}",
           "Magazine" -> s"${magazineFactor.asFactor}",
-          "Source" -> s"$source p.${sourcePage}");
+          "Source" -> s"$source p.${sourcePage}"
+      );
   override def templateDescr: String = descr;
 
   override def described = DescribedData.WeaponAccessoryD(this, BuildInfo.version);

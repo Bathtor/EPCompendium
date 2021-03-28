@@ -10,8 +10,8 @@ case class Ammo(name: String,
                 typeMod: DamageTypeMod = DamageTypeMod.Id,
                 areaMod: DamageAreaMod = DamageAreaMod.Id,
                 price: Cost,
-                source: String)
-    extends Data {
+                source: String
+) extends Data {
   def appliesTo(t: WeaponType): Boolean = appliesTo.contains(t);
 
   override def templateTitle: String = name;
@@ -148,7 +148,8 @@ sealed trait DamageMod extends ChatRenderable {
   def modify(dmg: Damage): Damage = {
     dmg.copy(dmgD10 = modifyD10(dmg.dmgD10),
              dmgDiv = modifyDiv(dmg.dmgD10, dmg.dmgDiv),
-             dmgConst = modifyConst(dmg.dmgConst))
+             dmgConst = modifyConst(dmg.dmgConst)
+    )
   }
   def modifyD10(dmg: Int): Int;
   def modifyDiv(dmgD10: Int, divisor: Int): Int;
@@ -180,7 +181,8 @@ object DamageMod {
              macroRW[Double.type],
              macroRW[Const],
              macroRW[Effect],
-             macroRW[Chain]);
+             macroRW[Chain]
+    );
 
   def apply(mods: List[DamageMod]): DamageMod = mods match {
     case Nil         => Id
@@ -250,11 +252,10 @@ object DamageMod {
     override def modifyD10(dmg: Int): Int = mods.foldLeft(dmg)((acc, mod) => mod.modifyD10(acc));
     override def modifyDiv(dmgD10: Int, divisor: Int): Int =
       mods
-        .foldLeft((dmgD10, divisor))(
-          (acc, mod) =>
-            acc match {
-              case (d10, div) => (d10, mod.modifyDiv(d10, div))
-            }
+        .foldLeft((dmgD10, divisor))((acc, mod) =>
+          acc match {
+            case (d10, div) => (d10, mod.modifyDiv(d10, div))
+          }
         )
         ._2;
     override def modifyConst(dmg: Int): Int = mods.foldLeft(dmg)((acc, mod) => mod.modifyConst(acc));
@@ -265,13 +266,12 @@ object DamageMod {
       case _           => DamageMod(sanitise(this.mods ++ List(mod)))
     }
     override def text: String =
-      mods.foldLeft("")(
-        (acc, mod) =>
-          if (acc.isEmpty()) {
-            mod.text
-          } else {
-            acc + " & " + mod.text
-          }
+      mods.foldLeft("")((acc, mod) =>
+        if (acc.isEmpty()) {
+          mod.text
+        } else {
+          acc + " & " + mod.text
+        }
       );
   }
 }

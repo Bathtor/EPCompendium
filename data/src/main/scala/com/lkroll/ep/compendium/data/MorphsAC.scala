@@ -162,7 +162,8 @@ object MorphsAC {
                        "Cortical Stack",
                        "Cyberbrain",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Social Stigma (Pod)"),
     aptitudeMax = 25,
     playerDecisions = Some("+5 to one other aptitude"),
@@ -316,7 +317,8 @@ object MorphsAC {
                        "Mnemonic Augmentation",
                        "Prehensile Feet",
                        "Puppet Sock",
-                       "Wings"),
+                       "Wings"
+    ),
     traits = Seq("Non-Mammalian Biochemistry"),
     movement = Seq("Walker 4/20", "Winged 4/20 (low/microgravity only)"),
     aptitudeMax = 25,
@@ -479,7 +481,8 @@ object MorphsAC {
                        "Enhanced Hearing",
                        "Enhanced Smell",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Lacks Manipulators", "quadrupeds have a diffcult time in microgravity (–30 to Free Fall Tests)"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(ref = 5, coo = 5),

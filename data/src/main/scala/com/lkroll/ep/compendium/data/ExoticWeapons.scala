@@ -30,7 +30,8 @@ object ExoticWeapons {
     price = Cost.Moderate,
     range = Range.Ranged(5, 15, 30, 50),
     gun = GunExtras(modes = Set(SS), // doesn't bloody say -.-
-                    magazineSize = 20), // doesn't bloody say -.-
+                    magazineSize = 20
+    ), // doesn't bloody say -.-
     source = Sources.ep
   );
 

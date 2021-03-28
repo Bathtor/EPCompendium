@@ -37,7 +37,8 @@ object MorphsOR {
                        "Chameleon Skin",
                        "Polarization Vision",
                        "8 arms",
-                       "360-degree vision"),
+                       "360-degree vision"
+    ),
     aptitudeMax = 30,
     movement = Seq("Walker 2/12", "Swim 4/24", "Thrust Vector 2/12"),
     durability = 30,

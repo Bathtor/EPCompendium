@@ -22,15 +22,18 @@ object Sunward {
 
   val pleasurePod = Image(key = MorphsOR.pleasurePod,
                           source = "IMG/Pleasure Pod2.jpg".toCPSource,
-                          metadata = metaWithCaption("A Pleasure Pod Morph exiting a storage pod."));
+                          metadata = metaWithCaption("A Pleasure Pod Morph exiting a storage pod.")
+  );
 
   val splicer = Image(key = MorphsS.splicer,
                       source = "IMG/Splicer2.jpg".toCPSource,
-                      metadata = metaWithCaption("An Earth Survivor in a Splicer Morph."));
+                      metadata = metaWithCaption("An Earth Survivor in a Splicer Morph.")
+  );
 
   val steelMorph = Image(key = MorphsS.steelMorph,
                          source = "IMG/Steel Morph2.jpg".toCPSource,
-                         metadata = metaWithCaption("A Steel Morph."));
+                         metadata = metaWithCaption("A Steel Morph.")
+  );
 
   private val fieldList: List[Image[ClassPathImageSource]] = Macros.memberList[Image[ClassPathImageSource]];
 

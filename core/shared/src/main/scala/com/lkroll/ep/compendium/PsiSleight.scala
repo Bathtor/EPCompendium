@@ -20,8 +20,8 @@ case class PsiSleight(name: String,
                       psiType: PsiType,
                       descr: String,
                       source: String,
-                      sourcePage: Int)
-    extends ChatRenderable
+                      sourcePage: Int
+) extends ChatRenderable
     with Data {
   override def lookupName: String = name;
   override def templateTitle: String = name;
@@ -63,16 +63,16 @@ object PsiType {
                     range: PsiRange,
                     duration: PsiDuration,
                     strainMod: Option[Int],
-                    skill: Option[String] = None)
-      extends PsiType {
+                    skill: Option[String] = None
+  ) extends PsiType {
     override def label: String = "Active";
   }
 
   @upickle.implicits.key("Passive")
   case class Passive(action: String = "Automatic",
                      range: PsiRange = PsiRange.Self,
-                     duration: PsiDuration = PsiDuration.Constant)
-      extends PsiType {
+                     duration: PsiDuration = PsiDuration.Constant
+  ) extends PsiType {
     override def label: String = "Passive";
 
     override def strainMod: Option[Int] = None;

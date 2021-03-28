@@ -19,7 +19,8 @@ object Cost {
              macroRW[Moderate.type],
              macroRW[High.type],
              macroRW[Expensive.type],
-             macroRW[ExpensivePlus]);
+             macroRW[ExpensivePlus]
+    );
 
   @upickle.implicits.key("None")
   case object None extends Cost {

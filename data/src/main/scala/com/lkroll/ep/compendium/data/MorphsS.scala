@@ -86,7 +86,8 @@ object MorphsS {
                        "Eidetic Memory",
                        "Hyper-Linguist",
                        "Math Boost",
-                       "Mnemonic Augmentation"),
+                       "Mnemonic Augmentation"
+    ),
     traits = Seq("Social Stigma (Clanking Masses)"),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30, //TODO 40 COG and INT
@@ -117,7 +118,8 @@ object MorphsS {
       "Puppet Sock",
       "6 limbs"
     ),
-    traits = Seq("Limber (Level 1)", "Alien Biochemistry", "Social Stigma (Alien)", "Social Stigma (Pod)", "Small size"),
+    traits =
+      Seq("Limber (Level 1)", "Alien Biochemistry", "Social Stigma (Alien)", "Social Stigma (Pod)", "Small size"),
     otherEffects = List(SkillMod(skill = "Freerunning", mod = 10), SkillMod(skill = "Climbing", mod = 10)),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(sav = 5, coo = 10, som = 5),
@@ -231,7 +233,8 @@ object MorphsS {
                        "Cortical Stack",
                        "Cyberbrain",
                        "Enhanced Vision",
-                       "Mnemonic Augmentation"),
+                       "Mnemonic Augmentation"
+    ),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, som = 5),
     playerDecisions = Some("+5 to one other aptitude"),
@@ -290,7 +293,8 @@ The space marine variant of the security pod was optimized for orbital skirmishe
                        "Extra Limbs (3 Arms/3 Legs)",
                        "Grip Pads",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Social Stigma (Clanking Masses)", "Small size"),
     aptitudeMax = 20,
     aptitudeBonus = AptitudeValues(coo = 5, som = 5),
@@ -314,7 +318,8 @@ The space marine variant of the security pod was optimized for orbital skirmishe
                        "Cortical Stack",
                        "Cyberbrain",
                        "Mnemonic Augmentation",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     traits = Seq("Social Stigma (Pod)"),
     aptitudeMax = 30,
     playerDecisions = Some("+10 to one other aptitude, +5 to one other aptitude"),
@@ -379,7 +384,8 @@ The space marine variant of the security pod was optimized for orbital skirmishe
                        "Cortical Stack",
                        "Cyberbrain",
                        "Eidetic Memory",
-                       "Mnemonic Augmentation"),
+                       "Mnemonic Augmentation"
+    ),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30,
     durability = 40,
@@ -430,7 +436,8 @@ The space marine variant of the security pod was optimized for orbital skirmishe
                        "Cortical Stack",
                        "Cyberbrain",
                        "Eidetic Memory",
-                       "Mnemonic Augmentation"),
+                       "Mnemonic Augmentation"
+    ),
     movement = Seq("Walker 4/20"),
     aptitudeMax = 30,
     durability = 40,
@@ -512,7 +519,8 @@ The space marine variant of the security pod was optimized for orbital skirmishe
                        "Cortical Stack",
                        "Cyberbrain",
                        "Mnemonic Augmentation",
-                       "Swarm Composition"),
+                       "Swarm Composition"
+    ),
     movement = Seq("Walker 2/8", "Hopper 4/20", "Rotor 4/32"),
     aptitudeMax = 30,
     durability = 30,

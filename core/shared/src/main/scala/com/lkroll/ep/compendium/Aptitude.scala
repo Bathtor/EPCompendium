@@ -27,7 +27,8 @@ case class AptitudeValues(cog: Option[Int] = None,
                           ref: Option[Int] = None,
                           sav: Option[Int] = None,
                           som: Option[Int] = None,
-                          wil: Option[Int] = None) {
+                          wil: Option[Int] = None
+) {
 
   private def allEqual[T](params: T*): Boolean = {
     if (params.isEmpty) {
@@ -38,8 +39,8 @@ case class AptitudeValues(cog: Option[Int] = None,
     }
   }
 
-  def toKV: List[(String, String)] = this.labelledValues.map {
-    case (k, v) => (k.toUpperCase() -> v.get.toString)
+  def toKV: List[(String, String)] = this.labelledValues.map { case (k, v) =>
+    (k.toUpperCase() -> v.get.toString)
   };
 
   def getValueFor(apt: Aptitude): Option[Int] = {
@@ -80,13 +81,12 @@ case class AptitudeValues(cog: Option[Int] = None,
       }
     } else {
       labelledValues
-        .flatMap(
-          t =>
-            t._2 match {
-              case Some(i) if i > 0 => Some(s"+$i ${t._1}")
-              case Some(i) if i < 0 => Some(s"$i ${t._1}")
-              case _                => None
-            }
+        .flatMap(t =>
+          t._2 match {
+            case Some(i) if i > 0 => Some(s"+$i ${t._1}")
+            case Some(i) if i < 0 => Some(s"$i ${t._1}")
+            case _                => None
+          }
         )
         .mkString(", ")
     }

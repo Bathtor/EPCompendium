@@ -31,8 +31,8 @@ case class MorphModel(name: String,
                       armour: Option[(Int, Int)] = None,
                       cpCost: Int,
                       price: Cost,
-                      source: String)
-    extends ChatRenderable
+                      source: String
+) extends ChatRenderable
     with Data {
 
   override def templateTitle: String = name;
@@ -77,8 +77,8 @@ case class MorphInstance(label: String,
                          otherEffects: List[Effect] = List.empty,
                          attacks: Seq[Weapon] = Seq.empty,
                          durability: Int,
-                         armour: Option[(Int, Int)] = None)
-    extends ChatRenderable
+                         armour: Option[(Int, Int)] = None
+) extends ChatRenderable
     with Data {
 
   override def templateTitle: String = s"$label ($model)";

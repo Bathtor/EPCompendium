@@ -121,7 +121,8 @@ object Drugs {
     effects = List(REF + 10,
                    SpeedMod(1),
                    FreeForm("WIL × 2 Test or react to unexpected noises or surprises"),
-                   FreeForm("Long-term -5 COG")),
+                   FreeForm("Long-term -5 COG")
+    ),
     descr =
       "Kick is a strong stimulant that increases the user’s response time and puts them on edge. The character gains +10 REF and +1 Speed for the duration of the drug. Characters under the influence of Kick are twitchy, however, reacting in a jumpy, cat-like fashion to sudden or unexpected stimuli. At the gamemaster’s discretion, they must make a WIL × 2 Test or react without thinking towards unexpected noises or other surprises. Long-term users suffer –5 COO.",
     price = Cost.Moderate,
@@ -453,7 +454,8 @@ object Drugs {
     effects = List(REF + 10,
                    SkillMod(skill = "Climbing", mod = 20),
                    SkillMod(skill = "Freerunning", mod = 20),
-                   FreeForm("+20 to SOMx3 tests for jumping")),
+                   FreeForm("+20 to SOMx3 tests for jumping")
+    ),
     descr =
       """Flying Wallaby is a strange cocktail mixing effects of Opium with those of Kick, for a truly fascinating result. After 1 minute users suddenly become increasingly nervous, bordering on hyperactive. Many experience the sudden urge to jump, climb, and dance in a barely controlled manner. Characters under the influence of Flying Wallaby are just as twitchy as Kick users, though, and react in a jumpy fashion to sudden or unexpected stimuli. At the gamemaster's discretion, they must make a WIL x 2 Test or react without thinking towards unexpected noises or other surprises.
     After about 2 hours the effects suddenly reverse and a deep fatigue and relaxation sets in. At this point the user is hard pressed to move or react to anything, but nothing really bothers them either.""",
@@ -488,8 +490,7 @@ object Drugs {
     onset = 3.turns,
     duration = 30.mins,
     effects = List(WIL + 10, IgnoreTraumas(2)),
-    descr =
-      """Relax Big Boy, or RBB for short, is an experimental drug that is still under active development at Laboratoire Louie LaCroix (LLLX) on Afrik station. It was designed to channel the aggressive tendencies of large Neo-Hominids, such as Neo-Gorillas, into more productive directions.
+    descr = """Relax Big Boy, or RBB for short, is an experimental drug that is still under active development at Laboratoire Louie LaCroix (LLLX) on Afrik station. It was designed to channel the aggressive tendencies of large Neo-Hominids, such as Neo-Gorillas, into more productive directions.
       However, cross-simulations with human physiology suggested, that on humans its effects are more akin to combat focus drug. Similar to Grin, RBB allows humans to ignore injuries, but it also increases reaction times and reduces susceptability to distractions, while avoiding Grin's tunnel vision disadvantage.
       Onset time is 3 Action Turns when injected or 5 minutes when taken as a lozenge.""",
     price = Cost.High,
@@ -506,8 +507,7 @@ object Drugs {
     onset = 3.turns,
     duration = 30.mins,
     effects = List(REF + 5, WIL + 10, IgnoreTraumas(2), IgnoreWounds(2)),
-    descr =
-      """Relax Big Boy, or RBB for short, is an experimental drug that is still under active development at Laboratoire Louie LaCroix (LLLX) on Afrik station. It was designed to channel the aggressive tendencies of large Neo-Hominids, such as Neo-Gorillas, into more productive directions.
+    descr = """Relax Big Boy, or RBB for short, is an experimental drug that is still under active development at Laboratoire Louie LaCroix (LLLX) on Afrik station. It was designed to channel the aggressive tendencies of large Neo-Hominids, such as Neo-Gorillas, into more productive directions.
       However, cross-simulations with human physiology suggested, that on humans its effects are more akin to combat focus drug. Similar to Grin, RBB allows humans to ignore injuries, but it also increases reaction times and reduces susceptability to distractions, while avoiding Grin's tunnel vision disadvantage.
       Onset time is 3 Action Turns when injected or 5 minutes when taken as a lozenge.""",
     price = Cost.High,
@@ -527,9 +527,9 @@ object Drugs {
                    COO + 5,
                    REF + 5,
                    IgnoreTraumas(2),
-                   FreeForm("+20 to Integration, Alienation, and Continuity tests")),
-    descr =
-      """Khan is an intense combat drug developed by the Ultimates to facilitate their unusual tactic of immediately redeploying fallen soldiers within little over an hour of their death.
+                   FreeForm("+20 to Integration, Alienation, and Continuity tests")
+    ),
+    descr = """Khan is an intense combat drug developed by the Ultimates to facilitate their unusual tactic of immediately redeploying fallen soldiers within little over an hour of their death.
       The drug is specifically designed to streamline the resleeving procedure and reduce associated stress and physical adaptation issues.
       The downside of the drug is the massive crash that follows when it leaves the users system, leaving em retching, shaking, and sometimes even convulsing for over an hour (treat as -30 to all actions). Experienced Ultimates keep tight track of the drugs decomposition and make sure to find themselves in a safe space, before the crash hits.
       Khan only works properly when injected during the resleeving procedure. Later injections overtax the body and cause the crash to occur almost immediately and go on for the full 8 hour duration.

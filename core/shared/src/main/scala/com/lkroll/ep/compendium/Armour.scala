@@ -8,8 +8,8 @@ case class Armour(name: String,
                   armour: (Int, Int),
                   price: Cost,
                   source: String,
-                  sourcePage: Int)
-    extends ChatRenderable
+                  sourcePage: Int
+) extends ChatRenderable
     with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = if (accessory) "Armour Accessory" else "Armour";
@@ -32,8 +32,8 @@ case class ArmourMod(name: String,
                      armour: (Int, Int) = (0, 0),
                      price: Cost,
                      source: String,
-                     sourcePage: Int)
-    extends Data {
+                     sourcePage: Int
+) extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Armour Mod";
   override def templateKV: Map[String, String] =

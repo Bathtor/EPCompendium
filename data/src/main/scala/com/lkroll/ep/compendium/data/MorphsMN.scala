@@ -167,7 +167,8 @@ object MorphsMN {
                        "Cortical Stack",
                        "Echolocation",
                        "Enhanced Hearing",
-                       "Oxygen Reserve"),
+                       "Oxygen Reserve"
+    ),
     traits = Seq("Non-Human Biochemistry", "Lack of Smell"),
     movement = Seq("Swim 16/48"),
     aptitudeMax = 25,
@@ -240,7 +241,8 @@ object MorphsMN {
                        "Cortical Stack",
                        "Echolocation",
                        "Enhanced Hearing",
-                       "Oxygen Reserve"),
+                       "Oxygen Reserve"
+    ),
     traits = Seq("Large Size", "Non-Human Biochemistry", "Lack of Smell"),
     movement = Seq("Swim 16/60"),
     aptitudeMax = 30,
@@ -280,7 +282,8 @@ object MorphsMN {
                        "Cortical Stack",
                        "Echolocation",
                        "Enhanced Hearing",
-                       "Oxygen Reserve"),
+                       "Oxygen Reserve"
+    ),
     traits = Seq("Non-Human Biochemistry", "Lack of Smell"),
     movement = Seq("Swim 16/56"),
     aptitudeMax = 25,
@@ -320,7 +323,8 @@ object MorphsMN {
                        "Cortical Stack",
                        "Echolocation",
                        "Enhanced Hearing",
-                       "Oxygen Reserve"),
+                       "Oxygen Reserve"
+    ),
     traits = Seq("Non-Human Biochemistry", "Very Large Size", "Lack of Smell"),
     movement = Seq("Swim 16/40"),
     aptitudeMax = 30,

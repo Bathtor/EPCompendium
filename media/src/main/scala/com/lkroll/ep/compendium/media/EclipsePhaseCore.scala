@@ -16,7 +16,8 @@ object EclipsePhaseCore {
 
   val arachnoid = Image(key = MorphsAC.arachnoid,
                         source = "IMG/Arachnoid2.jpg".toCPSource,
-                        metadata = metaWithCaption("An Arachnoid Morph."));
+                        metadata = metaWithCaption("An Arachnoid Morph.")
+  );
 
   val automaticRifles = multiImage(source = "IMG/Combat Rifle.jpg", caption = "An Automatic Rifle.")(
     KineticWeapons.automaticRifle,
@@ -30,7 +31,8 @@ object EclipsePhaseCore {
 
   val electronicRope = Image(key = SurvivalGear.electronicRope,
                              source = "IMG/Electronic Rope.jpg".toCPSource,
-                             metadata = metaWithCaption("Electronic Rope wrapping around objects."));
+                             metadata = metaWithCaption("Electronic Rope wrapping around objects.")
+  );
 
   val lightPistols = multiImage(source = "IMG/Light Pistol.jpg", caption = "A Light Pistol.")(
     KineticWeapons.lightPistol,
@@ -55,18 +57,21 @@ object EclipsePhaseCore {
 
   val novacrab = Image(key = MorphsMN.novacrab,
                        source = "IMG/Novacrab2.jpg".toCPSource,
-                       metadata = metaWithCaption("A Novacrab Morph."));
+                       metadata = metaWithCaption("A Novacrab Morph.")
+  );
 
   val octomorph = Image(key = MorphsOR.octomorph,
                         source = "IMG/Octomorph2.jpg".toCPSource,
-                        metadata = metaWithCaption("A Octomorph."));
+                        metadata = metaWithCaption("A Octomorph.")
+  );
 
   val ruster =
     Image(key = MorphsOR.ruster, source = "IMG/Ruster2.jpg".toCPSource, metadata = metaWithCaption("A Ruster Morph."));
 
   val smartClothing = Image(key = EverydayTech.smartClothing,
                             source = "IMG/Smart Clothing.jpg".toCPSource,
-                            metadata = metaWithCaption("A person wearing Smart Clothing."));
+                            metadata = metaWithCaption("A person wearing Smart Clothing.")
+  );
 
   val sniperRifles = multiImage(source = "IMG/Sniper Rifle.jpg", caption = "A Railgun Sniper Rifle.")(
     KineticWeapons.sniperRifle,

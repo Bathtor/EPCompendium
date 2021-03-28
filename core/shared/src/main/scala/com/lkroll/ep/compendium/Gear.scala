@@ -22,8 +22,8 @@ case class Software(name: String,
                     quality: SoftwareQuality = SoftwareQuality.Standard,
                     price: Cost,
                     source: String,
-                    sourcePage: Int)
-    extends ChatRenderable
+                    sourcePage: Int
+) extends ChatRenderable
     with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = "Software";
@@ -168,8 +168,8 @@ case class Substance(name: String,
                      descr: String,
                      price: Cost,
                      source: String,
-                     sourcePage: Int)
-    extends ChatRenderable
+                     sourcePage: Int
+) extends ChatRenderable
     with Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = category;

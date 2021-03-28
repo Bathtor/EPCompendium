@@ -44,8 +44,7 @@ object TraitsFirewall {
     name = "Military Rank (Level 1)",
     traitType = Positive,
     applicability = Ego,
-    descr =
-      """Jovian: The character is an officer in the Jovian Space Force or Jovian Space Force Marines. Level 1 makes the character an NCO: a warrant officer, sergeant, or senior airman.
+    descr = """Jovian: The character is an officer in the Jovian Space Force or Jovian Space Force Marines. Level 1 makes the character an NCO: a warrant officer, sergeant, or senior airman.
 Titanian: The character is an officer in the Commonwealth Fleet, Marines, or Coast Guard. Level 1 makes the character an NCO: a warrant officer, sergeant, or petty officer.
 The character receives a +10 on all Networking Tests within their service branch. The character is on active duty, with all of the attendant structure and responsibilities of military life. Usually this includes being stationed in a specific place or on a specific vessel. However, the character might also have a desk job or be support staff. Players taking this trait must seek gamemaster permission and develop a plausible story for how their character is able to participate in Firewall missions while on active duty. Also note that this trait affects only the character’s Networking Tests. Favors involving acquiring hardware, deploying military units, or the like still require plausible explanations as to how the character is manipulating the military command and logistics systems, and will have serious consequences if the character’s superiors judge them to be abusing their position. Rank-and-file grunts don’t need to take this trait.""",
     cp = 10,
@@ -57,8 +56,7 @@ The character receives a +10 on all Networking Tests within their service branch
     name = "Military Rank (Level 2)",
     traitType = Positive,
     applicability = Ego,
-    descr =
-      """Jovian: The character is an officer in the Jovian Space Force or Jovian Space Force Marines. Level 2 makes the character a low-ranking commissioned officer: a first or second lieutenant.
+    descr = """Jovian: The character is an officer in the Jovian Space Force or Jovian Space Force Marines. Level 2 makes the character a low-ranking commissioned officer: a first or second lieutenant.
 Titanian: The character is an officer in the Commonwealth Fleet, Marines, or Coast Guard. Level 2 makes the character a low-ranking commissioned officer: a pilot officer, lieutenant, or officer.
 The character receives a +20 on all Networking Tests within their service branch. The character is on active duty, with all of the attendant structure and responsibilities of military life. Usually this includes being stationed in a specific place or on a specific vessel. However, the character might also have a desk job or be support staff. Players taking this trait must seek gamemaster permission and develop a plausible story for how their character is able to participate in Firewall missions while on active duty. Also note that this trait affects only the character’s Networking Tests. Favors involving acquiring hardware, deploying military units, or the like still require plausible explanations as to how the character is manipulating the military command and logistics systems, and will have serious consequences if the character’s superiors judge them to be abusing their position. Rank-and-file grunts don’t need to take this trait.""",
     cp = 20,
@@ -70,8 +68,7 @@ The character receives a +20 on all Networking Tests within their service branch
     name = "Military Rank (Level 3)",
     traitType = Positive,
     applicability = Ego,
-    descr =
-      """Jovian: The character is an officer in the Jovian Space Force or Jovian Space Force Marines. Level 3 makes the character a mid-ranked commissioned officer: a captain or major.
+    descr = """Jovian: The character is an officer in the Jovian Space Force or Jovian Space Force Marines. Level 3 makes the character a mid-ranked commissioned officer: a captain or major.
 Titanian: The character is an officer in the Commonwealth Fleet, Marines, or Coast Guard. Level 3 makes the character a mid-ranked commissioned officer: a squadron leader, major, or commanding officer.
 The character receives a +30 on all Networking Tests within their service branch. The character is on active duty, with all of the attendant structure and responsibilities of military life. Usually this includes being stationed in a specific place or on a specific vessel. However, the character might also have a desk job or be support staff. Players taking this trait must seek gamemaster permission and develop a plausible story for how their character is able to participate in Firewall missions while on active duty. Also note that this trait affects only the character’s Networking Tests. Favors involving acquiring hardware, deploying military units, or the like still require plausible explanations as to how the character is manipulating the military command and logistics systems, and will have serious consequences if the character’s superiors judge them to be abusing their position. Rank-and-file grunts don’t need to take this trait.""",
     cp = 30,

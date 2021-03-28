@@ -22,7 +22,8 @@ object Missiles {
                typeMod: DamageTypeMod = DamageTypeMod.Id,
                areaMod: DamageAreaMod = DamageAreaMod.Replace(DamageArea.Blast),
                price: Cost,
-               source: String): MissileTemplate = (size: MissileSize) => {
+               source: String
+  ): MissileTemplate = (size: MissileSize) => {
     Ammo(s"$name ${size.label}",
          descr,
          List(Seeker(size)),
@@ -31,7 +32,8 @@ object Missiles {
          typeMod,
          size.adjust(areaMod),
          price,
-         source)
+         source
+    )
   };
 
   val d10half = DamageMod.Const(1, 0) ++ DamageMod.Half;

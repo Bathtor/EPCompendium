@@ -31,7 +31,8 @@ object SerdeImageSource {
 case class ImageMetadata(caption: String,
                          source: Option[String] = None,
                          author: Option[String] = None,
-                         license: Option[String] = None)
+                         license: Option[String] = None
+)
 object ImageMetadata {
   implicit def rw: RW[ImageMetadata] = macroRW;
 }

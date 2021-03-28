@@ -96,7 +96,8 @@ object EPCompendium extends Logging {
   }
 
   private def searchIn[D <: ChatRenderable](needle: String,
-                                            m: scala.collection.Map[String, D]): List[(WordMatch, D)] = {
+                                            m: scala.collection.Map[String, D]
+  ): List[(WordMatch, D)] = {
     m.flatMap {
       case (name, data) => {
         val m = WordMatch.matchForIgnoreCase(needle, name);

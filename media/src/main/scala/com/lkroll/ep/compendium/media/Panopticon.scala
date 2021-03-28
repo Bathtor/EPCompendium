@@ -16,7 +16,8 @@ object Panopticon {
 
   val neoParrot = Image(key = MorphsMN.neoAvian,
                         source = "IMG/Neo-Parrot2.jpg".toCPSource,
-                        metadata = metaWithCaption("A Neo-Parrot Morph."));
+                        metadata = metaWithCaption("A Neo-Parrot Morph.")
+  );
 
   private val fieldList: List[Image[ClassPathImageSource]] = Macros.memberList[Image[ClassPathImageSource]];
 

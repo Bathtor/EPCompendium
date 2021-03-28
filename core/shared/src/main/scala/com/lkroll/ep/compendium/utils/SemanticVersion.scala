@@ -4,8 +4,7 @@ import util.Try
 
 case class SemanticVersion(major: Int, minor: Int, patch: Int, snapshot: Boolean) extends Ordered[SemanticVersion] {
 
-  /**
-    * Per category version difference.
+  /** Per category version difference.
     *
     * Snapshot status is maintained if either version is a snapshot.
     */
@@ -13,7 +12,8 @@ case class SemanticVersion(major: Int, minor: Int, patch: Int, snapshot: Boolean
     SemanticVersion(this.major - other.major,
                     this.minor - other.minor,
                     this.patch - other.patch,
-                    this.snapshot || other.snapshot)
+                    this.snapshot || other.snapshot
+    )
   }
   def incMajor(): SemanticVersion = this.copy(major = this.major + 1, minor = 0, patch = 0);
   def incMinor(): SemanticVersion = this.copy(minor = this.minor + 1, patch = 0);

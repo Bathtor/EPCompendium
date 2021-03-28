@@ -97,7 +97,8 @@ object PsiGammaSleights {
   val implantSkill = PsiSleight(
     name = "Implant Skill",
     sleightType = st,
-    psiType = Active(action = "Complex", range = Touch, duration = Temp("Action Turns"), strainMod = 0, skill = control),
+    psiType =
+      Active(action = "Complex", range = Touch, duration = Temp("Action Turns"), strainMod = 0, skill = control),
     descr =
       "Similar to Implant Memory, this sleight allows the async to impart some of their expertise and implant it into the target’s mind. For the duration of the sleight, the target benefits when using that skill. If the async’s skill is between 31 and 60, the target receives a +10 bonus. If the async’s skill is 61+, the target receives a +20 bonus. Implant Skill requires an Opposed Test against unwilling participants. In some cases, the target has been known to use the skill with the async’s flair and mannerisms.",
     source = Sources.ep,

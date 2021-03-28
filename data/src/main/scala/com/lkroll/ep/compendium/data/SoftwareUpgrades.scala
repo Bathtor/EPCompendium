@@ -13,8 +13,7 @@ object SoftwareUpgrades {
     name = "Active Countermeasures",
     category = c,
     appliesTo = List(Infomorph),
-    descr =
-      """This code helps an infomorph resist brainhacking (p. 148) by installing additional firewalls and layers of security applications within the infomorph’s digital mind. The infomorph (or anything else serve as active security for its mind-state) receives a +10 modifier on attempts to zero in on spotted intruders (p. 257, EP). 
+    descr = """This code helps an infomorph resist brainhacking (p. 148) by installing additional firewalls and layers of security applications within the infomorph’s digital mind. The infomorph (or anything else serve as active security for its mind-state) receives a +10 modifier on attempts to zero in on spotted intruders (p. 257, EP). 
 Defensive Mode: The countermeasures may also be triggered into a more secure defensive mode with a Quick Action. While defensive mode is activated, the infomorph and its active security receive a +10 modifier on attempts to lockout intruders (p. 258, EP) or resist entrapment, puppeteering, or scorching (p. 261, EP). The defenses provided by this mode are sufficiently intensive, however, that they cause minor delays to any mesh actions undertaken by the user. As a result, the infomorph suffers a –1 reduction to Initiative.""",
     price = Cost.High,
     source = Sources.transhuman,
@@ -25,8 +24,7 @@ Defensive Mode: The countermeasures may also be triggered into a more secure def
     name = "Impersonate",
     category = c,
     appliesTo = List(Infomorph),
-    descr =
-      """This upgrade provides the user with a library of mannerisms, vocal patterns, and other social cues. This aids Impersonation Tests, even when communi- cating verbally or via avatars, providing a +10 bonus.
+    descr = """This upgrade provides the user with a library of mannerisms, vocal patterns, and other social cues. This aids Impersonation Tests, even when communi- cating verbally or via avatars, providing a +10 bonus.
 The processor in this upgrade can also help analyze a target’s mannerisms and duplicate them more effectively. To duplicate someone’s patterns, the char- acter must first observe their interactions and make a Kinesics Task Action Test with a timeframe of 1 hour. Success allows them to accumulate a sufficient quantity of data to allow this upgrade to duplicate this person’s phrasing and patterns of digital activity; increase the modifier for Impersonation Tests to +30 to impersonate the target. Note that this upgrade does not provide the character with the skills, memories, or other traits of the ego they are impersonating.
 This upgrade can also be set to randomize the emotive patterns exhibited by the user, so their phrasing and mannerisms do not identify them as anyone. This applies a +30 modifier to the Deception or Impersonation rolls in Opposed Tests when someone else is trying to use Kinesics to identify the character’s true identity.""",
     price = Cost.High,

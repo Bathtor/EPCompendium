@@ -14,7 +14,8 @@ object Roll20ESMacros {
   );
   val randomDerangementMacro = roll20ToES(
     Roll20Macro(name = "RandomDerangement",
-                content = "!epcompendium-import --derangement * --duration [[floor(1d10/2)]]")
+                content = "!epcompendium-import --derangement * --duration [[floor(1d10/2)]]"
+    )
   );
   val apiMacro = roll20ToES(
     Roll20Macro(name = "ImportApiText", content = "!epcompendium-import --from-sheet"),

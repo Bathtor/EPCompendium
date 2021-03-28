@@ -9,8 +9,7 @@ object MountedWeapons {
   val pointDefenceCannon = Weapon(
     name = "Point Defence Cannon",
     `type` = WeaponType.Mounted,
-    descr =
-      """PDCs are ship (or habitat) mounted very-high-rate kinetic weapons, with the primary purpose to scatter incoming objects, in particular missiles, before impact.
+    descr = """PDCs are ship (or habitat) mounted very-high-rate kinetic weapons, with the primary purpose to scatter incoming objects, in particular missiles, before impact.
       While a station would still take damage from the impact of the scattered parts, a ship will usually try to move out of the way of the incoming debris cloud.
       In Close Quarter Battle (CQB), PDCs can also be used offensively to cripple enemy vessels and their crew.
       PDCs fire in bursts of 9 or full automatic of 30 high-velocity tungsten rounds. Such bursts are much more difficult to avoid than a single bullet from a large railgun, as they can lay out patterns that close escape vectors.""",
@@ -27,8 +26,7 @@ object MountedWeapons {
   val mountedRailgun = Weapon(
     name = "Mounted Railgun",
     `type` = WeaponType.Mounted,
-    descr =
-      """These large kinetic weapons are the deadliest designs for Close Quarter Battle conditions. With their extremely high acceleration of 3kg tungsten rounds, and correspondingly extremely short time-to-target, no known countermeasures exist, except not being in the line of fire in the first place.
+    descr = """These large kinetic weapons are the deadliest designs for Close Quarter Battle conditions. With their extremely high acceleration of 3kg tungsten rounds, and correspondingly extremely short time-to-target, no known countermeasures exist, except not being in the line of fire in the first place.
       On smaller ships, like frigates and corvettes, these weapons often come in keel-mounted versions, while larger vessels, like destroyers or carriers, may have multiple railgun emplacements, with variable vectors of fire.
       Due to their high impulse in firing direction, railguns can only be fired safely when main drives are running (on smaller vessels) or with full thruster capacity on the opposite side (on larger vessels), to balance out the imparted momentum.
       While railgun bullets in vacuum simply continue travelling until they impact on something, of course, the maximum range of a railgun is indicative of when a projectile becomes trivial to avoid. Given 10s of reaction time, even the largest carrier can move out of the projectile's way before impact. This may, of course, not hold true for a large habitat, which is much more difficult to move.""",
@@ -44,8 +42,7 @@ object MountedWeapons {
   val shortRangeGuidedMissile = Weapon(
     name = "Guided Missile (Short Range)",
     `type` = WeaponType.Mounted,
-    descr =
-      """Short Range Guided Missiles are extremely high acceleration (around 1500g) guided weapons systems, that carry medium-sized warheads. These missiles are typically passively-guided, relying on active painting for target acquisition.
+    descr = """Short Range Guided Missiles are extremely high acceleration (around 1500g) guided weapons systems, that carry medium-sized warheads. These missiles are typically passively-guided, relying on active painting for target acquisition.
       While this makes them susceptible to certain kinds of jamming, their short time-to-target makes them deadly nonetheless.
       The maximum (guided) range of these missiles is somewhere around 100k km, based on a maximum burn time of 120s, after which they simply go ballistic, or self destruct, depending on the settings.
       The launch systems for most versions of these missiles allows the whole magazine to be emptied in a single burst. Burst launches can be spread across targets, at the usual -20 per additional target. Alternatively, they can be focused on a single target for a +20 modifier on the attack, as the swarm pattern of the approaching missiles confuses the enemy's PDC targeting systems. A critical failure by the defender, or critical success by the attacker each allows an extra missile to pass through the defences and apply its damage.""",

@@ -130,7 +130,8 @@ object MorphsDF {
                        "Eidetic Memory",
                        "Endocrine Control",
                        "Hyper-Linguist",
-                       "Math Boost"),
+                       "Math Boost"
+    ),
     traits = Seq("Psi Chameleon", "Psi Defense (Level 1)"),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(cog = 10, wil = 10, int = 5),
@@ -334,7 +335,8 @@ object MorphsDF {
                        "Cortical Stack",
                        "Monitor Module",
                        "Optogenetics Module",
-                       "Puppet Sock"),
+                       "Puppet Sock"
+    ),
     aptitudeMax = 25,
     aptitudeBonus = AptitudeValues(sav = 5, wil = -5),
     playerDecisions = Some("+5 to one other aptitude except WIL"),
@@ -355,7 +357,8 @@ object MorphsDF {
                        "Cortical Stack",
                        "Enhanced Vision",
                        "Neurachem (Level 1)",
-                       "Toxin Filters"),
+                       "Toxin Filters"
+    ),
     aptitudeMax = 30,
     aptitudeBonus = AptitudeValues(coo = 5, ref = 5, som = 10, wil = 5),
     playerDecisions = Some("+5 to one other aptitude"),

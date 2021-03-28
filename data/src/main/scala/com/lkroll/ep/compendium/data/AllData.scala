@@ -56,7 +56,8 @@ object AllData {
                                                      Nanoware.list,
                                                      CosmeticMods.list,
                                                      RoboticEnhancements.list,
-                                                     SoftwareUpgrades.list);
+                                                     SoftwareUpgrades.list
+  );
   val skills: List[List[SkillDef]] = List(DefaultSkills.list);
   val substances: List[List[Substance]] = List(
     Drugs.list,

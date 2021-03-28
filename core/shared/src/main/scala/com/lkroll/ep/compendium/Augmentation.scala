@@ -10,8 +10,8 @@ case class Augmentation(name: String,
                         related: List[CompendiumRef] = List.empty,
                         price: Cost,
                         source: String,
-                        sourcePage: Int)
-    extends Data {
+                        sourcePage: Int
+) extends Data {
   override def templateTitle: String = name;
   override def templateSubTitle: String = category;
   override def templateKV: Map[String, String] =

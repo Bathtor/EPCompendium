@@ -46,7 +46,8 @@ object MacroGenerator {
                                      sleights,
                                      substances,
                                      software,
-                                     weaponWithStuff)
+                                     weaponWithStuff
+  )
   val markdownData = data.map(_.toMarkdown).mkString("\n");
 
   def generate(open: Boolean): Unit = {
