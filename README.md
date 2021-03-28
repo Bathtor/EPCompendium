@@ -1,5 +1,8 @@
 # EPCompendium
 
+[![CI](https://github.com/Bathtor/EPCompendium/actions/workflows/ci.yml/badge.svg)](https://github.com/Bathtor/EPCompendium/actions)
+
+
 - Core: [![Maven Central](https://img.shields.io/maven-central/v/com.lkroll/epcompendium-core_2.13)](https://search.maven.org/artifact/com.lkroll/epcompendium-core_2.13)
 - Data: [![Maven Central](https://img.shields.io/maven-central/v/com.lkroll/epcompendium-data_2.13)](https://search.maven.org/artifact/com.lkroll/epcompendium-data_2.13)
 - Media: [![Maven Central](https://img.shields.io/maven-central/v/com.lkroll/epcompendium-media_2.13)](https://search.maven.org/artifact/com.lkroll/epcompendium-media_2.13)
