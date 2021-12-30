@@ -3,10 +3,10 @@ import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
 
 ThisBuild / organization := "com.lkroll"
 
-ThisBuild / version := "6.1.0"
+ThisBuild / version := "6.1.1"
 
-ThisBuild / scalaVersion := "2.13.5"
-ThisBuild / crossScalaVersions := Seq("2.12.13", "2.13.5")
+ThisBuild / scalaVersion := "2.13.7"
+ThisBuild / crossScalaVersions := Seq("2.12.13", "2.13.7")
 
 ThisBuild / licenses ++= Seq(
   "MIT" -> url("http://opensource.org/licenses/MIT"),
