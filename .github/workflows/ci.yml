@@ -19,6 +19,7 @@ jobs:
       uses: coursier/setup-action@v1
       with:
         jvm: zulu:${{ matrix.java }}
+        apps: sbt
     - name: Scalafmt
       run: sbt -v scalafmtCheckAll
     - name: Build and Test
