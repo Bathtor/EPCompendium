@@ -3,10 +3,10 @@ import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
 
 ThisBuild / organization := "com.lkroll"
 
-ThisBuild / version := "6.1.1"
+ThisBuild / version := "6.2.0"
 
-ThisBuild / scalaVersion := "2.13.7"
-ThisBuild / crossScalaVersions := Seq("2.12.13", "2.13.7")
+ThisBuild / scalaVersion := "2.13.16"
+// ThisBuild / crossScalaVersions := Seq("2.12.20", "2.13.16")
 
 ThisBuild / licenses ++= Seq(
   "MIT" -> url("http://opensource.org/licenses/MIT"),
@@ -24,17 +24,17 @@ ThisBuild / developers := List(Developer(id = "lkroll",
 publishMavenStyle := true
 
 // Add sonatype repository settings
-sonatypeCredentialHost := "s01.oss.sonatype.org"
-sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
-ThisBuild / publishTo := sonatypePublishToBundle.value
+// sonatypeCredentialHost := "s01.oss.sonatype.org"
+// sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+// ThisBuild / publishTo := sonatypePublishToBundle.value
 
 lazy val commonSettings = Seq(
-  resolvers += Resolver.sonatypeRepo("release"),
+  // resolvers += Resolver.sonatypeRepo("release"),
   libraryDependencies ++= Seq(
     "com.lihaoyi" %%% "upickle" % Dependencies.upickleV,
     "com.beachape" %%% "enumeratum" % Dependencies.enumeratumV,
     "com.lkroll" %%% "common-data-tools" % Dependencies.dataToolsV,
-    "io.lemonlabs" %%% "scala-uri" % Dependencies.scalauriV,
+    "com.indoorvivants" %%% "scala-uri" % Dependencies.scalauriV,
     "org.scalatest" %%% "scalatest" % Dependencies.scalatestV % "test"
   ),
   scalacOptions ++= Seq(
@@ -67,11 +67,11 @@ lazy val epccore = crossProject(JSPlatform, JVMPlatform)
     // Add JVM-specific settings here
     libraryDependencies ++= Seq(
       "ch.qos.logback" % "logback-classic" % Dependencies.logbackV,
-      "com.typesafe.scala-logging" %% "scala-logging" % Dependencies.scalaloggingV,
+      "com.typesafe.scala-logging" %% "scala-logging" % Dependencies.scalaloggingV % "provided",
       "com.google.guava" % "guava" % Dependencies.guavaV
     ),
-    parallelExecution in Test := false,
-    logBuffered in Test := false
+    Test / parallelExecution := false,
+    Test / logBuffered := false
   )
   .jsSettings(
     // Add JS-specific settings here
