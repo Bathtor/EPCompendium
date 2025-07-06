@@ -15,10 +15,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Setup Scala
-      uses: olafurpg/setup-scala@v10
-      with:
-        java-version: "adopt@1.${{ matrix.java }}"
+    - name: Set up JVM with Coursier
+        uses: coursier/setup-action@v1
+        with:
+          jvm: zulu:${{ matrix.java }}
     - name: Scalafmt
       run: sbt -v scalafmtCheckAll
     - name: Build and Test
